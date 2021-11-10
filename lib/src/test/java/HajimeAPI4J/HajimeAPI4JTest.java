@@ -3,8 +3,6 @@
  */
 package HajimeAPI4J;
 
-public class Library {
-
-    
+class HajimeAPI4JTest {
 
 }
