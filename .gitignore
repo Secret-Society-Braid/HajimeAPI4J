@@ -18,3 +18,4 @@ build
 
 # Ignore binary files
 bin/
+lib/.settings/

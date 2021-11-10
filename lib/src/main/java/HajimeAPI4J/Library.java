@@ -4,7 +4,7 @@
 package HajimeAPI4J;
 
 public class Library {
-    public boolean someLibraryMethod() {
-        return true;
-    }
+
+    
+
 }
