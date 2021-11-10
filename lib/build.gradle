@@ -9,11 +9,14 @@
 plugins {
     // Apply the java-library plugin for API and implementation separation.
     id 'java-library'
+
+    id 'com.github.johnrengelman.shadow' version '5.1.0'
 }
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -25,9 +28,21 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:30.1.1-jre'
+
+    implementation("ch.qos.logback:logback-classic:1.2.6")
+
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "2.12.1"
+
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "2.12.1"
+
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "2.12.1"
 }
 
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
