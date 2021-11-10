@@ -1,0 +1,2 @@
+# HajimeAPI4J
+ふじわらはじめAPIのJavaWrapperです
