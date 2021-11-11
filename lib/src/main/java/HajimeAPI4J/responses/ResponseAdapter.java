@@ -35,6 +35,10 @@ public abstract class ResponseAdapter implements ResponseInterface, InternalResp
 
     public void setProduction(@Nonnull String production) {}
 
+    public String getCv() {return null;}
+
+    public void setCv(@Nonnull String cv) {}
+
     public String getKana() {return null;}
 
     public void setKana(@Nonnull String kana) {}

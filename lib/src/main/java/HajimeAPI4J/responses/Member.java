@@ -1,6 +1,6 @@
 package HajimeAPI4J.responses;
 
-public class Member implements ResponseInterface {
+public class Member extends ResponseAdapter {
 
 	private String name;
 	private String type;
@@ -61,18 +61,22 @@ public class Member implements ResponseInterface {
 		this.api = api;
 	}
 
+	@Override
 	public String getProduction() {
 		return production;
 	}
 
+	@Override
 	public void setProduction(String production) {
 		this.production = production;
 	}
 
+	@Override
 	public String getCv() {
 		return cv;
 	}
 
+	@Override
 	public void setCv(String cv) {
 		this.cv = cv;
 	}
