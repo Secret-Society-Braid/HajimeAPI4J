@@ -1,14 +1,5 @@
 package HajimeAPI4J.responses;
 
-/**
- * ふじわらはじめAPIで使用されている「Member」型の実装です。
- * 独自パラメータは
- * production, cv, solo
- * の3つです。
- * @author Ranfa
- *
- * @see ResponseInterface
- */
 public class Member implements ResponseInterface {
 
 	private String name;
@@ -70,46 +61,26 @@ public class Member implements ResponseInterface {
 		this.api = api;
 	}
 
-	/**
-	 * APIから取得したproductionの値を返します。
-	 * このパラメータには「cg」「765」「sc」のうちどれかが入ります。
-	 * @return production
-	 */
 	public String getProduction() {
 		return production;
 	}
 
-	/**
-	 * @param production セットする production
-	 */
 	public void setProduction(String production) {
 		this.production = production;
 	}
 
-	/**
-	 * @return cv
-	 */
 	public String getCv() {
 		return cv;
 	}
 
-	/**
-	 * @param cv セットする cv
-	 */
 	public void setCv(String cv) {
 		this.cv = cv;
 	}
 
-	/**
-	 * @return solo
-	 */
 	public boolean isSolo() {
 		return solo;
 	}
 
-	/**
-	 * @param solo セットする solo
-	 */
 	public void setSolo(boolean solo) {
 		this.solo = solo;
 	}
