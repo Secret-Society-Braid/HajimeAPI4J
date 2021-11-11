@@ -7,9 +7,9 @@ package HajimeAPI4J.responses;
  * の3つです。
  * @author Ranfa
  *
- * @see InterfaceResponse
+ * @see ResponseInterface
  */
-public class Member implements InterfaceResponse {
+public class Member implements ResponseInterface {
 
 	private String name;
 	private String type;

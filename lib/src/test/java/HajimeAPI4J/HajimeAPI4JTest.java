@@ -4,5 +4,5 @@
 package HajimeAPI4J;
 
 class HajimeAPI4JTest {
-
+    
 }

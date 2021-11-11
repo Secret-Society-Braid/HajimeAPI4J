@@ -2,7 +2,7 @@ package HajimeAPI4J.responses;
 
 import java.util.List;
 
-public class Unit implements InterfaceResponse {
+public class Unit implements ResponseInterface {
 
 	private String name;
 	private String type;

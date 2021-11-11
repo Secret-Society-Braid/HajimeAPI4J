@@ -11,7 +11,7 @@ import javax.annotation.Nonnull;
  * @see Unit
  * @see Member
  */
-public interface InterfaceResponse {
+public interface ResponseInterface {
 
 	/**
 	 * レスポンスに含まれているパラメータ「name」の値を返します。
