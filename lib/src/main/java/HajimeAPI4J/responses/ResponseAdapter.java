@@ -5,7 +5,27 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-public abstract class ResponseAdapter implements ResponseInterface, InternalResponseInterface, InternalArrayResponseInterface {
+/**
+ * ふじわらはじめAPIで使用されているレスポンス型を実装するためのアダプター・クラスです。
+ * 基本的に全てのレスポンス型実装はこのクラスを継承して作成しています。
+ * 
+ * @author Ranfa
+ * 
+ * @see ResponseInterface
+ * @see InternalResponseInterface
+ * @see InternalArrayResponseInterface
+ * @see Unit
+ * @see Member
+ * @see Music
+ * @see Lyric
+ * @see Composer
+ * @see Arrange
+ * @see Disc
+ * @see Live
+ */
+public abstract class ResponseAdapter implements ResponseInterface,
+                                                InternalResponseInterface,
+                                                InternalArrayResponseInterface {
     
     public String getName() {return null;}
 
