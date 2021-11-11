@@ -21,8 +21,9 @@ public interface InterfaceResponse {
 
 	/**
 	 * レスポンスに含まれているパラメータ「name」の値をセットします
+	 * @param name パラメータ「name」の値
 	 */
-	void setName(String name);
+	void setName(@Nonnull String name);
 
 	/**
 	 * レスポンスに含まれているパラメータ「type」の値を返します。
@@ -34,8 +35,9 @@ public interface InterfaceResponse {
 
 	/**
 	 * レスポンスに含まれているパラメータ「type」の値をセットします
+	 * @param type パラメータ「type」の値
 	 */
-	void setType(String type);
+	void setType(@Nonnull String type);
 
 	/**
 	 * レスポンスに含まれているパラメータ「tax_id」の値を返します。
@@ -47,8 +49,9 @@ public interface InterfaceResponse {
 
 	/**
 	 * レスポンスに含まれているパラメータ「tax_id」の値をセットします
+	 * @param taxId パラメータ「tax_id」の値
 	 */
-	void setTaxId(Integer taxId);
+	void setTaxId(@Nonnull Integer taxId);
 
 	/**
 	 * レスポンスに含まれているパラメータ「link」の値を返します。
@@ -60,8 +63,9 @@ public interface InterfaceResponse {
 
 	/**
 	 * レスポンスに含まれているパラメータ「link」の値をセットします
+	 * @param link パラメータ「link」の値
 	 */
-	void setLink(String link);
+	void setLink(@Nonnull String link);
 
 	/**
 	 * レスポンスに含まれているパラメータ「api」の値を返します。
@@ -73,7 +77,8 @@ public interface InterfaceResponse {
 
 	/**
 	 * レスポンスに含まれているパラメータ「api」の値をセットします
+	 * @param api パラメータ「api」の値
 	 */
-	void setApi(String api);
+	void setApi(@Nonnull String api);
 
 }
