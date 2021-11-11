@@ -9,7 +9,7 @@ public class Unit implements InterfaceResponse {
 	private int taxId;
 	private String link;
 	private String api;
-	private List<? extends Member> members;
+	private List<Member> members;
 
 	@Override
 	public String getName() {
@@ -61,11 +61,11 @@ public class Unit implements InterfaceResponse {
 		this.api = api;
 	}
 
-	public List<? extends Member> getMembers() {
+	public List<Member> getMembers() {
 		return members;
 	}
 
-	public void setMembers(List<? extends Member> members) {
+	public void setMembers(List<Member> members) {
 		this.members = members;
 	}
 
