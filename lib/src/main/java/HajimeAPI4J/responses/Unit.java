@@ -2,7 +2,7 @@ package HajimeAPI4J.responses;
 
 import java.util.List;
 
-public class Unit implements ResponseInterface {
+public class Unit extends ResponseAdapter {
 
 	private String name;
 	private String type;
@@ -61,10 +61,12 @@ public class Unit implements ResponseInterface {
 		this.api = api;
 	}
 
+	@Override
 	public List<Member> getMembers() {
 		return members;
 	}
 
+	@Override
 	public void setMembers(List<Member> members) {
 		this.members = members;
 	}
