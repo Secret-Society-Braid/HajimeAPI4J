@@ -22,9 +22,9 @@ public interface InternalArrayResponseInterface {
     void setMusics(@Nonnull List<Music> musics);
 
     @Nonnull
-    List<Lyrics> getLyricses();
+    List<Lyric> getLyricses();
 
-    void setLyricses(@Nonnull List<Lyrics> lyricses);
+    void setLyricses(@Nonnull List<Lyric> lyricses);
 
     @Nonnull
     List<Composer> getComposers();

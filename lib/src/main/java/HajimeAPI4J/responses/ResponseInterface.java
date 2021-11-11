@@ -3,13 +3,17 @@ package HajimeAPI4J.responses;
 import javax.annotation.Nonnull;
 
 /**
- * ふじわらはじめAPIで使用されているレスポンス型の共通部分のインターフェースです。
- * 型ごとにユニークなパラメータについてはそれぞれのクラスで実装しています。
+ * ふじわらはじめAPIで使用されているレスポンス型のインターフェースです。
+ * 型ごとにユニークなパラメータに対応するため、{@link HajimeAPI4J.responses.ResponseAdapter 独自アダプター} を使用しています。
  *
  * @author Ranfa
  *
+ * @see ResponseAdapter
  * @see Unit
  * @see Member
+ * @see Music
+ * @see Lyric
+ * @
  */
 public interface ResponseInterface {
 
