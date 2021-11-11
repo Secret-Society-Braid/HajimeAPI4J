@@ -13,7 +13,10 @@ import javax.annotation.Nonnull;
  * @see Member
  * @see Music
  * @see Lyric
- * @
+ * @see Composer
+ * @see Arrange
+ * @see Disc
+ * @see Live
  */
 public interface ResponseInterface {
 

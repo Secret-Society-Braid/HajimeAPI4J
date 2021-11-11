@@ -71,10 +71,6 @@ public abstract class ResponseAdapter implements ResponseInterface, InternalResp
 
     public void setLyricsUrl(@Nonnull String lyricsUrl) {}
 
-    public List<Root> getRoot() {return Collections.emptyList();}
-
-    public void setRoot(@Nonnull List<Root> roots) {}
-
     public List<Member> getMembers() {return Collections.emptyList();}
 
     public void setMembers(@Nonnull List<Member> members) {}

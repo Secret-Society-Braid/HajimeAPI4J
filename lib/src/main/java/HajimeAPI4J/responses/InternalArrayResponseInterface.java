@@ -5,11 +5,6 @@ import java.util.List;
 import javax.annotation.Nonnull;
 
 public interface InternalArrayResponseInterface {
-    
-    @Nonnull
-    List<Root> getRoot();
-
-    void setRoot(@Nonnull List<Root> roots);
 
     @Nonnull
     List<Member> getMembers();
