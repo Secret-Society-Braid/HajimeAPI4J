@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 
 /**
  * ふじわらはじめAPIで使用されているレスポンス型のインターフェースです。
- * 型ごとにユニークなパラメータに対応するため、{@link HajimeAPI4J.responses.ResponseAdapter 独自アダプター} を使用しています。
+ * レスポンス型の宣言には {@link HajimeAPI4J.responses.ResponseAdapter アダプタークラス} を継承しています 
  *
  * @author Ranfa
  *
@@ -22,7 +22,7 @@ public interface ResponseInterface {
 
 	/**
 	 * レスポンスに含まれているパラメータ「name」の値を返します。
-	 * @return レスポンスに含まれているパラメータのうち、keyが「name」であるもののvalueのGetter
+	 * @return レスポンスに含まれているパラメータのうち、keyが「name」であるもののvalue
 	 */
 	String getName();
 
@@ -35,7 +35,7 @@ public interface ResponseInterface {
 	/**
 	 * レスポンスに含まれているパラメータ「type」の値を返します。
 	 * ふじわらはじめAPIの仕様上、返り値は「unit」「idol」の2種類のみとなります。
-	 * @return レスポンスに含まれているパラメータのうち、keyが「type」であるもののvalueのGetter
+	 * @return レスポンスに含まれているパラメータのうち、keyが「type」であるもののvalue
 	 */
 	@Nonnull
 	String getType();
@@ -49,7 +49,7 @@ public interface ResponseInterface {
 	/**
 	 * レスポンスに含まれているパラメータ「tax_id」の値を返します。
 	 * ふじわらはじめAPIの仕様上、返り値が必ず存在します。
-	 * @return レスポンスに含まれているパラメータのうち、keyが「tax_id」であるもののvalueのGetter
+	 * @return レスポンスに含まれているパラメータのうち、keyが「tax_id」であるもののvalue
 	 */
 	@Nonnull
 	Integer getTaxId();
@@ -63,7 +63,7 @@ public interface ResponseInterface {
 	/**
 	 * レスポンスに含まれているパラメータ「link」の値を返します。
 	 * ふじわらはじめAPIの仕様上、返り値が必ず存在します。
-	 * @return レスポンスに含まれているパラメータのうち、keyが「link」であるもののvalueのGetter
+	 * @return レスポンスに含まれているパラメータのうち、keyが「link」であるもののvalue
 	 */
 	@Nonnull
 	String getLink();
@@ -77,7 +77,7 @@ public interface ResponseInterface {
 	/**
 	 * レスポンスに含まれているパラメータ「api」の値を返します。
 	 * ふじわらはじめAPIの仕様上、返り値が必ず存在します。
-	 * @return レスポンスに含まれているパラメータのうち、keyが「api」であるもののvalueのGetter
+	 * @return レスポンスに含まれているパラメータのうち、keyが「api」であるもののvalue
 	 */
 	@Nonnull
 	String getApi();
