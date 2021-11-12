@@ -2,7 +2,7 @@ package HajimeAPI4J.responses;
 
 /**
  * ふじわらはじめAPIで使用されているレスポンス型「Member」の宣言です。
- * 他クラスと似通ったレスポンスパラメータを取るため、独自アダプターを継承しています。
+ * 似通ったレスポンスパラメータを取るため、{@link HajimeAPI4J.responses.ResponseAdapter 独自アダプター} を継承しています
  * 
  * @author Ranfa
  * 
