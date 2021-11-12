@@ -75,9 +75,9 @@ public abstract class ResponseAdapter implements ResponseInterface,
 
     public void setSetList(@Nonnull boolean setList) {}
     
-    public Lyric getLyrics() {return null;}
+    public Lyric getLyric() {return null;}
 
-    public void setLyrics(@Nonnull Lyric lyrics) {}
+    public void setLyric(@Nonnull Lyric lyric) {}
 
     public Composer getComposer() {return null;}
 
@@ -99,9 +99,9 @@ public abstract class ResponseAdapter implements ResponseInterface,
 
     public void setMusics(@Nonnull List<Music> musics) {}
 
-    public List<Lyric> getLyricses() {return Collections.emptyList();}
+    public List<Lyric> getLyrics() {return Collections.emptyList();}
 
-    public void setLyricses(@Nonnull List<Lyric> lyricses) {}
+    public void setLyrics(@Nonnull List<Lyric> lyrics) {}
 
     public List<Composer> getComposers() {return Collections.emptyList();}
 

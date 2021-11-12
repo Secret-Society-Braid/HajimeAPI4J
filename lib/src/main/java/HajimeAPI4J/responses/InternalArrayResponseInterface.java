@@ -17,9 +17,9 @@ public interface InternalArrayResponseInterface {
     void setMusics(@Nonnull List<Music> musics);
 
     @Nonnull
-    List<Lyric> getLyricses();
+    List<Lyric> getLyrics();
 
-    void setLyricses(@Nonnull List<Lyric> lyricses);
+    void setLyrics(@Nonnull List<Lyric> lyrics);
 
     @Nonnull
     List<Composer> getComposers();

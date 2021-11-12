@@ -40,9 +40,9 @@ public interface InternalResponseInterface {
     void setSetList(@Nonnull boolean setList);
 
     @Nonnull
-    Lyric getLyrics();
+    Lyric getLyric();
 
-    void setLyrics(@Nonnull Lyric lyrics);
+    void setLyric(@Nonnull Lyric lyric);
 
     @Nonnull
     Composer getComposer();
