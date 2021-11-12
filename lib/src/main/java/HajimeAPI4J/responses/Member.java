@@ -132,14 +132,16 @@ public class Member extends ResponseAdapter {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * レスポンスに含まれているパラメータ「solo」の値を返します
+	 * @return ソロが実装されている場合は TRUE そうでない場合は FALSE
 	 */
 	public boolean isSolo() {
 		return solo;
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * レスポンスに含まれているパラメータ「solo」の値をセットします
+	 * @param solo レスポンスに含まれているパラメータ「solo」のvalue
 	 */
 	public void setSolo(boolean solo) {
 		this.solo = solo;
