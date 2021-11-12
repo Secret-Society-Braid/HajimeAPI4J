@@ -7,6 +7,7 @@ import javax.annotation.Nonnull;
  * レスポンス型の宣言には {@link HajimeAPI4J.responses.ResponseAdapter アダプタークラス} を継承しています 
  *
  * @author Ranfa
+ * @since 1.0.0
  *
  * @see ResponseAdapter
  * @see Unit

@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
  * 基本的に全てのレスポンス型実装はこのクラスを継承して作成しています。
  * 
  * @author Ranfa
+ * @since 1.0.0
  * 
  * @see ResponseInterface
  * @see InternalResponseInterface

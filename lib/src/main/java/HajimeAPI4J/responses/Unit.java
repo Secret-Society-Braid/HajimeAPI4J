@@ -7,6 +7,7 @@ import java.util.List;
  * 似通ったレスポンスパラメータを取るため、{@link HajimeAPI4J.responses.ResponseAdapter 独自アダプター} を継承しています
  * 
  * @author Ranfa
+ * @since 1.0.0
  * 
  * @see ResponseAdapter
  */

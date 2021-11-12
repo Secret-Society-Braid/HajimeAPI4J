@@ -5,6 +5,7 @@ package HajimeAPI4J.responses;
  * 似通ったレスポンスパラメータを取るため、{@link HajimeAPI4J.responses.ResponseAdapter 独自アダプター} を継承しています
  * 
  * @author Ranfa
+ * @since 1.0.0
  * 
  * @see ResponseAdapter
  */
@@ -133,7 +134,7 @@ public class Member extends ResponseAdapter {
 
 	/**
 	 * レスポンスに含まれているパラメータ「solo」の値を返します
-	 * @return ソロが実装されている場合は TRUE そうでない場合は FALSE
+	 * @return ソロが実装されている場合は<code>TRUE</code>、そうでない場合は<code>FALSE</code>
 	 */
 	public boolean isSolo() {
 		return solo;
