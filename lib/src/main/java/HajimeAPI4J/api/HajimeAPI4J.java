@@ -3,18 +3,6 @@
  */
 package HajimeAPI4J.api;
 
-import javax.annotation.Nonnull;
-
-/**
- * 全ての実装の親となるインターフェースです
- * @author Ranfa
- *
- */
-public interface HajimeAPI4J {
-	
-	@Nonnull
-	String getURI(@Nonnull String token);
-	
-	
+public class HajimeAPI4J {
 
 }
