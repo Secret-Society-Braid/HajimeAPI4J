@@ -1,8 +1,16 @@
-package HajimeAPI4J.responses;
+package HajimeAPI4J.responses.interfaces;
 
 import java.util.List;
 
 import javax.annotation.Nonnull;
+
+import HajimeAPI4J.responses.Arrange;
+import HajimeAPI4J.responses.Composer;
+import HajimeAPI4J.responses.Disc;
+import HajimeAPI4J.responses.Live;
+import HajimeAPI4J.responses.Lyric;
+import HajimeAPI4J.responses.Member;
+import HajimeAPI4J.responses.Music;
 
 public interface InternalArrayResponseInterface {
 
