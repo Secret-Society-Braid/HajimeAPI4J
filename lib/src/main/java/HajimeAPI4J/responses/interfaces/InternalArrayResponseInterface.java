@@ -12,8 +12,29 @@ import HajimeAPI4J.responses.Lyric;
 import HajimeAPI4J.responses.Member;
 import HajimeAPI4J.responses.Music;
 
+/**
+ * ふじわらはじめAPIで使用されているレスポンス型のインターフェースです。
+ * レスポンス型の宣言には {@link HajimeAPI4J.responses.interfaces.ResponseAdapter アダプタークラス} を継承しています。
+ * 
+ * @author Ranfa
+ * @since 1.0.0
+ * 
+ * @see ResponseAdapter
+ * @see Unit
+ * @see Member
+ * @see Music
+ * @see Lyric
+ * @see Composer
+ * @see Arrange
+ * @see Disc
+ * @see Live
+ */
 public interface InternalArrayResponseInterface {
 
+    /**
+     * レスポンスに含まれているパラメータ「member」の配列を返します。
+     * @return レスポンスに含まれているパラメータのうち、keyが「member」であるものの配列
+     */
     @Nonnull
     List<Member> getMembers();
 
