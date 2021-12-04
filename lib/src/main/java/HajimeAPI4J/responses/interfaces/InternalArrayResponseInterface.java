@@ -38,8 +38,16 @@ public interface InternalArrayResponseInterface {
     @Nonnull
     List<Member> getMembers();
 
+    /**
+     * レスポンスに含まれているパラメータ「member」の配列をセットします。
+     * @param members パラメータ「member」の配列
+     */
     void setMembers(@Nonnull List<Member> members);
 
+    /**
+     * 
+     * @return
+     */
     @Nonnull
     List<Music> getMusics();
 
@@ -61,9 +69,9 @@ public interface InternalArrayResponseInterface {
     void setArranges(@Nonnull List<Arrange> arranges);
 
     @Nonnull
-    List<Disc> getDisc();
+    List<Disc> getDiscs();
 
-    void setDisc(@Nonnull List<Disc> discs);
+    void setDiscs(@Nonnull List<Disc> discs);
 
     @Nonnull
     List<Live> getLives();

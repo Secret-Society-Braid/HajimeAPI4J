@@ -250,12 +250,12 @@ public abstract class ResponseAdapter implements ResponseInterface,
     /**
      * {@inheritDoc}
      */
-    public List<Disc> getDisc() {return Collections.emptyList();}
+    public List<Disc> getDiscs() {return Collections.emptyList();}
 
     /**
      * {@inheritDoc}
      */
-    public void setDisc(@Nonnull List<Disc> discs) {}
+    public void setDiscs(@Nonnull List<Disc> discs) {}
 
     /**
      * {@inheritDoc}
