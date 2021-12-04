@@ -173,4 +173,17 @@ public interface InternalResponseInterface {
      */
     void setLyricsUrl(@Nonnull String lyricsUrl);
 
+    /**
+     * レスポンスに含まれているパラメーター「disc」の値を返します。
+     * @return レスポンスに含まれているパラメータのうち、keyが「disc」であるもののValue
+     */
+    @Nonnull
+    Disc getDisc();
+
+    /**
+     * レスポンスに含まれているパラメータ「disc」の値をセットします。
+     * @param disc パラメータ「disc」の値
+     */
+    void setDisc(@Nonnull Disc disc);
+
 }
