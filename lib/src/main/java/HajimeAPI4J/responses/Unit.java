@@ -58,7 +58,7 @@ public class Unit extends ResponseAdapter {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Integer getTaxId() {
+	public int getTaxId() {
 		return taxId;
 	}
 
@@ -66,7 +66,7 @@ public class Unit extends ResponseAdapter {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void setTaxId(Integer taxId) {
+	public void setTaxId(int taxId) {
 		this.taxId = taxId;
 	}
 

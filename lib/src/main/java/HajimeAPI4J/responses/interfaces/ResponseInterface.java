@@ -62,13 +62,13 @@ public interface ResponseInterface {
 	 * @return レスポンスに含まれているパラメータのうち、keyが「tax_id」であるもののvalue
 	 */
 	@Nonnull
-	Integer getTaxId();
+	int getTaxId();
 
 	/**
 	 * レスポンスに含まれているパラメータ「tax_id」の値をセットします
 	 * @param taxId パラメータ「tax_id」の値
 	 */
-	void setTaxId(@Nonnull Integer taxId);
+	void setTaxId(int taxId);
 
 	/**
 	 * レスポンスに含まれているパラメータ「link」の値を返します。

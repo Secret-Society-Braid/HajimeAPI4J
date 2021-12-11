@@ -60,12 +60,12 @@ public abstract class ResponseAdapter implements ResponseInterface,
     /**
      * {@inheritDoc}
      */
-    public Integer getTaxId() {return null;}
+    public int getTaxId() {return Integer.MIN_VALUE;}
 
     /**
      * {@inheritDoc}
      */
-    public void setTaxId(@Nonnull Integer taxId) {}
+    public void setTaxId(int taxId) {}
 
     /**
      * {@inheritDoc}
