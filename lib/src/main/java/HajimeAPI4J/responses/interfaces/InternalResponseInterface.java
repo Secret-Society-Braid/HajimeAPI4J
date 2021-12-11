@@ -186,4 +186,30 @@ public interface InternalResponseInterface {
      */
     void setDisc(@Nonnull Disc disc);
 
+    /**
+     * レスポンスに含まれているパラメーター「Member」の値を返します。
+     * @return レスポンスに含まれているパラメータのうち、keyが「Member」であるもののValue
+     */
+    @Nonnull
+    Member getMember();
+
+    /**
+     * レスポンスに含まれているパラメータ「member」の値をセットします。
+     * @param member パラメータ「member」の値
+     */
+    void setMember(@Nonnull Member member);
+
+    /**
+     * レスポンスに含まれているパラメーター「unit」の値を返します。
+     * @return レスポンスに含まれているパラメータのうち、keyが「unit」であるもののValue
+     */
+    @Nonnull
+    Unit getUnit();
+
+    /**
+     * レスポンスに含まれているパラメータ「unit」の値をセットします。
+     * @param unit パラメータ「unit」の値
+     */
+    void setUnit(@Nonnull Unit unit);
+
 }

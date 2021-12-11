@@ -277,4 +277,24 @@ public abstract class ResponseAdapter implements ResponseInterface,
      */
     public void setLives(@Nonnull List<Live> lives) {}
 
+    /**
+     * {@inheritDoc}
+     */
+    public Member getMember() {return null;}
+
+    /**
+     * {@InheritDoc}
+     */
+    public void setMember(@Nonnull Member member) {}
+
+    /**
+     * {@inheritDoc}
+     */
+    public Unit getUnit() {return null;}
+
+    /**
+     * {@inheritDoc}
+     */
+    public void setUnit(@Nonnull Unit unit) {}
+
 }
