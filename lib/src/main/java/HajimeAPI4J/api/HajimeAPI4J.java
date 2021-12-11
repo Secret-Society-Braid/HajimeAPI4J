@@ -5,4 +5,6 @@ package HajimeAPI4J.api;
 
 public class HajimeAPI4J {
 
+    public static final String DATE_FORMAT_STRING = "yyyy-MM-dd";
+
 }
