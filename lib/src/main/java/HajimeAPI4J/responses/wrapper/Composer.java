@@ -1,4 +1,4 @@
-package HajimeAPI4J.responses;
+package HajimeAPI4J.responses.wrapper;
 
 import HajimeAPI4J.responses.interfaces.ResponseAdapter;
 

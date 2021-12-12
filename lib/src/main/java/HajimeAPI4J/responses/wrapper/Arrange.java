@@ -1,16 +1,16 @@
-package HajimeAPI4J.responses;
+package HajimeAPI4J.responses.wrapper;
 
 import HajimeAPI4J.responses.interfaces.ResponseAdapter;
 
 /**
- * ふじわらはじめAPIで使用されるレスポンス「lyrics」の宣言です。
- * この宣言には {@link HajimeAPI4J.responses.interfaces.ResponseAdapter 独自アダプター} を継承しています。
+ * ふじわらはじめAPIで使用されているレスポンス「arrange」の宣言です。
+ * この宣言は {@link HajimeAPI4J.responses.interfaces.ResponseAdapter 独自アダプター} を継承しています。 
  * 
  * @author Ranfa
- * @since 
+ * @since 1.0.0
  */
-public class Lyric extends ResponseAdapter {
-    
+public class Arrange extends ResponseAdapter{
+
     // Declare field
     private String name;
     private String type;
@@ -101,6 +101,7 @@ public class Lyric extends ResponseAdapter {
     public void setApi(String api) {
         this.api = api;
     }
+
 
 
 }

@@ -1,25 +1,23 @@
-package HajimeAPI4J.responses;
+package HajimeAPI4J.responses.wrapper;
 
 import HajimeAPI4J.responses.interfaces.ResponseAdapter;
 
 /**
- * ふじわらはじめAPIで使用されるレスポンス「disc」の宣言です。
+ * ふじわらはじめAPIで使用されるレスポンス「lyrics」の宣言です。
  * この宣言には {@link HajimeAPI4J.responses.interfaces.ResponseAdapter 独自アダプター} を継承しています。
  * 
  * @author Ranfa
- * @since 1.0.0
+ * @since 
  */
-public class Disc extends ResponseAdapter {
+public class Lyric extends ResponseAdapter {
     
-    // Delcare field
+    // Declare field
     private String name;
     private String type;
     private int taxId;
     private String link;
     private String api;
-    private Unit unit;
-    private Member member;
-
+    
     // getter
 
     /**
@@ -60,22 +58,6 @@ public class Disc extends ResponseAdapter {
     @Override
     public String getApi() {
         return api;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Unit getUnit() {
-        return unit;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Member getMember() {
-        return member;
     }
 
     // setter
@@ -120,19 +102,5 @@ public class Disc extends ResponseAdapter {
         this.api = api;
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setUnit(Unit unit) {
-        this.unit = unit;
-    }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setMember(Member member) {
-        this.member = member;
-    }
 }
