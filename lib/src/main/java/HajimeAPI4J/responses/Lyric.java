@@ -7,7 +7,7 @@ import HajimeAPI4J.responses.interfaces.ResponseAdapter;
  * この宣言には {@link HajimeAPI4J.responses.interfaces.ResponseAdapter 独自アダプター} を継承しています。
  * 
  * @author Ranfa
- * @since 1.0.0
+ * @since 
  */
 public class Lyric extends ResponseAdapter {
     
