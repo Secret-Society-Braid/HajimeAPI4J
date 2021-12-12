@@ -5,6 +5,9 @@ import HajimeAPI4J.responses.interfaces.ResponseAdapter;
 /**
  * ふじわらはじめAPIで使用されるレスポンス「composer」の宣言です。
  * この宣言は {@link HajimeAPI4J.responses.interfaces.ResponseAdapter 独自アダプター} を継承しています。
+ * 
+ * @author Ranfa
+ * @since 1.0.0
  */
 public class Composer extends ResponseAdapter {
 

@@ -5,6 +5,9 @@ import HajimeAPI4J.responses.interfaces.ResponseAdapter;
 /**
  * ふじわらはじめAPIで使用されるレスポンス「lyrics」の宣言です。
  * この宣言には {@link HajimeAPI4J.responses.interfaces.ResponseAdapter 独自アダプター} を継承しています。
+ * 
+ * @author Ranfa
+ * @since 1.0.0
  */
 public class Lyric extends ResponseAdapter {
     
