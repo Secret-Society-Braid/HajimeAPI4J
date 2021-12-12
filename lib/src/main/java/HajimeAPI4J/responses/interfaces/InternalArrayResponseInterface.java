@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
+import HajimeAPI4J.responses.wrapper.Arrange;
 import HajimeAPI4J.responses.wrapper.Composer;
 import HajimeAPI4J.responses.wrapper.Disc;
 import HajimeAPI4J.responses.wrapper.Live;
@@ -14,10 +15,10 @@ import HajimeAPI4J.responses.wrapper.Music;
 /**
  * ふじわらはじめAPIで使用されているレスポンス型のインターフェースです。
  * レスポンス型の宣言には {@link HajimeAPI4J.responses.interfaces.ResponseAdapter アダプタークラス} を継承しています。
- * 
+ *
  * @author Ranfa
  * @since 1.0.0
- * 
+ *
  * @see ResponseAdapter
  * @see Unit
  * @see Member
