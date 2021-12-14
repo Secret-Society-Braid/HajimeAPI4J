@@ -4,13 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import HajimeAPI4J.responses.wrapper.Arrange;
-import HajimeAPI4J.responses.wrapper.Composer;
-import HajimeAPI4J.responses.wrapper.Disc;
-import HajimeAPI4J.responses.wrapper.Live;
-import HajimeAPI4J.responses.wrapper.Lyric;
-import HajimeAPI4J.responses.wrapper.Member;
-import HajimeAPI4J.responses.wrapper.Music;
+import HajimeAPI4J.responses.wrapper.*;
 
 /**
  * ふじわらはじめAPIで使用されているレスポンス型のインターフェースです。

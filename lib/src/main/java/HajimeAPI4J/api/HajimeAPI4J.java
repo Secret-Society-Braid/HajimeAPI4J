@@ -3,8 +3,9 @@
  */
 package HajimeAPI4J.api;
 
-public class HajimeAPI4J {
+public abstract class HajimeAPI4J {
 
     public static final String DATE_FORMAT_STRING = "yyyy-MM-dd";
+    public static final String BASE_URI = "https://api.fujiwarahaji.me/v1/";
 
 }
