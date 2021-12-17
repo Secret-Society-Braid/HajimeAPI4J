@@ -17,7 +17,7 @@ gradle-app.setting
 build
 
 # Ignore log files
-log/
+lib/logs/
 
 # Ignore binary files
 bin/
