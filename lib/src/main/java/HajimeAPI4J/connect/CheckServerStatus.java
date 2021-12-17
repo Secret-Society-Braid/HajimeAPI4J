@@ -18,20 +18,21 @@ public class CheckServerStatus {
     }
 
     /**
-     * サーバーへGETリクエストを送信し、ステータスコードを取得します。
+     * サーバーへテスト用のURIでGETリクエストを送信し、ステータスコードを取得します。
      * APIへ過剰な負荷を掛けないようにするため、成功or失敗に関わらず1秒間のクールダウンを設けています。
      * @param uri ステータスチェックするURI
-     * @return HTTP/GETしたステータスコード
+     * @return サーバーからのレスポンスが成功の場合は<code>TRUE</code>、失敗なら<code>FALSE</code>
      */
-    public static final int getServerStatus(String uri) {
-        int result = -1;
+    public static final boolean isServerAlive() {
+        String uri = "https://api.fujiwarahaji.me/v1/list?type=idol&production=765";
+        int statusCode = -1;
         HttpURLConnection conn = null;
         try {
             URL url = new URL(uri);
             conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.connect();
-            result = conn.getResponseCode();
+            statusCode = conn.getResponseCode();
         } catch (IOException e) {
             logger.error("Exception was thrown during checking API server status.", e);
         } finally {
@@ -45,19 +46,7 @@ public class CheckServerStatus {
                 }
             }
         }
-        return result;
-    }
-
-    public static boolean isServerAlive(int statusCode) {
         String codeStr = String.valueOf(statusCode);
-        if(codeStr.startsWith("2")) {
-            return true;
-        } else if (codeStr.startsWith("5")) {
-            return false;
-        } else {
-            return false;
-        }
-
+        return codeStr.startsWith("2");
     }
-
 }
