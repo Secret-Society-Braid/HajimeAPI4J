@@ -2,7 +2,6 @@ package HajimeAPI4J.connect;
 
 import HajimeAPI4J.api.HajimeAPI4J;
 import HajimeAPI4J.exception.IllegalParameterException;
-import HajimeAPI4J.responses.ResponseListProperty;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,7 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * ふじわらはじめAPIへ「/list?type=music」のリクエストを送信します。
+ * ふじわらはじめAPIへリクエストを送信します。
  * @author Ranfa
  * @since 1.0.0
  *
