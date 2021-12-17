@@ -1,20 +1,18 @@
 package HajimeAPI4J.responses;
 
-import java.util.Collection;
 import java.util.List;
-
-import HajimeAPI4J.responses.interfaces.ResponseAdapter;
+import java.util.Map;
 
 public class ResponseListProperty {
     
     //Declare field
-    private Collection<? extends ListMusicResponse> responseList;
+    private List<Map<String, Object>> responseList;
 
-    public Collection<? extends ListMusicResponse> getResponseList() {
+    public List<Map<String, Object>> getResponseList() {
         return responseList;
     }
 
-    public void setResponseList(Collection<? extends ListMusicResponse> responseList) {
+    public void setResponseList(List<Map<String, Object>> responseList) {
         this.responseList = responseList;
     }
 

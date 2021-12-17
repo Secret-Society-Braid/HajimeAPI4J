@@ -3,6 +3,19 @@
  */
 package HajimeAPI4J;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import HajimeAPI4J.api.HajimeAPI4J;
+
 class HajimeAPI4JTest {
+
+    @Test
+    public void checkConst() {
+
+        assertEquals("https://api.fujiwarahaji.me/v1/", HajimeAPI4J.BASE_URI);
+        assertEquals("yyyy-MM-dd", HajimeAPI4J.DATE_FORMAT_STRING);
+
+    }
     
 }
