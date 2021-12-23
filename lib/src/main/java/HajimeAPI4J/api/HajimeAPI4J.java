@@ -8,4 +8,10 @@ public abstract class HajimeAPI4J {
     public static final String DATE_FORMAT_STRING = "yyyy-MM-dd";
     public static final String BASE_URI = "https://api.fujiwarahaji.me/v1/";
 
+    // Declare String NAME, TYPE, MUSIC_TYPE, SONG_ID, LINK, API fields
+    public static final String NAME = "name";
+    public static final String TYPE = "type";
+    public static final String MUSIC_TYPE = "music_type";
+    
+
 }
