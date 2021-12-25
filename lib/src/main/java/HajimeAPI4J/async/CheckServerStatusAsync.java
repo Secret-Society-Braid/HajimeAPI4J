@@ -11,8 +11,9 @@ public class CheckServerStatusAsync implements Runnable {
         this.result = CheckServerStatus.isServerAlive();
     }
 
+    // return result
     public boolean getResult() {
-        return result;
+        return this.result;
     }
     
 }
