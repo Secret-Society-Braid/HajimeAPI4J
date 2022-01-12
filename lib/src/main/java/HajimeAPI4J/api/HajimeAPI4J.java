@@ -13,14 +13,79 @@ public abstract class HajimeAPI4J {
     public static final String DATE_FORMAT_STRING = "yyyy-MM-dd";
     public static final String BASE_URI = "https://api.fujiwarahaji.me/v1/";
 
-    // Declare String NAME, TYPE, MUSIC_TYPE, SONG_ID, LINK, API constant
+    // レスポンスにおける親パラメータ群
+    // 曲名やライブ名、アイドル名など
     public static final String NAME = "name";
+
+    // 出力カテゴリ名
     public static final String TYPE = "type";
+
+    // 楽曲タイプ
     public static final String MUSIC_TYPE = "music_type";
+
+    // 楽曲ID(ふじわらはじめAPI内部管理ID)
     public static final String SONG_ID = "song_id";
+
+    //ふじわらはじめ内楽曲ページURL
     public static final String LINK = "link";
+
+    // 楽曲情報のJSON URI
     public static final String API = "api";
     
-    
+    // カテゴリID（ふじわらはじめAPI内部管理ID）
+    public static final String TAX_ID = "tax_id";
+
+    // ライブ日時など
+    public static final String DATE = "date";
+
+    // アイドルの所属プロダクション
+    public static final String PRODUCTION = "production";
+
+    // アイドル名読み仮名
+    public static final String KANA = "kana";
+
+    // 声優名
+    public static final String CV = "cv";
+
+    //　声優名読み仮名
+    public static final String CVKANA = "cvkana";
+
+    // ライブ会場
+    public static final String PLACE = "place";
+
+    //　ライブ参加メンバー、ユニットメンバー
+    public static final String MEMBER = "member";
+
+    // セットリストの有無
+    public static final String SETLIST = "setlist";
+
+    //同じ名義で作業をした楽曲一覧のカテゴリ「作詞、作曲、編曲」
+    public static final String LYRICS = "lyrics";
+    public static final String COMPOSER = "composer";
+    public static final String ARRANGE = "arrange";
+
+    // 楽曲情報の出力
+    public static final String MUSIC = "music";
+
+    // セットリスト補足情報、MCなど
+    public static final String SONG_TEXT = "song_text";
+
+    //　参加ユニット
+    public static final String UNIT = "unit";
+
+    // メンバー情報補足（ユニット名など）    
+    public static final String MEMBER_TEXT = "member_text";
+
+    // ソロ音源の有無
+    public static final String SOLO = "solo";
+
+    //　歌詞サイトURL
+    public static final String LYRICS_URL = "lyrics_url";
+
+    // CD情報（円盤のみ）
+    public static final String DISC = "disc";
+
+    // 披露されたLIVE情報
+    public static final String LIVE = "live";
 
 }
