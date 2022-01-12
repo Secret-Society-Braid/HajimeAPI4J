@@ -1,26 +1,31 @@
 package HajimeAPI4J.api.util;
 
+import java.util.Objects;
+
 import org.slf4j.*;
 
 import HajimeAPI4J.api.HajimeAPI4J;
+import HajimeAPI4J.exception.NoSuchURIException;
 
 public final class DetermineParameter {
 
-    private String[] parameters;
+    private String token;
+    private boolean[] isMusic;
     private Logger logger = LoggerFactory.getLogger(DetermineParameter.class);
 
     /**
      *　コンストラクタ
      */
-    public DetermineParameter(String... parameters) {
+    public DetermineParameter(String token, boolean... isMusic) {
         logger.info("Constructing...");
-        this.parameters = parameters;
+        this.token = token;
+        this.isMusic = isMusic;
     }
 
     /**
      * /list?type=musicのリクエストを送った際に返されるレスポンスの親パラメータ名
      */
-    public static final String[] listMusicParameters = {
+    protected static final String[] listMusicParameters = {
         HajimeAPI4J.NAME,
         HajimeAPI4J.TYPE,
         HajimeAPI4J.MUSIC_TYPE,
@@ -32,7 +37,7 @@ public final class DetermineParameter {
     /**
      * /list?type=music以外のリクエストを送った際に返されるレスポンスの親パラメータ名
      */
-    public static final String[] listOtherParameters = {
+    protected static final String[] listOtherParameters = {
         HajimeAPI4J.NAME,
         HajimeAPI4J.TYPE,
         HajimeAPI4J.TAX_ID,
@@ -48,7 +53,7 @@ public final class DetermineParameter {
     /**
      * /taxのリクエストを送った際に返されるレスポンスの親パラメータ名
      */
-    public static final String[] taxParameters = {
+    protected static final String[] taxParameters = {
         HajimeAPI4J.NAME,
         HajimeAPI4J.TYPE,
         HajimeAPI4J.TAX_ID,
@@ -69,24 +74,35 @@ public final class DetermineParameter {
     };
 
     /**
-     * レスポンスが配列で返されるかどうかを判定する
-     * @param token リクエストのパラメータ名
-     * @return レスポンスが配列で返される場合はtrue、そうでない場合はfalse
+     * /musicのリクエストを送った際に返されるレスポンスの親パラメータ名
      */
-    public boolean isReturnedAsArray(String token) {
-        if(token == null) {
-            return false;
-        }
-        return token.equals("list") 
-            || token.equals("member")
-            || token.equals("music")
-            || token.equals("lyrics") 
-            || token.equals("composer")
-            || token.equals("arrange")
-            || token.equals("disc")
-            || token.equals("live")
-            || token.equals("unit");
-    }
+    protected static final String[] musicParameters = {
+        HajimeAPI4J.NAME,
+        HajimeAPI4J.TYPE,
+        HajimeAPI4J.MUSIC_ID,
+        HajimeAPI4J.LINK,
+        HajimeAPI4J.API,
+        HajimeAPI4J.LYRICS,
+        HajimeAPI4J.COMPOSER,
+        HajimeAPI4J.ARRANGE,
+        HajimeAPI4J.LYRICS_URL,
+        HajimeAPI4J.MEMBER,
+        HajimeAPI4J.LIVE
+    };
 
+    public String[] getParameters() throws NoSuchURIException {
+        Objects.requireNonNull(token);
+        if(token.equals("list") && isMusic[0]) {
+            return listMusicParameters;
+        } else if(token.equals("list") && !isMusic[0]) {
+            return listOtherParameters;
+        } else if(token.equals("tax")) {
+            return taxParameters;
+        } else if(token.equals("music")) {
+            return musicParameters;
+        } else {
+            throw new NoSuchURIException("No such URI");
+        }
+    }
     
 }

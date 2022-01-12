@@ -88,4 +88,7 @@ public abstract class HajimeAPI4J {
     // 披露されたLIVE情報
     public static final String LIVE = "live";
 
+    // 楽曲ID（ふじわらはじめAPI内部管理ID）
+    public static final String MUSIC_ID = "music_id";
+
 }
