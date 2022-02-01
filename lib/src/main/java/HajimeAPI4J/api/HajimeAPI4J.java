@@ -462,4 +462,15 @@ public interface HajimeAPI4J {
         return System.currentTimeMillis() - time;
     }
 
+    /**
+     * リクエストに使用するURIを返す
+     * @return URI
+     */
+    @Nonnull
+    String getURI();
+
+    /**
+     * 
+     */
+
 }
