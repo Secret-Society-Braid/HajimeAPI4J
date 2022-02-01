@@ -3,6 +3,7 @@ package HajimeAPI4J.connect;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,7 +40,7 @@ public class CheckServerStatus {
             if(conn != null) {
                 conn.disconnect();
                 try {
-                    Thread.sleep(1000);
+                    TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException e) {
                     logger.warn("Thread has been interrupted while cooldown.", e);
                     Thread.currentThread().interrupt();
