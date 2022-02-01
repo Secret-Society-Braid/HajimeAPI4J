@@ -1,19 +1,17 @@
 package HajimeAPI4J.async;
 
+import java.util.concurrent.CompletableFuture;
+
 import HajimeAPI4J.connect.CheckServerStatus;
 
-public class CheckServerStatusAsync implements Runnable {
+public class CheckServerStatusAsync {
 
-    private boolean result = false;
-
-    @Override
-    public void run() {
-        this.result = CheckServerStatus.isServerAlive();
+    private CheckServerStatusAsync() {
+        throw new UnsupportedOperationException("Util class.");
     }
 
-    // return result
-    public boolean getResult() {
-        return this.result;
+    public static final CompletableFuture<Boolean> checkServerStatusAsync() {
+        return CompletableFuture.supplyAsync(CheckServerStatus::isServerAlive);
     }
     
 }
