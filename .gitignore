@@ -22,3 +22,4 @@ lib/logs/
 # Ignore binary files
 bin/
 lib/.settings/
+lib/src/test/APITEST.http
