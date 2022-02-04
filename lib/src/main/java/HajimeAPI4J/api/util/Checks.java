@@ -10,6 +10,7 @@ import HajimeAPI4J.api.HajimeAPI4J;
 import HajimeAPI4J.exception.IllegalParameterException;
 import HajimeAPI4J.exception.NoSuchParameterException;
 import HajimeAPI4J.exception.NoSuchURIException;
+import HajimeAPI4J.exception.ServerNotRespondError;
 
 public class Checks {
     
@@ -21,7 +22,7 @@ public class Checks {
 
     public static boolean softRequireNonNull(Object obj) {
         if(obj == null) {
-            logger.warn("Object is null.");
+            logger.warn("Object is null : {}", obj);
             return false;
         }
         return true;
@@ -50,7 +51,7 @@ public class Checks {
 
     public static void taxMustHaveParam(Map<String, String> param) throws NoSuchURIException {
         hardRequireNonNull(param);
-        if(!((param.containsKey(HajimeAPI4J.Tax_Params.TAX_ID.toString()))
+        if(!((param.containsKey(HajimeAPI4J.Tax_Params.ID.toString()))
             || (param.containsKey(HajimeAPI4J.Tax_Params.IDOL_NAME.toString()))
             || (param.containsKey(HajimeAPI4J.Tax_Params.UNIT_NAME.toString())))) {
                 throwNoSuchURIException(new IllegalParameterException("there is no unit_name or idol_name or tax_id parameter. At least one of them is required."));
@@ -83,6 +84,11 @@ public class Checks {
         if(!Arrays.asList(HajimeAPI4J.Music_Params.values()).contains(param)) {
             throwNoSuchParameterException(String.format("Music parameter is not available : %s", param));
         }
+    }
+
+    public static void serverAlive() {
+        if(!CheckServerStatus.isServerAlive())
+            throw new ServerNotRespondError("Server did not respond correctly.");
     }
 
     //throws

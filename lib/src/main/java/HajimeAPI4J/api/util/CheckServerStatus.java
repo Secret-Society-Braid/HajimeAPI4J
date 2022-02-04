@@ -1,4 +1,4 @@
-package HajimeAPI4J.connect;
+package HajimeAPI4J.api.util;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -21,7 +21,6 @@ public class CheckServerStatus {
     /**
      * サーバーへテスト用のURIでGETリクエストを送信し、ステータスコードを取得します。
      * APIへ過剰な負荷を掛けないようにするため、成功or失敗に関わらず1秒間のクールダウンを設けています。
-     * @param uri ステータスチェックするURI
      * @return サーバーからのレスポンスが成功の場合は<code>TRUE</code>、失敗なら<code>FALSE</code>
      */
     public static final boolean isServerAlive() {

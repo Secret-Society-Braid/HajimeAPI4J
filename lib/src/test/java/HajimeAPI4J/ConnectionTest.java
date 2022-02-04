@@ -1,61 +1,53 @@
 package HajimeAPI4J;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
-import HajimeAPI4J.connect.CheckServerStatus;
-import HajimeAPI4J.connect.Request;
-import mock.ParseURLMock;
+import HajimeAPI4J.api.HajimeAPI4J.List_Params;
+import HajimeAPI4J.api.HajimeAPI4J.List_Type;
+import HajimeAPI4J.api.HajimeAPI4J.Music_Params;
+import HajimeAPI4J.api.HajimeAPI4J.Tax_Params;
+import HajimeAPI4J.api.HajimeAPI4J.Token;
+import HajimeAPI4J.api.HajimeAPIBuilder;
+import HajimeAPI4J.api.util.HajimeAPI4JImpl;
+import HajimeAPI4J.exception.NoSuchURIException;
+import HajimeAPI4J.exception.ServerNotRespondError;
 
 public class ConnectionTest {
     
     @Test
-    public void aliveTest() {
-        //tests whether server is alive.
-        assertTrue(CheckServerStatus.isServerAlive());
-    }
-
-    @Test
-    public void checkURL() {
-        //tests whether URL is collect.
-        HashMap<String, Object> listParam = new HashMap<>();
-        listParam.put("type", "music");
-
-        assertEquals("https://api.fujiwarahaji.me/v1/list?type=music", ParseURLMock.parseURL(listParam));
-
-    }
-
-    @Test
-    public void getResponseTest() {
-        //tests whether response is collect.
-        Request list = new Request(Request.LIST);
-        Request tax = new Request(Request.TAX);
-        Request music = new Request(Request.MUSIC);
-
-        //for list
-        HashMap<String, Object> listParam = new HashMap<>();
-        listParam.put("type", "music");
-
-        //for tax
-        HashMap<String, Object> taxParam = new HashMap<>();
-        taxParam.put("id", 1665);
-
-        //for music
-        HashMap<String, Object> musicParam = new HashMap<>();
-        musicParam.put("id", 3525);
-
+    public void sendListRequestTest() {
+        HajimeAPIBuilder listBuilder = HajimeAPIBuilder.createDefault(Token.LIST);
         try {
-            assertNotNull(list.listToken(listParam));
-            assertNotNull(tax.taxOrMusic(taxParam));
-            assertNotNull(music.taxOrMusic(musicParam));
-        } catch (IOException e) {
-            e.printStackTrace();
+            HajimeAPI4JImpl list = listBuilder.addParameter(List_Params.TYPE, List_Type.MUSIC.toString()).build();
+            assertNotNull(list.get());
+        } catch (IOException | ServerNotRespondError | NoSuchURIException | NullPointerException | InterruptedException e) {
+            throw new AssertionError("Test Failed", e);
+        }
+    }
+
+    @Test
+    public void sendTaxRequestTest() {
+        HajimeAPIBuilder taxBuilder = HajimeAPIBuilder.createDefault(Token.TAX);
+        try {
+            HajimeAPI4JImpl tax = taxBuilder.addParameter(Tax_Params.IDOL_NAME, "藤原肇").build();
+            assertNotNull(tax.get());
+        } catch (IOException | ServerNotRespondError | NoSuchURIException | NullPointerException | InterruptedException e) {
+            throw new AssertionError("Test Failed", e);
+        }
+    }
+
+    @Test
+    public void sendMusicRequestTest() {
+        HajimeAPIBuilder musicBuilder = HajimeAPIBuilder.createDefault(Token.MUSIC);
+        try {
+            HajimeAPI4JImpl music = musicBuilder.addParameter(Music_Params.ID, "3525").build();
+            assertNotNull(music.get());
+        } catch (IOException | ServerNotRespondError | NoSuchURIException | NullPointerException | InterruptedException e) {
+            throw new AssertionError("Test Failed", e);
         }
     }
 

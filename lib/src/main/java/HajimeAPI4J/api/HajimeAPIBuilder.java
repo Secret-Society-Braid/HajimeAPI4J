@@ -10,20 +10,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import HajimeAPI4J.api.util.Checks;
+import HajimeAPI4J.api.util.HajimeAPI4JImpl;
 
 public class HajimeAPIBuilder {
     
     private Logger logger = LoggerFactory.getLogger(HajimeAPIBuilder.class);
 
-    private String uri = null;
     private String token = null;
-    private int limit = Integer.MIN_VALUE;
     private Map<String, String> params = new HashMap<>();
 
 
     private static final String BASE_URI = "https://api.fujiwarahaji.me/v1/";
 
-    public HajimeAPIBuilder(String token) {
+    private HajimeAPIBuilder(String token) {
         this.token = token;
     }
 
@@ -68,10 +67,34 @@ public class HajimeAPIBuilder {
         return this;
     }
 
-    public HajimeAPI4J build() {
-        StringBuilder sb = new StringBuilder(BASE_URI);
-        sb.append(token).append("?");
-        
+    public HajimeAPI4JImpl build() throws NullPointerException {
+        Checks.hardRequireNonNull(token);
+        HajimeAPI4J.Token tokenEnumed = null;
+        for(HajimeAPI4J.Token tmp : HajimeAPI4J.Token.values()) {
+            if(Objects.equals(tmp.toString(), this.token)) {
+                tokenEnumed = tmp;
+                break;
+            }
+        }
+        Checks.hardRequireNonNull(tokenEnumed);
+        HajimeAPI4JImpl api = new HajimeAPI4JImpl();
+        api.setToken(tokenEnumed);
+        api.setCache(false);
+        api.setParams(params);
+        api.setStatus(HajimeAPI4J.Status.NOT_INITIALIZED);
+        logger.info("Client building complete. Status: INITIALIZED");
+        logger.info("set token : {}", tokenEnumed);
+        logger.info("cache status: {}", false);
+        params.forEach((k, v) -> logger.info("param: {} = {}", k, v));
+        return api;
+    }
+
+    /**
+     * BASE_URIを取得します。
+     * @return BASE_URI
+     */
+    public static String getBaseURI() {
+        return BASE_URI;
     }
 
 }

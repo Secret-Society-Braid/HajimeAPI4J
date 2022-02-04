@@ -3,9 +3,11 @@
  */
 package HajimeAPI4J.api;
 
+import java.util.Map;
+
 import javax.annotation.Nonnull;
 
-import HajimeAPI4J.connect.CheckServerStatus;
+import HajimeAPI4J.api.util.CheckServerStatus;
 
 public interface HajimeAPI4J {
 
@@ -368,7 +370,7 @@ public interface HajimeAPI4J {
      */
     public enum Tax_Params {
         /**ふじわらはじめAPI内部管理ID */
-        TAX_ID("tax_id", false),
+        ID("id", false),
 
         /**アイドル名（完全一致） */
         IDOL_NAME("idol_name", false),
@@ -439,6 +441,8 @@ public interface HajimeAPI4J {
         }
     }
 
+    // TODO: make enums for response params
+
     /**
      * 呼び出し現在の状態を返す
      * @return 状態
@@ -446,10 +450,22 @@ public interface HajimeAPI4J {
     Status getStatus();
 
     /**
+     * 状態を設定する
+     * @param status 状態
+     */
+    void setStatus(Status status);
+
+    /**
      * 現在設定されているトークンを返す
      * @return トークン
      */
     Token getToken();
+
+    /**
+     * トークンを設定する
+     * @param token トークン
+     */
+    void setToken(Token token);
 
     /**
      * サーバーとのPing (ms) を測定する
@@ -470,7 +486,33 @@ public interface HajimeAPI4J {
     String getURI();
 
     /**
-     * 
+     * uriを設定する
+     * @param uri URI
      */
+    void setURI(@Nonnull String uri);
 
+    /**
+     * 取得データのキャッシュを設定する
+     * @param cache キャッシュ
+     */
+    void setCache(boolean toggle);
+
+    /**
+     * 取得データのキャッシュを取得する
+     * @return キャッシュ
+     */
+    boolean isCache();
+
+    /**
+     * リクエストに使用するパラメータを返す
+     * @return パラメータ
+     */
+    @Nonnull
+    Map<String, String> getParams();
+
+    /**
+     * リクエストに使用するパラメータを設定する
+     * @param params パラメータ
+     */
+    void setParams(@Nonnull Map<String, String> params);
 }
