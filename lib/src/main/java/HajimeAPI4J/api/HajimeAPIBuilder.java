@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import HajimeAPI4J.api.util.Checks;
 import HajimeAPI4J.api.util.HajimeAPI4JImpl;
+import HajimeAPI4J.exception.IllegalParameterException;
 
 public class HajimeAPIBuilder {
     
@@ -43,27 +44,71 @@ public class HajimeAPIBuilder {
         return this;
     }
 
-    public HajimeAPIBuilder addParameter(HajimeAPI4J.List_Params param, String value) {
+    public HajimeAPIBuilder addParameter(HajimeAPI4J.List_Params param, String... values) {
         Checks.requireSameToken(HajimeAPI4J.Token.LIST, token);
         Checks.availableListParam(param);
-        value = Checks.softRequireNonNull(value) ? value : "";
-        params.put(param.toString(), value);
+        if(Checks.softRequireNonNull(params) && params.containsKey(HajimeAPI4J.List_Type.MUSIC.toString()) && !param.canApplyForMusicToken()) {
+            throw new IllegalParameterException("This parameter cannot be applied for music token.");
+        } else if (Checks.softRequireNonNull(params) && !param.canApplyForClassificationToken()){
+            throw new IllegalParameterException("This parameter cannot be applied for classification token.");
+        }
+        if(Checks.softRequireNonNull(values)) {
+            if(param.isAllowedArrayInput()) {
+                StringBuilder b = new StringBuilder();
+                for(String value : values) {
+                    b.append(value).append(",");
+                }
+                params.put(param.toString(), b.toString());
+            } else if (values.length > 1) {
+                throw new IllegalParameterException("The parameter " + param.toString() + " does not allow array input.");
+            } else {
+                params.put(param.toString(), values[0]);
+            }
+        } else {
+            params.put(param.toString(), "");
+        }
         return this;
     }
 
-    public HajimeAPIBuilder addParameter(HajimeAPI4J.Tax_Params param, String value) {
+    public HajimeAPIBuilder addParameter(HajimeAPI4J.Tax_Params param, String... values) {
         Checks.requireSameToken(HajimeAPI4J.Token.TAX, token);
         Checks.availableTaxParam(param);
-        value = Checks.softRequireNonNull(value) ? value : "";
-        params.put(param.toString(), value);
+        if(Checks.softRequireNonNull(values)) {
+            if(param.isAllowedArrayInput()) {
+                StringBuilder b = new StringBuilder();
+                for(String value : values) {
+                    b.append(value).append(",");
+                }
+                params.put(param.toString(), b.toString());
+            } else if (values.length > 1) {
+                throw new IllegalParameterException("The parameter " + param.toString() + " does not allow array input.");
+            } else {
+                params.put(param.toString(), values[0]);
+            }
+        } else {
+            params.put(param.toString(), "");
+        }
         return this;
     }
 
-    public HajimeAPIBuilder addParameter(HajimeAPI4J.Music_Params param, String value) {
+    public HajimeAPIBuilder addParameter(HajimeAPI4J.Music_Params param, String... values) {
         Checks.requireSameToken(HajimeAPI4J.Token.MUSIC, token);
         Checks.availableMusicParam(param);
-        value = Checks.softRequireNonNull(value) ? value : "";
-        params.put(param.toString(), value);
+        if(Checks.softRequireNonNull(values)) {
+            if(param.isAllowedArrayInput()) {
+                StringBuilder b = new StringBuilder();
+                for(String value : values) {
+                    b.append(value).append(",");
+                }
+                params.put(param.toString(), b.toString());
+            } else if (values.length > 1) {
+                throw new IllegalParameterException("The parameter " + param.toString() + " does not allow array input.");
+            } else {
+                params.put(param.toString(), values[0]);
+            }
+        } else {
+            params.put(param.toString(), "");
+        }
         return this;
     }
 

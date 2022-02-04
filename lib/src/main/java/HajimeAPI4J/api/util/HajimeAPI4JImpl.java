@@ -10,17 +10,16 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import HajimeAPI4J.api.HajimeAPI4J;
 import HajimeAPI4J.api.HajimeAPIBuilder;
 import HajimeAPI4J.exception.IllegalParameterException;
 import HajimeAPI4J.exception.NoSuchURIException;
-import HajimeAPI4J.exception.ServerNotRespondError;
 
 public class HajimeAPI4JImpl implements HajimeAPI4J {
 
@@ -36,18 +35,18 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
     private static final ExecutorService EXECUTOR_SERVICE = Executors.newWorkStealingPool();
 
     public HajimeAPI4JImpl() {
-        this(HajimeAPI4J.Status.NOT_INITIALIZED);
+	this(HajimeAPI4J.Status.NOT_INITIALIZED);
     }
 
     public HajimeAPI4JImpl(HajimeAPI4J.Status status) {
-        this(null, status, false, null);
+	this(null, status, false, null);
     }
 
     public HajimeAPI4JImpl(String uri, HajimeAPI4J.Status status, boolean iscache, Map<String, String> param) {
-        this.uri = uri;
-        this.status = status;
-        this.iscache = iscache;
-        this.param = param;
+	this.uri = uri;
+	this.status = status;
+	this.iscache = iscache;
+	this.param = param;
     }
 
     /**
@@ -55,7 +54,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
      */
     @Override
     public Status getStatus() {
-        return status;
+	return this.status;
     }
 
     /**
@@ -63,7 +62,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
      */
     @Override
     public void setStatus(Status status) {
-        this.status = status;
+	this.status = status;
     }
 
     /**
@@ -71,7 +70,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
      */
     @Override
     public Token getToken() {
-        return token;
+	return this.token;
     }
 
     /**
@@ -79,7 +78,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
      */
     @Override
     public void setToken(Token token) {
-        this.token = token;
+	this.token = token;
     }
 
     /**
@@ -87,26 +86,30 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
      */
     @Override
     public String getURI() {
-        if(Checks.softRequireNonNull(uri)) {
-            return uri;
-        }
-        logger.info("Set URI and move status to INITIALIZED");
-        this.setStatus(HajimeAPI4J.Status.INITIALIZED);
-        Checks.hardRequireNonNull(token);
-        Checks.hardRequireNonNull(param);
-        StringBuilder result = new StringBuilder(HajimeAPIBuilder.getBaseURI());
-        result.append(token.toString()).append("?");
-        param.forEach((k, v) -> {
-            try {
-                result.append(k).append("=").append(URLEncoder.encode(v, "UTF-8")).append("&");
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException("Failed to encode parameter", e);
-            }
-        });
-        result.deleteCharAt(result.length() - 1);
-        this.setURI(result.toString());
-        this.setStatus(HajimeAPI4J.Status.AWAIT_SENDING);
-        return uri;
+	if(Checks.softRequireNonNull(this.uri)) {
+	    return this.uri;
+	}
+	this.logger.info("Set URI and move status to INITIALIZED");
+	this.setStatus(HajimeAPI4J.Status.INITIALIZED);
+	Checks.hardRequireNonNull(this.token);
+	Checks.hardRequireNonNull(this.param);
+	StringBuilder result = new StringBuilder(HajimeAPIBuilder.getBaseURI());
+	result.append(this.token.toString()).append("?");
+	this.param.forEach((k, v) -> {
+	    try {
+		result.append(k).append("=").append(URLEncoder.encode(v, "UTF-8")).append("&");
+	    } catch (UnsupportedEncodingException e) {
+		try {
+		    throw new NoSuchURIException("Failed to encode parameter : " + e.getMessage());
+		} catch (NoSuchURIException e1) {
+		    throw new RuntimeException(e1);
+		}
+	    }
+	});
+	result.deleteCharAt(result.length() - 1);
+	this.setURI(result.toString());
+	this.setStatus(HajimeAPI4J.Status.AWAIT_SENDING);
+	return this.uri;
     }
 
     /**
@@ -114,7 +117,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
      */
     @Override
     public void setURI(String uri) {
-        this.uri = uri;
+	this.uri = uri;
     }
 
     /**
@@ -122,7 +125,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
      */
     @Override
     public boolean isCache() {
-        return iscache;
+	return this.iscache;
     }
 
     /**
@@ -130,7 +133,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
      */
     @Override
     public void setCache(boolean iscache) {
-        this.iscache = iscache;
+	this.iscache = iscache;
     }
 
     /**
@@ -138,7 +141,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
      */
     @Override
     public Map<String, String> getParams() {
-        return param;
+	return this.param;
     }
 
     /**
@@ -146,60 +149,81 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
      */
     @Override
     public void setParams(Map<String, String> param) {
-        this.param = param;
+	this.param = param;
     }
 
-    public JsonNode get() throws IOException, ServerNotRespondError, NoSuchURIException, InterruptedException {
-        TimeUnit.SECONDS.sleep(1);
-        Checks.hardRequireNonNull(token);
-        Checks.hardRequireNonNull(param);
-        switch (token) {
-            case LIST:
-                Checks.listMustHaveParam(param);
-                break;
-            case TAX:
-                Checks.taxMustHaveParam(param);
-                break;
-            case MUSIC:
-                Checks.musicMustHaveParam(param);
-                break;
-            default:
-                throw new IllegalParameterException("Invalid token");
-        }
-        uri = getURI();
-        Checks.serverAlive();
-        logger.info("Requested data type: {}", token);
-        param.forEach((k, v) -> logger.info("Requested parameter: {} = {}", k, v));
-        logger.info("Parsed URI: {}", uri);
-        this.setStatus(HajimeAPI4J.Status.FINISHED);
-        logger.info("Data transfer completed");
-        return new ObjectMapper().readTree(new URL(uri));
+    /**
+     * 指定されたトークンとパラメータ情報を使用してAPIへリクエストを送り、レスポンスを取得します。
+     * @return ふじわらはじめAPIから取得したJSONデータを含むJsonNode
+     * @throws IOException APIからの読み取りが失敗した場合
+     * @throws NoSuchURIException 指定されたパラメータ情報が間違っている、もしくは不正なトークンが渡された場合
+     * @throws InterruptedException APIへのクールダウン期間中に割り込みを受けた場合
+     */
+    public JsonNode get() throws IOException, NoSuchURIException, InterruptedException {
+	TimeUnit.SECONDS.sleep(1);
+	Checks.hardRequireNonNull(this.token);
+	Checks.hardRequireNonNull(this.param);
+	switch (this.token) {
+	case LIST:
+	    Checks.listMustHaveParam(this.param);
+	    break;
+	case TAX:
+	    Checks.taxMustHaveParam(this.param);
+	    break;
+	case MUSIC:
+	    Checks.musicMustHaveParam(this.param);
+	    break;
+	default:
+	    throw new IllegalParameterException("Invalid token");
+	}
+	this.uri = this.getURI();
+	Checks.serverAlive();
+	this.logger.info("Requested data type: {}", this.token);
+	this.param.forEach((k, v) -> this.logger.info("Requested parameter: {} = {}", k, v));
+	this.logger.info("Parsed URI: {}", this.uri);
+	this.setStatus(HajimeAPI4J.Status.FINISHED);
+	this.logger.info("Data transfer completed");
+	return new ObjectMapper().readTree(new URL(this.uri));
     }
 
+    /**
+     * 非同期的にレスポンスを取得します。
+     * 使用する非同期サービスはデフォルト設定となります。
+     * @return APIからのレスポンス情報を内包しているCompletableFuture
+     */
     public CompletableFuture<JsonNode> getAsync() {
-        return CompletableFuture.supplyAsync(() -> {
-            try {
-                return get();
-            } catch (IOException | NoSuchURIException | InterruptedException e) {
-                Thread.currentThread().interrupt();
-                this.setStatus(HajimeAPI4J.Status.FAILED);
-                throw new RuntimeException("Couldn't get from API", e);
-            }
-        }, EXECUTOR_SERVICE);
+	return CompletableFuture.supplyAsync(() -> {
+	    try {
+		return this.get();
+	    } catch (IOException | NoSuchURIException | InterruptedException e) {
+		Thread.currentThread().interrupt();
+		this.setStatus(HajimeAPI4J.Status.FAILED);
+		throw new RuntimeException("Couldn't get from API", e);
+	    }
+	}, EXECUTOR_SERVICE);
     }
 
+    /**
+     * 指定された非同期サービスを使用して非同期的にレスポンスを取得します。
+     * @param service 指定するExecutorService
+     * @return APIからのレスポンスを内包しているCompletableFuture
+     */
     public CompletableFuture<JsonNode> getAsync(ExecutorService service) {
-        return CompletableFuture.supplyAsync(() -> {
-            try {
-                return get();
-            } catch (IOException | NoSuchURIException | InterruptedException e) {
-                Thread.currentThread().interrupt();
-                throw new RuntimeException("Couldn't get from API", e);
-            }
-        }, service);
+	return CompletableFuture.supplyAsync(() -> {
+	    try {
+		return this.get();
+	    } catch (IOException | NoSuchURIException | InterruptedException e) {
+		Thread.currentThread().interrupt();
+		throw new RuntimeException("Couldn't get from API", e);
+	    }
+	}, service);
     }
 
+    /**
+     * 非同期的にレスポンスを取得する際にデフォルトで使用するExecutorServiceを返します。
+     * @return デフォルトで使用しているExecutorService
+     */
     public ExecutorService getDefaultExecutorService() {
-        return EXECUTOR_SERVICE;
+	return EXECUTOR_SERVICE;
     }
 }

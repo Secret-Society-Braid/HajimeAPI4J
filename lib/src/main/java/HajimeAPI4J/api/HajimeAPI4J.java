@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 
 import HajimeAPI4J.api.util.CheckServerStatus;
+import HajimeAPI4J.exception.NoSuchURIException;
 
 public interface HajimeAPI4J {
 
@@ -481,6 +482,7 @@ public interface HajimeAPI4J {
     /**
      * リクエストに使用するURIを返す
      * @return URI
+     * @throws NoSuchURIException
      */
     @Nonnull
     String getURI();
