@@ -1,7 +1,9 @@
 package HajimeAPI4J.api.util;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
@@ -94,7 +96,13 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
         Checks.hardRequireNonNull(param);
         StringBuilder result = new StringBuilder(HajimeAPIBuilder.getBaseURI());
         result.append(token.toString()).append("?");
-        param.forEach((k, v) -> result.append(k).append("=").append(v).append("&"));
+        param.forEach((k, v) -> {
+            try {
+                result.append(k).append("=").append(URLEncoder.encode(v, "UTF-8")).append("&");
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException("Failed to encode parameter", e);
+            }
+        });
         result.deleteCharAt(result.length() - 1);
         this.setURI(result.toString());
         this.setStatus(HajimeAPI4J.Status.AWAIT_SENDING);
