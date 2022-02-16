@@ -3,7 +3,9 @@ package HajimeAPI4J;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import HajimeAPI4J.api.HajimeAPI4J.List_Params;
@@ -17,6 +19,11 @@ import HajimeAPI4J.exception.NoSuchURIException;
 import HajimeAPI4J.exception.ServerNotRespondError;
 
 public class ConnectionTest {
+
+    @BeforeEach
+    public void setTimeout() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(2);
+    }
     
     @Test
     public void sendListRequestTest() {

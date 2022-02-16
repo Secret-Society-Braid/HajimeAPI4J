@@ -29,6 +29,6 @@ public class Unit {
     private String api;
 
     /**所属メンバー */
-    private List<Member> member;
+    private List<MemberSolo> member;
 
 }

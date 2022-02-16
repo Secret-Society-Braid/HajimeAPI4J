@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import HajimeAPI4J.api.util.datatype.Member;
+import HajimeAPI4J.api.util.datatype.MemberSolo;
 
 public class ParseMusic {
 
@@ -109,5 +110,22 @@ public class ParseMusic {
         }
     }
 
-    public List
+    public List<Map<String, Object>> getDisc() {
+        try {
+            return new ObjectMapper().readValue(node.get("disc").traverse(), listTypeRef);
+        } catch (IOException e) {
+            logger.error("Exception while parsing json to Disc", e);
+            return Collections.emptyList();
+        }
+    }
+
+    public List<Map<String, Object>> getLive() {
+        try {
+            return new ObjectMapper().readValue(node.get("live").traverse(), listTypeRef);
+        } catch (IOException e) {
+            logger.error("Exception while parsing json to Live", e);
+            return Collections.emptyList();
+        }
+    }
+
 }

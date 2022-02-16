@@ -9,7 +9,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class Member {
+public class MemberSolo {
     
     /**アイドル名 */
     private String name;
@@ -31,4 +31,7 @@ public class Member {
 
     /**声優名 */
     private String cv;
+
+    /**ソロバージョンかどうか(Solo型のみ) */
+    private boolean solo;
 }

@@ -3,6 +3,7 @@
  */
 package HajimeAPI4J.api;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
@@ -516,5 +517,5 @@ public interface HajimeAPI4J {
      * リクエストに使用するパラメータを設定する
      * @param params パラメータ
      */
-    void setParams(@Nonnull Map<String, String> params);
+    void setParams(@Nonnull LinkedHashMap<String, String> params);
 }

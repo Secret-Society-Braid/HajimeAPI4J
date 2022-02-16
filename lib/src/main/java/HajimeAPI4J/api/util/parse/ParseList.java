@@ -35,15 +35,17 @@ public class ParseList {
     }
 
     protected void validation(List<Map<String, Object>> data) {
-        Map<String, String> map = new HashMap<>();
         list = new ArrayList<>();
-        data.stream().forEach(e -> {
-            e.entrySet().stream().forEach(f -> map.put(f.getKey(), f.getValue().toString()));
-            list.add(map);
-        });
+        for(Map<String, Object> m : data) {
+            HashMap<String, String> tmp = new HashMap<>();
+            for(Map.Entry<String, Object> e : m.entrySet()) {
+                tmp.put(e.getKey(), e.getValue().toString());
+            }
+            list.add(tmp);
+        }
     }
 
-    public List<Map<String, String>> parse() {
+    public List<Map<String, String>> asList() {
         return list;
     }
 }

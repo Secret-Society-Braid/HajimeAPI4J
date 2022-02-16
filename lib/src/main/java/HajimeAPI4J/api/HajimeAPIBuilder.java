@@ -1,7 +1,6 @@
 package HajimeAPI4J.api;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.Objects;
 
 import javax.annotation.Nonnull;
@@ -18,7 +17,7 @@ public class HajimeAPIBuilder {
     private Logger logger = LoggerFactory.getLogger(HajimeAPIBuilder.class);
 
     private String token = null;
-    private Map<String, String> params = new HashMap<>();
+    private LinkedHashMap<String, String> params = new LinkedHashMap<>();
 
 
     private static final String BASE_URI = "https://api.fujiwarahaji.me/v1/";
@@ -47,10 +46,14 @@ public class HajimeAPIBuilder {
     public HajimeAPIBuilder addParameter(HajimeAPI4J.List_Params param, String... values) {
         Checks.requireSameToken(HajimeAPI4J.Token.LIST, token);
         Checks.availableListParam(param);
-        if(Checks.softRequireNonNull(params) && params.containsKey(HajimeAPI4J.List_Type.MUSIC.toString()) && !param.canApplyForMusicToken()) {
-            throw new IllegalParameterException("This parameter cannot be applied for music token.");
-        } else if (Checks.softRequireNonNull(params) && !param.canApplyForClassificationToken()){
-            throw new IllegalParameterException("This parameter cannot be applied for classification token.");
+        if(Checks.softRequireNonNull(params)) {
+            if(params.containsValue(HajimeAPI4J.List_Type.MUSIC.toString())) {
+                if(!param.canApplyForMusicToken())
+                    throw new IllegalParameterException("This parameter cannot be applied for music token.");
+            } else {
+                if(!param.canApplyForClassificationToken())
+                    throw new IllegalParameterException("This parameter cannot be applied for classification token.");
+            }
         }
         if(Checks.softRequireNonNull(values)) {
             if(param.isAllowedArrayInput()) {

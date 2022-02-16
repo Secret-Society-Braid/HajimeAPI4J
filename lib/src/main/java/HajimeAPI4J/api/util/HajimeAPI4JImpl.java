@@ -4,17 +4,18 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import HajimeAPI4J.api.HajimeAPI4J;
 import HajimeAPI4J.api.HajimeAPIBuilder;
@@ -29,7 +30,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
     private HajimeAPI4J.Token token = null;
     private HajimeAPI4J.Status status = null;
     private boolean iscache = false;
-    private Map<String, String> param = null;
+    private LinkedHashMap<String, String> param = null;
 
     // constants
     private static final ExecutorService EXECUTOR_SERVICE = Executors.newWorkStealingPool();
@@ -42,7 +43,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
 	this(null, status, false, null);
     }
 
-    public HajimeAPI4JImpl(String uri, HajimeAPI4J.Status status, boolean iscache, Map<String, String> param) {
+    public HajimeAPI4JImpl(String uri, HajimeAPI4J.Status status, boolean iscache, LinkedHashMap<String, String> param) {
 	this.uri = uri;
 	this.status = status;
 	this.iscache = iscache;
@@ -89,6 +90,9 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
 	if(Checks.softRequireNonNull(this.uri)) {
 	    return this.uri;
 	}
+    if(this.status.equals(Status.FINISHED) || this.status.equals(Status.FAILED)) {
+        throw new IllegalStateException("This api has been already connected.");
+    }
 	this.logger.info("Set URI and move status to INITIALIZED");
 	this.setStatus(HajimeAPI4J.Status.INITIALIZED);
 	Checks.hardRequireNonNull(this.token);
@@ -148,7 +152,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
      * {@inheritDoc}
      */
     @Override
-    public void setParams(Map<String, String> param) {
+    public void setParams(LinkedHashMap<String, String> param) {
 	this.param = param;
     }
 
@@ -179,7 +183,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
 	this.uri = this.getURI();
 	Checks.serverAlive();
 	this.logger.info("Requested data type: {}", this.token);
-	this.param.forEach((k, v) -> this.logger.info("Requested parameter: {} = {}", k, v));
+	this.param.entrySet().stream().forEachOrdered(e -> this.logger.info("parameter -> {} : {}", e.getKey(), e.getValue()));
 	this.logger.info("Parsed URI: {}", this.uri);
 	this.setStatus(HajimeAPI4J.Status.FINISHED);
 	this.logger.info("Data transfer completed");
