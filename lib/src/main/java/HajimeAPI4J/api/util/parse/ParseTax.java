@@ -12,6 +12,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Deprecated
+/**
+ * @deprecated パース処理が完全に機能しないため、このクラスを使用せず、JacksonのJsonNodeをそのまま使用してください。取り出せるデータのキーはふじわらはじめAPI公式ドキュメントを御覧ください。
+ */
 public class ParseTax {
 
     private Logger logger = LoggerFactory.getLogger(ParseTax.class);

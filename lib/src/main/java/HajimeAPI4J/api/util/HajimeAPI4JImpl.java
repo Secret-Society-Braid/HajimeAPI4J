@@ -3,6 +3,7 @@ package HajimeAPI4J.api.util;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -187,7 +188,9 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
 	this.logger.info("Parsed URI: {}", this.uri);
 	this.setStatus(HajimeAPI4J.Status.FINISHED);
 	this.logger.info("Data transfer completed");
-	return new ObjectMapper().readTree(new URL(this.uri));
+    URLConnection conn = new URL(this.uri).openConnection();
+    conn.setRequestProperty("User-Agent", "OSS HajimeAPI java wrapper library/2.0.4-Experimental Java-Application/Java 11 or higher. OSS Sourcecode: https://github.com/Secret-Society-Braid/HajimeAPI4J / Library developed by : @hizumiaoba (Twitter), Ranfa/hizumiaoba/Indigo_leaF P#4144 (Discord), @hizumiaoba (GitHub)");
+	return new ObjectMapper().readTree(conn.getInputStream());
     }
 
     /**

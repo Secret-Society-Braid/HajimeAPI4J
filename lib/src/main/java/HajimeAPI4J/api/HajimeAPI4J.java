@@ -3,10 +3,15 @@
  */
 package HajimeAPI4J.api;
 
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
 
 import javax.annotation.Nonnull;
+
+import com.fasterxml.jackson.databind.JsonNode;
 
 import HajimeAPI4J.api.util.CheckServerStatus;
 import HajimeAPI4J.exception.NoSuchURIException;
@@ -518,4 +523,32 @@ public interface HajimeAPI4J {
      * @param params パラメータ
      */
     void setParams(@Nonnull LinkedHashMap<String, String> params);
+
+    /**
+     * レスポンスデータの取得
+     * @return レスポンスデータ
+     * @throws InterruptedException クールダウンタイム中にスレッドが中断された場合
+     * @throws NoSuchURIException リクエストURIが不正な場合
+     * @throws IOException リクエストに失敗した場合
+     */
+    JsonNode get() throws IOException, NoSuchURIException, InterruptedException;
+
+    /**
+     * レスポンスデータの取得
+     * @return レスポンスデータ
+     */
+    CompletableFuture<JsonNode> getAsync();
+
+    /**
+     * レスポンスデータの取得
+     * @param ExecutorService タスク実行用スレッドの指定。
+     * @return レスポンスデータ
+     */
+    CompletableFuture<JsonNode> getAsync(@Nonnull ExecutorService executor);
+
+    /**
+     * デフォルトで使用するExecutorServiceを返す
+     * @return ExecutorService
+     */
+    @Nonnull ExecutorService getDefaultExecutorService();
 }

@@ -15,6 +15,10 @@ import org.slf4j.LoggerFactory;
 import HajimeAPI4J.api.util.datatype.Member;
 import HajimeAPI4J.api.util.datatype.MemberSolo;
 
+@Deprecated
+/**
+ * @deprecated パース処理が完全に機能しないため、このクラスを使用せず、JacksonのJsonNodeをそのまま使用してください。取り出せるデータのキーはふじわらはじめAPI公式ドキュメントを御覧ください。
+ */
 public class ParseMusic {
 
     private Logger logger = LoggerFactory.getLogger(ParseMusic.class);

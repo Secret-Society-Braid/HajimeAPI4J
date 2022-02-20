@@ -26,23 +26,51 @@ public class HajimeAPIBuilder {
         this.token = token;
     }
 
+    /**
+     * 指定されたトークンを使用してインスタンスを生成します。
+     * @param token トークン
+     * @return インスタンス
+     */
     public static HajimeAPIBuilder createDefault(@Nonnull HajimeAPI4J.Token token) {
         return createDefault(token.toString());
     }
 
+    /**
+     * 指定されたトークンを使用してインスタンスを生成します。
+     * @param token トークン
+     * @return インスタンス
+     */
     public static HajimeAPIBuilder createDefault(@Nonnull String token) {
         return new HajimeAPIBuilder(token);
     }
 
+    /**
+     * インスタンスを生成します。
+     * @return インスタンス
+     * @deprecated インスタンスを生成する場合は、{@link #createDefault(HajimeAPI4J.Token)}を使用してください。このファクトリーメソッドは、テスト以外で使用されるべきではありません。
+     */
+    @Deprecated(since = "2.0.4")
     public static HajimeAPIBuilder create() {
         return new HajimeAPIBuilder(null);
     }
 
+    /**
+     * トークンを設定します。
+     * @param token 指定するトークン
+     * @return　自身のインスタンス。チェーンメソッド用途に最適です。
+     */
     public HajimeAPIBuilder setToken(@Nonnull HajimeAPI4J.Token token) {
         this.token = token.toString();
         return this;
     }
 
+    /**
+     * リクエストに使用するパラメータを設定します。
+     * トークンが設定されていない場合は、このメソッドを呼び出すと例外が発生します。
+     * @param param パラメータ
+     * @param values 値
+     * @return 自身のインスタンス。チェーンメソッド用途に最適です。
+     */
     public HajimeAPIBuilder addParameter(HajimeAPI4J.List_Params param, String... values) {
         Checks.requireSameToken(HajimeAPI4J.Token.LIST, token);
         Checks.availableListParam(param);
@@ -73,6 +101,13 @@ public class HajimeAPIBuilder {
         return this;
     }
 
+    /**
+     * リクエストに使用するパラメータを設定します。
+     * トークンが設定されていない場合は、このメソッドを呼び出すと例外が発生します。
+     * @param param パラメータ
+     * @param values 値
+     * @return 自身のインスタンス。チェーンメソッド用途に最適です。
+     */
     public HajimeAPIBuilder addParameter(HajimeAPI4J.Tax_Params param, String... values) {
         Checks.requireSameToken(HajimeAPI4J.Token.TAX, token);
         Checks.availableTaxParam(param);
@@ -94,6 +129,13 @@ public class HajimeAPIBuilder {
         return this;
     }
 
+    /**
+     * リクエストに使用するパラメータを設定します。
+     * トークンが設定されていない場合は、このメソッドを呼び出すと例外が発生します。
+     * @param param パラメータ
+     * @param values 値
+     * @return 自身のインスタンス。チェーンメソッド用途に最適です。
+     */
     public HajimeAPIBuilder addParameter(HajimeAPI4J.Music_Params param, String... values) {
         Checks.requireSameToken(HajimeAPI4J.Token.MUSIC, token);
         Checks.availableMusicParam(param);
@@ -115,6 +157,11 @@ public class HajimeAPIBuilder {
         return this;
     }
 
+    /**
+     * APIをビルドし、リクエスト可能な状態で返します。
+     * @return リクエスト可能なAPI
+     * @throws NullPointerException　トークンが設定されていない場合
+     */
     public HajimeAPI4JImpl build() throws NullPointerException {
         Checks.hardRequireNonNull(token);
         HajimeAPI4J.Token tokenEnumed = null;
