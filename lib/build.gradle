@@ -10,6 +10,8 @@ plugins {
     // Apply the java-library plugin for API and implementation separation.
     id 'java-library'
 
+    id 'java'
+
     id 'com.github.johnrengelman.shadow' version '7.1.1'
 }
 
@@ -36,6 +38,9 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "2.13.0"
 
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "2.13.0"
+
+    // lombok
+    implementation group: 'org.projectlombok', name: 'lombok', version: "1.18.8"
 }
 
 tasks.named('test') {
@@ -47,5 +52,12 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+tasks.named('javadoc') {
+    options.encoding = 'UTF-8'
+}
+
 sourceCompatibility = '11'
 targetCompatibility = '11'
+
+version = 'v2.0.4-Experimental'
+jar.baseName = 'HajimeAPI4J'

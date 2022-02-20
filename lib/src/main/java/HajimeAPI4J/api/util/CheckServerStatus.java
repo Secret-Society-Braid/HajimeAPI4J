@@ -1,8 +1,9 @@
-package HajimeAPI4J.connect;
+package HajimeAPI4J.api.util;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,6 @@ public class CheckServerStatus {
     /**
      * サーバーへテスト用のURIでGETリクエストを送信し、ステータスコードを取得します。
      * APIへ過剰な負荷を掛けないようにするため、成功or失敗に関わらず1秒間のクールダウンを設けています。
-     * @param uri ステータスチェックするURI
      * @return サーバーからのレスポンスが成功の場合は<code>TRUE</code>、失敗なら<code>FALSE</code>
      */
     public static final boolean isServerAlive() {
@@ -39,7 +39,7 @@ public class CheckServerStatus {
             if(conn != null) {
                 conn.disconnect();
                 try {
-                    Thread.sleep(1000);
+                    TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException e) {
                     logger.warn("Thread has been interrupted while cooldown.", e);
                     Thread.currentThread().interrupt();

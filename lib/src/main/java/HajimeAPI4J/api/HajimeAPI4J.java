@@ -3,92 +3,552 @@
  */
 package HajimeAPI4J.api;
 
-public abstract class HajimeAPI4J {
+import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
 
-    // generate constructor that throws UnsupportedOperationException whose message is "This class is not intended to be instantiated."
-    private HajimeAPI4J() {
-        throw new UnsupportedOperationException("This class is not intended to be instantiated.");
+import javax.annotation.Nonnull;
+
+import com.fasterxml.jackson.databind.JsonNode;
+
+import HajimeAPI4J.api.util.CheckServerStatus;
+import HajimeAPI4J.exception.NoSuchURIException;
+
+public interface HajimeAPI4J {
+
+    /**
+     * 呼び出された時点での内部処理状況を表す列挙型です。
+     * <code>canSend()</code>が<code>true</code>を返すとき、リクエストが送信できる状態にあることを示します。
+     * ステータスは以下の通りにサイクルします。
+     * <ul>
+     * <li>{@link #NOT_INITIALIZED}</li>
+     * <li>{@link #INITIALIZED}</li>
+     * <li>{@link #AWAIT_SENDING}</li>
+     * <li>{@link #FINISHED}</li>
+     * <li>{@link #FAILED}</li>
+     * </ul>
+     * {@link #FAILED}は、内部処理いずれかで例外処理が発生した場合に強制的に変更され、以降変更はされません。
+     */
+    public enum Status {
+        /**URIがビルドされておらず、ビルドも開始されていない状態 */
+        NOT_INITIALIZED(true),
+        /**ベースURIの構築が完了し、パラメータの受け付けができる状態 */
+        INITIALIZED(true),
+        /**APIリクエストが送れる状態 */
+        AWAIT_SENDING(true),
+        /**APIリクエストが完了し、レスポンスが返ってきた状態 */
+        FINISHED,
+        /**APIリクエストが送れなかった状態 */
+        FAILED;
+
+        private boolean canSend;
+
+        Status(boolean canSend) {
+            this.canSend = canSend;
+        }
+
+        Status() {
+            this.canSend = false;
+        }
+
+        public boolean canSend() {
+            return canSend;
+        }
     }
 
-    public static final String DATE_FORMAT_STRING = "yyyy-MM-dd";
-    public static final String BASE_URI = "https://api.fujiwarahaji.me/v1/";
+    /**
+     * ふじわらはじめAPIにて使用可能なトークンです。
+     * いずれかの指定がない場合は全て<code>NoSuchURIException</code>をスローします。
+     * 
+     * @see HajimeAPI4J.exception.NoSuchURIException
+     */
+    public enum Token {
+        /**Listトークン */
+        LIST("list"),
+        /**Musicトークン */
+        MUSIC("music"),
+        /**Taxトークン */
+        TAX("tax");
 
-    // レスポンスにおける親パラメータ群
-    // 曲名やライブ名、アイドル名など
-    public static final String NAME = "name";
+        private String tokenName;
 
-    // 出力カテゴリ名
-    public static final String TYPE = "type";
+        Token(String token) {
+            this.tokenName = token;
+        }
 
-    // 楽曲タイプ
-    public static final String MUSIC_TYPE = "music_type";
+        @Override
+        public String toString() {
+            return tokenName;
+        }
+    }
 
-    // 楽曲ID(ふじわらはじめAPI内部管理ID)
-    public static final String SONG_ID = "song_id";
+    // Request Parameter Values
 
-    //ふじわらはじめ内楽曲ページURL
-    public static final String LINK = "link";
+    public enum List_Type {
+        /**楽曲 */
+        MUSIC("music"),
 
-    // 楽曲情報のJSON URI
-    public static final String API = "api";
-    
-    // カテゴリID（ふじわらはじめAPI内部管理ID）
-    public static final String TAX_ID = "tax_id";
+        /**ライブ */
+        LIVE("live"),
 
-    // ライブ日時など
-    public static final String DATE = "date";
+        /**アイドル */
+        IDOL("idol"),
 
-    // アイドルの所属プロダクション
-    public static final String PRODUCTION = "production";
+        /**歌詞 */
+        LYRICS("lyrics"),
 
-    // アイドル名読み仮名
-    public static final String KANA = "kana";
+        /**作曲者 */
+        COMPOSER("composer"),
 
-    // 声優名
-    public static final String CV = "cv";
+        /**編曲者 */
+        ARRANGE("arrange"),
 
-    //　声優名読み仮名
-    public static final String CVKANA = "cvkana";
+        /**ディスコグラフィ */
+        DISC("disc"),
 
-    // ライブ会場
-    public static final String PLACE = "place";
+        /**担当声優 */
+        CV("cv");
 
-    //　ライブ参加メンバー、ユニットメンバー
-    public static final String MEMBER = "member";
+        private String typeName;
 
-    // セットリストの有無
-    public static final String SETLIST = "setlist";
+        List_Type(String type) {
+            this.typeName = type;
+        }
 
-    //同じ名義で作業をした楽曲一覧のカテゴリ「作詞、作曲、編曲」
-    public static final String LYRICS = "lyrics";
-    public static final String COMPOSER = "composer";
-    public static final String ARRANGE = "arrange";
+        @Override
+        public String toString() {
+            return typeName;
+        }
+    }
 
-    // 楽曲情報の出力
-    public static final String MUSIC = "music";
+    /**
+     * 楽曲種類の指定に使用します。
+     * このパラメータは複数指定可能です。
+     */
+    public enum Music_type {
+        /**シンデレラガールズ */
+        CG("cg"),
 
-    // セットリスト補足情報、MCなど
-    public static final String SONG_TEXT = "song_text";
+        /**ミリオンライブ */
+        ML("ml"),
 
-    //　参加ユニット
-    public static final String UNIT = "unit";
+        /**シャイニーカラーズ */
+        SC("sc"),
 
-    // メンバー情報補足（ユニット名など）    
-    public static final String MEMBER_TEXT = "member_text";
+        /**765オールスターズ */
+        AS("as"),
 
-    // ソロ音源の有無
-    public static final String SOLO = "solo";
+        /**合同楽曲 */
+        JOINT("joint"),
 
-    //　歌詞サイトURL
-    public static final String LYRICS_URL = "lyrics_url";
+        /**既存曲カバー */
+        COVER("cover");
 
-    // CD情報（円盤のみ）
-    public static final String DISC = "disc";
+        private String musicType;
 
-    // 披露されたLIVE情報
-    public static final String LIVE = "live";
+        Music_type(String musicType) {
+            this.musicType = musicType;
+        }
 
-    // 楽曲ID（ふじわらはじめAPI内部管理ID）
-    public static final String MUSIC_ID = "music_id";
+        @Override
+        public String toString() {
+            return musicType;
+        }
+    }
 
+    /**
+     * {@link HajimeAPI4J.Token#LIST}の出力情報の順序を決定します。
+     * デフォルト値は
+     * <ul>
+     * <li>typeがmusicのとき {@link #MUSIC_DEFAULT}、</li>
+     * <li>それ以外の場合は {@link #CLASSIFICATION_DEFAULT}</li>
+     * </ul>
+     * になります。
+     * フィールド{@link #canApplyForTypeMusicToken}が<code>true</code>のとき、{@link HajimeAPI4J.List_Params#TYPE}の{@link HajimeAPI4J.List_Type#MUSIC}に対してのみ適用されます。
+     */
+    public enum List_OrderBy {
+        /**タイトル */
+        TITLE("title", true),
+
+        /**日付 */
+        DATE("date", true),
+
+        /**ランダム */
+        RAND("rand", true),
+
+        /**名前順 */
+        NAME("name", false),
+
+        /**カウント数 */
+        COUNT("count", false);
+
+        private String orderBy;
+        private boolean canApplyForTypeMusicToken;
+
+        List_OrderBy(String orderBy, boolean canApplyForTypeMusicToken) {
+            this.orderBy = orderBy;
+            this.canApplyForTypeMusicToken = canApplyForTypeMusicToken;
+        }
+
+        @Override
+        public String toString() {
+            return orderBy;
+        }
+
+        public boolean canApplyForTypeToken() {
+            return canApplyForTypeMusicToken;
+        }
+
+        public static final List_OrderBy MUSIC_DEFAULT = DATE;
+
+        public static final List_OrderBy CLASSIFICATION_DEFAULT = NAME;
+    }
+
+    /**
+     * {@link HajimeAPI4J.Token#TAX}の出力情報の並び順を決定します。
+     * デフォルト（無指定）は{@link #NAME}になります。
+     */
+    public enum Tax_OrderBy {
+        /**名前 */
+        NAME("name"),
+
+        /**日付 */
+        DATE("date"),
+
+        /**ランダム */
+        RANDOM("random");
+
+        private String orderBy;
+
+        Tax_OrderBy(String orderBy) {
+            this.orderBy = orderBy;
+        }
+
+        @Override
+        public String toString() {
+            return orderBy;
+        }
+    }
+
+    /**
+     * 出力情報の整形の方法を決定します。
+     * デフォルト（無指定）は{@link #DESC}になります。
+     */
+    public enum Order {
+        /**昇順 */
+        ASC("asc"),
+
+        /**降順 */
+        DESC("desc");
+
+        private String order;
+
+        Order(String order) {
+            this.order = order;
+        }
+
+        @Override
+        public String toString() {
+            return order;
+        }
+
+        public static final Order DEFAULT = DESC;
+    }
+
+    /**
+     * 指定アイドルのプロダクション情報を決定します。
+     * この情報は複数指定可能です。
+     */
+    public enum Production {
+        /**シンデレラガールズ */
+        CG("cg"),
+
+        /**765プロダクション */
+        NAMCO("765"),
+
+        /**シャイニーカラーズ */
+        SC("sc");
+
+        private String production;
+
+        Production(String production) {
+            this.production = production;
+        }
+
+        @Override
+        public String toString() {
+            return production;
+        }
+    }
+
+    /**
+     * {@link HajimeAPI4J.Token#MUSIC}において、省略する情報を指定します。
+     * この情報は複数指定可能です。
+     */
+    public enum Hide {
+        /**CDメンバー */
+        CD_MEMBER("cd-member"),
+
+        /**ライブメンバー */
+        LIVE_MEMBER("live-member");
+
+        private String hide;
+
+        Hide(String hide) {
+            this.hide = hide;
+        }
+
+        @Override
+        public String toString() {
+            return hide;
+        }
+    }
+
+    // Request Parameters
+
+    /**
+     * {@link HajimeAPI4J.Token#LIST}のパラメータを指定します。
+     * 必須パラメータは{@link #TYPE}です。
+     * 配列での複数指定が許可されている場合は、{@link #isAllowedArrayInput}が<code>true</code>であることを確認してください。
+     * また、{@link #TYPE}が{@link HajimeAPI4J.List_Type#MUSIC}のときは{@link #canApplyForTypeMusicToken}が<code>true</code>である必要があります。
+     * それ以外の{@link #TYPE}の場合は{@link #canApplyForTypeMusicToken}は常に<code>false</code>です。
+     */
+    public enum List_Params {
+        /**一覧表示の分類 */
+        TYPE("type", false, true, true),
+
+        /**出力上限数 */
+        LIMIT("limit", false, true, false),
+
+        /**楽曲の種類 */
+        MUSIC_TYPE("music_type", true, true, false),
+
+        /**出力順序 */
+        ORDERBY("orderby", false, true, true),
+
+        /**出力の正順・逆順 */
+        ORDER("order", false, true, true),
+
+        /**検索用キーワード */
+        SEARCH("search", false, true, true),
+
+        /**アイドルの所属プロダクション */
+        PRODUCTION("production", true, false, true);
+
+        private String paramName;
+        private boolean isAllowedArrayInput;
+        private boolean applyForMusicToken;
+        private boolean applyForClassificationToken;
+
+        List_Params(String paramName, boolean isAllowedArrayInput, boolean applyForMusicToken, boolean applyForClassificationToken) {
+            this.paramName = paramName;
+            this.isAllowedArrayInput = isAllowedArrayInput;
+            this.applyForMusicToken = applyForMusicToken;
+            this.applyForClassificationToken = applyForClassificationToken;
+        }
+
+        public boolean isAllowedArrayInput() {
+            return isAllowedArrayInput;
+        }
+
+        public boolean canApplyForMusicToken() {
+            return applyForMusicToken;
+        }
+
+        public boolean canApplyForClassificationToken() {
+            return applyForClassificationToken;
+        }
+
+        @Override
+        public String toString() {
+            return paramName;
+        }
+    }
+
+    /**
+     * {@link HajimeAPI4J.Token#TAX}のパラメータを指定します。
+     * 必須パラメータは{@link #TAX_ID}、{@link #IDOL_NAME}、{@link #UNIT_NAME}のうち一つ指定です。
+     * 配列での複数指定が許可されている場合は、{@link #isAllowedArrayInput}が<code>true</code>であることを確認してください。
+     * {@link HajimeAPI4J.Token#TAX}では完全一致のみの検索のため、部分一致検索やその他のカテゴリでの検索の場合は{@link HajimeAPI4J.Token#LIST}の使用が推奨されています。
+     * 
+     * @see HajiimeAPI4J.Token#LIST
+     */
+    public enum Tax_Params {
+        /**ふじわらはじめAPI内部管理ID */
+        ID("id", false),
+
+        /**アイドル名（完全一致） */
+        IDOL_NAME("idol_name", false),
+
+        /**ユニット名（完全一致）
+         * @deprecated ユニット名では表記ゆれなどが存在するため、完全一致の検索はおすすめしていません。
+         */
+        @Deprecated
+        UNIT_NAME("unit_name", false),
+
+        /**出力上限数 */
+        LIMIT("limit", false),
+
+        /**楽曲の種類 */
+        MUSIC_TYPE("music_type", true),
+
+        /**出力順序 */
+        ORDERBY("orderby", false),
+
+        /**出力の正順・逆順 */
+        ORDER("order", false);
+
+        private String paramName;
+        private boolean isAllowedArrayInput;
+
+        Tax_Params(String paramName, boolean isAllowedArrayInput) {
+            this.paramName = paramName;
+            this.isAllowedArrayInput = isAllowedArrayInput;
+        }
+
+        public boolean isAllowedArrayInput() {
+            return isAllowedArrayInput;
+        }
+
+        @Override
+        public String toString() {
+            return paramName;
+        }
+    }
+
+    /**
+     * {@link HajimeAPI4J.Token#MUSIC}のパラメータを指定します。
+     * 必須パラメータは{@link #ID}です。
+     * 配列での複数指定が許可されている場合は、{@link #isAllowedArrayInput}が<code>true</code>であることを確認してください。
+     */
+    public enum Music_Params {
+        /**楽曲ID */
+        ID("id", false),
+
+        /**省略するデータ（高速化のため） */
+        HIDE("hide", true);
+
+        private String paramName;
+        private boolean isAllowedArrayInput;
+
+        Music_Params(String paramName, boolean isAllowedArrayInput) {
+            this.paramName = paramName;
+            this.isAllowedArrayInput = isAllowedArrayInput;
+        }
+
+        public boolean isAllowedArrayInput() {
+            return isAllowedArrayInput;
+        }
+
+        @Override
+        public String toString() {
+            return paramName;
+        }
+    }
+
+    // TODO: make enums for response params
+
+    /**
+     * 呼び出し現在の状態を返す
+     * @return 状態
+     */
+    Status getStatus();
+
+    /**
+     * 状態を設定する
+     * @param status 状態
+     */
+    void setStatus(Status status);
+
+    /**
+     * 現在設定されているトークンを返す
+     * @return トークン
+     */
+    Token getToken();
+
+    /**
+     * トークンを設定する
+     * @param token トークン
+     */
+    void setToken(Token token);
+
+    /**
+     * サーバーとのPing (ms) を測定する
+     * @return ピング結果 ms
+     */
+    @Nonnull
+    default long getPing() {
+        long time = System.currentTimeMillis();
+        CheckServerStatus.isServerAlive();
+        return System.currentTimeMillis() - time;
+    }
+
+    /**
+     * リクエストに使用するURIを返す
+     * @return URI
+     * @throws NoSuchURIException
+     */
+    @Nonnull
+    String getURI();
+
+    /**
+     * uriを設定する
+     * @param uri URI
+     */
+    void setURI(@Nonnull String uri);
+
+    /**
+     * 取得データのキャッシュを設定する
+     * @param cache キャッシュ
+     */
+    void setCache(boolean toggle);
+
+    /**
+     * 取得データのキャッシュを取得する
+     * @return キャッシュ
+     */
+    boolean isCache();
+
+    /**
+     * リクエストに使用するパラメータを返す
+     * @return パラメータ
+     */
+    @Nonnull
+    Map<String, String> getParams();
+
+    /**
+     * リクエストに使用するパラメータを設定する
+     * @param params パラメータ
+     */
+    void setParams(@Nonnull LinkedHashMap<String, String> params);
+
+    /**
+     * レスポンスデータの取得
+     * @return レスポンスデータ
+     * @throws InterruptedException クールダウンタイム中にスレッドが中断された場合
+     * @throws NoSuchURIException リクエストURIが不正な場合
+     * @throws IOException リクエストに失敗した場合
+     */
+    JsonNode get() throws IOException, NoSuchURIException, InterruptedException;
+
+    /**
+     * レスポンスデータの取得
+     * @return レスポンスデータ
+     */
+    CompletableFuture<JsonNode> getAsync();
+
+    /**
+     * レスポンスデータの取得
+     * @param ExecutorService タスク実行用スレッドの指定。
+     * @return レスポンスデータ
+     */
+    CompletableFuture<JsonNode> getAsync(@Nonnull ExecutorService executor);
+
+    /**
+     * デフォルトで使用するExecutorServiceを返す
+     * @return ExecutorService
+     */
+    @Nonnull ExecutorService getDefaultExecutorService();
 }
