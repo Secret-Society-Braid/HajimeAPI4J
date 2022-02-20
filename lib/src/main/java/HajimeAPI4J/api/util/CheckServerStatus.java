@@ -31,6 +31,7 @@ public class CheckServerStatus {
             URL url = new URL(uri);
             conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
+            conn.setRequestProperty("User-Agent", "OSS HajimeAPI java wrapper library/2.0.4-Experimental Java-Application/Java 11 or higher. OSS Sourcecode: https://github.com/Secret-Society-Braid/HajimeAPI4J / Library developed by : @hizumiaoba (Twitter), Ranfa/hizumiaoba/Indigo_leaF P#4144 (Discord), @hizumiaoba (GitHub)");
             conn.connect();
             statusCode = conn.getResponseCode();
         } catch (IOException e) {
