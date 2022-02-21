@@ -40,7 +40,7 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "2.13.0"
 
     // lombok
-    implementation group: 'org.projectlombok', name: 'lombok', version: "1.18.8"
+    implementation group: 'org.projectlombok', name: 'lombok', version: "1.18.22"
 }
 
 tasks.named('test') {
