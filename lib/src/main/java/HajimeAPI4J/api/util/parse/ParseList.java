@@ -1,55 +1,252 @@
 package HajimeAPI4J.api.util.parse;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Deprecated
-/**
- * @deprecated パース処理が完全に機能しないため、このクラスを使用せず、JacksonのJsonNodeをそのまま使用してください。取り出せるデータのキーはふじわらはじめAPI公式ドキュメントを御覧ください。
- */
-public class ParseList {
+import HajimeAPI4J.api.util.internal.IParse;
+
+public class ParseList implements IParse {
 
     private Logger logger = LoggerFactory.getLogger(ParseList.class);
     private JsonNode node = null;
-    private List<Map<String, String>> list = null;
+    private ArrayNode arrayNode = null;
 
+    // constructor
     public ParseList(JsonNode node) {
-	this.node = node;
+	    this.node = node;
     }
 
-    public ParseList converse() {
-        List<Map<String, Object>> res = null;
-        try {
-            res = new ObjectMapper().readValue(node.traverse(), new TypeReference<List<Map<String, Object>>>() {});
-        } catch (IOException e) {
-            logger.error("Exception while parsing json to list", e);
+
+    /**
+     * 指定した配列インデックスのNodeに格納されている「name」キーの値を取得します。
+     * 
+     * @param index 指定する配列インデックス
+     * 
+     * @throws IndexOutOfBoundsException 指定したインデックスが配列の範囲外の場合
+     * 
+     * @return 指定した配列インデックスのNodeに格納されている「name」キーの値
+     */
+    public String getName(int index) {
+        if(this.arrayNode.get(index) != null) {
+            return this.arrayNode.get(index).get("name").asText();
         }
-        validation(res);
-        return this;
+        throw new IndexOutOfBoundsException("input " + index + " is out of bounds. length : " + this.arrayNode.size());
     }
 
-    protected void validation(List<Map<String, Object>> data) {
-        list = new ArrayList<>();
-        for(Map<String, Object> m : data) {
-            HashMap<String, String> tmp = new HashMap<>();
-            for(Map.Entry<String, Object> e : m.entrySet()) {
-                tmp.put(e.getKey(), e.getValue().toString());
+    /**
+     * 指定した配列インデックスのNodeに格納されている「type」キーの値を取得します。
+     * 
+     * @param index 指定する配列インデックス
+     * 
+     * @throws IndexOutOfBoundsException 指定したインデックスが配列の範囲外の場合
+     * 
+     * @return 指定した配列インデックスのNodeに格納されている「type」キーの値
+     */
+    public String getType(int index) {
+        if(this.arrayNode.get(index) != null) {
+            return this.arrayNode.get(index).get("type").asText();
+        }
+        throw new IndexOutOfBoundsException("input " + index + " is out of bounds. length : " + this.arrayNode.size());
+    }
+
+    /**
+     * 指定した配列インデックスのNodeに格納されている「song_id, tax_id」キーの値を取得します。
+     * 
+     * @param index 指定する配列インデックス
+     * 
+     * @throws NullPointerException 指定したインデックスのNodeに「song_id, tax_id」キーが存在しない場合
+     * @throws IndexOutOfBoundsException 指定したインデックスが配列の範囲外の場合
+     * 
+     * @return 指定した配列インデックスのNodeに格納されている「song_id, tax_id」キーの値
+     */
+    public int getInternalId(int index) {
+        if(this.arrayNode.get(index) != null) {
+            JsonNode indexNode = this.arrayNode.get(index);
+            while(indexNode.fieldNames().hasNext()) {
+                String fieldName = indexNode.fieldNames().next();
+                if(fieldName.equals("song_id") || fieldName.equals("tax_id")) {
+                    return indexNode.get(fieldName).asInt();
+                }
             }
-            list.add(tmp);
+            throw new NullPointerException("song_id or tax_id is not found.");
         }
+        throw new IndexOutOfBoundsException("input " + index + " is out of bounds. length : " + this.arrayNode.size());
     }
 
-    public List<Map<String, String>> asList() {
-        return list;
+    /**
+     * 指定した配列インデックスのNodeに格納されている「link」キーの値を取得します。
+     * 
+     * @param index 指定する配列インデックス
+     * 
+     * @throws IndexOutOfBoundsException 指定したインデックスが配列の範囲外の場合
+     * 
+     * @return 指定した配列インデックスのNodeに格納されている「link」キーの値
+     */
+    public String getLink(int index) {
+        if(this.arrayNode.get(index) != null) {
+            return this.arrayNode.get(index).get("link").asText();
+        }
+        throw new IndexOutOfBoundsException("input " + index + " is out of bounds. length : " + this.arrayNode.size());
     }
+
+    /**
+     * 指定した配列インデックスのNodeに格納されている「api」キーの値を取得します。
+     * 
+     * @param index 指定する配列インデックス
+     * 
+     * @throws IndexOutOfBoundsException 指定したインデックスが配列の範囲外の場合
+     * 
+     * @return 指定した配列インデックスのNodeに格納されている「api」キーの値
+     */
+    public String getApi(int index) {
+        if(this.arrayNode.get(index) != null) {
+            return this.arrayNode.get(index).get("api").asText();
+        }
+        throw new IndexOutOfBoundsException("input " + index + " is out of bounds. length : " + this.arrayNode.size());
+    }
+
+    /**
+     * 指定した配列インデックスのNodeを取得します。
+     * 
+     * @param index 指定する配列インデックス
+     * 
+     * @throws IndexOutOfBoundsException 指定したインデックスが配列の範囲外の場合
+     * 
+     * @return 指定した配列インデックスのNode
+     */
+    public JsonNode getNode(int index) {
+        if(this.arrayNode.get(index) != null) {
+            return this.arrayNode.get(index);
+        }
+        throw new IndexOutOfBoundsException("input " + index + " is out of bounds. length : " + this.arrayNode.size());
+    }
+
+    /**
+     * 指定したキーに対応する値が含まれているNodeのインデックスを返します。
+     * 一致が見つからない場合は値にその文字列が含まれているNodeのインデックスを返します。
+     * 見つからない場合は-1を返します。
+     * 
+     * @param key 検索するキー
+     * @param value 検索する値
+     * 
+     * @return 指定したキーに対応する値が含まれているNodeのインデックス
+     */
+    public int getIndex(String key, String value) {
+        for (int i = 0; i < this.arrayNode.size(); i++) {
+            if (this.arrayNode.get(i).get(key).asText().equals(value)) {
+                return i;
+            }
+        }
+        for (int i = 0; i < this.arrayNode.size(); i++) {
+            if (this.arrayNode.get(i).get(key).asText().contains(value)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 指定した文字列が「name」キーの値に一致したものを検索し、そのNodeを返します。
+     * 一致しなかった場合は指定した文字列を含むNodeを検索し返します。
+     * 両方あてはまるものがなかった場合、nullを返します。
+     * 
+     * @param name 検索する文字列
+     * 
+     * @return 指定した文字列が「name」キーの値に一致したもの、もしくは指定した文字列を含むNode
+     */
+    public JsonNode getNode( String name ) {
+        for(JsonNode node : this.arrayNode) {
+            if(node.get("name").asText().equals(name)) {
+                return node;
+            }
+        }
+        for(JsonNode node : this.arrayNode) {
+            if(node.get("name").asText().contains(name)) {
+                return node;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * @deprecated listトークンではレスポンスは配列で返されるため、このメソッドではなく {@link #getName(int)} を使用してください
+     * 
+     * {@inheritDoc}
+     * 
+     * @see #getName(int)
+     */
+    @Deprecated
+    @Override
+    public String getName() {
+        throw new UnsupportedOperationException("This operation is not supported by list token.");
+    }
+
+    /**
+     * @deprecated listトークンではレスポンスは配列で返されるため、このメソッドではなく {@link #getType(int)} を使用してください
+     * 
+     * {@inheritDoc}
+     * 
+     * @see #getType(int)
+     */
+    @Deprecated
+    @Override
+    public String getType() {
+        throw new UnsupportedOperationException("This operation is not supported by list token.");
+    }
+
+    /**
+     * @deprecated listトークンではレスポンスは配列で返されるため、このメソッドではなく {@link #getInternalId(int)} を使用してください
+     * 
+     * {@inheritDoc}
+     * 
+     * @see #getInternalId(int)
+     */
+    @Deprecated
+    @Override
+    public String getInternalId() {
+        throw new UnsupportedOperationException("This operation is not supported by list token.");
+    }
+
+    /**
+     * @deprecated listトークンではレスポンスは配列で返されるため、このメソッドではなく {@link #getLink(int)} を使用してください
+     * 
+     * {@inheritDoc}
+     * 
+     * @see #getLink(int)
+     */
+    @Deprecated
+    @Override
+    public String getLink() {
+        throw new UnsupportedOperationException("This operation is not supported by list token.");
+    }
+
+    /**
+     * @deprecated listトークンではレスポンスは配列で返されるため、このメソッドではなく {@link #getApi(int)} を使用してください
+     * 
+     * {@inheritDoc}
+     * 
+     * @see #getApi(int)
+     */
+    @Deprecated
+    @Override
+    public String getApi() {
+        throw new UnsupportedOperationException("This operation is not supported by list token.");
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public JsonNode getJsonNode() {
+        return node;
+    }
+
 }
