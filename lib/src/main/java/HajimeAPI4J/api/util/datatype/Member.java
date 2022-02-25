@@ -1,11 +1,14 @@
 package HajimeAPI4J.api.util.datatype;
 
 
+import HajimeAPI4J.api.util.internal.IParse;
+import com.fasterxml.jackson.databind.JsonNode;
+
 /**
  * ふじわらはじめAPIでよく使用されているMember型を定義したクラスです。
  * フィールド名はパラメータ名から、説明はAPI説明にて掲載されている文言と同じものとしています。
  */
-public class Member {
+public class Member implements IParse {
     
     /**アイドル名 */
     private String name;
@@ -27,6 +30,20 @@ public class Member {
 
     /**声優名 */
     private String cv;
+
+    public Member(JsonNode node) {
+        this.name = node.get("name").asText();
+        this.type = node.get("type").asText();
+        this.tax_id = node.get("tax_id").asInt();
+        this.link = node.get("link").asText();
+        this.api = node.get("api").asText();
+        this.production = node.get("production").asText();
+        this.cv = node.get("cv").asText();
+    }
+
+    public Member() {
+        /* do nothing */
+    }
 
     public String getName() {
         return name;
@@ -50,6 +67,10 @@ public class Member {
 
     public void setTax_id(int tax_id) {
         this.tax_id = tax_id;
+    }
+
+    public String getInternalId() {
+        return String.valueOf(getTax_id());
     }
 
     public String getLink() {
@@ -82,6 +103,11 @@ public class Member {
 
     public void setCv(String cv) {
         this.cv = cv;
+    }
+
+    @Deprecated
+    public JsonNode getJsonNode() {
+        throw new UnsupportedOperationException("This operation is not supported by this class.");
     }
 
     

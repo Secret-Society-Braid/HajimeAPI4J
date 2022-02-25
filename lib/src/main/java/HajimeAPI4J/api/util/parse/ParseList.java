@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import HajimeAPI4J.api.HajimeAPI4J;
+import HajimeAPI4J.api.HajimeAPIBuilder;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
@@ -22,6 +24,13 @@ public class ParseList implements IParse {
     // constructor
     public ParseList(JsonNode node) {
 	    this.node = node;
+        if(node.isArray()) {
+            this.arrayNode = (ArrayNode)node;
+        } else {
+            /* This won't be happened. */
+            logger.error("Illegal node type. was there some changes in API?");
+            throw new RuntimeException("Illegal node type. was there some changes in API?");
+        }
     }
 
 
@@ -143,10 +152,7 @@ public class ParseList implements IParse {
         for (int i = 0; i < this.arrayNode.size(); i++) {
             if (this.arrayNode.get(i).get(key).asText().equals(value)) {
                 return i;
-            }
-        }
-        for (int i = 0; i < this.arrayNode.size(); i++) {
-            if (this.arrayNode.get(i).get(key).asText().contains(value)) {
+            } else if (this.arrayNode.get(i).get(key).asText().contains(value)) {
                 return i;
             }
         }
@@ -166,10 +172,7 @@ public class ParseList implements IParse {
         for(JsonNode node : this.arrayNode) {
             if(node.get("name").asText().equals(name)) {
                 return node;
-            }
-        }
-        for(JsonNode node : this.arrayNode) {
-            if(node.get("name").asText().contains(name)) {
+            } else if(node.get("name").asText().contains(name)) {
                 return node;
             }
         }
@@ -247,6 +250,28 @@ public class ParseList implements IParse {
     @Override
     public JsonNode getJsonNode() {
         return node;
+    }
+
+    /**
+     * 指定したインデックスの「api」情報を使用して新しいHajimeAPI４Jのインスタンスを返します。
+     * 楽曲情報などの詳細を調べる用途に便利です。
+     *
+     * @param index 指定するインデックス
+     *
+     * @return 「music」もしくは「tax」トークンと「api」データが設定された新しいHajimeAPI４Jインスタンス
+     */
+    public HajimeAPI4J getAPIInstance(int index) {
+        JsonNode node = this.arrayNode.get(index);
+        HajimeAPIBuilder builder;
+        if(node.get("type").asText().equals("music")) {
+            builder = HajimeAPIBuilder.createDefault(HajimeAPI4J.Token.MUSIC);
+            builder.addParameter(HajimeAPI4J.Music_Params.ID, node.get("song_id").asText());
+            return builder.build();
+        } else {
+            builder = HajimeAPIBuilder.createDefault(HajimeAPI4J.Token.TAX);
+            builder.addParameter(HajimeAPI4J.Tax_Params.ID, node.get("tax_id").asText());
+            return builder.build();
+        }
     }
 
 }

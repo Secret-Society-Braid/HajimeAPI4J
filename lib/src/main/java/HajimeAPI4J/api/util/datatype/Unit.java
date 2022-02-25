@@ -1,5 +1,11 @@
 package HajimeAPI4J.api.util.datatype;
 
+import HajimeAPI4J.api.util.internal.IParse;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
 import java.util.List;
 
 
@@ -7,7 +13,7 @@ import java.util.List;
  * ふじわらはじめAPIでよく使用されているUnit型を定義したクラスです。
  * フィールド名はパラメータ名から、説明はAPI説明にて掲載されている文言と同じものとしています。
  */
-public class Unit {
+public class Unit implements IParse {
     
     /**ユニット名 */
     private String name;
@@ -25,7 +31,36 @@ public class Unit {
     private String api;
 
     /**所属メンバー */
-    private List<MemberSolo> member;
+    private List<Member> member;
+
+    //constructor
+    public Unit() {
+        this("", "", 0, "", "", null);
+    }
+
+    public Unit(String name, String type, int tax_id, String link, String api, List<Member> member) {
+        this.name = name;
+        this.type = type;
+        this.tax_id = tax_id;
+        this.link = link;
+        this.api = api;
+        this.member = member;
+    }
+
+    public Unit(JsonNode node) {
+        this.name = node.get("name").asText();
+        this.type = node.get("type").asText();
+        this.tax_id = node.get("tax_id").asInt();
+        this.link = node.get("link").asText();
+        this.api = node.get("api").asText();
+        try {
+            List<Member> members = new ObjectMapper().readValue(node.get("member").traverse(), new TypeReference<List<Member>>() {});
+            this.member = members;
+        } catch (IOException e) {
+            e.printStackTrace();
+            this.member = null;
+        }
+    }
 
     public String getName() {
         return name;
@@ -51,6 +86,10 @@ public class Unit {
         this.tax_id = tax_id;
     }
 
+    public String getInternalId() {
+        return String.valueOf(getTax_id());
+    }
+
     public String getLink() {
         return link;
     }
@@ -67,13 +106,15 @@ public class Unit {
         this.api = api;
     }
 
-    public List<MemberSolo> getMember() {
+    public List<Member> getMember() {
         return member;
     }
 
-    public void setMember(List<MemberSolo> member) {
+    public void setMember(List<Member> member) {
         this.member = member;
     }
 
-    
+    public JsonNode getJsonNode() {
+        throw new UnsupportedOperationException("This operation is not supported by this class.");
+    }
 }
