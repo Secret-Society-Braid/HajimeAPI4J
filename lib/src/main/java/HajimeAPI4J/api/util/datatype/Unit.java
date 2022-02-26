@@ -1,5 +1,6 @@
 package HajimeAPI4J.api.util.datatype;
 
+import HajimeAPI4J.api.HajimeAPI4J;
 import HajimeAPI4J.api.util.internal.IParse;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -12,6 +13,9 @@ import java.util.List;
 /**
  * ふじわらはじめAPIでよく使用されているUnit型を定義したクラスです。
  * フィールド名はパラメータ名から、説明はAPI説明にて掲載されている文言と同じものとしています。
+ *
+ * @author Ranfa
+ * @since 1.0.0
  */
 public class Unit implements IParse {
     
@@ -116,5 +120,16 @@ public class Unit implements IParse {
 
     public JsonNode getJsonNode() {
         throw new UnsupportedOperationException("This operation is not supported by this class.");
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @deprecated このクラスではこの操作はできません。
+     */
+    @Deprecated
+    @Override
+    public HajimeAPI4J getAPIInstance() {
+        throw new UnsupportedOperationException("This operation is not supported in this class.");
     }
 }

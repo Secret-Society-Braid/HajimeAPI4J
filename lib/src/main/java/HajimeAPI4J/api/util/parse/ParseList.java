@@ -1,10 +1,5 @@
 package HajimeAPI4J.api.util.parse;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import HajimeAPI4J.api.HajimeAPI4J;
 import HajimeAPI4J.api.HajimeAPIBuilder;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -250,6 +245,17 @@ public class ParseList implements IParse {
     @Override
     public JsonNode getJsonNode() {
         return node;
+    }
+
+    /**
+     * @deprecated Listトークンではレスポンスが配列で返されるため、{@link #getAPIInstance(int)}を使用してください
+     *
+     * {@inheritDoc}
+     */
+    @Deprecated
+    @Override
+    public HajimeAPI4J getAPIInstance() {
+        throw new UnsupportedOperationException("This operation is not supported by list token.");
     }
 
     /**

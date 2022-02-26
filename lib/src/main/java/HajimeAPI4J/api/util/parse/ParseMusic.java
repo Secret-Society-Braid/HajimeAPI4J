@@ -1,5 +1,7 @@
 package HajimeAPI4J.api.util.parse;
 
+import HajimeAPI4J.api.HajimeAPI4J;
+import HajimeAPI4J.api.HajimeAPIBuilder;
 import HajimeAPI4J.api.util.datatype.Member;
 import HajimeAPI4J.api.util.datatype.MemberSolo;
 import HajimeAPI4J.api.util.datatype.Unit;
@@ -8,6 +10,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ParseMusic implements IParse {
@@ -271,5 +274,132 @@ public class ParseMusic implements IParse {
             }
         }
         return resList;
+    }
+
+    static class Live {
+        private String name;
+        private String type;
+        private int tax_id;
+        private String link;
+        private String api;
+        private String date;
+        private String place;
+        private Unit unit;
+        private Member member;
+
+        private final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public int getTax_id() {
+            return tax_id;
+        }
+
+        public void setTax_id(int tax_id) {
+            this.tax_id = tax_id;
+        }
+
+        public String getLink() {
+            return link;
+        }
+
+        public void setLink(String link) {
+            this.link = link;
+        }
+
+        public String getApi() {
+            return api;
+        }
+
+        public void setApi(String api) {
+            this.api = api;
+        }
+
+        public String getDate() {
+            return date;
+        }
+
+        public void setDate(String date) {
+            this.date = date;
+        }
+
+        public String getPlace() {
+            return place;
+        }
+
+        public void setPlace(String place) {
+            this.place = place;
+        }
+
+        public Unit getUnit() {
+            return unit;
+        }
+
+        public void setUnit(Unit unit) {
+            this.unit = unit;
+        }
+
+        public Member getMember() {
+            return member;
+        }
+
+        public void setMember(Member member) {
+            this.member = member;
+        }
+    }
+
+    /**
+     * ライブ情報を配列で返します。
+     *
+     * @return ライブ情報
+     */
+    public List<Live> getLive() {
+        JsonNode liveNode = node.get("live");
+        List<Live> resList = new ArrayList<>();
+        if(liveNode.isArray()) {
+            for( JsonNode node : liveNode) {
+                Live tmp = new Live();
+                tmp.setName(node.get("name").asText());
+                tmp.setType(node.get("type").asText());
+                tmp.setTax_id(node.get("tax_id").asInt());
+                tmp.setLink(node.get("link").asText());
+                tmp.setApi(node.get("api").asText());
+                tmp.setDate(node.get("date").asText());
+                tmp.setPlace(node.get("place").asText());
+                tmp.setUnit(new Unit(node.get("unit")));
+                tmp.setMember(new MemberSolo(node.get("member")));
+                resList.add(tmp);
+            }
+        } else {
+            throw new RuntimeException("This won't be happened.");
+        }
+        return resList;
+    }
+
+    /**
+     * {[@inheritDoc]}
+     *
+     * この情報では返されるインスタンスは元の情報取得時のものと同じになります。
+     */
+    @Override
+    public HajimeAPI4J getAPIInstance() {
+        String id = getInternalId();
+        HajimeAPIBuilder builder = HajimeAPIBuilder.createDefault(HajimeAPI4J.Token.MUSIC);
+        builder.addParameter(HajimeAPI4J.Music_Params.ID, id);
+        return builder.build();
     }
 }

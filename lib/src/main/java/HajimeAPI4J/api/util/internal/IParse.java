@@ -1,5 +1,6 @@
 package HajimeAPI4J.api.util.internal;
 
+import HajimeAPI4J.api.HajimeAPI4J;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import HajimeAPI4J.api.util.parse.ParseList;
@@ -69,4 +70,11 @@ public interface IParse {
         return "UTF-8";
     }
 
+    /**
+     * 取得した情報の「API」キーの情報を使用して新しいHajimeAPI４Jインスタンスを生成します。
+     * 取得した情報の詳細を調べるのに最適です。
+     *
+     * @return 新しいHajimeAPI４Jインスタンス
+     */
+    HajimeAPI4J getAPIInstance();
 }
