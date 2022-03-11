@@ -49,6 +49,7 @@ public class Member implements IParse {
         /* do nothing */
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -57,6 +58,7 @@ public class Member implements IParse {
         this.name = name;
     }
 
+    @Override
     public String getType() {
         return type;
     }
@@ -73,10 +75,12 @@ public class Member implements IParse {
         this.tax_id = tax_id;
     }
 
+    @Override
     public String getInternalId() {
         return String.valueOf(getTax_id());
     }
 
+    @Override
     public String getLink() {
         return link;
     }
@@ -85,6 +89,7 @@ public class Member implements IParse {
         this.link = link;
     }
 
+    @Override
     public String getApi() {
         return api;
     }

@@ -66,6 +66,7 @@ public class Unit implements IParse {
         }
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -74,6 +75,7 @@ public class Unit implements IParse {
         this.name = name;
     }
 
+    @Override
     public String getType() {
         return type;
     }
@@ -90,10 +92,12 @@ public class Unit implements IParse {
         this.tax_id = tax_id;
     }
 
+    @Override
     public String getInternalId() {
         return String.valueOf(getTax_id());
     }
 
+    @Override
     public String getLink() {
         return link;
     }
@@ -102,6 +106,7 @@ public class Unit implements IParse {
         this.link = link;
     }
 
+    @Override
     public String getApi() {
         return api;
     }
@@ -118,6 +123,7 @@ public class Unit implements IParse {
         this.member = member;
     }
 
+    @Override
     public JsonNode getJsonNode() {
         throw new UnsupportedOperationException("This operation is not supported by this class.");
     }
