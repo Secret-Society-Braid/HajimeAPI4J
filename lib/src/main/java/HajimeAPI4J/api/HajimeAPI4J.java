@@ -448,8 +448,6 @@ public interface HajimeAPI4J {
         }
     }
 
-    // TODO: make enums for response params
-
     /**
      * 呼び出し現在の状態を返す
      * @return 状態

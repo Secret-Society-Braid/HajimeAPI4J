@@ -1,89 +1,58 @@
 package HajimeAPI4J.api.util.parse;
 
-import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-
-import com.fasterxml.jackson.core.type.TypeReference;
+import HajimeAPI4J.api.HajimeAPI4J;
+import HajimeAPI4J.api.HajimeAPIBuilder;
+import HajimeAPI4J.api.util.internal.IParse;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+public class ParseTax implements IParse {
 
-@Deprecated
-/**
- * @deprecated パース処理が完全に機能しないため、このクラスを使用せず、JacksonのJsonNodeをそのまま使用してください。取り出せるデータのキーはふじわらはじめAPI公式ドキュメントを御覧ください。
- */
-public class ParseTax {
-
-    private Logger logger = LoggerFactory.getLogger(ParseTax.class);
-    private JsonNode node = null;
-    private Map<String, Object> map = null;
-
-    private static final TypeReference<Map<String, Object>> typeRef = new TypeReference<Map<String, Object>>() {};
+    private final JsonNode node;
 
     public ParseTax(JsonNode node) {
         this.node = node;
     }
 
-    public ParseTax converse() {
-        try {
-            map = new ObjectMapper().readValue(node.traverse(), typeRef);
-        } catch (IOException e) {
-            logger.error("Exception while parsing json to Tax", e);
-        }
-        return this;
-    }
-
-    public Map<String, Object> parse() {
-        return map;
-    }
-
+    @Override
     public String getName() {
-        return (String) map.get("name");
+        return node.get("name").asText();
     }
 
+    @Override
     public String getType() {
-        return (String) map.get("type");
+        return node.get("type").asText();
     }
 
-    public int getTaxId() {
-        return (int) map.get("tax_id");
+    @Override
+    public String getInternalId() {
+        return node.get("tax_id").asText();
     }
 
+    @Override
     public String getLink() {
-        return (String) map.get("link");
+        return node.get("link").asText();
     }
 
+    @Override
     public String getApi() {
-        return (String) map.get("api");
+        return node.get("api").asText();
     }
 
-    public String getKana() {
-        return (String) map.get("kana");
+    @Override
+    public JsonNode getJsonNode() {
+        return node;
     }
 
-    public String getCv() {
-        return (String) map.get("cv");
+    /**
+     * {@inheritDoc}
+     *
+     * この情報では返されるインスタンスは元の情報取得時のものと同じになります。
+     */
+    @Override
+    public HajimeAPI4J getAPIInstance() {
+        String id = getInternalId();
+        HajimeAPIBuilder builder = HajimeAPIBuilder.createDefault(HajimeAPI4J.Token.TAX);
+        builder.addParameter(HajimeAPI4J.Tax_Params.ID, id);
+        return builder.build();
     }
-
-    public String getCvKana() {
-        return (String) map.get("cvkana");
-    }
-
-    public String getProduction() {
-        return (String) map.get("production");
-    }
-
-    public List<Map<String, Object>> getSong() {
-        try {
-            return new ObjectMapper().readValue(node.get("song").traverse(), new TypeReference<List<Map<String, Object>>>() {});
-        } catch (IOException e) {
-            logger.error("Exception while parsing json to list", e);
-            return Collections.emptyList();
-        }
-    }
-    
 }

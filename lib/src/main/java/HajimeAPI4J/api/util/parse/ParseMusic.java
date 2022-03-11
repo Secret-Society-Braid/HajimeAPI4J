@@ -1,135 +1,405 @@
 package HajimeAPI4J.api.util.parse;
 
-import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-
-import com.fasterxml.jackson.core.type.TypeReference;
+import HajimeAPI4J.api.HajimeAPI4J;
+import HajimeAPI4J.api.HajimeAPIBuilder;
+import HajimeAPI4J.api.util.datatype.Member;
+import HajimeAPI4J.api.util.datatype.MemberSolo;
+import HajimeAPI4J.api.util.datatype.Unit;
+import HajimeAPI4J.api.util.internal.IParse;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import HajimeAPI4J.api.util.datatype.Member;
-import HajimeAPI4J.api.util.datatype.MemberSolo;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
-@Deprecated
-/**
- * @deprecated パース処理が完全に機能しないため、このクラスを使用せず、JacksonのJsonNodeをそのまま使用してください。取り出せるデータのキーはふじわらはじめAPI公式ドキュメントを御覧ください。
- */
-public class ParseMusic {
+public class ParseMusic implements IParse {
 
     private Logger logger = LoggerFactory.getLogger(ParseMusic.class);
 
-    private JsonNode node = null;
-    private Map<String, Object> map = null;
-
-    private static final TypeReference<Map<String, Object>> typeRef = new TypeReference<Map<String, Object>>() {};
-    private static final TypeReference<List<Map<String, Object>>> listTypeRef = new TypeReference<List<Map<String, Object>>>() {};
+    private JsonNode node;
 
     public ParseMusic(JsonNode node) {
         this.node = node;
     }
 
-    public ParseMusic converse() {
-        try {
-            map = new ObjectMapper().readValue(node.traverse(), typeRef);
-        } catch (IOException e) {
-            logger.error("Exception while parsing json to Music", e);
-        }
-        return this;
-    }
-
-    public Map<String, Object> parse() {
-        return map;
-    }
-
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public String getName() {
-        return (String) map.get("name");
+        return node.get("name").asText();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public String getType() {
-        return (String) map.get("type");
+        return node.get("type").asText();
     }
 
-    public int getMusicId() {
-        return (int) map.get("music_id");
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String getInternalId() {
+        return node.get("music_id").asText();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public String getLink() {
-        return (String) map.get("link");
+        return node.get("link").asText();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public String getApi() {
-        return (String) map.get("api");
+        return node.get("api").asText();
     }
 
-    public String getKana() {
-        return (String) map.get("kana");
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public JsonNode getJsonNode() {
+        return node;
     }
 
-    public String getMusicType() {
-        return (String) map.get("music_type");
-    }
-
-    public List<Map<String, Object>> getLyrics() {
-        try {
-            return new ObjectMapper().readValue(node.get("lyrics").traverse(), listTypeRef);
-        } catch (IOException e) {
-            logger.error("Exception while parsing json to Lyrics", e);
-            return Collections.emptyList();
+    /**
+     * 作詞者情報をList形式で返します。
+     * 配列の長さが1の場合でも、配列を返します。
+     *
+     * @return 作詞者情報
+     */
+    public List<Map<String, String>> getLyric() {
+        List<Map<String, String>> resList = new ArrayList<>();
+        JsonNode lyricNode = node.get("lyric");
+        if(lyricNode.isArray()) {
+            for(JsonNode node : lyricNode) {
+                Map<String, String> resMap = new HashMap<>();
+                resMap.put("name", node.get("name").asText());
+                resMap.put("link", node.get("link").asText());
+                resMap.put("api", node.get("api").asText());
+                resMap.put("tax_id", node.get("tax_id").asText());
+                resMap.put("type", node.get("type").asText());
+                resList.add(resMap);
+            }
+        } else {
+            /* This won't be happened. */
+            throw new RuntimeException("Lyric data must be array.");
         }
+        return resList;
     }
 
-    public List<Map<String, Object>> getComposer() {
-        try {
-            return new ObjectMapper().readValue(node.get("composer").traverse(), listTypeRef);
-        } catch (IOException e) {
-            logger.error("Exception while parsing json to Composer", e);
-            return Collections.emptyList();
+    /**
+     * 作曲者情報をList形式で返します。
+     * 配列の長さが1の場合でも、配列を返します。
+     *
+     * @return 作曲者情報
+     */
+    public List<Map<String, String>> getComposer() {
+        List<Map<String, String>> resList = new ArrayList<>();
+        JsonNode compositionNode = node.get("composer");
+        if(compositionNode.isArray()) {
+            for(JsonNode node : compositionNode) {
+                Map<String, String> resMap = new HashMap<>();
+                resMap.put("name", node.get("name").asText());
+                resMap.put("link", node.get("link").asText());
+                resMap.put("api", node.get("api").asText());
+                resMap.put("tax_id", node.get("tax_id").asText());
+                resMap.put("type", node.get("type").asText());
+                resList.add(resMap);
+            }
+        } else {
+            /* This won't be happened. */
+            throw new RuntimeException("composer data must be array.");
         }
+        return resList;
     }
 
-    public List<Map<String, Object>> getArrange() {
-        try {
-            return new ObjectMapper().readValue(node.get("arrange").traverse(), listTypeRef);
-        } catch (IOException e) {
-            logger.error("Exception while parsing json to Arrange", e);
-            return Collections.emptyList();
+    /**
+     * 編曲者情報をList形式で返します。
+     * 配列の長さが1の場合でも、配列を返します。
+     *
+     * @return 編曲者情報
+     */
+    public List<Map<String, String>> getArrange() {
+        List<Map<String, String>> resList = new ArrayList<>();
+        JsonNode arrangementNode = node.get("arrange");
+        if(arrangementNode.isArray()) {
+            for(JsonNode node : arrangementNode) {
+                Map<String, String> resMap = new HashMap<>();
+                resMap.put("name", node.get("name").asText());
+                resMap.put("link", node.get("link").asText());
+                resMap.put("api", node.get("api").asText());
+                resMap.put("tax_id", node.get("tax_id").asText());
+                resMap.put("type", node.get("type").asText());
+                resList.add(resMap);
+            }
+        } else {
+            /* This won't be happened. */
+            throw new RuntimeException("arranger data must be array.");
         }
+        return resList;
     }
 
-    public String getLyricsUrl() {
-        return (String) map.get("lyrics_url");
+    /**
+     * 歌詞サイトのURLを返します。
+     *
+     * @return 歌詞サイトのURL
+     */
+    public String getLyricURL() {
+        return node.get("lyrics_url").asText();
     }
 
+    /**
+     * CD、配信、ゲーム内出演メンバー情報をList形式で返します。
+     * 使用しているmember型は {@link Member} にて実装されている型です。
+     *
+     * @return CD、配信、ゲーム内出演メンバー情報
+     */
     public List<Member> getMember() {
-        try {
-            return new ObjectMapper().readValue(node.get("member").traverse(), new TypeReference<List<Member>>() {});
-        } catch (IOException e) {
-            logger.error("Exception while parsing json to Member", e);
-            return Collections.emptyList();
+        JsonNode memberNode = node.get("member");
+        List<Member> resList = new ArrayList<>();
+        if(memberNode.isArray()) {
+            for(JsonNode node : memberNode) {
+                Member member = new Member();
+                member.setName(node.get("name").asText());
+                member.setLink(node.get("link").asText());
+                member.setApi(node.get("api").asText());
+                member.setTax_id(node.get("tax_id").asInt());
+                member.setType(node.get("type").asText());
+                member.setProduction(node.get("production").asText());
+                member.setCv(node.get("cv").asText());
+                resList.add(member);
+            }
+        } else {
+            /* This won't be happened. */
+            throw new RuntimeException("member data must be array.");
+        }
+        return resList;
+    }
+
+    static class Disc {
+        private String name;
+        private String type;
+        private int tax_id;
+        private String link;
+        private String api;
+        private Unit unit;
+        private MemberSolo member;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public int getTax_id() {
+            return tax_id;
+        }
+
+        public void setTax_id(int tax_id) {
+            this.tax_id = tax_id;
+        }
+
+        public String getLink() {
+            return link;
+        }
+
+        public void setLink(String link) {
+            this.link = link;
+        }
+
+        public String getApi() {
+            return api;
+        }
+
+        public void setApi(String api) {
+            this.api = api;
+        }
+
+        public Unit getUnit() {
+            return unit;
+        }
+
+        public void setUnit(Unit unit) {
+            this.unit = unit;
+        }
+
+        public MemberSolo getMember() {
+            return member;
+        }
+
+        public void setMember(MemberSolo member) {
+            this.member = member;
         }
     }
 
-    public List<Map<String, Object>> getDisc() {
-        try {
-            return new ObjectMapper().readValue(node.get("disc").traverse(), listTypeRef);
-        } catch (IOException e) {
-            logger.error("Exception while parsing json to Disc", e);
-            return Collections.emptyList();
+    /**
+     * CD情報を配列で返します。
+     *
+     * @return CD情報
+     */
+    public List<Disc> getDisc() {
+        List<Disc> resList = new ArrayList<>();
+        JsonNode discNode = node.get("disc");
+        if(discNode.isArray()) {
+            for(JsonNode node : discNode) {
+                Disc disc = new Disc();
+                disc.setName(node.get("name").asText());
+                disc.setType(node.get("type").asText());
+                disc.setTax_id(node.get("tax_id").asInt());
+                disc.setLink(node.get("link").asText());
+                disc.setApi(node.get("api").asText());
+                disc.setUnit(new Unit(node.get("unit")));
+                disc.setMember(new MemberSolo(node.get("member")));
+                resList.add(disc);
+            }
+        }
+        return resList;
+    }
+
+    static class Live {
+        private String name;
+        private String type;
+        private int tax_id;
+        private String link;
+        private String api;
+        private String date;
+        private String place;
+        private Unit unit;
+        private Member member;
+
+        private final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public int getTax_id() {
+            return tax_id;
+        }
+
+        public void setTax_id(int tax_id) {
+            this.tax_id = tax_id;
+        }
+
+        public String getLink() {
+            return link;
+        }
+
+        public void setLink(String link) {
+            this.link = link;
+        }
+
+        public String getApi() {
+            return api;
+        }
+
+        public void setApi(String api) {
+            this.api = api;
+        }
+
+        public String getDate() {
+            return date;
+        }
+
+        public void setDate(String date) {
+            this.date = date;
+        }
+
+        public String getPlace() {
+            return place;
+        }
+
+        public void setPlace(String place) {
+            this.place = place;
+        }
+
+        public Unit getUnit() {
+            return unit;
+        }
+
+        public void setUnit(Unit unit) {
+            this.unit = unit;
+        }
+
+        public Member getMember() {
+            return member;
+        }
+
+        public void setMember(Member member) {
+            this.member = member;
         }
     }
 
-    public List<Map<String, Object>> getLive() {
-        try {
-            return new ObjectMapper().readValue(node.get("live").traverse(), listTypeRef);
-        } catch (IOException e) {
-            logger.error("Exception while parsing json to Live", e);
-            return Collections.emptyList();
+    /**
+     * ライブ情報を配列で返します。
+     *
+     * @return ライブ情報
+     */
+    public List<Live> getLive() {
+        JsonNode liveNode = node.get("live");
+        List<Live> resList = new ArrayList<>();
+        if(liveNode.isArray()) {
+            for( JsonNode node : liveNode) {
+                Live tmp = new Live();
+                tmp.setName(node.get("name").asText());
+                tmp.setType(node.get("type").asText());
+                tmp.setTax_id(node.get("tax_id").asInt());
+                tmp.setLink(node.get("link").asText());
+                tmp.setApi(node.get("api").asText());
+                tmp.setDate(node.get("date").asText());
+                tmp.setPlace(node.get("place").asText());
+                tmp.setUnit(new Unit(node.get("unit")));
+                tmp.setMember(new MemberSolo(node.get("member")));
+                resList.add(tmp);
+            }
+        } else {
+            throw new RuntimeException("This won't be happened.");
         }
+        return resList;
     }
 
+    /**
+     * {[@inheritDoc]}
+     *
+     * この情報では返されるインスタンスは元の情報取得時のものと同じになります。
+     */
+    @Override
+    public HajimeAPI4J getAPIInstance() {
+        String id = getInternalId();
+        HajimeAPIBuilder builder = HajimeAPIBuilder.createDefault(HajimeAPI4J.Token.MUSIC);
+        builder.addParameter(HajimeAPI4J.Music_Params.ID, id);
+        return builder.build();
+    }
 }
