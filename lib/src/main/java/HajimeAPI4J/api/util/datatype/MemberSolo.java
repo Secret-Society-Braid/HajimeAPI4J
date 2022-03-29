@@ -34,7 +34,7 @@ public class MemberSolo extends Member {
      *
      * @deprecated このクラスではこの操作はできません。
      */
-    @Deprecated
+    @Deprecated(forRemoval = false)
     @Override
     public HajimeAPI4J getAPIInstance() {
         throw new UnsupportedOperationException("This operation is not supported in this class.");
