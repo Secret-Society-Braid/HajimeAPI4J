@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 
+import javax.annotation.Nullable;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -91,10 +93,6 @@ public class Checks {
         throwIllegalParameterException(message, null);
     }
 
-    private static final void throwIllegalParameterException(Throwable e) {
-        throwIllegalParameterException(null, e);
-    }
-
     private static final void throwIllegalParameterException(String message, Throwable e) {
         logger.error(message);
         throw new IllegalParameterException(message, e);
@@ -104,17 +102,9 @@ public class Checks {
         throwNoSuchParameterException(message, null);
     }
 
-    private static final void throwNoSuchParameterException(Throwable e) {
-        throwNoSuchParameterException(null, e);
-    }
-
-    private static final void throwNoSuchParameterException(String message, Throwable e) {
+    private static final void throwNoSuchParameterException(String message, @Nullable Throwable e) {
         logger.error(message);
-        throw new NoSuchParameterException(String.format("Provided message : %s%nCaused by: %s", message, e.getMessage()));
-    }
-
-    private static final void throwNoSuchURIException(String message) throws NoSuchURIException {
-        throwNoSuchURIException(message, null);
+        throw new NoSuchParameterException(String.format("Provided message : %s%nCaused by: %s", message, e == null ? "null" : e.getMessage()));
     }
 
     private static final void throwNoSuchURIException(Throwable e) throws NoSuchURIException {
