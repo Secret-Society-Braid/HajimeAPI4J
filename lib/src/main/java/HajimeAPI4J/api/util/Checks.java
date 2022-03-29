@@ -2,6 +2,7 @@ package HajimeAPI4J.api.util;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Objects;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,18 +22,11 @@ public class Checks {
     }
 
     public static boolean softRequireNonNull(Object obj) {
-        if(obj == null) {
-            logger.warn("Object is null : {}", obj);
-            return false;
-        }
-        return true;
+        return Objects.nonNull(obj);
     }
 
     public static void hardRequireNonNull(Object obj) {
-        if(obj == null) {
-            logger.error("Object must not be null.");
-            throw new NullPointerException("Object must not be null.");
-        }
+        Objects.requireNonNull(obj, "Object must not be null.");
     }
 
     public static void requireSameToken(HajimeAPI4J.Token token, String current) {
