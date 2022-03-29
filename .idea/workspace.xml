@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96372f0c-b161-49b3-8f4a-a0529dab1ee9" name="Changes" comment="chore: increment version to v2.0.6-Experimental">
-      <change beforePath="$PROJECT_DIR$/lib/src/main/java/HajimeAPI4J/api/util/CheckServerStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/HajimeAPI4J/api/util/CheckServerStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/main/java/HajimeAPI4J/api/HajimeAPI4J.java" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/HajimeAPI4J/api/HajimeAPI4J.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/main/java/HajimeAPI4J/api/HajimeAPIBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/HajimeAPI4J/api/HajimeAPIBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/main/java/HajimeAPI4J/exception/ServerNotRespondError.java" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/java/HajimeAPI4J/exception/ServerNotRespondError.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

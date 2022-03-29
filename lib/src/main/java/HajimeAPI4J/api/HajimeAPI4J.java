@@ -312,8 +312,8 @@ public interface HajimeAPI4J {
      * {@link HajimeAPI4J.Token#LIST}のパラメータを指定します。
      * 必須パラメータは{@link #TYPE}です。
      * 配列での複数指定が許可されている場合は、{@link #isAllowedArrayInput}が<code>true</code>であることを確認してください。
-     * また、{@link #TYPE}が{@link HajimeAPI4J.List_Type#MUSIC}のときは{@link #canApplyForTypeMusicToken}が<code>true</code>である必要があります。
-     * それ以外の{@link #TYPE}の場合は{@link #canApplyForTypeMusicToken}は常に<code>false</code>です。
+     * また、{@link #TYPE}が{@link HajimeAPI4J.List_Type#MUSIC}のときは{@link #applyForMusicToken}が<code>true</code>である必要があります。
+     * それ以外の{@link #TYPE}の場合は{@link #applyForClassificationToken}は常に<code>false</code>です。
      */
     public enum List_Params {
         /**一覧表示の分類 */
@@ -369,11 +369,11 @@ public interface HajimeAPI4J {
 
     /**
      * {@link HajimeAPI4J.Token#TAX}のパラメータを指定します。
-     * 必須パラメータは{@link #TAX_ID}、{@link #IDOL_NAME}、{@link #UNIT_NAME}のうち一つ指定です。
+     * 必須パラメータは{@link #ID}、{@link #IDOL_NAME}、{@link #UNIT_NAME}のうち一つ指定です。
      * 配列での複数指定が許可されている場合は、{@link #isAllowedArrayInput}が<code>true</code>であることを確認してください。
      * {@link HajimeAPI4J.Token#TAX}では完全一致のみの検索のため、部分一致検索やその他のカテゴリでの検索の場合は{@link HajimeAPI4J.Token#LIST}の使用が推奨されています。
      * 
-     * @see HajiimeAPI4J.Token#LIST
+     * @see HajimeAPI4J.Token#LIST
      */
     public enum Tax_Params {
         /**ふじわらはじめAPI内部管理ID */
@@ -486,7 +486,6 @@ public interface HajimeAPI4J {
     /**
      * リクエストに使用するURIを返す
      * @return URI
-     * @throws NoSuchURIException
      */
     @Nonnull
     String getURI();
@@ -499,7 +498,7 @@ public interface HajimeAPI4J {
 
     /**
      * 取得データのキャッシュを設定する
-     * @param cache キャッシュ
+     * @param toggle キャッシュ
      */
     void setCache(boolean toggle);
 
@@ -539,7 +538,7 @@ public interface HajimeAPI4J {
 
     /**
      * レスポンスデータの取得
-     * @param ExecutorService タスク実行用スレッドの指定。
+     * @param executor タスク実行用スレッドの指定。
      * @return レスポンスデータ
      */
     CompletableFuture<JsonNode> getAsync(@Nonnull ExecutorService executor);

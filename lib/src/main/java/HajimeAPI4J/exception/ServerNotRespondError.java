@@ -10,14 +10,14 @@ package HajimeAPI4J.exception;
 public class ServerNotRespondError extends Error {
     
     /**
-     * 詳細メッセージなしで新規の<code>ServerNotRespondError</code<を作成します。
+     * 詳細メッセージなしで新規の <code>ServerNotRespondError</code> を作成します。
      */
     public ServerNotRespondError() {
         super();
     }
 
     /**
-     * 指定された詳細メッセージで新規の<code>ServerNotRespondError</code<を作成します。
+     * 指定された詳細メッセージで新規の<code>ServerNotRespondError</code>を作成します。
      * @param message 指定する詳細メッセージ
      */
     public ServerNotRespondError(String message) {
@@ -25,7 +25,7 @@ public class ServerNotRespondError extends Error {
     }
 
     /**
-     * 指定された詳細メッセージと原因で新規の<code>ServerNotRespondError</code<を作成します。
+     * 指定された詳細メッセージと原因で新規の<code>ServerNotRespondError</code>を作成します。
      * @param message 指定する詳細メッセージ
      * @param cause 指定する原因（原因がない、もしくは不明の場合は<code>null</code>）
      */
@@ -34,7 +34,7 @@ public class ServerNotRespondError extends Error {
     }
 
     /**
-     * 指定された原因で新規の<code>ServerNotRespondError</code<を作成します。
+     * 指定された原因で新規の<code>ServerNotRespondError</code>を作成します。
      * このコンストラクタの場合、詳細メッセージは
      * <code>cause==null ? null : cause.toString();</code>となります。
      * @param cause 指定する原因（原因がない、もしくは不明の場合は<code>null</code>）
@@ -44,7 +44,7 @@ public class ServerNotRespondError extends Error {
     }
 
     /**
-     * 指定された詳細メッセージと原因、suppressionの有無、スタックトレースの書き込み可否で新規の<code>ServerNotRespondError</code<を作成します。
+     * 指定された詳細メッセージと原因、suppressionの有無、スタックトレースの書き込み可否で新規の<code>ServerNotRespondError</code>を作成します。
      * @param message 指定する詳細メッセージ
      * @param cause 指定する原因（原因がない、もしくは不明の場合は<code>null</code>）
      * @param enableSuppression suppressionを有効にする場合は<code>TRUE</code>、無効にする場合は<code>FALSE</code>

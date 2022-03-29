@@ -57,7 +57,7 @@ public class HajimeAPIBuilder {
     /**
      * トークンを設定します。
      * @param token 指定するトークン
-     * @return　自身のインスタンス。チェーンメソッド用途に最適です。
+     * @return 自身のインスタンス。チェーンメソッド用途に最適です。
      */
     public HajimeAPIBuilder setToken(@Nonnull HajimeAPI4J.Token token) {
         this.token = token.toString();
@@ -160,7 +160,7 @@ public class HajimeAPIBuilder {
     /**
      * APIをビルドし、リクエスト可能な状態で返します。
      * @return リクエスト可能なAPI
-     * @throws NullPointerException　トークンが設定されていない場合
+     * @throws NullPointerException トークンが設定されていない場合
      */
     public HajimeAPI4JImpl build() throws NullPointerException {
         Checks.hardRequireNonNull(token);
