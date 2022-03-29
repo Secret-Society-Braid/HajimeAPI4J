@@ -1,21 +1,20 @@
 package HajimeAPI4J.api.util.parse;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.fasterxml.jackson.databind.JsonNode;
+
 import HajimeAPI4J.api.HajimeAPI4J;
 import HajimeAPI4J.api.HajimeAPIBuilder;
 import HajimeAPI4J.api.util.datatype.Member;
 import HajimeAPI4J.api.util.datatype.MemberSolo;
 import HajimeAPI4J.api.util.datatype.Unit;
 import HajimeAPI4J.api.util.internal.IParse;
-import com.fasterxml.jackson.databind.JsonNode;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.text.SimpleDateFormat;
-import java.util.*;
 
 public class ParseMusic implements IParse {
-
-    private Logger logger = LoggerFactory.getLogger(ParseMusic.class);
 
     private JsonNode node;
 
@@ -81,13 +80,13 @@ public class ParseMusic implements IParse {
         List<Map<String, String>> resList = new ArrayList<>();
         JsonNode lyricNode = node.get("lyric");
         if(lyricNode.isArray()) {
-            for(JsonNode node : lyricNode) {
+            for(JsonNode localNode : lyricNode) {
                 Map<String, String> resMap = new HashMap<>();
-                resMap.put("name", node.get("name").asText());
-                resMap.put("link", node.get("link").asText());
-                resMap.put("api", node.get("api").asText());
-                resMap.put("tax_id", node.get("tax_id").asText());
-                resMap.put("type", node.get("type").asText());
+                resMap.put("name", localNode.get("name").asText());
+                resMap.put("link", localNode.get("link").asText());
+                resMap.put("api", localNode.get("api").asText());
+                resMap.put("tax_id", localNode.get("tax_id").asText());
+                resMap.put("type", localNode.get("type").asText());
                 resList.add(resMap);
             }
         } else {
@@ -107,13 +106,13 @@ public class ParseMusic implements IParse {
         List<Map<String, String>> resList = new ArrayList<>();
         JsonNode compositionNode = node.get("composer");
         if(compositionNode.isArray()) {
-            for(JsonNode node : compositionNode) {
+            for(JsonNode localNode : compositionNode) {
                 Map<String, String> resMap = new HashMap<>();
-                resMap.put("name", node.get("name").asText());
-                resMap.put("link", node.get("link").asText());
-                resMap.put("api", node.get("api").asText());
-                resMap.put("tax_id", node.get("tax_id").asText());
-                resMap.put("type", node.get("type").asText());
+                resMap.put("name", localNode.get("name").asText());
+                resMap.put("link", localNode.get("link").asText());
+                resMap.put("api", localNode.get("api").asText());
+                resMap.put("tax_id", localNode.get("tax_id").asText());
+                resMap.put("type", localNode.get("type").asText());
                 resList.add(resMap);
             }
         } else {
@@ -133,13 +132,13 @@ public class ParseMusic implements IParse {
         List<Map<String, String>> resList = new ArrayList<>();
         JsonNode arrangementNode = node.get("arrange");
         if(arrangementNode.isArray()) {
-            for(JsonNode node : arrangementNode) {
+            for(JsonNode localNode : arrangementNode) {
                 Map<String, String> resMap = new HashMap<>();
-                resMap.put("name", node.get("name").asText());
-                resMap.put("link", node.get("link").asText());
-                resMap.put("api", node.get("api").asText());
-                resMap.put("tax_id", node.get("tax_id").asText());
-                resMap.put("type", node.get("type").asText());
+                resMap.put("name", localNode.get("name").asText());
+                resMap.put("link", localNode.get("link").asText());
+                resMap.put("api", localNode.get("api").asText());
+                resMap.put("tax_id", localNode.get("tax_id").asText());
+                resMap.put("type", localNode.get("type").asText());
                 resList.add(resMap);
             }
         } else {
@@ -168,15 +167,15 @@ public class ParseMusic implements IParse {
         JsonNode memberNode = node.get("member");
         List<Member> resList = new ArrayList<>();
         if(memberNode.isArray()) {
-            for(JsonNode node : memberNode) {
+            for(JsonNode localNode : memberNode) {
                 Member member = new Member();
-                member.setName(node.get("name").asText());
-                member.setLink(node.get("link").asText());
-                member.setApi(node.get("api").asText());
-                member.setTax_id(node.get("tax_id").asInt());
-                member.setType(node.get("type").asText());
-                member.setProduction(node.get("production").asText());
-                member.setCv(node.get("cv").asText());
+                member.setName(localNode.get("name").asText());
+                member.setLink(localNode.get("link").asText());
+                member.setApi(localNode.get("api").asText());
+                member.setTax_id(localNode.get("tax_id").asInt());
+                member.setType(localNode.get("type").asText());
+                member.setProduction(localNode.get("production").asText());
+                member.setCv(localNode.get("cv").asText());
                 resList.add(member);
             }
         } else {
@@ -261,15 +260,15 @@ public class ParseMusic implements IParse {
         List<Disc> resList = new ArrayList<>();
         JsonNode discNode = node.get("disc");
         if(discNode.isArray()) {
-            for(JsonNode node : discNode) {
+            for(JsonNode localNode : discNode) {
                 Disc disc = new Disc();
-                disc.setName(node.get("name").asText());
-                disc.setType(node.get("type").asText());
-                disc.setTax_id(node.get("tax_id").asInt());
-                disc.setLink(node.get("link").asText());
-                disc.setApi(node.get("api").asText());
-                disc.setUnit(new Unit(node.get("unit")));
-                disc.setMember(new MemberSolo(node.get("member")));
+                disc.setName(localNode.get("name").asText());
+                disc.setType(localNode.get("type").asText());
+                disc.setTax_id(localNode.get("tax_id").asInt());
+                disc.setLink(localNode.get("link").asText());
+                disc.setApi(localNode.get("api").asText());
+                disc.setUnit(new Unit(localNode.get("unit")));
+                disc.setMember(new MemberSolo(localNode.get("member")));
                 resList.add(disc);
             }
         }
@@ -286,8 +285,6 @@ public class ParseMusic implements IParse {
         private String place;
         private Unit unit;
         private Member member;
-
-        private final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         public String getName() {
             return name;
@@ -371,17 +368,17 @@ public class ParseMusic implements IParse {
         JsonNode liveNode = node.get("live");
         List<Live> resList = new ArrayList<>();
         if(liveNode.isArray()) {
-            for( JsonNode node : liveNode) {
+            for( JsonNode localNode : liveNode) {
                 Live tmp = new Live();
-                tmp.setName(node.get("name").asText());
-                tmp.setType(node.get("type").asText());
-                tmp.setTax_id(node.get("tax_id").asInt());
-                tmp.setLink(node.get("link").asText());
-                tmp.setApi(node.get("api").asText());
-                tmp.setDate(node.get("date").asText());
-                tmp.setPlace(node.get("place").asText());
-                tmp.setUnit(new Unit(node.get("unit")));
-                tmp.setMember(new MemberSolo(node.get("member")));
+                tmp.setName(localNode.get("name").asText());
+                tmp.setType(localNode.get("type").asText());
+                tmp.setTax_id(localNode.get("tax_id").asInt());
+                tmp.setLink(localNode.get("link").asText());
+                tmp.setApi(localNode.get("api").asText());
+                tmp.setDate(localNode.get("date").asText());
+                tmp.setPlace(localNode.get("place").asText());
+                tmp.setUnit(new Unit(localNode.get("unit")));
+                tmp.setMember(new MemberSolo(localNode.get("member")));
                 resList.add(tmp);
             }
         } else {
