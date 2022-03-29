@@ -14,7 +14,7 @@ public class ExceptionAssertionTest {
 
     @Test
     public void buildWithNullTokenTest() {
-        HajimeAPIBuilder builder = HajimeAPIBuilder.create();
+        HajimeAPIBuilder builder = HajimeAPIBuilder.createDefault((String) null);
         assertThrows(NullPointerException.class, builder::build);
     }
 

@@ -2,7 +2,6 @@ package HajimeAPI4J.api.util.datatype;
 
 
 import HajimeAPI4J.api.HajimeAPI4J;
-import HajimeAPI4J.api.util.internal.IParse;
 import com.fasterxml.jackson.databind.JsonNode;
 
 /**
@@ -12,41 +11,14 @@ import com.fasterxml.jackson.databind.JsonNode;
  * @author Ranfa
  * @since 1.0.0
  */
-public class MemberSolo extends Member implements IParse {
-    
-    /**アイドル名 */
-    private String name;
-    
-    /**出力しているカテゴリ名 */
-    private String type;
+public class MemberSolo extends Member {
 
-    /**カテゴリID（ふじわらはじめAPI内部管理ID） */
-    private int tax_id;
-
-    /**ふじわらはじめAPI内カテゴリーページURL */
-    private String link;
-
-    /**カテゴリのJSON 取得用URI */
-    private String api;
-
-    /**アイドルの所属プロダクション */
-    private String production;
-
-    /**声優名 */
-    private String cv;
-
-    /**ソロバージョンかどうか(Solo型のみ) */
+    /** ソロバージョンかどうか */
     private boolean solo;
-
+    
     public MemberSolo(JsonNode node) {
-        super();
-        this.name = node.get("name").asText();
-        this.type = node.get("type").asText();
-        this.tax_id = node.get("tax_id").asInt();
-        this.link = node.get("link").asText();
-        this.api = node.get("api").asText();
-        this.production = node.get("production").asText();
-        this.cv = node.get("cv").asText();
+        super(node);
+        this.solo = node.get("solo").asBoolean();
     }
 
     public boolean isSolo() {
@@ -62,7 +34,7 @@ public class MemberSolo extends Member implements IParse {
      *
      * @deprecated このクラスではこの操作はできません。
      */
-    @Deprecated
+    @Deprecated(forRemoval = false)
     @Override
     public HajimeAPI4J getAPIInstance() {
         throw new UnsupportedOperationException("This operation is not supported in this class.");
