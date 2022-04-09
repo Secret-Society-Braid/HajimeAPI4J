@@ -49,7 +49,7 @@ public class HajimeAPIBuilder {
      * @return インスタンス
      * @deprecated インスタンスを生成する場合は、{@link #createDefault(HajimeAPI4J.Token)}を使用してください。このファクトリーメソッドは、テスト以外で使用されるべきではありません。
      */
-    @Deprecated(since = "2.0.4")
+    @Deprecated(since = "2.0.4", forRemoval = true)
     public static HajimeAPIBuilder create() {
         return new HajimeAPIBuilder(null);
     }
