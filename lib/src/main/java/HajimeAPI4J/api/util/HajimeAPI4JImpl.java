@@ -189,7 +189,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
 	this.setStatus(HajimeAPI4J.Status.FINISHED);
 	this.logger.info("Data transfer completed");
     URLConnection conn = new URL(this.uri).openConnection();
-    conn.setRequestProperty("User-Agent", "OSS HajimeAPI java wrapper library/2.0.6-Experimental Java-Application/Java 11 or higher. OSS Sourcecode: https://github.com/Secret-Society-Braid/HajimeAPI4J / Library developed by : @hizumiaoba (Twitter), Ranfa/hizumiaoba/Indigo_leaF P#4144 (Discord), @hizumiaoba (GitHub)");
+    conn.setRequestProperty("User-Agent", "OSS HajimeAPI java wrapper library/2.0.7-Experimental Java-Application/Java 11 or higher. OSS Sourcecode: https://github.com/Secret-Society-Braid/HajimeAPI4J / Library developed by : @hizumiaoba (Twitter), Ranfa/hizumiaoba/Indigo_leaF P#4144 (Discord), @hizumiaoba (GitHub)");
 	return new ObjectMapper().readTree(conn.getInputStream());
     }
 
