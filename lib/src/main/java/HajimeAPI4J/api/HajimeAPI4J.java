@@ -37,7 +37,7 @@ public interface HajimeAPI4J {
         /**ベースURIの構築が完了し、パラメータの受け付けができる状態 */
         INITIALIZED(true),
         /**APIリクエストが送れる状態 */
-        AWAIT_SENDING(true),
+        AWAIT_SENDING,
         /**APIリクエストが完了し、レスポンスが返ってきた状態 */
         FINISHED,
         /**APIリクエストが送れなかった状態 */
@@ -144,7 +144,13 @@ public interface HajimeAPI4J {
         JOINT("joint"),
 
         /**既存曲カバー */
-        COVER("cover");
+        COVER("cover"),
+
+        /**リミックス楽曲 */
+        REMIX("remix"),
+
+        /**SideM */
+        SIDEM("sidem");
 
         private String musicType;
 
