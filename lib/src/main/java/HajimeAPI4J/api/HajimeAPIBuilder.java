@@ -1,7 +1,6 @@
 package HajimeAPI4J.api;
 
 import java.util.LinkedHashMap;
-import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
@@ -10,7 +9,6 @@ import com.google.common.base.Joiner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import HajimeAPI4J.api.HajimeAPI4J.Token;
 import HajimeAPI4J.api.util.Checks;
 import HajimeAPI4J.api.util.HajimeAPI4JImpl;
 import HajimeAPI4J.exception.IllegalParameterException;
@@ -146,9 +144,9 @@ public class HajimeAPIBuilder {
      * @return リクエスト可能なAPI
      * @throws NullPointerException トークンが設定されていない場合
      */
-    public HajimeAPI4JImpl build() throws NullPointerException {
+    public HajimeAPI4JImpl build() {
         Checks.hardRequireNonNull(token);
-        HajimeAPI4J.Token tokenEnumed = HajimeAPI4J.Token.valueOf(token);
+        HajimeAPI4J.Token tokenEnumed = HajimeAPI4J.Token.valueOf(token.toUpperCase());
         Checks.hardRequireNonNull(tokenEnumed);
         HajimeAPI4JImpl api = new HajimeAPI4JImpl();
         api.setToken(tokenEnumed);

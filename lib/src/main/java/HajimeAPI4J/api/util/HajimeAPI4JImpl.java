@@ -24,7 +24,6 @@ import HajimeAPI4J.api.HajimeAPI4J;
 import HajimeAPI4J.api.HajimeAPIBuilder;
 import HajimeAPI4J.exception.IllegalParameterException;
 import HajimeAPI4J.exception.NoSuchURIException;
-import ch.qos.logback.core.rolling.helper.FileFilterUtil;
 
 public class HajimeAPI4JImpl implements HajimeAPI4J {
 
@@ -102,6 +101,13 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
         this.setStatus(HajimeAPI4J.Status.INITIALIZED);
         Checks.hardRequireNonNull(this.token);
         Checks.hardRequireNonNull(this.param);
+        param.forEach((k, v) -> {
+            try {
+                param.put(k, URLEncoder.encode(v, "UTF-8"));
+            } catch (UnsupportedEncodingException e) {
+                logger.error("URL Encoding failed", e);
+            }
+        });
         Joiner urlJoiner = Joiner.on("").skipNulls();
         MapJoiner mappedJoiner = Joiner.on("&").withKeyValueSeparator("=").useForNull("");
         this.setURI(urlJoiner.join(HajimeAPIBuilder.getBaseURI(), this.token.toString(), "?", mappedJoiner.join(this.param)));
