@@ -5,9 +5,12 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
+import com.google.common.base.Joiner;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import HajimeAPI4J.api.HajimeAPI4J.Token;
 import HajimeAPI4J.api.util.Checks;
 import HajimeAPI4J.api.util.HajimeAPI4JImpl;
 import HajimeAPI4J.exception.IllegalParameterException;
@@ -20,7 +23,7 @@ public class HajimeAPIBuilder {
     private LinkedHashMap<String, String> params = new LinkedHashMap<>();
 
 
-    private static final String BASE_URI = "https://api.fujiwarahaji.me/v1/";
+    private static final String BASE_URI = "https://api.fujiwarahaji.me/v2/";
 
     private HajimeAPIBuilder(String token) {
         this.token = token;
@@ -42,16 +45,6 @@ public class HajimeAPIBuilder {
      */
     public static HajimeAPIBuilder createDefault(@Nonnull String token) {
         return new HajimeAPIBuilder(token);
-    }
-
-    /**
-     * インスタンスを生成します。
-     * @return インスタンス
-     * @deprecated インスタンスを生成する場合は、{@link #createDefault(HajimeAPI4J.Token)}を使用してください。このファクトリーメソッドは、テスト以外で使用されるべきではありません。
-     */
-    @Deprecated(since = "2.0.4", forRemoval = true)
-    public static HajimeAPIBuilder create() {
-        return new HajimeAPIBuilder(null);
     }
 
     /**
@@ -85,11 +78,8 @@ public class HajimeAPIBuilder {
         }
         if(Checks.softRequireNonNull(values)) {
             if(param.isAllowedArrayInput()) {
-                StringBuilder b = new StringBuilder();
-                for(String value : values) {
-                    b.append(value).append(",");
-                }
-                params.put(param.toString(), b.toString());
+                Joiner joiner = Joiner.on(",");
+                params.put(param.toString(), joiner.join(values));
             } else if (values.length > 1) {
                 throw new IllegalParameterException("The parameter " + param.toString() + " does not allow array input.");
             } else {
@@ -113,11 +103,8 @@ public class HajimeAPIBuilder {
         Checks.availableTaxParam(param);
         if(Checks.softRequireNonNull(values)) {
             if(param.isAllowedArrayInput()) {
-                StringBuilder b = new StringBuilder();
-                for(String value : values) {
-                    b.append(value).append(",");
-                }
-                params.put(param.toString(), b.toString());
+                Joiner joiner = Joiner.on(",");
+                params.put(param.toString(), joiner.join(values));
             } else if (values.length > 1) {
                 throw new IllegalParameterException("The parameter " + param.toString() + " does not allow array input.");
             } else {
@@ -141,11 +128,8 @@ public class HajimeAPIBuilder {
         Checks.availableMusicParam(param);
         if(Checks.softRequireNonNull(values)) {
             if(param.isAllowedArrayInput()) {
-                StringBuilder b = new StringBuilder();
-                for(String value : values) {
-                    b.append(value).append(",");
-                }
-                params.put(param.toString(), b.toString());
+                Joiner joiner = Joiner.on(",");
+                params.put(param.toString(), joiner.join(values));
             } else if (values.length > 1) {
                 throw new IllegalParameterException("The parameter " + param.toString() + " does not allow array input.");
             } else {
@@ -164,13 +148,7 @@ public class HajimeAPIBuilder {
      */
     public HajimeAPI4JImpl build() throws NullPointerException {
         Checks.hardRequireNonNull(token);
-        HajimeAPI4J.Token tokenEnumed = null;
-        for(HajimeAPI4J.Token tmp : HajimeAPI4J.Token.values()) {
-            if(Objects.equals(tmp.toString(), this.token)) {
-                tokenEnumed = tmp;
-                break;
-            }
-        }
+        HajimeAPI4J.Token tokenEnumed = HajimeAPI4J.Token.valueOf(token);
         Checks.hardRequireNonNull(tokenEnumed);
         HajimeAPI4JImpl api = new HajimeAPI4JImpl();
         api.setToken(tokenEnumed);

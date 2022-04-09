@@ -3,6 +3,7 @@ package HajimeAPI4J.api.util;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
@@ -24,6 +25,7 @@ public class CheckServerStatus {
      * @return サーバーからのレスポンスが成功の場合は<code>TRUE</code>、失敗なら<code>FALSE</code>
      */
     public static final boolean isServerAlive() {
+        Map<String, String> env = FileUtils.readFilesFromResourceFolder(FileUtils.ENV_FILE_NAME);
         String uri = "https://api.fujiwarahaji.me/v1/list?type=idol&production=765";
         int statusCode = -1;
         HttpURLConnection conn = null;
@@ -31,7 +33,7 @@ public class CheckServerStatus {
             URL url = new URL(uri);
             conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
-            conn.setRequestProperty("User-Agent", "OSS HajimeAPI java wrapper library/v2.0.8-Experimental Java-Application/Java 11 or higher. OSS Sourcecode: https://github.com/Secret-Society-Braid/HajimeAPI4J / Library developed by : @hizumiaoba (Twitter), Ranfa/hizumiaoba/Indigo_leaF P#4144 (Discord), @hizumiaoba (GitHub)");
+            conn.setRequestProperty("User-Agent", "OSS HajimeAPI java wrapper library/"+ env.get("version") + " Java-Application/Java 11 or higher. OSS Sourcecode: https://github.com/Secret-Society-Braid/HajimeAPI4J / Library developed by : @hizumiaoba (Twitter), Ranfa/hizumiaoba/Indigo_leaF P#4144 (Discord), @hizumiaoba (GitHub)");
             conn.connect();
             statusCode = conn.getResponseCode();
         } catch (IOException e) {
