@@ -2,6 +2,9 @@ package HajimeAPI4J.api.util.parse;
 
 import HajimeAPI4J.api.HajimeAPI4J;
 import HajimeAPI4J.api.HajimeAPIBuilder;
+
+import java.util.Objects;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
@@ -280,4 +283,17 @@ public class ParseList implements IParse {
         }
     }
 
+    @Override
+    public boolean equals(Object another) {
+        if(another instanceof ParseList) {
+            ParseList anotherList = (ParseList) another;
+            return this.node.equals(anotherList.node);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(this);
+    }
 }

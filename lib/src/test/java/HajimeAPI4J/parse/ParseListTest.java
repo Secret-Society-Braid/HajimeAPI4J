@@ -29,6 +29,9 @@ public class ParseListTest {
     public void TestGetName() {
         for(int i = 0; i < 10; i++) {
             assertNotNull(parse.getName(i));
+            assertNotNull(parse.getType(i));
+            assertNotNull(parse.getApi(i));
+            assertNotNull(parse.getNode(i));
         }
         assertThrows(IndexOutOfBoundsException.class, () -> parse.getName(10));
     }

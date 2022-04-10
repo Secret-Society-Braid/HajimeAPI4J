@@ -1,9 +1,12 @@
 package HajimeAPI4J.api.util.parse;
 
+import java.util.Objects;
+
+import com.fasterxml.jackson.databind.JsonNode;
+
 import HajimeAPI4J.api.HajimeAPI4J;
 import HajimeAPI4J.api.HajimeAPIBuilder;
 import HajimeAPI4J.api.util.internal.IParse;
-import com.fasterxml.jackson.databind.JsonNode;
 
 public class ParseTax implements IParse {
 
@@ -54,5 +57,19 @@ public class ParseTax implements IParse {
         HajimeAPIBuilder builder = HajimeAPIBuilder.createDefault(HajimeAPI4J.Token.TAX);
         builder.addParameter(HajimeAPI4J.Tax_Params.ID, id);
         return builder.build();
+    }
+
+    @Override
+    public boolean equals(Object another) {
+        if(another instanceof ParseTax) {
+            ParseTax anotherList = (ParseTax) another;
+            return this.node.equals(anotherList.node);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(this);
     }
 }

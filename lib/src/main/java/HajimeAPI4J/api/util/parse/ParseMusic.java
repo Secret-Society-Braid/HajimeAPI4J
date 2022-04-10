@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -407,5 +408,19 @@ public class ParseMusic implements IParse {
         HajimeAPIBuilder builder = HajimeAPIBuilder.createDefault(HajimeAPI4J.Token.MUSIC);
         builder.addParameter(HajimeAPI4J.Music_Params.ID, id);
         return builder.build();
+    }
+
+    @Override
+    public boolean equals(Object another) {
+        if(another instanceof ParseMusic) {
+            ParseMusic anotherList = (ParseMusic) another;
+            return this.node.equals(anotherList.node);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(this);
     }
 }
