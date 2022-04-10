@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-import HajimeAPI4J.api.HajimeAPIBuilder;
 import HajimeAPI4J.api.HajimeAPI4J.Status;
+import HajimeAPI4J.api.HajimeAPIBuilder;
 import HajimeAPI4J.api.util.HajimeAPI4JImpl;
 
 public class ExceptionAssertionTest {
@@ -21,7 +21,7 @@ public class ExceptionAssertionTest {
     @Test
     public void buildWithUnknownTokenTest() {
         HajimeAPIBuilder builder = HajimeAPIBuilder.createDefault("unknown");
-        assertThrows(NullPointerException.class, builder::build);
+        assertThrows(IllegalArgumentException.class, builder::build);
     }
 
     @Test

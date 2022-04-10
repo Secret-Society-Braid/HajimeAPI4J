@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -43,7 +44,7 @@ public class ParseMusic implements IParse {
      */
     @Override
     public String getInternalId() {
-        return node.get("music_id").asText();
+        return node.get("song_id").asText();
     }
 
     /**
@@ -183,6 +184,15 @@ public class ParseMusic implements IParse {
             throw new RuntimeException("member data must be array.");
         }
         return resList;
+    }
+
+    /**
+     * デジタル配信情報の有無を返します。
+     * 
+     * @return デジタル配信情報の有無
+     */
+    public boolean getDigital() {
+        return node.get("digital").asBoolean();
     }
 
     static class Disc {
@@ -398,5 +408,19 @@ public class ParseMusic implements IParse {
         HajimeAPIBuilder builder = HajimeAPIBuilder.createDefault(HajimeAPI4J.Token.MUSIC);
         builder.addParameter(HajimeAPI4J.Music_Params.ID, id);
         return builder.build();
+    }
+
+    @Override
+    public boolean equals(Object another) {
+        if(another instanceof ParseMusic) {
+            ParseMusic anotherList = (ParseMusic) another;
+            return this.node.equals(anotherList.node);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(this);
     }
 }
