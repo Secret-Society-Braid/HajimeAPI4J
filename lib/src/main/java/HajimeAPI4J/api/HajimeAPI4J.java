@@ -275,7 +275,10 @@ public interface HajimeAPI4J {
         NAMCO("765"),
 
         /**シャイニーカラーズ */
-        SC("sc");
+        SC("sc"),
+
+        /**SideM */
+        SIDEM("315");
 
         private String production;
 

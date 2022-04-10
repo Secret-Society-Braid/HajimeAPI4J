@@ -43,7 +43,7 @@ public class ParseMusic implements IParse {
      */
     @Override
     public String getInternalId() {
-        return node.get("music_id").asText();
+        return node.get("song_id").asText();
     }
 
     /**
@@ -183,6 +183,15 @@ public class ParseMusic implements IParse {
             throw new RuntimeException("member data must be array.");
         }
         return resList;
+    }
+
+    /**
+     * デジタル配信情報の有無を返します。
+     * 
+     * @return デジタル配信情報の有無
+     */
+    public boolean getDigital() {
+        return node.get("digital").asBoolean();
     }
 
     static class Disc {

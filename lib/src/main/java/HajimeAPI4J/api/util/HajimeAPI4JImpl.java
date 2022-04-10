@@ -202,15 +202,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
      * @return APIからのレスポンス情報を内包しているCompletableFuture
      */
     public CompletableFuture<JsonNode> getAsync() {
-        return CompletableFuture.supplyAsync(() -> {
-            try {
-                return this.get();
-            } catch (IOException | NoSuchURIException | InterruptedException e) {
-                Thread.currentThread().interrupt();
-                this.setStatus(HajimeAPI4J.Status.FAILED);
-                throw new RuntimeException("Couldn't get from API", e);
-            }
-        }, EXECUTOR_SERVICE);
+        return getAsync(EXECUTOR_SERVICE);
     }
 
     /**

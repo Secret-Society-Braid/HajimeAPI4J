@@ -36,8 +36,8 @@ public interface IParse {
     String getType();
 
     /**
-     * API内部管理ID「music_id, song_id, tax_id」に割り当てられている情報を取り出します。
-     * @return キー「music_id, song_id, tax_id」の情報
+     * API内部管理ID「song_id, tax_id」に割り当てられている情報を取り出します。
+     * @return キー「song_id, tax_id」の情報
      */
     String getInternalId();
 
