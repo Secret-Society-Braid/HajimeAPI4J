@@ -25,7 +25,7 @@ body:
     validations:
       required: false
   - type: textarea
-    id: 
+    id: 代替案
     attributes:
       label: アイディア、解決策
       description: 貴方が考えるアイディアや解決策をご提案ください！
