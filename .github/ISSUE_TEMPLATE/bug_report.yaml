@@ -1,0 +1,57 @@
+name: バグレポート
+description: 不具合を報告する場合もこちら
+title: "[Bug]: "
+labels: ["bug", "need-triage"]
+assignees:
+  - hizumiaoba
+body:
+  - type: markdown
+    attributes:
+      value: |
+        この度はバグ報告にご協力頂き、ありがとうございます。
+  - type: input
+    id: contact
+    attributes:
+      label: 追加連絡先
+      description: さらに情報が必要な場合、どのように連絡すればよいでしょうか？
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 発生した不具合
+      description: あなたが遭遇したバグ、不具合をお書きください！
+    validations:
+      required: true
+  - type: textarea
+    id: what-expected
+    attributes:
+      label: 期待した挙動
+      description: あなたがその操作を実行した際に期待した挙動をお書きください！
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Wrapperバージョン
+      description: 実行していたソフトウェアのバージョンは? (v1.*系は報告対象外です)
+      options:
+        - v2.0.0-Experimental
+        - v2.0.1-Experimental
+        - v2.0.2-Experimental
+        - v2.0.3-Experimental
+        - v2.0.4-Experimental
+        - v2.0.5-Experimental
+        - v2.0.6-Experimental
+        - v2.0.7-Experimental
+        - v2.0.8-Experimental
+        - v3.0.0
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: 関連するログの出力をコピーしてペーストしてください。 自動的にフォーマットと色分けが行われます。
+      render: shell
