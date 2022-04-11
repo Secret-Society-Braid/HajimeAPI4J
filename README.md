@@ -2,6 +2,8 @@
 
 # HajimeAPI4J
 
+[![Java Test with Gradle](https://github.com/Secret-Society-Braid/HajimeAPI4J/actions/workflows/gradle.yml/badge.svg)](https://github.com/Secret-Society-Braid/HajimeAPI4J/actions/workflows/gradle.yml)
+
 [ふじわらはじめAPI](https://api.fujiwarahaji.me/doc/) のJavaWrapperです
 
 ## はじめに
@@ -40,6 +42,7 @@ APIの開発者様へ連絡を取り、使用するユーザーエージェン�
 - [Jackson-Core](https://github.com/FasterXML/jackson-core)
 - [Jackson-Databind](https://github.com/FasterXML/jackson-databind)
 - [Jackson-annotation](https://github.com/FasterXML/jackson-annotations)
+- [Guava](https://github.com/google/guava)
 - [SLF4J](https://www.slf4j.org/)
 - [Logback](https://logback.qos.ch/)
 - [JUnit jupiter(テストライブラリ)](https://junit.org/junit5/)
