@@ -1,0 +1,64 @@
+name: 新機能、新クラス要望
+description: Wrapperに追加してほしい機能などはこちらから
+title: "[Feature]: "
+labels: ["enhancement", "need-triage"]
+assignees:
+  - hizumiaoba
+body:
+  - type: markdown
+    attributes:
+      value: |
+        この度はライブラリの充実にご協力頂き、ありがとうございます。
+  - type: input
+    id: contact
+    attributes:
+      label: 追加連絡先
+      description: さらに情報が必要な場合、どのように連絡すればよいでしょうか？
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: problems
+    attributes:
+      label: 何かお困りですか？
+      description: 貴方の要望が何等かの問題に関連していると考えられる場合はこちらにお書きください！
+    validations:
+      required: false
+  - type: textarea
+    id: 
+    attributes:
+      label: アイディア、解決策
+      description: 貴方が考えるアイディアや解決策をご提案ください！
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 代替案
+      description: 今現在代替できるツールやサービスがあればお書きください！
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Wrapperバージョン
+      description: 実行していたソフトウェアのバージョンは? (v1.*系は報告対象外です)
+      options:
+        - v2.0.0-Experimental
+        - v2.0.1-Experimental
+        - v2.0.2-Experimental
+        - v2.0.3-Experimental
+        - v2.0.4-Experimental
+        - v2.0.5-Experimental
+        - v2.0.6-Experimental
+        - v2.0.7-Experimental
+        - v2.0.8-Experimental
+        - v3.0.0
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: 関連するログの出力をコピーしてペーストしてください。 自動的にフォーマットと色分けが行われます。
+      render: shell
