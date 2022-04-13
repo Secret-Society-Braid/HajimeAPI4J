@@ -270,15 +270,15 @@ public class ParseList implements IParse {
      * @return 「music」もしくは「tax」トークンと「api」データが設定された新しいHajimeAPI４Jインスタンス
      */
     public HajimeAPI4J getAPIInstance(int index) {
-        JsonNode node = this.arrayNode.get(index);
+        JsonNode localNode = this.arrayNode.get(index);
         HajimeAPIBuilder builder;
-        if(node.get("type").asText().equals("music")) {
+        if(localNode.get("type").asText().equals(HajimeAPI4J.List_Type.MUSIC.toString())) {
             builder = HajimeAPIBuilder.createDefault(HajimeAPI4J.Token.MUSIC);
-            builder.addParameter(HajimeAPI4J.Music_Params.ID, node.get("song_id").asText());
+            builder.addParameter(HajimeAPI4J.Music_Params.ID, localNode.get("song_id").asText());
             return builder.build();
         } else {
             builder = HajimeAPIBuilder.createDefault(HajimeAPI4J.Token.TAX);
-            builder.addParameter(HajimeAPI4J.Tax_Params.ID, node.get("tax_id").asText());
+            builder.addParameter(HajimeAPI4J.Tax_Params.ID, localNode.get("tax_id").asText());
             return builder.build();
         }
     }
