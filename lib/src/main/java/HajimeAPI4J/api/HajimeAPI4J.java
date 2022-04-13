@@ -37,7 +37,7 @@ public interface HajimeAPI4J {
         /**ベースURIの構築が完了し、パラメータの受け付けができる状態 */
         INITIALIZED(true),
         /**APIリクエストが送れる状態 */
-        AWAIT_SENDING,
+        AWAIT_SENDING(true),
         /**APIリクエストが完了し、レスポンスが返ってきた状態 */
         FINISHED,
         /**APIリクエストが送れなかった状態 */
