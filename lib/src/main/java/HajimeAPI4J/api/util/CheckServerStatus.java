@@ -15,9 +15,7 @@ public class CheckServerStatus {
     private static Logger logger = LoggerFactory.getLogger(CheckServerStatus.class);
 
     // This class should not have public constructors.
-    private CheckServerStatus() {
-        throw new IllegalStateException("Util class.");
-    }
+    private CheckServerStatus() { /* do nothing */}
 
     /**
      * サーバーへテスト用のURIでGETリクエストを送信し、ステータスコードを取得します。
