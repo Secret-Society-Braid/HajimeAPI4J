@@ -25,7 +25,13 @@ public class CheckServerStatus {
      * @return サーバーからのレスポンスが成功の場合は<code>TRUE</code>、失敗なら<code>FALSE</code>
      */
     public static final boolean isServerAlive() {
-        Map<String, String> env = FileUtils.readFilesFromResourceFolder(FileUtils.ENV_FILE_NAME);
+        Map<String, String> env = null;
+        try {
+            env = FileUtils.readFilesFromResourceFolder(FileUtils.ENV_FILE_NAME);
+        } catch (IOException e) {
+            logger.error("Failed to read env.json file.", e);
+            return false;
+        }
         String uri = "https://api.fujiwarahaji.me/v1/list?type=idol&production=765";
         int statusCode = -1;
         HttpURLConnection conn = null;
