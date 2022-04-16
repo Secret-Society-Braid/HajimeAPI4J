@@ -13,6 +13,8 @@ import org.slf4j.LoggerFactory;
 
 public class FileUtils {
 
+    private FileUtils() { /* do nothing */ }
+
     // Logger
     private static final Logger LOG = LoggerFactory.getLogger(FileUtils.class);
 
