@@ -1,5 +1,6 @@
 package HajimeAPI4J;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -7,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -65,14 +67,25 @@ public class FileUtilsTest {
 
     @Test
     public void readFromResourceFolderTest() {
-        List<String> declaredKeys = List.of("version", "suffix", "developer");
+        try {
+            List<String> declaredKeys = List.of("version", "suffix", "developer");
 
-        Map<String, String> env = FileUtils.readFilesFromResourceFolder("env.json");
+            Map<String, String> env = FileUtils.readFilesFromResourceFolder("env.json");
 
-        assertFalse(env.isEmpty());
+            assertFalse(env.isEmpty());
 
-        assertTrue(env.keySet().containsAll(declaredKeys));
-        assertEquals(env.keySet().size(), declaredKeys.size());
+            assertTrue(env.keySet().containsAll(declaredKeys));
+            assertEquals(env.keySet().size(), declaredKeys.size());
+        } catch (IOException e) {
+            fail(e);
+        }
+    }
+
+    @Test
+    public void throwExceptionWhenReadEmptyFile() {
+        assertDoesNotThrow(() -> {
+            FileUtils.readFilesFromResourceFolder("env.json");
+        });
     }
 
 }
