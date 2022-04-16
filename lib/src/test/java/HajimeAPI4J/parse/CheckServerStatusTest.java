@@ -13,7 +13,7 @@ public class CheckServerStatusTest {
     @Test
     public void nonNullConstructorTest() {
         try {
-            Class<?> clazz = Class.forName("HajimeAPI4J.parse.CheckServerStatus");
+            Class<?> clazz = Class.forName("HajimeAPI4J.api.util.CheckServerStatus");
             Constructor<?>[] constructors = clazz.getDeclaredConstructors();
 
             for (Constructor<?> constructor : constructors) {
