@@ -1,9 +1,15 @@
 package HajimeAPI4J;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +25,24 @@ public class UtilChecksTest {
     // Test for Checks class
 
     private final String nonNullString = "something";
+
+    @Test
+    public void TestConstructor() {
+        try {
+            Class<?> checksClass = Class.forName("HajimeAPI4J.api.util.Checks");
+        Constructor<?>[] constructors = checksClass.getDeclaredConstructors();
+        constructors[0].setAccessible(true);
+
+        Checks checks = (Checks) constructors[0].newInstance();
+
+        } catch (ClassNotFoundException | SecurityException | IllegalArgumentException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            if(e.getCause() == null) {
+                fail(e);
+            } else {
+                assertEquals("UnsupportedOperationException", e.getCause().getClass().getSimpleName());
+            }
+        }
+    }
 
     @Test
     public void softNonNullTest() {

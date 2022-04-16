@@ -13,6 +13,9 @@ plugins {
     id 'java'
 
     id 'com.github.johnrengelman.shadow' version '7.1.2'
+
+    // for code coverages
+    id 'jacoco'
 }
 
 repositories {
@@ -60,3 +63,10 @@ targetCompatibility = '11'
 
 version = 'v3.0.0'
 jar.archiveBaseName = 'HajimeAPI4J'
+
+test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+}
