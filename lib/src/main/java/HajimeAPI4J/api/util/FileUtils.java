@@ -13,6 +13,8 @@ import org.slf4j.LoggerFactory;
 
 public class FileUtils {
 
+    private FileUtils() { /* do nothing */ }
+
     // Logger
     private static final Logger LOG = LoggerFactory.getLogger(FileUtils.class);
 
@@ -21,13 +23,9 @@ public class FileUtils {
     private static final TypeReference<Map<String, String>> TYPE_REFERENCE = new TypeReference<>() {
     };
 
-    public static Map<String, String> readFilesFromResourceFolder(String filename) {
-        try (InputStream is = FileUtils.class.getResourceAsStream("/" + filename)) {
-            return new ObjectMapper().readValue(is, TYPE_REFERENCE);
-        } catch (IOException e) {
-            LOG.error("Cannot read resource file from disk.", e);
-        }
-        return Collections.emptyMap();
+    public static Map<String, String> readFilesFromResourceFolder(String filename) throws IOException {
+        InputStream is = FileUtils.class.getResourceAsStream("/" + filename);
+        return new ObjectMapper().readValue(is, TYPE_REFERENCE);
     }
     
 }

@@ -31,5 +31,7 @@ public class ExceptionAssertionTest {
         HajimeAPI4JImpl api = builder.build();
         api.setStatus(Status.FINISHED);
         assertThrows(IllegalStateException.class, api::getURI);
+        api.setStatus(Status.FAILED);
+        assertThrows(IllegalStateException.class, api::getURI);
     }
 }

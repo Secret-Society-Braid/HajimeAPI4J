@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 
 import HajimeAPI4J.api.HajimeAPI4J;
 import HajimeAPI4J.api.HajimeAPIBuilder;
+import HajimeAPI4J.api.util.internal.SingleThreadFactory;
 import HajimeAPI4J.exception.IllegalParameterException;
 import HajimeAPI4J.exception.NoSuchURIException;
 
@@ -36,7 +37,7 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
     private LinkedHashMap<String, String> param = null;
 
     // constants
-    private static final ExecutorService EXECUTOR_SERVICE = Executors.newWorkStealingPool();
+    private static final ExecutorService EXECUTOR_SERVICE = Executors.newSingleThreadExecutor(SingleThreadFactory.getInstance());
 
     public HajimeAPI4JImpl() {
         this(HajimeAPI4J.Status.NOT_INITIALIZED);
@@ -198,6 +199,8 @@ public class HajimeAPI4JImpl implements HajimeAPI4J {
     /**
      * 非同期的にレスポンスを取得します。
      * 使用する非同期サービスはデフォルト設定となります。
+     * <p>
+     * デフォルト設定のサービスはAPIへの過剰な負荷を抑えるためスレッドを一つのみ作成し実行します。
      * 
      * @return APIからのレスポンス情報を内包しているCompletableFuture
      */

@@ -1,6 +1,7 @@
 package HajimeAPI4J;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -32,7 +33,7 @@ public class ConnectionTest {
             HajimeAPI4JImpl list = listBuilder.addParameter(List_Params.TYPE, List_Type.MUSIC.toString()).build();
             assertNotNull(list.get());
         } catch (IOException | ServerNotRespondError | NoSuchURIException | NullPointerException | InterruptedException e) {
-            throw new AssertionError("Test Failed", e);
+            fail(e);
         }
     }
 
@@ -43,7 +44,7 @@ public class ConnectionTest {
             HajimeAPI4JImpl tax = taxBuilder.addParameter(Tax_Params.IDOL_NAME, "藤原肇").build();
             assertNotNull(tax.get());
         } catch (IOException | ServerNotRespondError | NoSuchURIException | NullPointerException | InterruptedException e) {
-            throw new AssertionError("Test Failed", e);
+            fail(e);
         }
     }
 
@@ -54,7 +55,7 @@ public class ConnectionTest {
             HajimeAPI4JImpl music = musicBuilder.addParameter(Music_Params.ID, "3525").build();
             assertNotNull(music.get());
         } catch (IOException | ServerNotRespondError | NoSuchURIException | NullPointerException | InterruptedException e) {
-            throw new AssertionError("Test Failed", e);
+            fail(e);
         }
     }
 
