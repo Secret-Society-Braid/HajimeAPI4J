@@ -99,7 +99,7 @@ public class ParseList implements IParse {
                     return indexNode.get(fieldName).asInt();
                 }
             }
-            throw new NullPointerException("song_id or tax_id is not found.");
+            throw new IllegalArgumentException("Cannot find any values assigned with \"song_id, tax_id\" Because " + index + " th node has no \"song_id, tax_id\" key. ");
         }
         throw new IndexOutOfBoundsException("input " + index + " is out of bounds. length : " + this.arrayNode.size());
     }
