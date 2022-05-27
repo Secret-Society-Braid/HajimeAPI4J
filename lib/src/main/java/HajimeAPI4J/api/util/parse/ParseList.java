@@ -19,6 +19,22 @@ public class ParseList implements IParse {
     private JsonNode node = null;
     private ArrayNode arrayNode = null;
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof ParseList)) {
+            return false;
+        }
+        ParseList parseList = (ParseList) o;
+        return Objects.equals(node, parseList.node) && Objects.equals(arrayNode, parseList.arrayNode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(logger, node, arrayNode);
+    }
+
     // constructor
     public ParseList(JsonNode node) {
 	    this.node = node;
@@ -281,19 +297,5 @@ public class ParseList implements IParse {
             builder.addParameter(HajimeAPI4J.Tax_Params.ID, localNode.get("tax_id").asText());
             return builder.build();
         }
-    }
-
-    @Override
-    public boolean equals(Object another) {
-        if(another instanceof ParseList) {
-            ParseList anotherList = (ParseList) another;
-            return this.node.equals(anotherList.node);
-        }
-        return false;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(this);
     }
 }
