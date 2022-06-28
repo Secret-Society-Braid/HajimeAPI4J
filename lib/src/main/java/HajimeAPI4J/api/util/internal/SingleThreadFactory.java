@@ -9,7 +9,7 @@ public class SingleThreadFactory implements ThreadFactory {
     
     private static final Logger LOG = LoggerFactory.getLogger(SingleThreadFactory.class);
     
-    private static final ThreadFactory INSTANCE = new SingleThreadFactory();
+    private static ThreadFactory singletonInstance = null;
 
     private static final String THREAD_NAME = "HajimeAPI4J Concurrent Thread";
 
@@ -26,7 +26,10 @@ public class SingleThreadFactory implements ThreadFactory {
     }
     
     public static ThreadFactory getInstance() {
-        return INSTANCE;
+        if(singletonInstance == null) {
+            singletonInstance = new SingleThreadFactory();
+        }
+        return singletonInstance;
     }
     
     @Override
