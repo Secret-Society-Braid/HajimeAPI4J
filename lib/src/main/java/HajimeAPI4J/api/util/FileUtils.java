@@ -2,7 +2,6 @@ package HajimeAPI4J.api.util;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collections;
 import java.util.Map;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -20,12 +19,16 @@ public class FileUtils {
 
     public static final String ENV_FILE_NAME = "env.json";
 
+    private static final ObjectMapper MAPPER = new ObjectMapper();
+
     private static final TypeReference<Map<String, String>> TYPE_REFERENCE = new TypeReference<>() {
     };
 
     public static Map<String, String> readFilesFromResourceFolder(String filename) throws IOException {
         InputStream is = FileUtils.class.getResourceAsStream("/" + filename);
-        return new ObjectMapper().readValue(is, TYPE_REFERENCE);
+        Map<String, String> res = MAPPER.readValue(is, TYPE_REFERENCE);
+        LOG.debug("Data retrieved. : {}", res);
+        return res;
     }
     
 }
