@@ -1,4 +1,4 @@
-package HajimeAPI4J.exception;
+package hajimeapi4j.exception;
 
 /**
  * ふじわらはじめAPIへリクエストを送るURIが見つからなかったか、正常にURIが作成されないままリクエストを送ろうとした場合にスローされます。

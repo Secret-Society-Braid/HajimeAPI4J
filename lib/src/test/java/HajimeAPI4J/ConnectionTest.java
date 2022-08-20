@@ -1,4 +1,4 @@
-package HajimeAPI4J;
+package hajimeapi4j;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -9,15 +9,15 @@ import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import HajimeAPI4J.api.HajimeAPI4J.List_Params;
-import HajimeAPI4J.api.HajimeAPI4J.List_Type;
-import HajimeAPI4J.api.HajimeAPI4J.Music_Params;
-import HajimeAPI4J.api.HajimeAPI4J.Tax_Params;
-import HajimeAPI4J.api.HajimeAPI4J.Token;
-import HajimeAPI4J.api.HajimeAPIBuilder;
-import HajimeAPI4J.api.util.HajimeAPI4JImpl;
-import HajimeAPI4J.exception.NoSuchURIException;
-import HajimeAPI4J.exception.ServerNotRespondError;
+import hajimeapi4j.api.HajimeAPIBuilder;
+import hajimeapi4j.api.HajimeAPI4J.List_Params;
+import hajimeapi4j.api.HajimeAPI4J.List_Type;
+import hajimeapi4j.api.HajimeAPI4J.Music_Params;
+import hajimeapi4j.api.HajimeAPI4J.Tax_Params;
+import hajimeapi4j.api.HajimeAPI4J.Token;
+import hajimeapi4j.api.util.HajimeAPI4JImpl;
+import hajimeapi4j.exception.NoSuchURIException;
+import hajimeapi4j.exception.ServerNotRespondError;
 
 public class ConnectionTest {
 

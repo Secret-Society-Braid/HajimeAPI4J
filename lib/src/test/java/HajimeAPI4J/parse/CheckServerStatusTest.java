@@ -1,4 +1,4 @@
-package HajimeAPI4J.parse;
+package hajimeapi4j.parse;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -13,7 +13,7 @@ public class CheckServerStatusTest {
     @Test
     public void nonNullConstructorTest() {
         try {
-            Class<?> clazz = Class.forName("HajimeAPI4J.api.util.CheckServerStatus");
+            Class<?> clazz = Class.forName("hajimeapi4j.api.util.CheckServerStatus");
             Constructor<?>[] constructors = clazz.getDeclaredConstructors();
 
             for (Constructor<?> constructor : constructors) {

@@ -62,7 +62,7 @@ sourceCompatibility = '11'
 targetCompatibility = '11'
 
 version = 'v3.1.0'
-jar.archiveBaseName = 'HajimeAPI4J'
+jar.archiveBaseName = 'hajimeapi4j'
 
 test {
     finalizedBy jacocoTestReport // report is always generated after tests run

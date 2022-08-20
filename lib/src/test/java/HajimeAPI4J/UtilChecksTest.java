@@ -1,4 +1,4 @@
-package HajimeAPI4J;
+package hajimeapi4j;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -15,10 +15,10 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import HajimeAPI4J.api.HajimeAPI4J;
-import HajimeAPI4J.api.util.Checks;
-import HajimeAPI4J.exception.IllegalParameterException;
-import HajimeAPI4J.exception.NoSuchURIException;
+import hajimeapi4j.api.HajimeAPI4J;
+import hajimeapi4j.api.util.Checks;
+import hajimeapi4j.exception.IllegalParameterException;
+import hajimeapi4j.exception.NoSuchURIException;
 
 public class UtilChecksTest {
     
@@ -29,7 +29,7 @@ public class UtilChecksTest {
     @Test
     public void TestConstructor() {
         try {
-            Class<?> checksClass = Class.forName("HajimeAPI4J.api.util.Checks");
+            Class<?> checksClass = Class.forName("hajimeapi4j.api.util.Checks");
         Constructor<?>[] constructors = checksClass.getDeclaredConstructors();
         constructors[0].setAccessible(true);
 
