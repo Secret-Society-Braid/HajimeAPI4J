@@ -1,4 +1,4 @@
-package HajimeAPI4J.exception;
+package hajimeapi4j.exception;
 
 /**
  * リクエストを送るためのURIへ付与するパラメータに不正な値が渡された場合にスローされます。

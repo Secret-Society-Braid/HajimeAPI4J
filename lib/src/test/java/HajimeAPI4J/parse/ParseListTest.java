@@ -1,11 +1,13 @@
-package HajimeAPI4J.parse;
+package hajimeapi4j.parse;
 
-import HajimeAPI4J.api.HajimeAPI4J;
-import HajimeAPI4J.api.HajimeAPIBuilder;
-import HajimeAPI4J.api.util.parse.ParseList;
-import HajimeAPI4J.exception.NoSuchURIException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import hajimeapi4j.api.HajimeAPI4J;
+import hajimeapi4j.api.HajimeAPIBuilder;
+import hajimeapi4j.api.util.parse.ParseList;
+import hajimeapi4j.exception.NoSuchURIException;
+
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;

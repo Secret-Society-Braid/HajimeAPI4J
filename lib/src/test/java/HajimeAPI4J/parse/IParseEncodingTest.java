@@ -1,11 +1,11 @@
-package HajimeAPI4J.parse;
+package hajimeapi4j.parse;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import HajimeAPI4J.api.util.datatype.Member;
-import HajimeAPI4J.api.util.internal.IParse;
+import hajimeapi4j.api.util.datatype.Member;
+import hajimeapi4j.api.util.internal.IParse;
 
 public class IParseEncodingTest {
 

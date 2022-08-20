@@ -1,23 +1,38 @@
-package HajimeAPI4J.api.util.parse;
-
-import HajimeAPI4J.api.HajimeAPI4J;
-import HajimeAPI4J.api.HajimeAPIBuilder;
+package hajimeapi4j.api.util.parse;
 
 import java.util.Objects;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
+import hajimeapi4j.api.HajimeAPI4J;
+import hajimeapi4j.api.HajimeAPIBuilder;
+import hajimeapi4j.api.util.internal.IParse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import HajimeAPI4J.api.util.internal.IParse;
 
 public class ParseList implements IParse {
 
     private Logger logger = LoggerFactory.getLogger(ParseList.class);
     private JsonNode node = null;
     private ArrayNode arrayNode = null;
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof ParseList)) {
+            return false;
+        }
+        ParseList parseList = (ParseList) o;
+        return Objects.equals(node, parseList.node) && Objects.equals(arrayNode, parseList.arrayNode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(logger, node, arrayNode);
+    }
 
     // constructor
     public ParseList(JsonNode node) {
@@ -83,7 +98,7 @@ public class ParseList implements IParse {
                     return indexNode.get(fieldName).asInt();
                 }
             }
-            throw new NullPointerException("song_id or tax_id is not found.");
+            throw new IllegalArgumentException("Cannot find any values assigned with \"song_id, tax_id\" Because " + index + " th node has no \"song_id, tax_id\" key. ");
         }
         throw new IndexOutOfBoundsException("input " + index + " is out of bounds. length : " + this.arrayNode.size());
     }
@@ -281,19 +296,5 @@ public class ParseList implements IParse {
             builder.addParameter(HajimeAPI4J.Tax_Params.ID, localNode.get("tax_id").asText());
             return builder.build();
         }
-    }
-
-    @Override
-    public boolean equals(Object another) {
-        if(another instanceof ParseList) {
-            ParseList anotherList = (ParseList) another;
-            return this.node.equals(anotherList.node);
-        }
-        return false;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(this);
     }
 }

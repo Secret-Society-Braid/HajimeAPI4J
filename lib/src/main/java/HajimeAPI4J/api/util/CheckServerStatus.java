@@ -1,4 +1,4 @@
-package HajimeAPI4J.api.util;
+package hajimeapi4j.api.util;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
