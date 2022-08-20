@@ -1,4 +1,4 @@
-package HajimeAPI4J.exception;
+package hajimeapi4j.exception;
 
 /**
  * ふじわらはじめAPIのAPIサーバー側からエラーステータスが返された場合にスロー及び発生します。

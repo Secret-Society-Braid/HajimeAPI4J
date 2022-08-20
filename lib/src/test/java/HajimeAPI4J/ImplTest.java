@@ -1,4 +1,4 @@
-package HajimeAPI4J;
+package hajimeapi4j;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -9,8 +9,8 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import HajimeAPI4J.api.HajimeAPI4J;
-import HajimeAPI4J.api.HajimeAPIBuilder;
+import hajimeapi4j.api.HajimeAPI4J;
+import hajimeapi4j.api.HajimeAPIBuilder;
 
 public class ImplTest {
     

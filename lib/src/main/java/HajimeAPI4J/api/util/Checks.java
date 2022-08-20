@@ -1,4 +1,4 @@
-package HajimeAPI4J.api.util;
+package hajimeapi4j.api.util;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -9,11 +9,11 @@ import javax.annotation.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import HajimeAPI4J.api.HajimeAPI4J;
-import HajimeAPI4J.exception.IllegalParameterException;
-import HajimeAPI4J.exception.NoSuchParameterException;
-import HajimeAPI4J.exception.NoSuchURIException;
-import HajimeAPI4J.exception.ServerNotRespondError;
+import hajimeapi4j.api.HajimeAPI4J;
+import hajimeapi4j.exception.IllegalParameterException;
+import hajimeapi4j.exception.NoSuchParameterException;
+import hajimeapi4j.exception.NoSuchURIException;
+import hajimeapi4j.exception.ServerNotRespondError;
 
 public class Checks {
     

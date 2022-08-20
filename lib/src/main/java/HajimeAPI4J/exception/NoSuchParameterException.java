@@ -1,4 +1,4 @@
-package HajimeAPI4J.exception;
+package hajimeapi4j.exception;
 
 import java.util.NoSuchElementException;
 
