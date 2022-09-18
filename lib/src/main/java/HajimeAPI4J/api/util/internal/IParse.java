@@ -1,11 +1,11 @@
-package HajimeAPI4J.api.util.internal;
+package hajimeapi4j.api.util.internal;
 
-import HajimeAPI4J.api.HajimeAPI4J;
 import com.fasterxml.jackson.databind.JsonNode;
 
-import HajimeAPI4J.api.util.parse.ParseList;
-import HajimeAPI4J.api.util.parse.ParseMusic;
-import HajimeAPI4J.api.util.parse.ParseTax;
+import hajimeapi4j.api.HajimeAPI4J;
+import hajimeapi4j.api.util.parse.ParseList;
+import hajimeapi4j.api.util.parse.ParseMusic;
+import hajimeapi4j.api.util.parse.ParseTax;
 
 /**
  * パース処理共通部分のインターフェースです。

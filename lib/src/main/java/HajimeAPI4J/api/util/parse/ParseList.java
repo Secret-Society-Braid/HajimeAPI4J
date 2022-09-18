@@ -1,17 +1,16 @@
-package HajimeAPI4J.api.util.parse;
-
-import HajimeAPI4J.api.HajimeAPI4J;
-import HajimeAPI4J.api.HajimeAPIBuilder;
+package hajimeapi4j.api.util.parse;
 
 import java.util.Objects;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
+import hajimeapi4j.api.HajimeAPI4J;
+import hajimeapi4j.api.HajimeAPIBuilder;
+import hajimeapi4j.api.util.internal.IParse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import HajimeAPI4J.api.util.internal.IParse;
 
 public class ParseList implements IParse {
 

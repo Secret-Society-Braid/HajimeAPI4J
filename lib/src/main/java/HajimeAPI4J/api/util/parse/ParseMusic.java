@@ -1,4 +1,4 @@
-package HajimeAPI4J.api.util.parse;
+package hajimeapi4j.api.util.parse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,12 +8,12 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import HajimeAPI4J.api.HajimeAPI4J;
-import HajimeAPI4J.api.HajimeAPIBuilder;
-import HajimeAPI4J.api.util.datatype.Member;
-import HajimeAPI4J.api.util.datatype.MemberSolo;
-import HajimeAPI4J.api.util.datatype.Unit;
-import HajimeAPI4J.api.util.internal.IParse;
+import hajimeapi4j.api.HajimeAPI4J;
+import hajimeapi4j.api.HajimeAPIBuilder;
+import hajimeapi4j.api.util.datatype.Member;
+import hajimeapi4j.api.util.datatype.MemberSolo;
+import hajimeapi4j.api.util.datatype.Unit;
+import hajimeapi4j.api.util.internal.IParse;
 
 public class ParseMusic implements IParse {
 

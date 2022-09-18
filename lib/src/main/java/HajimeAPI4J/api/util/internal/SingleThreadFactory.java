@@ -1,4 +1,4 @@
-package HajimeAPI4J.api.util.internal;
+package hajimeapi4j.api.util.internal;
 
 import java.util.concurrent.ThreadFactory;
 

@@ -1,12 +1,12 @@
-package HajimeAPI4J.exceptions;
+package hajimeapi4j.exceptions;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-import HajimeAPI4J.api.HajimeAPI4J.Status;
-import HajimeAPI4J.api.HajimeAPIBuilder;
-import HajimeAPI4J.api.util.HajimeAPI4JImpl;
+import hajimeapi4j.api.HajimeAPIBuilder;
+import hajimeapi4j.api.HajimeAPI4J.Status;
+import hajimeapi4j.api.util.HajimeAPI4JImpl;
 
 public class ExceptionAssertionTest {
 

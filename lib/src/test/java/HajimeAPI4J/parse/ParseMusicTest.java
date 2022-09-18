@@ -1,4 +1,4 @@
-package HajimeAPI4J.parse;
+package hajimeapi4j.parse;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -8,10 +8,10 @@ import java.io.IOException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import HajimeAPI4J.api.HajimeAPI4J;
-import HajimeAPI4J.api.HajimeAPIBuilder;
-import HajimeAPI4J.api.util.parse.ParseMusic;
-import HajimeAPI4J.exception.NoSuchURIException;
+import hajimeapi4j.api.HajimeAPI4J;
+import hajimeapi4j.api.HajimeAPIBuilder;
+import hajimeapi4j.api.util.parse.ParseMusic;
+import hajimeapi4j.exception.NoSuchURIException;
 
 public class ParseMusicTest {
 

@@ -1,4 +1,4 @@
-package HajimeAPI4J.api;
+package hajimeapi4j.api;
 
 import java.util.LinkedHashMap;
 
@@ -6,12 +6,12 @@ import javax.annotation.Nonnull;
 
 import com.google.common.base.Joiner;
 
+import hajimeapi4j.api.util.Checks;
+import hajimeapi4j.api.util.HajimeAPI4JImpl;
+import hajimeapi4j.exception.IllegalParameterException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import HajimeAPI4J.api.util.Checks;
-import HajimeAPI4J.api.util.HajimeAPI4JImpl;
-import HajimeAPI4J.exception.IllegalParameterException;
 
 public class HajimeAPIBuilder {
     

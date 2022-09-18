@@ -1,9 +1,10 @@
-package HajimeAPI4J.api.util.datatype;
+package hajimeapi4j.api.util.datatype;
 
 
-import HajimeAPI4J.api.HajimeAPI4J;
-import HajimeAPI4J.api.util.internal.IParse;
 import com.fasterxml.jackson.databind.JsonNode;
+
+import hajimeapi4j.api.HajimeAPI4J;
+import hajimeapi4j.api.util.internal.IParse;
 
 /**
  * ふじわらはじめAPIでよく使用されているMember型を定義したクラスです。

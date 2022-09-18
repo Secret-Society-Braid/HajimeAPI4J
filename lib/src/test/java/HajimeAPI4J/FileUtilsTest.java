@@ -1,4 +1,4 @@
-package HajimeAPI4J;
+package hajimeapi4j;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,9 +16,9 @@ import java.util.Map;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
-import org.junit.jupiter.api.Test;
+import hajimeapi4j.api.util.FileUtils;
 
-import HajimeAPI4J.api.util.FileUtils;
+import org.junit.jupiter.api.Test;
 
 public class FileUtilsTest {
     
@@ -50,7 +50,7 @@ public class FileUtilsTest {
     @Test
     public void constructorTest() {
         try {
-            Class<?> clazz = Class.forName("HajimeAPI4J.api.util.FileUtils");
+            Class<?> clazz = Class.forName("hajimeapi4j.api.util.FileUtils");
             Constructor<?>[] constructors = clazz.getDeclaredConstructors();
             constructors[0].setAccessible(true);
 

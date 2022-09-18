@@ -23,10 +23,5 @@ lib/logs/
 bin/
 lib/.settings/
 lib/src/test/APITEST.http
-/.idea/workspace.xml
-/.idea/compiler.xml
-/.idea/gradle.xml
-/.idea/jarRepositories.xml
-/.idea/misc.xml
-/.idea/vcs.xml
 lib/.classpath
+/.idea/

@@ -1,4 +1,4 @@
-package HajimeAPI4J.api.util;
+package hajimeapi4j.api.util;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -17,14 +17,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Joiner;
 import com.google.common.base.Joiner.MapJoiner;
 
+import hajimeapi4j.api.HajimeAPI4J;
+import hajimeapi4j.api.HajimeAPIBuilder;
+import hajimeapi4j.api.util.internal.SingleThreadFactory;
+import hajimeapi4j.exception.IllegalParameterException;
+import hajimeapi4j.exception.NoSuchURIException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import HajimeAPI4J.api.HajimeAPI4J;
-import HajimeAPI4J.api.HajimeAPIBuilder;
-import HajimeAPI4J.api.util.internal.SingleThreadFactory;
-import HajimeAPI4J.exception.IllegalParameterException;
-import HajimeAPI4J.exception.NoSuchURIException;
 
 public class HajimeAPI4JImpl implements HajimeAPI4J {
 
