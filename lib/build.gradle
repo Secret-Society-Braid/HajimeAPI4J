@@ -33,7 +33,7 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:31.1-jre'
 
-    implementation("ch.qos.logback:logback-classic:1.2.11")
+    implementation("ch.qos.logback:logback-classic:1.4.1")
 
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "2.13.4"
 
