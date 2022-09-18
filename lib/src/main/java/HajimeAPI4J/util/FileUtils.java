@@ -1,4 +1,4 @@
-package hajimeapi4j.api.util;
+package HajimeAPI4J.util;
 
 import java.io.IOException;
 import java.io.InputStream;
