@@ -1,6 +1,6 @@
-package HajimeAPI4J.internal;
+package hajimeapi4j.internal;
 
-import HajimeAPI4J.api.ListEndPoint;
+import hajimeapi4j.api.endpoint.ListEndPoint;
 
 public class ListEndPointImpl implements ListEndPoint {
 

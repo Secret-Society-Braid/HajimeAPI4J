@@ -1,4 +1,4 @@
-package HajimeAPI4J.internal.datatype;
+package hajimeapi4j.internal.datatype;
 
 import java.util.Optional;
 import javax.annotation.CheckReturnValue;
