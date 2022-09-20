@@ -1,7 +1,8 @@
-package HajimeAPI4J.internal.builder;
+package hajimeapi4j.internal.builder;
 
-import HajimeAPI4J.api.ListEndPoint;
 import HajimeAPI4J.util.Checks;
+import hajimeapi4j.api.endpoint.ListEndPoint;
+import hajimeapi4j.internal.ListEndPointImpl;
 import java.util.Arrays;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
