@@ -44,4 +44,6 @@ public interface EndPoint extends RestAction<EndPoint> {
   @Nonnull
   @CheckReturnValue
   EndPoint fromApi();
+
+  boolean checkEmpty();
 }
