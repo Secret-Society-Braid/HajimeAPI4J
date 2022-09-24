@@ -1,9 +1,6 @@
 package hajimeapi4j.api.endpoint;
 
 import hajimeapi4j.internal.datatype.Member;
-import hajimeapi4j.internal.datatype.utilizations.Arrange;
-import hajimeapi4j.internal.datatype.utilizations.Composer;
-import hajimeapi4j.internal.datatype.utilizations.Lyrics;
 import hajimeapi4j.internal.datatype.utilizations.Music;
 import java.util.List;
 import java.util.Optional;

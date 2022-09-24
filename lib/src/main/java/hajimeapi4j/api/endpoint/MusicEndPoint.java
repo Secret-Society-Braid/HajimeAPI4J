@@ -2,11 +2,8 @@ package hajimeapi4j.api.endpoint;
 
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.datatype.Member;
-import hajimeapi4j.internal.datatype.utilizations.Arrange;
-import hajimeapi4j.internal.datatype.utilizations.Composer;
 import hajimeapi4j.internal.datatype.utilizations.Disc;
 import hajimeapi4j.internal.datatype.utilizations.Live;
-import hajimeapi4j.internal.datatype.utilizations.Lyrics;
 import hajimeapi4j.internal.datatype.utilizations.Original;
 import hajimeapi4j.internal.datatype.utilizations.Remix;
 import java.util.List;
