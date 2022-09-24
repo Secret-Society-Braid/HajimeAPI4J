@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.jetbrains.annotations.NotNull;
 
@@ -23,17 +24,18 @@ import org.jetbrains.annotations.NotNull;
  * @see EndPoint
  * @since 5.0.0
  */
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode
 @ToString
 public class EndPointImpl implements EndPoint {
 
-  private String name;
-  private String type;
-  private int taxId;
-  private int songId;
-  private String link;
-  private String api;
+  protected String name;
+  protected String type;
+  protected int taxId;
+  protected int songId;
+  protected String link;
+  protected String api;
 
   @CheckReturnValue
   public static EndPoint createInstance(String name, String type, int id, String link, String api) {
