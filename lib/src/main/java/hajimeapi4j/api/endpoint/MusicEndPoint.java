@@ -19,13 +19,13 @@ public interface MusicEndPoint extends RestAction<MusicEndPoint> {
   List<Original> getOriginal();
 
   @Nonnull
-  List<Lyrics> getLyrics();
+  List<EndPoint> getLyrics();
 
   @Nonnull
-  List<Composer> getComposer();
+  List<EndPoint> getComposer();
 
   @Nonnull
-  List<Arrange> getArrange();
+  List<EndPoint> getArrange();
 
   @Nonnull
   String getLyricsUrl();

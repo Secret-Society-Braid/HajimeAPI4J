@@ -10,47 +10,25 @@ public interface TaxEndPoint extends EndPoint {
 
   Optional<String> getKana();
 
-  Optional<String> getKana(String nullValue);
-
   Optional<String> getCv();
-
-  Optional<String> getCv(String nullValue);
 
   Optional<String> getCvKana();
 
-  Optional<String> getCvKana(String nullValue);
-
   Optional<String> getProduction();
-
-  Optional<String> getProduction(String nullValue);
 
   Optional<String> getDate();
 
-  Optional<String> getDate(String nullValue);
-
   Optional<String> getPlace();
-
-  Optional<String> getPlace(String nullValue);
 
   Optional<List<? extends Member>> getMember();
 
-  Optional<List<? extends Member>> getMember(List<Member> nullValue);
-
   Optional<Boolean> getSetListExists();
 
-  Optional<Boolean> getSetListExists(boolean nullValue);
+  Optional<EndPoint> getLyrics();
 
-  Optional<Lyrics> getLyrics();
+  Optional<EndPoint> getComposer();
 
-  Optional<Lyrics> getLyrics(Lyrics nullValue);
-
-  Optional<Composer> getComposer();
-
-  Optional<Composer> getComposer(Composer nullValue);
-
-  Optional<Arrange> getArrange();
-
-  Optional<Arrange> getArrange(Arrange nullValue);
+  Optional<EndPoint> getArrange();
 
   @Nonnull
   List<Music> getMusic();
