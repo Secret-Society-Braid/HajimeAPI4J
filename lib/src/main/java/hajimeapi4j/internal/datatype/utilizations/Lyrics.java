@@ -164,13 +164,21 @@ public class Lyrics implements EndPoint {
   }
 
   /**
+   * 空のインスタンスを返します。存在するデータがなかったなどの場合に返される可能性があります。
+   *
+   * @return 空のインスタンス
+   */
+  public static Lyrics getEmptyInstance() {
+    return new Lyrics("", "", -1, "", "");
+  }
+
+  /**
    * インスタンスが完全に空データであるかを検証します。
    *
    * @return 空の状態であれば {@code true}、そうでなければ {@code false}
    */
   @Override
   public boolean checkEmpty() {
-    return this.name.isEmpty() && this.type.isEmpty() && (this.taxId == -1) && this.link.isEmpty()
-        && this.api.isEmpty();
+    return this.equals(getEmptyInstance());
   }
 }
