@@ -2,6 +2,7 @@ package hajimeapi4j.internal.datatype.utilizations;
 
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.internal.request.CompiledRoute;
+import hajimeapi4j.util.InternalUtils;
 import java.util.concurrent.CompletableFuture;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
@@ -24,7 +25,6 @@ import lombok.ToString;
 @ToString
 public class Lyrics implements EndPoint {
 
-  private static final String MESSAGE = "You cannot invoke this method from Lyrics class";
   private final String name;
   private final String type;
   private final int taxId;
@@ -140,7 +140,7 @@ public class Lyrics implements EndPoint {
    */
   @Override
   public EndPoint complete() {
-    throw new UnsupportedOperationException(MESSAGE);
+    throw new UnsupportedOperationException(InternalUtils.getMethodNotAllowedMessage());
   }
 
   /**
@@ -150,7 +150,7 @@ public class Lyrics implements EndPoint {
    */
   @Override
   public CompletableFuture<EndPoint> submit() {
-    throw new UnsupportedOperationException(MESSAGE);
+    throw new UnsupportedOperationException(InternalUtils.getMethodNotAllowedMessage());
   }
 
   /**
@@ -160,16 +160,7 @@ public class Lyrics implements EndPoint {
    */
   @Override
   public CompiledRoute constructRoute(String... params) {
-    throw new UnsupportedOperationException(MESSAGE);
-  }
-
-  /**
-   * 空のインスタンスを返します。存在するデータがなかったなどの場合に返される可能性があります。
-   *
-   * @return 空のインスタンス
-   */
-  public static Lyrics getEmptyInstance() {
-    return new Lyrics("", "", -1, "", "");
+    throw new UnsupportedOperationException(InternalUtils.getMethodNotAllowedMessage());
   }
 
   /**
@@ -179,6 +170,6 @@ public class Lyrics implements EndPoint {
    */
   @Override
   public boolean checkEmpty() {
-    return this.equals(getEmptyInstance());
+    return this.equals(createEmpty());
   }
 }
