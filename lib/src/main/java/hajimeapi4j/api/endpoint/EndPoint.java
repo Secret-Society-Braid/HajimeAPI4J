@@ -39,11 +39,12 @@ public interface EndPoint extends RestAction<EndPoint> {
 
   /**
    * 取得したJSON API情報を使用し、その情報の詳細を取得できるようにするためのユーティリティメソッドです。
+   *
    * @return エンドポイントに応じた、API情報から生成したエンドポイント情報
    */
   @Nonnull
   @CheckReturnValue
-  EndPoint fromApi();
+  RestAction<EndPoint> fromApi();
 
   boolean checkEmpty();
 }
