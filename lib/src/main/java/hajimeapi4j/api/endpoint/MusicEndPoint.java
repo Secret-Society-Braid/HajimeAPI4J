@@ -4,8 +4,6 @@ import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.utilizations.Disc;
 import hajimeapi4j.internal.datatype.utilizations.Live;
-import hajimeapi4j.internal.datatype.utilizations.Original;
-import hajimeapi4j.internal.datatype.utilizations.Remix;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nonnull;
@@ -13,10 +11,10 @@ import javax.annotation.Nonnull;
 public interface MusicEndPoint extends RestAction<MusicEndPoint> {
 
   @Nonnull
-  List<Remix> getRemix();
+  List<EndPoint> getRemix();
 
   @Nonnull
-  List<Original> getOriginal();
+  List<EndPoint> getOriginal();
 
   @Nonnull
   List<EndPoint> getLyrics();

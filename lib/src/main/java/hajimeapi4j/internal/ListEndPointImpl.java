@@ -5,11 +5,9 @@ import java.util.Optional;
 import javax.annotation.CheckReturnValue;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @EqualsAndHashCode(callSuper = true)
-@ToString
+@ToString(callSuper = true)
 public class ListEndPointImpl extends EndPointImpl implements ListEndPoint {
 
   protected String musicType;

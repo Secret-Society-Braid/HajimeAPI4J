@@ -5,9 +5,13 @@ import hajimeapi4j.api.endpoint.TaxEndPoint;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.utilizations.Music;
 import java.util.List;
+import java.util.Optional;
+import javax.annotation.Nonnull;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
 
   protected String kana;
@@ -17,7 +21,7 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
   protected String date;
   protected String place;
   protected List<Member> member;
-  protected boolean setList;
+  protected Boolean setList;
   protected EndPoint lyrics;
   protected EndPoint composer;
   protected EndPoint arrange;
@@ -56,7 +60,7 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
     this.composer = composer;
   }
 
-  private TaxEndPoint createInstance(
+  public TaxEndPoint createInstance(
       String name,
       String type,
       int id,
@@ -77,5 +81,67 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
     return new TaxEndPointImpl(name, type, id, link, api, kana, cv, cvKana, production, date, place,
         member, setList, lyrics, composer, arrange, music);
   }
+
+  @Override
+  public Optional<String> getKana() {
+    return Optional.ofNullable(this.kana);
+  }
+
+  @Override
+  public Optional<String> getCv() {
+    return Optional.ofNullable(this.cv);
+  }
+
+  @Override
+  public Optional<String> getCvKana() {
+    return Optional.ofNullable(this.cvKana);
+  }
+
+  @Override
+  public Optional<String> getProduction() {
+    return Optional.ofNullable(this.production);
+  }
+
+  @Override
+  public Optional<String> getDate() {
+    return Optional.ofNullable(this.date);
+  }
+
+  @Override
+  public Optional<String> getPlace() {
+    return Optional.ofNullable(this.place);
+  }
+
+  @Override
+  public Optional<List<? extends Member>> getMember() {
+    return Optional.ofNullable(this.member);
+  }
+
+  @Override
+  public Optional<Boolean> getSetListExists() {
+    return Optional.ofNullable(this.setList);
+  }
+
+  @Override
+  public Optional<EndPoint> getLyrics() {
+    return Optional.ofNullable(this.lyrics);
+  }
+
+  @Override
+  public Optional<EndPoint> getComposer() {
+    return Optional.ofNullable(this.composer);
+  }
+
+  @Override
+  public Optional<EndPoint> getArrange() {
+    return Optional.ofNullable(this.arrange);
+  }
+
+  @Override
+  @Nonnull
+  public List<Music> getMusic() {
+    return this.music;
+  }
+
 
 }
