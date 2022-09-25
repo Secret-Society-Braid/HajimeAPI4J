@@ -1,22 +1,18 @@
-package HajimeAPI4J.internal.datatype;
+package hajimeapi4j.internal.datatype;
 
+import hajimeapi4j.internal.EndPointImpl;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
-@ToString
-@EqualsAndHashCode
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @Getter
-public class Unit {
+public class Unit extends EndPointImpl {
 
-  private final String name;
-  private final String type;
-  private final int taxId;
-  private final String link;
-  private final String api;
-  private final List<Member> member;
+  protected final List<Member> member;
 
 }
