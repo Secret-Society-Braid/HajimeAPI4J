@@ -41,7 +41,7 @@ dependencies {
 
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "2.13.4"
 
-    implementation group: 'org.jetbrains', name: 'annotations', version: '13.0'
+    implementation group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
 
     // lombok
     implementation group: 'org.projectlombok', name: 'lombok', version: "1.18.24"
