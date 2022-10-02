@@ -1,22 +1,24 @@
-package HajimeAPI4J.internal.datatype;
+package hajimeapi4j.internal.datatype;
 
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class MemberSolo extends Member{
+public class MemberSolo extends Member {
 
-  private final boolean solo;
 
-  public MemberSolo() {
-    super();
-    this.solo = false;
+  protected boolean solo;
+
+  protected MemberSolo(String name, String type, int taxId, int songId, String link, String api,
+      String production, String cv, boolean solo) {
+    super(name, type, taxId, songId, link, api, production, cv);
+    this.solo = solo;
   }
 
-  public MemberSolo(String name, String type, int taxId, String link, String api, String production, String cv, boolean solo) {
-    super(name, type, taxId, link, api, production, cv);
-    this.solo = solo;
+  public static MemberSolo createInstance(String name, String type, int taxId, String link,
+      String api, String production, String cv, boolean solo) {
+    return new MemberSolo(name, type, taxId, taxId, link, api, production, cv, solo);
   }
 
   public boolean getSolo() {
