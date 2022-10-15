@@ -5,7 +5,6 @@ import hajimeapi4j.api.endpoint.MusicEndPoint;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.utilizations.Disc;
 import hajimeapi4j.internal.datatype.utilizations.Live;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.CheckReturnValue;
@@ -79,15 +78,6 @@ public class MusicEndPointImpl extends EndPointImpl implements MusicEndPoint {
   ) {
     return new MusicEndPointImpl(name, type, songId, songId, link, api, remix, original, lyrics,
         composer, arrange, lyricsUrl, member, digital, disc, live);
-  }
-
-  public static MusicEndPoint createEmpty() {
-    if (emptyInstance == null) {
-      emptyInstance = new MusicEndPointImpl("", "", -1, -1, "", "", null, null, null, null, null,
-          null, null, false,
-          Collections.emptyList(), Collections.emptyList());
-    }
-    return emptyInstance;
   }
 
   @Override

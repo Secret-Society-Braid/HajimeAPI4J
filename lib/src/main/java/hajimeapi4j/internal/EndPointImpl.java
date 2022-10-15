@@ -36,15 +36,11 @@ public class EndPointImpl implements EndPoint {
   protected int songId;
   protected String link;
   protected String api;
+  private static EndPoint emptyInstance;
 
   @CheckReturnValue
   public static EndPoint createInstance(String name, String type, int id, String link, String api) {
     return new EndPointImpl(name, type, id, id, link, api);
-  }
-
-  @CheckReturnValue
-  public static EndPoint createEmpty() {
-    return new EndPointImpl("", "", -1, -1, "", "");
   }
 
   /**
@@ -168,5 +164,13 @@ public class EndPointImpl implements EndPoint {
   @Override
   public boolean checkEmpty() {
     return InternalUtils.checkEmpty(this);
+  }
+
+  @CheckReturnValue
+  public static EndPoint createEmpty() {
+    if (emptyInstance == null) {
+      emptyInstance = new EndPointImpl("", "", -1, -1, "", "");
+    }
+    return emptyInstance;
   }
 }

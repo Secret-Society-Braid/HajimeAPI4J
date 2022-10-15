@@ -1,7 +1,6 @@
 package hajimeapi4j.internal.datatype;
 
 import hajimeapi4j.internal.EndPointImpl;
-import java.util.Collections;
 import java.util.List;
 import javax.annotation.Nonnull;
 import lombok.AllArgsConstructor;
@@ -26,10 +25,6 @@ public class Unit extends EndPointImpl {
   public static Unit createInstance(String name, String type, int taxId, String link, String api,
       List<Member> members) {
     return new Unit(name, type, taxId, taxId, link, api, members);
-  }
-
-  public static Unit createEmpty() {
-    return new Unit("", "", -1, -1, "", "", Collections.emptyList());
   }
 
   @Nonnull

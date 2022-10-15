@@ -27,10 +27,6 @@ public class Member extends EndPointImpl {
     return new Member(name, type, taxId, taxId, link, api, production, cv);
   }
 
-  public static Member createEmpty() {
-    return createInstance("", "", -1, "", "", "", "");
-  }
-
   @CheckReturnValue
   public Optional<String> getProduction() {
     return Optional.ofNullable(this.production);

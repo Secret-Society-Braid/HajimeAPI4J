@@ -1,6 +1,7 @@
 package hajimeapi4j.api.endpoint;
 
 import hajimeapi4j.api.request.RestAction;
+import hajimeapi4j.internal.EndPointImpl;
 import java.util.Optional;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
@@ -47,4 +48,9 @@ public interface EndPoint extends RestAction<EndPoint> {
   RestAction<EndPoint> fromApi();
 
   boolean checkEmpty();
+
+  @CheckReturnValue
+  static EndPoint createEmpty() {
+    return EndPointImpl.createEmpty();
+  }
 }
