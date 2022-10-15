@@ -38,7 +38,7 @@ public class ListEndPointBuilder {
 
   public RestAction<List<ListEndPoint>> build() {
     Checks.validateListType(type);
-
+    return null;
   }
 
 
