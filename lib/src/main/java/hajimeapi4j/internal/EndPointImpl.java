@@ -167,6 +167,6 @@ public class EndPointImpl implements EndPoint {
    */
   @Override
   public boolean checkEmpty() {
-    return this.equals(createEmpty());
+    return InternalUtils.checkEmpty(this);
   }
 }

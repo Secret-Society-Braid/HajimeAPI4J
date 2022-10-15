@@ -149,9 +149,4 @@ public class MusicEndPointImpl extends EndPointImpl implements MusicEndPoint {
     return Optional.ofNullable(this.live);
   }
 
-  @Override
-  public boolean checkEmpty() {
-    return this.equals(createEmpty());
-  }
-
 }
