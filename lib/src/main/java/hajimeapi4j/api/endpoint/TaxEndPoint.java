@@ -67,28 +67,101 @@ public interface TaxEndPoint extends EndPoint {
   Optional<String> getProduction();
 
   /**
-   * ライブの開催日時情報を取得します。
+   * ライブの開催日時情報を取得します。「yyyy-mm-dd」形式。
    * <p>
    * 取得可能カテゴリタイプ
    * <ul>
    *   <li>live</li>
    * </ul>
+   *
    * @return ライブの開催日時情報
    */
   Optional<String> getDate();
 
+  /**
+   * ライブの会場情報を取得します。
+   * <p>
+   * 取得可能カテゴリタイプ
+   * <ul>
+   *   <li>live</li>
+   * </ul>
+   *
+   * @return ライブの会場情報
+   */
   Optional<String> getPlace();
 
+  /**
+   * 歌唱曲、もしくはライブ披露時の参加メンバーを取得します。
+   * <p>
+   * 取得可能カテゴリタイプ
+   * <ul>
+   *   <li>live</li>
+   *   <li>unit</li>
+   * </ul>
+   *
+   * @return 参加メンバー、ユニットメンバー情報
+   */
   Optional<List<? extends Member>> getMember();
 
+  /**
+   * ライブなどで披露した際のセットリスト情報がデータベースに存在するかどうかを取得します。
+   * <p>
+   * 取得可能カテゴリタイプ
+   * <ul>
+   *   <li>live</li>
+   * </ul>
+   *
+   * @return セットリストの有無
+   */
   Optional<Boolean> getSetListExists();
 
+  /**
+   * 同じ名義などで作業した楽曲一覧を表示するためのカテゴリ情報を出力します。
+   * <p>
+   * 同じ名義で作詞を行った情報を返却します
+   * <p>
+   * 取得可能カテゴリタイプ
+   * <ul>
+   *   <li>lyrics</li>
+   * </ul>
+   *
+   * @return 同じ名義で作詞を行った楽曲情報
+   */
   Optional<EndPoint> getLyrics();
 
+  /**
+   * 同じ名義などで作業した楽曲一覧を表示するためのカテゴリ情報を出力します。
+   * <p>
+   * 同じ名義で作曲を行った情報を返却します
+   * <p>
+   * 取得可能カテゴリタイプ
+   * <ul>
+   *   <li>composer</li>
+   * </ul>
+   *
+   * @return 同じ名義で作曲を行った楽曲情報
+   */
   Optional<EndPoint> getComposer();
 
+  /**
+   * 同じ名義などで作業した楽曲一覧を表示するためのカテゴリ情報を出力します。
+   * <p>
+   * 同じ名義で編曲を行った情報を返却します
+   * <p>
+   * 取得可能カテゴリタイプ
+   * <ul>
+   *   <li>arrange</li>
+   * </ul>
+   *
+   * @return 同じ編曲で作詞を行った楽曲情報
+   */
   Optional<EndPoint> getArrange();
 
+  /**
+   * 楽曲情報の出力を行います
+   *
+   * @return 指定された楽曲情報
+   */
   @Nonnull
   List<Music> getMusic();
 
