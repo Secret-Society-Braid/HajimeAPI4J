@@ -8,6 +8,11 @@ import java.util.Optional;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 
+/**
+ * エンドポイント「/music」にて取得できる情報を定義したインターフェースです
+ * <p>
+ * {@code music}エンドポイントではエンドユーザーの指定によって出力される情報が変化するため、特に理由付けがなされていないかぎり{@link Optional}でラップされています。
+ */
 public interface MusicEndPoint extends EndPoint {
 
   @CheckReturnValue
