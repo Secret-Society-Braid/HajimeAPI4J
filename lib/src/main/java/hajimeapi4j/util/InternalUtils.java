@@ -1,7 +1,14 @@
 package hajimeapi4j.util;
 
 import hajimeapi4j.api.endpoint.EndPoint;
+import hajimeapi4j.api.request.RestAction;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import javax.annotation.Nonnull;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class InternalUtils {
 
   private static final String MESSAGE_METHOD_NOT_ALLOWED = "You cannot invoke this method from Lyrics class";
@@ -19,5 +26,31 @@ public class InternalUtils {
         && testee.getType().isEmpty()
         && testee.getLink().isEmpty()
         && testee.getApi().isEmpty();
+  }
+
+  @Nonnull
+  public static RestAction<EndPoint> parseFromUriString(String uri) {
+    // parse uri
+    // example: https://api.fujiwarahaji.me/v2/music?id=3525
+    String shortened = uri.substring(28); // example: v2/music?id=3525
+    String[] splitWithSlash = shortened.split("/"); // example: [v2] [music?id=3525]
+    log.info("used api version: {}", splitWithSlash[0]);
+    String[] splitWithQuestionMark = splitWithSlash[1].split("\\?"); // example: [music] [id=3525]
+    log.info("used api endpoint: {}", splitWithQuestionMark[0]);
+    Map<String, String> queries = mapFromPlainText(splitWithQuestionMark[1]);
+    // TODO: we will need more implementation after completing implementation for builder classes
+    return EndPoint.createEmpty(); // FIXME: replace this temporal return to applicable one
+  }
+
+  @Nonnull
+  static Map<String, String> mapFromPlainText(String plain) {
+    Map<String, String> result = new LinkedHashMap<>();
+    String[] splitWithAmpersand = plain.split("&");
+    Arrays.stream(splitWithAmpersand)
+        .forEachOrdered(str -> {
+          String[] splitWithEqual = str.split("=");
+          result.put(splitWithEqual[0], splitWithEqual[1]);
+        });
+    return result;
   }
 }
