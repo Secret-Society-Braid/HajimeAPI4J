@@ -43,66 +43,34 @@ public class EndPointImpl implements EndPoint {
     return new EndPointImpl(name, type, id, id, link, api);
   }
 
-  /**
-   * 名称、名前、ユニット名などとして登録されている情報を取得します
-   *
-   * @return 名前の情報
-   */
   @Override
   @Nonnull
   public String getName() {
     return this.name;
   }
 
-  /**
-   * 出力しているカテゴリ名（出力モード）を取得します。
-   *
-   * @return カテゴリ名
-   * @apiNote 一部のカテゴリではここの情報が常に一定となる場合があります
-   */
   @Override
   @Nonnull
   public String getType() {
     return this.type;
   }
 
-  /**
-   * カテゴリID（楽曲データベースID）を返します。
-   *
-   * @return カテゴリID
-   */
   @Override
   public int getTaxId() {
     return this.taxId;
   }
 
-  /**
-   * 内部楽曲ID（楽曲データベースID）を返します
-   *
-   * @return 楽曲ID
-   */
   @Override
   public int getSongId() {
     return this.songId;
   }
 
-  /**
-   * ふじわらはじめ楽曲DB内のページURLを取得します。
-   *
-   * @return ページURL
-   */
   @Nonnull
   @Override
   public String getLink() {
     return this.link;
   }
 
-  /**
-   * そのカテゴリ情報のJSON URIを取得します。
-   *
-   * @return URI
-   * @apiNote そのまま情報を取得する場合は {@link EndPoint#fromApi()}メソッドにてそのまま情報を取得することができます
-   */
   @Nonnull
   @Override
   public String getApi() {
@@ -147,25 +115,16 @@ public class EndPointImpl implements EndPoint {
     throw new UnsupportedOperationException(InternalUtils.getMethodNotAllowedMessage());
   }
 
-  /**
-   * インスタンスが空かどうかを判定します。 空である基準は
-   * <li>
-   *   <ul> {@link #name}が空文字</ul>
-   *   <ul> {@link #type}が空文字</ul>
-   *   <ul> {@link #taxId}が {@code -1}</ul>
-   *   <ul> {@link #songId}が {@code -1}</ul>
-   *   <ul> {@link #link}が空文字</ul>
-   *   <ul> {@link #api}が空文字</ul>
-   * </li>
-   * となります。
-   *
-   * @return このインスタンスが空である場合は {@code true}、そうでない場合は{@code false}
-   */
   @Override
   public boolean checkEmpty() {
     return InternalUtils.checkEmpty(this);
   }
 
+  /**
+   * 空の{@link EndPoint}インスタンスを返します。
+   *
+   * @return 空のインスタンス
+   */
   @CheckReturnValue
   public static EndPoint createEmpty() {
     if (emptyInstance == null) {
