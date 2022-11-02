@@ -1,13 +1,11 @@
-package HajimeAPI4J.util;
+package hajimeapi4j.util;
 
 import java.util.concurrent.ThreadFactory;
+import javax.annotation.Nonnull;
+import lombok.extern.slf4j.Slf4j;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+@Slf4j
 public class SingleThreadFactory implements ThreadFactory {
-    
-    private static final Logger LOG = LoggerFactory.getLogger(SingleThreadFactory.class);
     
     private static ThreadFactory singletonInstance = null;
 
@@ -18,10 +16,11 @@ public class SingleThreadFactory implements ThreadFactory {
     private Thread workingThread;
     
     private SingleThreadFactory() {
-        LOG.debug("Initiate Single Thread Factory.");
-        LOG.debug("The Thread name is {}", THREAD_NAME);
-        if(isShutdown) {
-            throw new IllegalStateException("The thread has been stopped working. Maybe something went wrong.");
+        log.debug("Initiate Single Thread Factory.");
+        log.debug("The Thread name is {}", THREAD_NAME);
+        if (isShutdown) {
+            throw new IllegalStateException(
+                "The thread has been stopped working. Maybe something went wrong.");
         }
     }
     
@@ -31,9 +30,9 @@ public class SingleThreadFactory implements ThreadFactory {
         }
         return singletonInstance;
     }
-    
+
     @Override
-    public Thread newThread(Runnable r) {
+    public Thread newThread(@Nonnull Runnable r) {
         Thread thread = new Thread(r, THREAD_NAME);
         thread.setDaemon(true);
         this.workingThread = thread;
@@ -45,7 +44,7 @@ public class SingleThreadFactory implements ThreadFactory {
         if(this.workingThread != null) {
             this.workingThread.interrupt();
         } else {
-            LOG.warn("The working thread is null. Please check the code.");
+            log.warn("The working thread is null. Please check the code.");
         }
     }
 
