@@ -53,6 +53,11 @@ class ListEndPointDataParseTest {
         .map(ListEndPoint::getCv)
         .forEachOrdered(each -> assertFalse(
             each.isPresent()));
+
+    // song_id and tax_id must have the same id value
+    testInstance
+        .forEach(each -> assertEquals(
+            each.getSongId(), each.getTaxId()));
   }
 
 }
