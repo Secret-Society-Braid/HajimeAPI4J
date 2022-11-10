@@ -1,10 +1,17 @@
 package hajimeapi4j.util;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import hajimeapi4j.api.endpoint.EndPoint;
+import hajimeapi4j.api.endpoint.ListEndPoint;
 import hajimeapi4j.api.request.RestAction;
+import hajimeapi4j.internal.endpoint.ListEndPointImpl;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
 
@@ -54,4 +61,39 @@ public class InternalUtils {
     return result;
   }
 
+  @Nonnull
+  @CheckReturnValue
+  public static List<ListEndPoint> generateListEndPointResponse(JsonNode rawResponse) {
+    // check for potentially null access
+    if (rawResponse == null) {
+      throw new IllegalArgumentException("raw response must not be null");
+    }
+    List<ListEndPoint> result = new ArrayList<>();
+    Iterator<JsonNode> iteration = rawResponse.elements();
+    // adding elements
+    while (iteration.hasNext()) {
+      JsonNode tmp = iteration.next();
+      boolean isMusicType = tmp.get("type").asText().equals("music");
+      boolean isIdolType = tmp.get("type").asText().equals("idol");
+      ListEndPoint eachInstance = ListEndPointImpl.createInstance(
+          tmp.get("name").asText(),
+          tmp.get("type").asText(),
+          tmp.get(isMusicType ? "song_id" : "tax_id").asInt(),
+          tmp.get("link").asText(),
+          tmp.get("api").asText(),
+          isMusicType ? tmp.get("music_type").asText() : null,
+          // music_type will appear when type is music
+          tmp.get("type").asText().equals("live") ? tmp.get("date").asText() : null,
+          // live will appear when type is live
+          // these four params will appear when type is idol
+          isIdolType ? tmp.get("production").asText() : null,
+          isIdolType ? tmp.get("kana").asText() : null,
+          isIdolType ? tmp.get("cv").asText() : null,
+          isIdolType ? tmp.get("cvkana").asText() : null
+      );
+      log.debug("listEndPoint response instance has been created. : {}", eachInstance);
+      result.add(eachInstance);
+    }
+    return result;
+  }
 }

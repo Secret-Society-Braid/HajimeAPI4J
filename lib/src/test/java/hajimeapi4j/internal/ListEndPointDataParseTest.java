@@ -1,15 +1,16 @@
 package hajimeapi4j.internal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.base.Strings;
+import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.endpoint.ListEndPoint;
-import hajimeapi4j.internal.endpoint.ListEndPointImpl;
+import hajimeapi4j.util.InternalUtils;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -34,29 +35,24 @@ class ListEndPointDataParseTest {
 
   @Test
   void createInstanceTest() {
-    List<ListEndPoint> testInstance = new ArrayList<>();
-    Iterator<JsonNode> iterable = template.elements();
-    while (iterable.hasNext()) {
-      JsonNode tmp = iterable.next();
-      testInstance.add(ListEndPointImpl.createInstance(
-          tmp.get("name").asText(),
-          tmp.get("type").asText(),
-          tmp.get("song_id").asInt(),
-          tmp.get("link").asText(),
-          tmp.get("api").asText(),
-          tmp.get("music_type").asText(),
-          null,
-          null,
-          null,
-          null,
-          null)
-      );
-    }
+    List<ListEndPoint> testInstance = InternalUtils.generateListEndPointResponse(template);
 
     //assertions
 
-    assertEquals(9, testInstance.size());
+    // size should be 9
+    assertEquals(10, testInstance.size());
 
+    // Base abstract classes should be able to access.
+    testInstance.stream()
+        .map(EndPoint::getName)
+        .forEachOrdered(each -> assertFalse(
+            Strings.isNullOrEmpty(each)));
+
+    // this data is requested with music query type so that we should contain Optional.empty()
+    testInstance.stream()
+        .map(ListEndPoint::getCv)
+        .forEachOrdered(each -> assertFalse(
+            each.isPresent()));
   }
 
 }
