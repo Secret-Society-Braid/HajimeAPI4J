@@ -6,12 +6,13 @@ import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.Unit;
 import java.util.Collections;
 import java.util.List;
-import javax.annotation.Nonnull;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.ToString;
 
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
+@Getter
 public class Disc extends EndPointImpl implements EndPoint {
 
   protected List<Unit> unit;
@@ -44,19 +45,5 @@ public class Disc extends EndPointImpl implements EndPoint {
       List<Unit> unit,
       List<? extends Member> member) {
     return new Disc(name, type, taxId, taxId, link, api, unit, member);
-  }
-
-  public static EndPoint createEmpty() {
-    return EndPoint.createEmpty();
-  }
-
-  @Nonnull
-  public List<Unit> getUnit() {
-    return this.unit;
-  }
-
-  @Nonnull
-  public List<? extends Member> getMember() {
-    return this.member;
   }
 }
