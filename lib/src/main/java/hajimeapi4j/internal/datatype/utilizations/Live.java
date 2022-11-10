@@ -1,9 +1,9 @@
 package hajimeapi4j.internal.datatype.utilizations;
 
 import hajimeapi4j.api.endpoint.EndPoint;
-import hajimeapi4j.internal.EndPointImpl;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.Unit;
+import hajimeapi4j.internal.endpoint.EndPointImpl;
 import java.util.List;
 import javax.annotation.Nonnull;
 import lombok.EqualsAndHashCode;

@@ -1,13 +1,13 @@
 package hajimeapi4j.api.request;
 
 import hajimeapi4j.api.endpoint.EndPoint;
-import hajimeapi4j.internal.EndPointImpl;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.MemberSolo;
 import hajimeapi4j.internal.datatype.Unit;
 import hajimeapi4j.internal.datatype.utilizations.Disc;
 import hajimeapi4j.internal.datatype.utilizations.Live;
 import hajimeapi4j.internal.datatype.utilizations.Music;
+import hajimeapi4j.internal.endpoint.EndPointImpl;
 import hajimeapi4j.internal.request.CompiledRoute;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;

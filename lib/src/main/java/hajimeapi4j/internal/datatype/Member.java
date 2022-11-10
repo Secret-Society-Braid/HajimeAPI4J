@@ -1,6 +1,6 @@
 package hajimeapi4j.internal.datatype;
 
-import hajimeapi4j.internal.EndPointImpl;
+import hajimeapi4j.internal.endpoint.EndPointImpl;
 import java.util.Optional;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;

@@ -1,10 +1,10 @@
 package hajimeapi4j.api.endpoint;
 
 import hajimeapi4j.api.request.RestAction;
-import hajimeapi4j.internal.MusicEndPointImpl;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.utilizations.Disc;
 import hajimeapi4j.internal.datatype.utilizations.Live;
+import hajimeapi4j.internal.endpoint.MusicEndPointImpl;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.CheckReturnValue;

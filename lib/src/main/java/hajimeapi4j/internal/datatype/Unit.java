@@ -1,9 +1,9 @@
 package hajimeapi4j.internal.datatype;
 
-import hajimeapi4j.internal.EndPointImpl;
 import hajimeapi4j.internal.datatype.utilizations.Disc;
 import hajimeapi4j.internal.datatype.utilizations.Live;
 import hajimeapi4j.internal.datatype.utilizations.Music;
+import hajimeapi4j.internal.endpoint.EndPointImpl;
 import java.util.List;
 import javax.annotation.Nonnull;
 import lombok.AllArgsConstructor;

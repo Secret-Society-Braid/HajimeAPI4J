@@ -1,4 +1,4 @@
-package hajimeapi4j.internal;
+package hajimeapi4j.internal.endpoint;
 
 import hajimeapi4j.api.endpoint.ListEndPoint;
 import java.util.Optional;

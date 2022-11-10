@@ -1,9 +1,9 @@
 package hajimeapi4j.api.endpoint;
 
 import hajimeapi4j.api.request.RestAction;
-import hajimeapi4j.internal.TaxEndPointImpl;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.utilizations.Music;
+import hajimeapi4j.internal.endpoint.TaxEndPointImpl;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nonnull;

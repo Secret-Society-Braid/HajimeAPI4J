@@ -1,7 +1,7 @@
 package hajimeapi4j.api.endpoint;
 
 import hajimeapi4j.api.request.RestAction;
-import hajimeapi4j.internal.ListEndPointImpl;
+import hajimeapi4j.internal.endpoint.ListEndPointImpl;
 import java.util.Optional;
 import javax.annotation.CheckReturnValue;
 
