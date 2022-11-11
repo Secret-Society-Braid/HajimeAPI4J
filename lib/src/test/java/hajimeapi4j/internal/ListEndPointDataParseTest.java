@@ -2,6 +2,7 @@ package hajimeapi4j.internal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -20,13 +21,17 @@ import org.slf4j.LoggerFactory;
 class ListEndPointDataParseTest {
 
   private static final Logger log = LoggerFactory.getLogger(ListEndPointDataParseTest.class);
-  private static JsonNode template;
+  private static final ObjectMapper MAPPER = new ObjectMapper();
+  private static JsonNode musicTemplate;
+  private static JsonNode idolTemplate;
 
   @BeforeAll
   static void setUp() {
     try {
-      template = new ObjectMapper().readTree(ListEndPointDataParseTest.class.getResource(
+      musicTemplate = MAPPER.readTree(ListEndPointDataParseTest.class.getResource(
           "/dataClassTemplate/listWithMusicResponse.json"));
+      idolTemplate = MAPPER.readTree(ListEndPointDataParseTest.class.getResource(
+          "/dataClassTemplate/listWithIdolAtShinyColors.json"));
     } catch (IOException e) {
       fail(e);
     }
@@ -35,7 +40,7 @@ class ListEndPointDataParseTest {
 
   @Test
   void createInstanceTest() {
-    List<ListEndPoint> testInstance = InternalUtils.generateListEndPointResponse(template);
+    List<ListEndPoint> testInstance = InternalUtils.generateListEndPointResponse(musicTemplate);
 
     //assertions
 
@@ -60,4 +65,26 @@ class ListEndPointDataParseTest {
             each.getSongId(), each.getTaxId()));
   }
 
+  @Test
+  void listShinyColorsIdolTest() {
+    List<ListEndPoint> idolData = InternalUtils.generateListEndPointResponse(idolTemplate);
+
+    // assertions
+    // validate that element size is 27
+    assertEquals(27, idolData.size());
+
+    // validate that each element's type is idol
+    idolData.forEach(each -> assertEquals(
+        "idol", each.getType()));
+
+    // validate that each elements' production is sc
+    idolData.forEach(each -> assertEquals(
+        "sc", each.getProduction().orElse("")));
+
+    // validate that each element must have cv and cvkana value
+    idolData.forEach(each -> {
+      assertTrue(each.getCv().isPresent());
+      assertTrue(each.getCvKana().isPresent());
+    });
+  }
 }
