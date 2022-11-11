@@ -12,7 +12,7 @@ public class Requester {
 
   private static final ObjectMapper MAPPER = new ObjectMapper();
 
-  private static final String API_BASE_URL = "https://api.fujiwarahaji.me/v2";
+  private static final String API_BASE_URL = "https://api.fujiwarahaji.me/v2"; // TODO: update API version to v2.1
   private static final String USER_AGENT = "HajimeAPI4J java wrapper developed by @hizumiaoba";
 
   private CompiledRoute route;
