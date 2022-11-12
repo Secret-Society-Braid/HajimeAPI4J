@@ -2,6 +2,7 @@ package hajimeapi4j.internal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -100,5 +101,12 @@ class ListEndPointDataParseTest {
 
     // validate that each element has date parameter
     liveResponseList.forEach(each -> assertTrue(each.getDate().isPresent()));
+  }
+
+  @Test
+  void nullCheckTest() {
+    // assertion
+    assertThrows(IllegalArgumentException.class,
+        () -> InternalUtils.generateListEndPointResponse(null));
   }
 }
