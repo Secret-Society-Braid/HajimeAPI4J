@@ -64,10 +64,12 @@ public class InternalUtils {
   @Nonnull
   @CheckReturnValue
   public static List<ListEndPoint> generateListEndPointResponse(JsonNode rawResponse) {
+    long start = System.currentTimeMillis();
     // check for potentially null access
     if (rawResponse == null) {
       throw new IllegalArgumentException("raw response must not be null");
     }
+    log.debug("attempt to parse data");
     List<ListEndPoint> result = new ArrayList<>();
     Iterator<JsonNode> iteration = rawResponse.elements();
     // adding elements
@@ -102,6 +104,7 @@ public class InternalUtils {
       log.debug("listEndPoint response instance has been created. : {}", eachInstance);
       result.add(eachInstance);
     }
+    log.debug("data parse completed. took {} ms", (System.currentTimeMillis() - start));
     return result;
   }
 }
