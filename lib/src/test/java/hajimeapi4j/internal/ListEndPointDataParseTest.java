@@ -24,6 +24,7 @@ class ListEndPointDataParseTest {
   private static final ObjectMapper MAPPER = new ObjectMapper();
   private static JsonNode musicTemplate;
   private static JsonNode idolTemplate;
+  private static JsonNode liveTemplate;
 
   @BeforeAll
   static void setUp() {
@@ -32,6 +33,8 @@ class ListEndPointDataParseTest {
           "/dataClassTemplate/listWithMusicResponse.json"));
       idolTemplate = MAPPER.readTree(ListEndPointDataParseTest.class.getResource(
           "/dataClassTemplate/listWithIdolAtShinyColors.json"));
+      liveTemplate = MAPPER.readTree(ListEndPointDataParseTest.class.getResource(
+          "/dataClassTemplate/listWithLive.json"));
     } catch (IOException e) {
       fail(e);
     }
@@ -79,12 +82,23 @@ class ListEndPointDataParseTest {
 
     // validate that each elements' production is sc
     idolData.forEach(each -> assertEquals(
-        "sc", each.getProduction().orElse("")));
+        "283", each.getProduction().orElse("not implemented")));
 
     // validate that each element must have cv and cvkana value
     idolData.forEach(each -> {
       assertTrue(each.getCv().isPresent());
       assertTrue(each.getCvKana().isPresent());
     });
+  }
+
+  @Test
+  void liveResponseTest() {
+    List<ListEndPoint> liveResponseList = InternalUtils.generateListEndPointResponse(liveTemplate);
+
+    // validate that size is 397
+    assertEquals(397, liveResponseList.size());
+
+    // validate that each element has date parameter
+    liveResponseList.forEach(each -> assertTrue(each.getDate().isPresent()));
   }
 }
