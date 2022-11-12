@@ -1,53 +1,30 @@
 package hajimeapi4j.internal.datatype;
 
+import hajimeapi4j.internal.endpoint.EndPointImpl;
 import java.util.Optional;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
-@AllArgsConstructor
-@ToString
-@EqualsAndHashCode
-public class Member {
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class Member extends EndPointImpl {
 
-  protected final String name;
-  protected final String type;
-  protected final int taxId;
-  protected final String link;
-  protected final String api;
-  protected final String production;
-  protected final String cv;
+  protected String production;
 
-  public Member() {
-    this(null, null, 0, null, null, null, null);
+  protected String cv;
+
+  protected Member(String name, String type, int taxId, int songId, String link, String api,
+      String production, String cv) {
+    super(name, type, taxId, songId, link, api);
+    this.production = production;
+    this.cv = cv;
   }
 
-  @Nonnull
-  public String getName() {
-    return this.name;
-  }
-
-  @Nonnull
-  public String getType() {
-    return this.type;
-  }
-
-  public int getTaxId() {
-    return this.taxId;
-  }
-
-  @Nonnull
-  public String getLink() {
-    return this.link;
-  }
-
-  @Nonnull
-  public String getApi() {
-    return this.api;
+  public static Member createInstance(String name, String type, int taxId, String link, String api,
+      String production, String cv) {
+    return new Member(name, type, taxId, taxId, link, api, production, cv);
   }
 
   @CheckReturnValue

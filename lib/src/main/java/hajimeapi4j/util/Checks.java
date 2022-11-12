@@ -1,4 +1,4 @@
-package HajimeAPI4J.util;
+package hajimeapi4j.util;
 
 import com.google.common.base.Strings;
 import java.util.Arrays;
