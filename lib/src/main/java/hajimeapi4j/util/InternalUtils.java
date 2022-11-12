@@ -73,18 +73,26 @@ public class InternalUtils {
     // adding elements
     while (iteration.hasNext()) {
       JsonNode tmp = iteration.next();
-      boolean isMusicType = tmp.get("type").asText().equals("music");
-      boolean isIdolType = tmp.get("type").asText().equals("idol");
+      boolean isMusicType = false;
+      boolean isIdolType = false;
+      // with idol type query it doesn't have the type parameter in the response,
+      // so we locally check whether type parameter exists or not
+      if (tmp.get("type") != null) {
+        isMusicType = tmp.get("type").asText().equals("music");
+      } else {
+        isIdolType = true;
+      }
       ListEndPoint eachInstance = ListEndPointImpl.createInstance(
           tmp.get("name").asText(),
-          tmp.get("type").asText(),
+          isIdolType ? "idol" : tmp.get("type").asText(),
           tmp.get(isMusicType ? "song_id" : "tax_id").asInt(),
           tmp.get("link").asText(),
           tmp.get("api").asText(),
-          isMusicType ? tmp.get("music_type").asText() : null,
           // music_type will appear when type is music
-          tmp.get("type").asText().equals("live") ? tmp.get("date").asText() : null,
+          isMusicType ? tmp.get("music_type").asText() : null,
           // live will appear when type is live
+          (!isIdolType && tmp.get("type").asText().equals("live")) ? tmp.get("date").asText()
+              : null,
           // these four params will appear when type is idol
           isIdolType ? tmp.get("production").asText() : null,
           isIdolType ? tmp.get("kana").asText() : null,
