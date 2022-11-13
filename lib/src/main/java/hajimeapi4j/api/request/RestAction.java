@@ -12,6 +12,8 @@ import hajimeapi4j.internal.request.CompiledRoute;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
+import javax.annotation.CheckReturnValue;
+import javax.annotation.Nonnull;
 
 /**
  * REST APIとの相互作用全般を引き受けるクラスです。
@@ -42,6 +44,7 @@ public interface RestAction<T> {
    *
    * @return APIから取得した情報をラップしたデータ
    */
+  @Nonnull
   T complete();
 
   /**
@@ -66,6 +69,7 @@ public interface RestAction<T> {
    * @param params 現在のActionにセットするパラメータ情報
    * @return パラメータ情報をセットしたAPIへのURI情報
    */
+  @CheckReturnValue
   CompiledRoute constructRoute(String... params);
 
 }
