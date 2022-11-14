@@ -16,6 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
@@ -140,6 +141,56 @@ public class InternalUtils {
     for (JsonNode tmp : songNode) {
       List<Unit> unit = new ArrayList<>();
       List<Member> member = new ArrayList<>();
+      CompletableFuture<List<Unit>> unitParseFuture = null;
+      CompletableFuture<List<Member>> memberParseFuture = null;
+      // unit parsing with parallel
+      unitParseFuture = CompletableFuture.supplyAsync(() -> {
+        // get raw node data from original data
+        JsonNode unitArrayNode = tmp.get("unit");
+        List<Unit> result = new ArrayList<>();
+
+        // if type is not "disc" or "live", we don't need to do nothing.
+        if (!type.equals("disc") || !type.equals("live")) {
+          return result;
+        }
+
+        // looping for parsing
+        for (JsonNode unitNode : unitArrayNode) {
+
+          // since member of unit is array type, we need to create loop again for parsing member of unit
+          List<Member> unitMember = new ArrayList<>();
+
+          for (JsonNode unitMemberNode : unitNode.get("member")) {
+            Member eachMember = Member.createInstance(
+                unitMemberNode.get("name").asText(),
+                unitMemberNode.get("type").asText(),
+                unitMemberNode.get("tax_id").asInt(),
+                unitMemberNode.get("link").asText(),
+                unitMemberNode.get("api").asText(),
+                unitMemberNode.get("production").asText(),
+                unitMemberNode.get("cv").asText()
+            );
+
+            // add member data
+            unitMember.add(eachMember);
+          }
+
+          // create unit data
+          Unit each = Unit.createInstance(
+              unitNode.get("name").asText(),
+              unitNode.get("type").asText(),
+              unitNode.get("tax_id").asInt(),
+              unitNode.get("link").asText(),
+              unitNode.get("api").asText(),
+              unitMember
+          );
+
+          // add unit data
+          result.add(each);
+        }
+        // return the result
+        return result;
+      });
       Music music = Music.createInstance(
           tmp.get("name").asText(),
           tmp.get("type").asText(),
@@ -148,7 +199,7 @@ public class InternalUtils {
           tmp.get("link").asText(),
           tmp.get("api").asText(),
           type.equals("live") ? tmp.get("song_text").asText() : null,
-          null, // TODO: parse unit data for tax data parsing
+          unitParseFuture.join(),
           null, // TODO: parse member data for tax data parsing
           type.equals("live") ? tmp.get("member_text").asText() : null,
           type.equals("idol") ? tmp.get("solo").asBoolean() : null
