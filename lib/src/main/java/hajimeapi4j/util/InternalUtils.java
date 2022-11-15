@@ -144,7 +144,7 @@ public class InternalUtils {
       List<Unit> unit = new ArrayList<>();
       List<Member> member = new ArrayList<>();
       CompletableFuture<List<Unit>> unitParseFuture = null;
-      memberParseFuture = null;
+      memberParseFuture = null; // TODO: implement parsing for member parameter
       // unit parsing with parallel
       unitParseFuture = CompletableFuture.supplyAsync(() -> {
         // get raw node data from original data
@@ -234,5 +234,14 @@ public class InternalUtils {
     log.debug("tax data parsing complete. took {} ms", (System.currentTimeMillis() - start));
     log.debug("parse tax endpoint data: {}", result);
     return result;
+  }
+
+  @CheckReturnValue
+  public static List<? extends Member> parseMemberArray(JsonNode memberNode) {
+    long start = System.currentTimeMillis();
+    List<Member> result = new ArrayList<>();
+    for (JsonNode each : memberNode) {
+
+    }
   }
 }

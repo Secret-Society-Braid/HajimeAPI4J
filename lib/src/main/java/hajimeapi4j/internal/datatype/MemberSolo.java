@@ -1,25 +1,30 @@
 package hajimeapi4j.internal.datatype;
 
+import java.util.Optional;
+import javax.annotation.CheckReturnValue;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@Getter
 public class MemberSolo extends Member {
 
 
-  protected boolean solo;
+  protected Boolean solo;
 
   protected MemberSolo(String name, String type, int taxId, int songId, String link, String api,
-      String production, String cv, boolean solo) {
+      String production, String cv, Boolean solo) {
     super(name, type, taxId, songId, link, api, production, cv);
     this.solo = solo;
   }
 
   public static MemberSolo createInstance(String name, String type, int taxId, String link,
-      String api, String production, String cv, boolean solo) {
+      String api, String production, String cv, Boolean solo) {
     return new MemberSolo(name, type, taxId, taxId, link, api, production, cv, solo);
+  }
+
+  public Optional<Boolean> getSolo() {
+    return Optional.ofNullable(this.solo);
   }
 }
