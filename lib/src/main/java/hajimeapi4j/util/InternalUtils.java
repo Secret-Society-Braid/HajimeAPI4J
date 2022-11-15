@@ -139,11 +139,12 @@ public class InternalUtils {
 
     }
     JsonNode songNode = Objects.requireNonNull(rawResponse.get("song"));
+    CompletableFuture<List<Member>> memberParseFuture;
     for (JsonNode tmp : songNode) {
       List<Unit> unit = new ArrayList<>();
       List<Member> member = new ArrayList<>();
       CompletableFuture<List<Unit>> unitParseFuture = null;
-      CompletableFuture<List<Member>> memberParseFuture = null;
+      memberParseFuture = null;
       // unit parsing with parallel
       unitParseFuture = CompletableFuture.supplyAsync(() -> {
         // get raw node data from original data
@@ -208,15 +209,30 @@ public class InternalUtils {
       log.debug("parse song data: {}", music);
       song.add(music);
     }
-    log.debug("tax data parsing complete. took {} ms", (System.currentTimeMillis() - start));
     // return
+    final boolean isIdolType = type.equals("idol");
+    final boolean isLiveType = type.equals("live");
     TaxEndPoint result = TaxEndPointImpl.createInstance(
         rawResponse.get("name").asText(),
         type,
         rawResponse.get("tax_id").asInt(),
         rawResponse.get("link").asText(),
         rawResponse.get("api").asText(),
-        // TODO: implement more
-    ):
+        (isIdolType || type.equals("unit")) ? rawResponse.get("kana").asText() : null,
+        isIdolType ? rawResponse.get("cv").asText() : null,
+        isIdolType ? rawResponse.get("cvkana").asText() : null,
+        isIdolType ? rawResponse.get("production").asText() : null,
+        isLiveType ? rawResponse.get("date").asText() : null,
+        isLiveType ? rawResponse.get("place").asText() : null,
+        memberParseFuture.join(),
+        isLiveType ? rawResponse.get("setList").asBoolean() : null,
+        lyrics,
+        composer,
+        arrange,
+        song
+    );
+    log.debug("tax data parsing complete. took {} ms", (System.currentTimeMillis() - start));
+    log.debug("parse tax endpoint data: {}", result);
+    return result;
   }
 }
