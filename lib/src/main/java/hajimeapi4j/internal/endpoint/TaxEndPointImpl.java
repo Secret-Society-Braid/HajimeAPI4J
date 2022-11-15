@@ -60,7 +60,7 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
     this.composer = composer;
   }
 
-  public TaxEndPoint createInstance(
+  public static TaxEndPoint createInstance(
       String name,
       String type,
       int id,
