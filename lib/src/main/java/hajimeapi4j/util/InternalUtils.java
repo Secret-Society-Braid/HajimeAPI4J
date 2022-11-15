@@ -9,6 +9,7 @@ import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.Unit;
 import hajimeapi4j.internal.datatype.utilizations.Music;
 import hajimeapi4j.internal.endpoint.ListEndPointImpl;
+import hajimeapi4j.internal.endpoint.TaxEndPointImpl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -209,5 +210,13 @@ public class InternalUtils {
     }
     log.debug("tax data parsing complete. took {} ms", (System.currentTimeMillis() - start));
     // return
+    TaxEndPoint result = TaxEndPointImpl.createInstance(
+        rawResponse.get("name").asText(),
+        type,
+        rawResponse.get("tax_id").asInt(),
+        rawResponse.get("link").asText(),
+        rawResponse.get("api").asText(),
+        // TODO: implement more
+    ):
   }
 }
