@@ -143,7 +143,7 @@ public class InternalUtils {
     // parsing member parameter in another thread
     // TODO: implement method for creating thread factory
     CompletableFuture<List<Member>> memberParseFuture = CompletableFuture.supplyAsync(
-        () -> parseMemberArray(rawResponse.get("member"));
+        () -> parseMemberArray(rawResponse.get("member")));
     for (JsonNode tmp : songNode) {
       List<Unit> unit = new ArrayList<>();
       List<Member> member = new ArrayList<>();
