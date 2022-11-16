@@ -6,6 +6,7 @@ import hajimeapi4j.api.endpoint.ListEndPoint;
 import hajimeapi4j.api.endpoint.TaxEndPoint;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.datatype.Member;
+import hajimeapi4j.internal.datatype.MemberSolo;
 import hajimeapi4j.internal.datatype.Unit;
 import hajimeapi4j.internal.datatype.utilizations.Music;
 import hajimeapi4j.internal.endpoint.ListEndPointImpl;
@@ -139,12 +140,16 @@ public class InternalUtils {
 
     }
     JsonNode songNode = Objects.requireNonNull(rawResponse.get("song"));
-    CompletableFuture<List<Member>> memberParseFuture;
+    // parsing member parameter in another thread
+    // TODO: implement method for creating thread factory
+    CompletableFuture<List<Member>> memberParseFuture = CompletableFuture.supplyAsync(
+        () -> parseMemberArray(rawResponse.get("member"));
     for (JsonNode tmp : songNode) {
       List<Unit> unit = new ArrayList<>();
       List<Member> member = new ArrayList<>();
       CompletableFuture<List<Unit>> unitParseFuture = null;
-      memberParseFuture = null; // TODO: implement parsing for member parameter
+      CompletableFuture<List<Member>> unitMemberFuture = CompletableFuture.supplyAsync(
+          () -> InternalUtils.parseMemberArray(rawResponse.get("member")));
       // unit parsing with parallel
       unitParseFuture = CompletableFuture.supplyAsync(() -> {
         // get raw node data from original data
@@ -202,7 +207,8 @@ public class InternalUtils {
           tmp.get("api").asText(),
           type.equals("live") ? tmp.get("song_text").asText() : null,
           unitParseFuture.join(),
-          null, // TODO: parse member data for tax data parsing
+          type.equals("disc") ? parseMemberSoloArray(tmp.get("member"))
+              : type.equals("live") ? parseMemberArray(tmp.get("member")) : null,
           type.equals("live") ? tmp.get("member_text").asText() : null,
           type.equals("idol") ? tmp.get("solo").asBoolean() : null
       );
@@ -237,11 +243,46 @@ public class InternalUtils {
   }
 
   @CheckReturnValue
-  public static List<? extends Member> parseMemberArray(JsonNode memberNode) {
+  public static List<Member> parseMemberArray(JsonNode memberNode) {
     long start = System.currentTimeMillis();
     List<Member> result = new ArrayList<>();
     for (JsonNode each : memberNode) {
-
+      Member memberData = MemberSolo.createInstance(
+          each.get("name").asText(),
+          each.get("type").asText(),
+          each.get("tax_id").asInt(),
+          each.get("link").asText(),
+          each.get("api").asText(),
+          each.get("production").asText(),
+          each.get("cv").asText(),
+          each.get("solo") != null ? each.get("solo").asBoolean() : null
+      );
+      log.debug("member data has been construct: {}", memberData);
+      result.add(memberData);
     }
+    log.debug("member data parsing complete. took {} ms", (System.currentTimeMillis() - start));
+    return result;
+  }
+
+  @CheckReturnValue
+  public static List<MemberSolo> parseMemberSoloArray(JsonNode memberNode) {
+    long start = System.currentTimeMillis();
+    List<MemberSolo> result = new ArrayList<>();
+    for (JsonNode each : memberNode) {
+      MemberSolo memberData = MemberSolo.createInstance(
+          each.get("name").asText(),
+          each.get("type").asText(),
+          each.get("tax_id").asInt(),
+          each.get("link").asText(),
+          each.get("api").asText(),
+          each.get("production").asText(),
+          each.get("cv").asText(),
+          each.get("solo").asBoolean()
+      );
+      log.debug("member data has been construct: {}", memberData);
+      result.add(memberData);
+    }
+    log.debug("member data parsing complete. took {} ms", (System.currentTimeMillis() - start));
+    return result;
   }
 }
