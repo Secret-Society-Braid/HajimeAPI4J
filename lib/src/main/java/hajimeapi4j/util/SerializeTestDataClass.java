@@ -9,6 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
+// FIXME: delete this temporal class when completed implementation for main libraries
 public class SerializeTestDataClass {
 
   private String name;
