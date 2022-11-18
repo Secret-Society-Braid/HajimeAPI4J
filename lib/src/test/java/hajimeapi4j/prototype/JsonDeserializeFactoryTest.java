@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import hajimeapi4j.util.SerializeTestDataClass;
+import hajimeapi4j.util.prototype.SerializeTestDataClass;
 import java.io.IOException;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;

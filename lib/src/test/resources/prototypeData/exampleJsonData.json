@@ -5,5 +5,6 @@
   "link": "https://fujiwarahaji.me/idol/sc/alstroemeria/kuwayama-chiyuki",
   "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1165",
   "production": "sc",
-  "cv": "芝崎典子"
+  "cv": "芝崎典子",
+  "sub_class_data": "lorem ipsum"
 }
