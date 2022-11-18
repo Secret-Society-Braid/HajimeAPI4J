@@ -1,14 +1,18 @@
 package hajimeapi4j.internal.datatype;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
 import java.util.Optional;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 import lombok.EqualsAndHashCode;
+import lombok.Setter;
 import lombok.ToString;
 
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Member extends EndPointImpl {
 
   protected String production;

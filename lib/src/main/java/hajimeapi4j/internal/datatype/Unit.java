@@ -1,5 +1,6 @@
 package hajimeapi4j.internal.datatype;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import hajimeapi4j.internal.datatype.utilizations.Disc;
 import hajimeapi4j.internal.datatype.utilizations.Live;
 import hajimeapi4j.internal.datatype.utilizations.Music;
@@ -9,6 +10,7 @@ import javax.annotation.Nonnull;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 /**
@@ -28,6 +30,8 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Unit extends EndPointImpl {
 
   protected final List<Member> member;

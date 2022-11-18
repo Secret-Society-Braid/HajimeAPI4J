@@ -1,13 +1,15 @@
 package hajimeapi4j.internal.datatype;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Optional;
-import javax.annotation.CheckReturnValue;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MemberSolo extends Member {
 
 

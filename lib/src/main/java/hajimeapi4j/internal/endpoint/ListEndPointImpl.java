@@ -1,13 +1,18 @@
 package hajimeapi4j.internal.endpoint;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import hajimeapi4j.api.endpoint.ListEndPoint;
 import java.util.Optional;
 import javax.annotation.CheckReturnValue;
 import lombok.EqualsAndHashCode;
+import lombok.Setter;
 import lombok.ToString;
 
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ListEndPointImpl extends EndPointImpl implements ListEndPoint {
 
   protected String musicType;
@@ -29,6 +34,7 @@ public class ListEndPointImpl extends EndPointImpl implements ListEndPoint {
   }
 
   @CheckReturnValue
+  @JsonCreator
   public static ListEndPoint createInstance(
       String name,
       String type,
