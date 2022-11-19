@@ -12,9 +12,9 @@ import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 
 /**
- * エンドポイント「/songs」にて取得できる情報を定義したインターフェースです
+ * エンドポイント「/music」にて取得できる情報を定義したインターフェースです
  * <p>
- * {@code songs}エンドポイントではエンドユーザーの指定によって出力される情報が変化するため、特に理由付けがなされていないかぎり{@link Optional}でラップされています。
+ * {@code music}エンドポイントではエンドユーザーの指定によって出力される情報が変化するため、特に理由付けがなされていないかぎり{@link Optional}でラップされています。
  *
  * @author Ranfa
  * @see RestAction

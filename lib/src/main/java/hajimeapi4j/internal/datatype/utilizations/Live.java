@@ -8,6 +8,7 @@ import hajimeapi4j.internal.datatype.Unit;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
 import java.util.List;
 import javax.annotation.Nonnull;
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.ToString;
 
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
