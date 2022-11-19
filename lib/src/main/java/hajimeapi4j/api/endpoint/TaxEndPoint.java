@@ -103,7 +103,7 @@ public interface TaxEndPoint extends EndPoint {
    *
    * @return 参加メンバー、ユニットメンバー情報
    */
-  Optional<List<? extends Member>> getMember();
+  Optional<List<Member>> getMember();
 
   /**
    * ライブなどで披露した際のセットリスト情報がデータベースに存在するかどうかを取得します。
@@ -115,7 +115,7 @@ public interface TaxEndPoint extends EndPoint {
    *
    * @return セットリストの有無
    */
-  Optional<Boolean> getSetListExists();
+  Optional<Boolean> getSetlist();
 
   /**
    * 同じ名義などで作業した楽曲一覧を表示するためのカテゴリ情報を出力します。

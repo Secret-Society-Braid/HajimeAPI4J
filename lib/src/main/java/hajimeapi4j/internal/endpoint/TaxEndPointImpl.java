@@ -28,7 +28,7 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
   protected String date;
   protected String place;
   protected List<Member> member;
-  protected Boolean setList;
+  protected Boolean setlist;
   protected EndPoint lyrics;
   protected EndPoint composer;
   protected EndPoint arrange;
@@ -47,7 +47,7 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
       String date,
       String place,
       List<Member> member,
-      boolean setList,
+      boolean setlist,
       EndPoint lyrics,
       EndPoint composer,
       EndPoint arrange,
@@ -62,7 +62,7 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
     this.member = member;
     this.arrange = arrange;
     this.music = music;
-    this.setList = setList;
+    this.setlist = setlist;
     this.lyrics = lyrics;
     this.composer = composer;
   }
@@ -120,13 +120,13 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
   }
 
   @Override
-  public Optional<List<? extends Member>> getMember() {
+  public Optional<List<Member>> getMember() {
     return Optional.ofNullable(this.member);
   }
 
   @Override
-  public Optional<Boolean> getSetListExists() {
-    return Optional.ofNullable(this.setList);
+  public Optional<Boolean> getSetlist() {
+    return Optional.ofNullable(this.setlist);
   }
 
   @Override
