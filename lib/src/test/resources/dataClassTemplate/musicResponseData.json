@@ -1,0 +1,1715 @@
+{
+  "name": "なんどでも笑おう",
+  "type": "music",
+  "song_id": 3525,
+  "link": "https://fujiwarahaji.me/music/joint/nando-demo-waraou",
+  "api": "https://api.fujiwarahaji.me/v2.1/music?id=3525",
+  "kana": "なんどでもわらおう",
+  "music_type": "joint",
+  "lyrics": [
+    {
+      "name": "モモキエイジ",
+      "type": "lyrics",
+      "tax_id": 652,
+      "link": "https://fujiwarahaji.me/lyrics/%e3%83%a2%e3%83%a2%e3%82%ad%e3%82%a8%e3%82%a4%e3%82%b8",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=652"
+    }
+  ],
+  "composer": [
+    {
+      "name": "佐藤貴文",
+      "type": "composer",
+      "tax_id": 79,
+      "link": "https://fujiwarahaji.me/composer/%e4%bd%90%e8%97%a4%e8%b2%b4%e6%96%87",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=79"
+    }
+  ],
+  "arrange": [
+    {
+      "name": "トリ音",
+      "type": "arrange",
+      "tax_id": 94,
+      "link": "https://fujiwarahaji.me/arrange/%e3%83%88%e3%83%aa%e9%9f%b3",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=94"
+    }
+  ],
+  "lyrics_url": "https://www.uta-net.com/song/291549/",
+  "member": [
+    {
+      "name": "三浦あずさ",
+      "type": "idol",
+      "tax_id": 1095,
+      "link": "https://fujiwarahaji.me/idol/765/azusamiura",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1095",
+      "production": "765",
+      "cv": "たかはし智秋"
+    },
+    {
+      "name": "亜夜",
+      "type": "idol",
+      "tax_id": 2620,
+      "link": "https://fujiwarahaji.me/idol/765/aya",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2620",
+      "production": "765",
+      "cv": "日高里菜"
+    },
+    {
+      "name": "伊吹翼",
+      "type": "idol",
+      "tax_id": 1098,
+      "link": "https://fujiwarahaji.me/idol/765/tsubasaibuki",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1098",
+      "production": "765",
+      "cv": "Machico"
+    },
+    {
+      "name": "八宮めぐる",
+      "type": "idol",
+      "tax_id": 1149,
+      "link": "https://fujiwarahaji.me/idol/sc/illumination-stars/hachimiya-meguru",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1149",
+      "production": "sc",
+      "cv": "峯田茉優"
+    },
+    {
+      "name": "双海亜美",
+      "type": "idol",
+      "tax_id": 1102,
+      "link": "https://fujiwarahaji.me/idol/765/amifutami",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1102",
+      "production": "765",
+      "cv": "下田麻美"
+    },
+    {
+      "name": "双海真美",
+      "type": "idol",
+      "tax_id": 1103,
+      "link": "https://fujiwarahaji.me/idol/765/mamifutami",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1103",
+      "production": "765",
+      "cv": "下田麻美"
+    },
+    {
+      "name": "四条貴音",
+      "type": "idol",
+      "tax_id": 1105,
+      "link": "https://fujiwarahaji.me/idol/765/takaneshijou",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1105",
+      "production": "765",
+      "cv": "原由実"
+    },
+    {
+      "name": "天海春香",
+      "type": "idol",
+      "tax_id": 1107,
+      "link": "https://fujiwarahaji.me/idol/765/harukaamami",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1107",
+      "production": "765",
+      "cv": "中村繪里子"
+    },
+    {
+      "name": "奥空心白",
+      "type": "idol",
+      "tax_id": 2674,
+      "link": "https://fujiwarahaji.me/idol/765/kohakuokuzora",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2674",
+      "production": "765",
+      "cv": "田中あいみ"
+    },
+    {
+      "name": "如月千早",
+      "type": "idol",
+      "tax_id": 1109,
+      "link": "https://fujiwarahaji.me/idol/765/chihayakisaragi",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1109",
+      "production": "765",
+      "cv": "今井麻美"
+    },
+    {
+      "name": "島村卯月",
+      "type": "idol",
+      "tax_id": 23,
+      "link": "https://fujiwarahaji.me/idol/cg/shimamura-uzuki",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=23",
+      "production": "cg",
+      "cv": "大橋彩香"
+    },
+    {
+      "name": "我那覇響",
+      "type": "idol",
+      "tax_id": 1113,
+      "link": "https://fujiwarahaji.me/idol/765/hibikiganaha",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1113",
+      "production": "765",
+      "cv": "沼倉愛美"
+    },
+    {
+      "name": "星井美希",
+      "type": "idol",
+      "tax_id": 1115,
+      "link": "https://fujiwarahaji.me/idol/765/mikihoshii",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1115",
+      "production": "765",
+      "cv": "長谷川明子"
+    },
+    {
+      "name": "春日未来",
+      "type": "idol",
+      "tax_id": 1116,
+      "link": "https://fujiwarahaji.me/idol/765/miraikasuga",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1116",
+      "production": "765",
+      "cv": "山崎はるか"
+    },
+    {
+      "name": "最上静香",
+      "type": "idol",
+      "tax_id": 1117,
+      "link": "https://fujiwarahaji.me/idol/765/shizukamogami",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1117",
+      "production": "765",
+      "cv": "田所あずさ"
+    },
+    {
+      "name": "本田未央",
+      "type": "idol",
+      "tax_id": 28,
+      "link": "https://fujiwarahaji.me/idol/cg/honda-mio",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=28",
+      "production": "cg",
+      "cv": "原紗友里"
+    },
+    {
+      "name": "櫻木真乃",
+      "type": "idol",
+      "tax_id": 1147,
+      "link": "https://fujiwarahaji.me/idol/sc/illumination-stars/sakuragi-mano",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1147",
+      "production": "sc",
+      "cv": "関根瞳"
+    },
+    {
+      "name": "水瀬伊織",
+      "type": "idol",
+      "tax_id": 1123,
+      "link": "https://fujiwarahaji.me/idol/765/ioriminase",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1123",
+      "production": "765",
+      "cv": "釘宮理恵"
+    },
+    {
+      "name": "渋谷凛",
+      "type": "idol",
+      "tax_id": 14,
+      "link": "https://fujiwarahaji.me/idol/cg/shibuya-rin",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=14",
+      "production": "cg",
+      "cv": "福原綾香"
+    },
+    {
+      "name": "秋月律子",
+      "type": "idol",
+      "tax_id": 1131,
+      "link": "https://fujiwarahaji.me/idol/765/ritsukoakizuki",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1131",
+      "production": "765",
+      "cv": "若林直美"
+    },
+    {
+      "name": "菊地真",
+      "type": "idol",
+      "tax_id": 1135,
+      "link": "https://fujiwarahaji.me/idol/765/makotokikuchi",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1135",
+      "production": "765",
+      "cv": "平田宏美"
+    },
+    {
+      "name": "萩原雪歩",
+      "type": "idol",
+      "tax_id": 1136,
+      "link": "https://fujiwarahaji.me/idol/765/yukihohagiwara",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1136",
+      "production": "765",
+      "cv": "浅倉杏美"
+    },
+    {
+      "name": "風野灯織",
+      "type": "idol",
+      "tax_id": 1148,
+      "link": "https://fujiwarahaji.me/idol/sc/illumination-stars/kazano-hiori",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1148",
+      "production": "sc",
+      "cv": "近藤玲奈"
+    },
+    {
+      "name": "高槻やよい",
+      "type": "idol",
+      "tax_id": 1143,
+      "link": "https://fujiwarahaji.me/idol/765/yayoitakatsuki",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1143",
+      "production": "765",
+      "cv": "仁後真耶子"
+    }
+  ],
+  "digital": true,
+  "disc": [
+    {
+      "name": "THE IDOLM@STER STARLIT SEASON 04",
+      "type": "disc",
+      "tax_id": 2845,
+      "link": "https://fujiwarahaji.me/disc/the-idolmster-starlit-season-04",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2845",
+      "unit": null,
+      "member": [
+        {
+          "name": "天海春香",
+          "type": "idol",
+          "tax_id": 1107,
+          "link": "https://fujiwarahaji.me/idol/765/harukaamami",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1107",
+          "production": "765",
+          "cv": "中村繪里子"
+        },
+        {
+          "name": "如月千早",
+          "type": "idol",
+          "tax_id": 1109,
+          "link": "https://fujiwarahaji.me/idol/765/chihayakisaragi",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1109",
+          "production": "765",
+          "cv": "今井麻美"
+        },
+        {
+          "name": "星井美希",
+          "type": "idol",
+          "tax_id": 1115,
+          "link": "https://fujiwarahaji.me/idol/765/mikihoshii",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1115",
+          "production": "765",
+          "cv": "長谷川明子"
+        },
+        {
+          "name": "萩原雪歩",
+          "type": "idol",
+          "tax_id": 1136,
+          "link": "https://fujiwarahaji.me/idol/765/yukihohagiwara",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1136",
+          "production": "765",
+          "cv": "浅倉杏美"
+        },
+        {
+          "name": "高槻やよい",
+          "type": "idol",
+          "tax_id": 1143,
+          "link": "https://fujiwarahaji.me/idol/765/yayoitakatsuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1143",
+          "production": "765",
+          "cv": "仁後真耶子"
+        },
+        {
+          "name": "秋月律子",
+          "type": "idol",
+          "tax_id": 1131,
+          "link": "https://fujiwarahaji.me/idol/765/ritsukoakizuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1131",
+          "production": "765",
+          "cv": "若林直美"
+        },
+        {
+          "name": "三浦あずさ",
+          "type": "idol",
+          "tax_id": 1095,
+          "link": "https://fujiwarahaji.me/idol/765/azusamiura",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1095",
+          "production": "765",
+          "cv": "たかはし智秋"
+        },
+        {
+          "name": "水瀬伊織",
+          "type": "idol",
+          "tax_id": 1123,
+          "link": "https://fujiwarahaji.me/idol/765/ioriminase",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1123",
+          "production": "765",
+          "cv": "釘宮理恵"
+        },
+        {
+          "name": "菊地真",
+          "type": "idol",
+          "tax_id": 1135,
+          "link": "https://fujiwarahaji.me/idol/765/makotokikuchi",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1135",
+          "production": "765",
+          "cv": "平田宏美"
+        },
+        {
+          "name": "双海亜美",
+          "type": "idol",
+          "tax_id": 1102,
+          "link": "https://fujiwarahaji.me/idol/765/amifutami",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1102",
+          "production": "765",
+          "cv": "下田麻美"
+        },
+        {
+          "name": "双海真美",
+          "type": "idol",
+          "tax_id": 1103,
+          "link": "https://fujiwarahaji.me/idol/765/mamifutami",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1103",
+          "production": "765",
+          "cv": "下田麻美"
+        },
+        {
+          "name": "四条貴音",
+          "type": "idol",
+          "tax_id": 1105,
+          "link": "https://fujiwarahaji.me/idol/765/takaneshijou",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1105",
+          "production": "765",
+          "cv": "原由実"
+        },
+        {
+          "name": "我那覇響",
+          "type": "idol",
+          "tax_id": 1113,
+          "link": "https://fujiwarahaji.me/idol/765/hibikiganaha",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1113",
+          "production": "765",
+          "cv": "沼倉愛美"
+        },
+        {
+          "name": "奥空心白",
+          "type": "idol",
+          "tax_id": 2674,
+          "link": "https://fujiwarahaji.me/idol/765/kohakuokuzora",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2674",
+          "production": "765",
+          "cv": "田中あいみ"
+        },
+        {
+          "name": "亜夜",
+          "type": "idol",
+          "tax_id": 2620,
+          "link": "https://fujiwarahaji.me/idol/765/aya",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2620",
+          "production": "765",
+          "cv": "日高里菜"
+        }
+      ]
+    },
+    {
+      "name": "なんどでも笑おう 765PRO ALLSTARS盤",
+      "type": "disc",
+      "tax_id": 2222,
+      "link": "https://fujiwarahaji.me/disc/%e3%81%aa%e3%82%93%e3%81%a9%e3%81%a7%e3%82%82%e7%ac%91%e3%81%8a%e3%81%86-765pro-allstars%e7%9b%a4",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2222",
+      "unit": null,
+      "member": [
+        {
+          "name": "天海春香",
+          "type": "idol",
+          "tax_id": 1107,
+          "link": "https://fujiwarahaji.me/idol/765/harukaamami",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1107",
+          "production": "765",
+          "cv": "中村繪里子",
+          "solo": true
+        },
+        {
+          "name": "如月千早",
+          "type": "idol",
+          "tax_id": 1109,
+          "link": "https://fujiwarahaji.me/idol/765/chihayakisaragi",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1109",
+          "production": "765",
+          "cv": "今井麻美",
+          "solo": true
+        },
+        {
+          "name": "星井美希",
+          "type": "idol",
+          "tax_id": 1115,
+          "link": "https://fujiwarahaji.me/idol/765/mikihoshii",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1115",
+          "production": "765",
+          "cv": "長谷川明子",
+          "solo": true
+        }
+      ]
+    },
+    {
+      "name": "なんどでも笑おう sideM盤",
+      "type": "disc",
+      "tax_id": 2226,
+      "link": "https://fujiwarahaji.me/disc/%e3%81%aa%e3%82%93%e3%81%a9%e3%81%a7%e3%82%82%e7%ac%91%e3%81%8a%e3%81%86-sidem%e7%9b%a4",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2226",
+      "unit": null,
+      "member": [
+        {
+          "name": "天道輝",
+          "type": null,
+          "tax_id": null,
+          "link": null,
+          "api": null,
+          "production": null,
+          "cv": null
+        },
+        {
+          "name": "桜庭薫",
+          "type": null,
+          "tax_id": null,
+          "link": null,
+          "api": null,
+          "production": null,
+          "cv": null
+        },
+        {
+          "name": "柏木翼（DRAMATIC STARS）",
+          "type": null,
+          "tax_id": null,
+          "link": null,
+          "api": null,
+          "production": null,
+          "cv": null
+        }
+      ]
+    },
+    {
+      "name": "なんどでも笑おう シャイニーカラーズ盤",
+      "type": "disc",
+      "tax_id": 2225,
+      "link": "https://fujiwarahaji.me/disc/%e3%81%aa%e3%82%93%e3%81%a9%e3%81%a7%e3%82%82%e7%ac%91%e3%81%8a%e3%81%86-%e3%82%b7%e3%83%a3%e3%82%a4%e3%83%8b%e3%83%bc%e3%82%ab%e3%83%a9%e3%83%bc%e3%82%ba%e7%9b%a4",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2225",
+      "unit": null,
+      "member": [
+        {
+          "name": "櫻木真乃",
+          "type": "idol",
+          "tax_id": 1147,
+          "link": "https://fujiwarahaji.me/idol/sc/illumination-stars/sakuragi-mano",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1147",
+          "production": "sc",
+          "cv": "関根瞳",
+          "solo": true
+        },
+        {
+          "name": "風野灯織",
+          "type": "idol",
+          "tax_id": 1148,
+          "link": "https://fujiwarahaji.me/idol/sc/illumination-stars/kazano-hiori",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1148",
+          "production": "sc",
+          "cv": "近藤玲奈",
+          "solo": true
+        },
+        {
+          "name": "八宮めぐる",
+          "type": "idol",
+          "tax_id": 1149,
+          "link": "https://fujiwarahaji.me/idol/sc/illumination-stars/hachimiya-meguru",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1149",
+          "production": "sc",
+          "cv": "峯田茉優",
+          "solo": true
+        }
+      ]
+    },
+    {
+      "name": "なんどでも笑おう シンデレラガールズ盤",
+      "type": "disc",
+      "tax_id": 2223,
+      "link": "https://fujiwarahaji.me/disc/%e3%81%aa%e3%82%93%e3%81%a9%e3%81%a7%e3%82%82%e7%ac%91%e3%81%8a%e3%81%86-%e3%82%b7%e3%83%b3%e3%83%87%e3%83%ac%e3%83%a9%e3%82%ac%e3%83%bc%e3%83%ab%e3%82%ba%e7%9b%a4",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2223",
+      "unit": null,
+      "member": [
+        {
+          "name": "島村卯月",
+          "type": "idol",
+          "tax_id": 23,
+          "link": "https://fujiwarahaji.me/idol/cg/shimamura-uzuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=23",
+          "production": "cg",
+          "cv": "大橋彩香",
+          "solo": true
+        },
+        {
+          "name": "渋谷凛",
+          "type": "idol",
+          "tax_id": 14,
+          "link": "https://fujiwarahaji.me/idol/cg/shibuya-rin",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=14",
+          "production": "cg",
+          "cv": "福原綾香",
+          "solo": true
+        },
+        {
+          "name": "本田未央",
+          "type": "idol",
+          "tax_id": 28,
+          "link": "https://fujiwarahaji.me/idol/cg/honda-mio",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=28",
+          "production": "cg",
+          "cv": "原紗友里",
+          "solo": true
+        }
+      ]
+    },
+    {
+      "name": "なんどでも笑おう ミリオンライブ！盤",
+      "type": "disc",
+      "tax_id": 2224,
+      "link": "https://fujiwarahaji.me/disc/%e3%81%aa%e3%82%93%e3%81%a9%e3%81%a7%e3%82%82%e7%ac%91%e3%81%8a%e3%81%86-%e3%83%9f%e3%83%aa%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%96%ef%bc%81%e7%9b%a4",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2224",
+      "unit": null,
+      "member": [
+        {
+          "name": "春日未来",
+          "type": "idol",
+          "tax_id": 1116,
+          "link": "https://fujiwarahaji.me/idol/765/miraikasuga",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1116",
+          "production": "765",
+          "cv": "山崎はるか",
+          "solo": true
+        },
+        {
+          "name": "最上静香",
+          "type": "idol",
+          "tax_id": 1117,
+          "link": "https://fujiwarahaji.me/idol/765/shizukamogami",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1117",
+          "production": "765",
+          "cv": "田所あずさ",
+          "solo": true
+        },
+        {
+          "name": "伊吹翼",
+          "type": "idol",
+          "tax_id": 1098,
+          "link": "https://fujiwarahaji.me/idol/765/tsubasaibuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1098",
+          "production": "765",
+          "cv": "Machico",
+          "solo": true
+        }
+      ]
+    }
+  ],
+  "live": [
+    {
+      "name": "NHK WORLD-JAPAN presents SONGS OF TOKYO Festival 2020",
+      "type": "live",
+      "tax_id": 2280,
+      "link": "https://fujiwarahaji.me/live/2020-10-25",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2280",
+      "date": "2020-10-25",
+      "place": "NHKホール",
+      "unit": null,
+      "member": [
+        {
+          "name": "天海春香",
+          "type": "idol",
+          "tax_id": 1107,
+          "link": "https://fujiwarahaji.me/idol/765/harukaamami",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1107",
+          "production": "765",
+          "cv": "中村繪里子"
+        },
+        {
+          "name": "萩原雪歩",
+          "type": "idol",
+          "tax_id": 1136,
+          "link": "https://fujiwarahaji.me/idol/765/yukihohagiwara",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1136",
+          "production": "765",
+          "cv": "浅倉杏美"
+        },
+        {
+          "name": "四条貴音",
+          "type": "idol",
+          "tax_id": 1105,
+          "link": "https://fujiwarahaji.me/idol/765/takaneshijou",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1105",
+          "production": "765",
+          "cv": "原由実"
+        },
+        {
+          "name": "島村卯月",
+          "type": "idol",
+          "tax_id": 23,
+          "link": "https://fujiwarahaji.me/idol/cg/shimamura-uzuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=23",
+          "production": "cg",
+          "cv": "大橋彩香"
+        },
+        {
+          "name": "大槻唯",
+          "type": "idol",
+          "tax_id": 6,
+          "link": "https://fujiwarahaji.me/idol/cg/otsuki-yui",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=6",
+          "production": "cg",
+          "cv": "山下七海"
+        },
+        {
+          "name": "神谷奈緒",
+          "type": "idol",
+          "tax_id": 40,
+          "link": "https://fujiwarahaji.me/idol/cg/kamiya-nao",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=40",
+          "production": "cg",
+          "cv": "松井恵理子"
+        },
+        {
+          "name": "春日未来",
+          "type": "idol",
+          "tax_id": 1116,
+          "link": "https://fujiwarahaji.me/idol/765/miraikasuga",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1116",
+          "production": "765",
+          "cv": "山崎はるか"
+        },
+        {
+          "name": "矢吹可奈",
+          "type": "idol",
+          "tax_id": 1129,
+          "link": "https://fujiwarahaji.me/idol/765/kanayabuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1129",
+          "production": "765",
+          "cv": "木戸衣吹"
+        },
+        {
+          "name": "七尾百合子",
+          "type": "idol",
+          "tax_id": 1094,
+          "link": "https://fujiwarahaji.me/idol/765/yurikonanao",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1094",
+          "production": "765",
+          "cv": "伊藤美来"
+        },
+        {
+          "name": "櫻木真乃",
+          "type": "idol",
+          "tax_id": 1147,
+          "link": "https://fujiwarahaji.me/idol/sc/illumination-stars/sakuragi-mano",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1147",
+          "production": "sc",
+          "cv": "関根瞳"
+        },
+        {
+          "name": "風野灯織",
+          "type": "idol",
+          "tax_id": 1148,
+          "link": "https://fujiwarahaji.me/idol/sc/illumination-stars/kazano-hiori",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1148",
+          "production": "sc",
+          "cv": "近藤玲奈"
+        },
+        {
+          "name": "八宮めぐる",
+          "type": "idol",
+          "tax_id": 1149,
+          "link": "https://fujiwarahaji.me/idol/sc/illumination-stars/hachimiya-meguru",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1149",
+          "production": "sc",
+          "cv": "峯田茉優"
+        },
+        {
+          "name": "熊谷健太郎（握野英雄役）・濱 健人（木村 龍役）・増元拓也（信玄誠司役）",
+          "type": null,
+          "tax_id": null,
+          "link": null,
+          "api": null,
+          "production": null,
+          "cv": null
+        }
+      ]
+    },
+    {
+      "name": "THE IDOLM@STER MILLION LIVE! 7thLIVE Q@MP FLYER!!! Reburn DAY1",
+      "type": "live",
+      "tax_id": 2386,
+      "link": "https://fujiwarahaji.me/live/2021-05-22",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2386",
+      "date": "2021-05-22",
+      "place": "富士急コニファーフォレスト",
+      "unit": null,
+      "member": [
+        {
+          "name": "最上静香",
+          "type": "idol",
+          "tax_id": 1117,
+          "link": "https://fujiwarahaji.me/idol/765/shizukamogami",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1117",
+          "production": "765",
+          "cv": "田所あずさ"
+        },
+        {
+          "name": "エミリー・スチュアート",
+          "type": "idol",
+          "tax_id": 1144,
+          "link": "https://fujiwarahaji.me/idol/765/emilystewart",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1144",
+          "production": "765",
+          "cv": "郁原ゆう"
+        },
+        {
+          "name": "北上麗花",
+          "type": "idol",
+          "tax_id": 1100,
+          "link": "https://fujiwarahaji.me/idol/765/reikakitakami",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1100",
+          "production": "765",
+          "cv": "平山笑美"
+        },
+        {
+          "name": "北沢志保",
+          "type": "idol",
+          "tax_id": 1101,
+          "link": "https://fujiwarahaji.me/idol/765/shihokitazawa",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1101",
+          "production": "765",
+          "cv": "雨宮天"
+        },
+        {
+          "name": "木下ひなた",
+          "type": "idol",
+          "tax_id": 1119,
+          "link": "https://fujiwarahaji.me/idol/765/hinatakinoshita",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1119",
+          "production": "765",
+          "cv": "田村奈央"
+        },
+        {
+          "name": "桜守歌織",
+          "type": "idol",
+          "tax_id": 1121,
+          "link": "https://fujiwarahaji.me/idol/765/kaorisakuramori",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1121",
+          "production": "765",
+          "cv": "香里有佐"
+        },
+        {
+          "name": "佐竹美奈子",
+          "type": "idol",
+          "tax_id": 1099,
+          "link": "https://fujiwarahaji.me/idol/765/minakosatake",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1099",
+          "production": "765",
+          "cv": "大関英里"
+        },
+        {
+          "name": "ジュリア",
+          "type": "idol",
+          "tax_id": 1041,
+          "link": "https://fujiwarahaji.me/idol/765/julia",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1041",
+          "production": "765",
+          "cv": "愛美"
+        },
+        {
+          "name": "篠宮可憐",
+          "type": "idol",
+          "tax_id": 1133,
+          "link": "https://fujiwarahaji.me/idol/765/karenshinomiya",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1133",
+          "production": "765",
+          "cv": "近藤唯"
+        },
+        {
+          "name": "白石紬",
+          "type": "idol",
+          "tax_id": 1126,
+          "link": "https://fujiwarahaji.me/idol/765/tsumugishiraishi",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1126",
+          "production": "765",
+          "cv": "南早紀"
+        },
+        {
+          "name": "周防桃子",
+          "type": "idol",
+          "tax_id": 1104,
+          "link": "https://fujiwarahaji.me/idol/765/momokosuou",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1104",
+          "production": "765",
+          "cv": "渡部恵子"
+        },
+        {
+          "name": "高山紗代子",
+          "type": "idol",
+          "tax_id": 1142,
+          "link": "https://fujiwarahaji.me/idol/765/sayokotakayama",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1142",
+          "production": "765",
+          "cv": "駒形友梨"
+        },
+        {
+          "name": "天空橋朋花",
+          "type": "idol",
+          "tax_id": 1108,
+          "link": "https://fujiwarahaji.me/idol/765/tomokatenkubashi",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1108",
+          "production": "765",
+          "cv": "小岩井ことり"
+        },
+        {
+          "name": "徳川まつり",
+          "type": "idol",
+          "tax_id": 1112,
+          "link": "https://fujiwarahaji.me/idol/765/matsuritokugawa",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1112",
+          "production": "765",
+          "cv": "諏訪彩花"
+        },
+        {
+          "name": "中谷育",
+          "type": "idol",
+          "tax_id": 1096,
+          "link": "https://fujiwarahaji.me/idol/765/ikunakatani",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1096",
+          "production": "765",
+          "cv": "原嶋あかり"
+        },
+        {
+          "name": "野々原茜",
+          "type": "idol",
+          "tax_id": 1139,
+          "link": "https://fujiwarahaji.me/idol/765/akanenonohara",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1139",
+          "production": "765",
+          "cv": "小笠原早紀"
+        },
+        {
+          "name": "箱崎星梨花",
+          "type": "idol",
+          "tax_id": 1132,
+          "link": "https://fujiwarahaji.me/idol/765/serikahakozaki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1132",
+          "production": "765",
+          "cv": "麻倉もも"
+        },
+        {
+          "name": "松田亜利沙",
+          "type": "idol",
+          "tax_id": 1120,
+          "link": "https://fujiwarahaji.me/idol/765/arisamatsuda",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1120",
+          "production": "765",
+          "cv": "村川梨衣"
+        },
+        {
+          "name": "横山奈緒",
+          "type": "idol",
+          "tax_id": 1122,
+          "link": "https://fujiwarahaji.me/idol/765/naoyokoyama",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1122",
+          "production": "765",
+          "cv": "渡部優衣"
+        }
+      ]
+    },
+    {
+      "name": "THE IDOLM@STER MILLION LIVE! 7thLIVE Q@MP FLYER!!! Reburn DAY2",
+      "type": "live",
+      "tax_id": 2387,
+      "link": "https://fujiwarahaji.me/live/2021-05-23",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2387",
+      "date": "2021-05-23",
+      "place": "富士急コニファーフォレスト",
+      "unit": null,
+      "member": [
+        {
+          "name": "春日未来",
+          "type": "idol",
+          "tax_id": 1116,
+          "link": "https://fujiwarahaji.me/idol/765/miraikasuga",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1116",
+          "production": "765",
+          "cv": "山崎はるか"
+        },
+        {
+          "name": "伊吹翼",
+          "type": "idol",
+          "tax_id": 1098,
+          "link": "https://fujiwarahaji.me/idol/765/tsubasaibuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1098",
+          "production": "765",
+          "cv": "Machico"
+        },
+        {
+          "name": "大神環",
+          "type": "idol",
+          "tax_id": 1106,
+          "link": "https://fujiwarahaji.me/idol/765/tamakiogami",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1106",
+          "production": "765",
+          "cv": "稲川英里"
+        },
+        {
+          "name": "高坂海美",
+          "type": "idol",
+          "tax_id": 1141,
+          "link": "https://fujiwarahaji.me/idol/765/umikousaka",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1141",
+          "production": "765",
+          "cv": "上田麗奈"
+        },
+        {
+          "name": "島原エレナ",
+          "type": "idol",
+          "tax_id": 1111,
+          "link": "https://fujiwarahaji.me/idol/765/elenashimabara",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1111",
+          "production": "765",
+          "cv": "角元明日香"
+        },
+        {
+          "name": "田中琴葉",
+          "type": "idol",
+          "tax_id": 1125,
+          "link": "https://fujiwarahaji.me/idol/765/kotohatanaka",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1125",
+          "production": "765",
+          "cv": "種田梨沙"
+        },
+        {
+          "name": "所恵美",
+          "type": "idol",
+          "tax_id": 1114,
+          "link": "https://fujiwarahaji.me/idol/765/megumitokoro",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1114",
+          "production": "765",
+          "cv": "藤井ゆきよ"
+        },
+        {
+          "name": "豊川風花",
+          "type": "idol",
+          "tax_id": 1138,
+          "link": "https://fujiwarahaji.me/idol/765/fukatoyokawa",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1138",
+          "production": "765",
+          "cv": "末柄里恵"
+        },
+        {
+          "name": "七尾百合子",
+          "type": "idol",
+          "tax_id": 1094,
+          "link": "https://fujiwarahaji.me/idol/765/yurikonanao",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1094",
+          "production": "765",
+          "cv": "伊藤美来"
+        },
+        {
+          "name": "馬場このみ",
+          "type": "idol",
+          "tax_id": 1140,
+          "link": "https://fujiwarahaji.me/idol/765/konomibaba",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1140",
+          "production": "765",
+          "cv": "髙橋ミナミ"
+        },
+        {
+          "name": "福田のり子",
+          "type": "idol",
+          "tax_id": 1130,
+          "link": "https://fujiwarahaji.me/idol/765/norikofukuda",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1130",
+          "production": "765",
+          "cv": "浜崎奈々"
+        },
+        {
+          "name": "真壁瑞希",
+          "type": "idol",
+          "tax_id": 1128,
+          "link": "https://fujiwarahaji.me/idol/765/mizukimakabe",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1128",
+          "production": "765",
+          "cv": "阿部里果"
+        },
+        {
+          "name": "宮尾美也",
+          "type": "idol",
+          "tax_id": 1110,
+          "link": "https://fujiwarahaji.me/idol/765/miyamiyao",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1110",
+          "production": "765",
+          "cv": "桐谷蝶々"
+        },
+        {
+          "name": "望月杏奈",
+          "type": "idol",
+          "tax_id": 1118,
+          "link": "https://fujiwarahaji.me/idol/765/annamochizuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1118",
+          "production": "765",
+          "cv": "夏川椎菜"
+        },
+        {
+          "name": "百瀬莉緒",
+          "type": "idol",
+          "tax_id": 1127,
+          "link": "https://fujiwarahaji.me/idol/765/riomomose",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1127",
+          "production": "765",
+          "cv": "山口立花子"
+        },
+        {
+          "name": "矢吹可奈",
+          "type": "idol",
+          "tax_id": 1129,
+          "link": "https://fujiwarahaji.me/idol/765/kanayabuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1129",
+          "production": "765",
+          "cv": "木戸衣吹"
+        },
+        {
+          "name": "ロコ",
+          "type": "idol",
+          "tax_id": 1093,
+          "link": "https://fujiwarahaji.me/idol/765/rocohanda",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1093",
+          "production": "765",
+          "cv": "中村温姫"
+        }
+      ]
+    },
+    {
+      "name": "THE IDOLM@STER SHINY COLORS 3rdLIVE TOUR PIECE ON PLANET 福岡公演 DAY2",
+      "type": "live",
+      "tax_id": 2350,
+      "link": "https://fujiwarahaji.me/live/2021-05-30",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2350",
+      "date": "2021-05-30",
+      "place": "西日本総合展示場新館",
+      "unit": null,
+      "member": [
+        {
+          "name": "八宮めぐる",
+          "type": "idol",
+          "tax_id": 1149,
+          "link": "https://fujiwarahaji.me/idol/sc/illumination-stars/hachimiya-meguru",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1149",
+          "production": "sc",
+          "cv": "峯田茉優"
+        },
+        {
+          "name": "月岡恋鐘",
+          "type": "idol",
+          "tax_id": 1151,
+          "link": "https://fujiwarahaji.me/idol/sc/lantica/tsukioka-kogane",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1151",
+          "production": "sc",
+          "cv": "礒部花凜"
+        },
+        {
+          "name": "田中摩美々",
+          "type": "idol",
+          "tax_id": 1152,
+          "link": "https://fujiwarahaji.me/idol/sc/lantica/tanaka-mamimi",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1152",
+          "production": "sc",
+          "cv": "菅沼千紗"
+        },
+        {
+          "name": "白瀬咲耶",
+          "type": "idol",
+          "tax_id": 1153,
+          "link": "https://fujiwarahaji.me/idol/sc/lantica/shirase-sakuya",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1153",
+          "production": "sc",
+          "cv": "八巻アンナ"
+        },
+        {
+          "name": "三峰結華（初代）",
+          "type": "idol",
+          "tax_id": 1154,
+          "link": "https://fujiwarahaji.me/idol/sc/lantica/mitsumine-yuika-2",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1154",
+          "production": "sc",
+          "cv": "成海瑠奈"
+        },
+        {
+          "name": "幽谷霧子",
+          "type": "idol",
+          "tax_id": 1155,
+          "link": "https://fujiwarahaji.me/idol/sc/lantica/yukoku-kiriko",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1155",
+          "production": "sc",
+          "cv": "結名美月"
+        },
+        {
+          "name": "小宮果穂",
+          "type": "idol",
+          "tax_id": 1157,
+          "link": "https://fujiwarahaji.me/idol/sc/hokago-climax-girls/komiya-kaho",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1157",
+          "production": "sc",
+          "cv": "河野ひより"
+        },
+        {
+          "name": "西城樹里",
+          "type": "idol",
+          "tax_id": 1159,
+          "link": "https://fujiwarahaji.me/idol/sc/hokago-climax-girls/saijo-juri",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1159",
+          "production": "sc",
+          "cv": "永井真里子"
+        },
+        {
+          "name": "園田智代子",
+          "type": "idol",
+          "tax_id": 1158,
+          "link": "https://fujiwarahaji.me/idol/sc/hokago-climax-girls/sonoda-chiyoko",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1158",
+          "production": "sc",
+          "cv": "白石晴香"
+        },
+        {
+          "name": "有栖川夏葉",
+          "type": "idol",
+          "tax_id": 1161,
+          "link": "https://fujiwarahaji.me/idol/sc/hokago-climax-girls/arisugawa-natsuha",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1161",
+          "production": "sc",
+          "cv": "涼本あきほ"
+        },
+        {
+          "name": "大崎甘奈",
+          "type": "idol",
+          "tax_id": 1163,
+          "link": "https://fujiwarahaji.me/idol/sc/alstroemeria/osaki-amana",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1163",
+          "production": "sc",
+          "cv": "黒木ほの香"
+        },
+        {
+          "name": "桑山千雪",
+          "type": "idol",
+          "tax_id": 1165,
+          "link": "https://fujiwarahaji.me/idol/sc/alstroemeria/kuwayama-chiyuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1165",
+          "production": "sc",
+          "cv": "芝崎典子"
+        },
+        {
+          "name": "芹沢あさひ",
+          "type": "idol",
+          "tax_id": 1786,
+          "link": "https://fujiwarahaji.me/idol/sc/straylight/serizawa-asahi",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1786",
+          "production": "sc",
+          "cv": "田中有紀"
+        },
+        {
+          "name": "黛冬優子",
+          "type": "idol",
+          "tax_id": 1787,
+          "link": "https://fujiwarahaji.me/idol/sc/straylight/mayuzumi-fuyuko",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1787",
+          "production": "sc",
+          "cv": "幸村恵理"
+        },
+        {
+          "name": "和泉愛依",
+          "type": "idol",
+          "tax_id": 1788,
+          "link": "https://fujiwarahaji.me/idol/sc/straylight/izumi-mei",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1788",
+          "production": "sc",
+          "cv": "北原沙弥香"
+        },
+        {
+          "name": "浅倉透",
+          "type": "idol",
+          "tax_id": 2127,
+          "link": "https://fujiwarahaji.me/idol/sc/noctchill/asakura-toru",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2127",
+          "production": "sc",
+          "cv": "和久井優"
+        },
+        {
+          "name": "樋口円香",
+          "type": "idol",
+          "tax_id": 2128,
+          "link": "https://fujiwarahaji.me/idol/sc/noctchill/higuchi-madoka",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2128",
+          "production": "sc",
+          "cv": "土屋李央"
+        },
+        {
+          "name": "福丸小糸",
+          "type": "idol",
+          "tax_id": 2129,
+          "link": "https://fujiwarahaji.me/idol/sc/noctchill/fukumaru-koito",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2129",
+          "production": "sc",
+          "cv": "田嶌紗蘭"
+        },
+        {
+          "name": "市川雛菜",
+          "type": "idol",
+          "tax_id": 2130,
+          "link": "https://fujiwarahaji.me/idol/sc/noctchill/ichikawa-hinana",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2130",
+          "production": "sc",
+          "cv": "岡咲美保"
+        },
+        {
+          "name": "杜野凛世",
+          "type": "idol",
+          "tax_id": 1160,
+          "link": "https://fujiwarahaji.me/idol/sc/hokago-climax-girls/morino-rinze",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1160",
+          "production": "sc",
+          "cv": "丸岡和佳奈"
+        },
+        {
+          "name": "大崎甜花",
+          "type": "idol",
+          "tax_id": 1164,
+          "link": "https://fujiwarahaji.me/idol/sc/alstroemeria/osaki-tenka",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1164",
+          "production": "sc",
+          "cv": "前川涼子"
+        },
+        {
+          "name": "櫻木真乃",
+          "type": "idol",
+          "tax_id": 1147,
+          "link": "https://fujiwarahaji.me/idol/sc/illumination-stars/sakuragi-mano",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1147",
+          "production": "sc",
+          "cv": "関根瞳"
+        },
+        {
+          "name": "七草にちか",
+          "type": "idol",
+          "tax_id": 2510,
+          "link": "https://fujiwarahaji.me/idol/sc/shhis/nanakusa-nichika",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2510",
+          "production": "sc",
+          "cv": "紫月杏朱彩"
+        },
+        {
+          "name": "緋田美琴",
+          "type": "idol",
+          "tax_id": 2511,
+          "link": "https://fujiwarahaji.me/idol/sc/shhis/aketa-mikoto",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2511",
+          "production": "sc",
+          "cv": "山根綺"
+        }
+      ]
+    },
+    {
+      "name": "Bilibili World2021 上海×日本特設会場",
+      "type": "live",
+      "tax_id": 2567,
+      "link": "https://fujiwarahaji.me/live/2021-07-11",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2567",
+      "date": "2021-07-11",
+      "place": "オンライン生配信",
+      "unit": null,
+      "member": [
+        {
+          "name": "天海春香",
+          "type": "idol",
+          "tax_id": 1107,
+          "link": "https://fujiwarahaji.me/idol/765/harukaamami",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1107",
+          "production": "765",
+          "cv": "中村繪里子"
+        },
+        {
+          "name": "島村卯月",
+          "type": "idol",
+          "tax_id": 23,
+          "link": "https://fujiwarahaji.me/idol/cg/shimamura-uzuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=23",
+          "production": "cg",
+          "cv": "大橋彩香"
+        },
+        {
+          "name": "春日未来",
+          "type": "idol",
+          "tax_id": 1116,
+          "link": "https://fujiwarahaji.me/idol/765/miraikasuga",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1116",
+          "production": "765",
+          "cv": "山崎はるか"
+        },
+        {
+          "name": "櫻木真乃",
+          "type": "idol",
+          "tax_id": 1147,
+          "link": "https://fujiwarahaji.me/idol/sc/illumination-stars/sakuragi-mano",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1147",
+          "production": "sc",
+          "cv": "関根瞳"
+        },
+        {
+          "name": "笠間淳（葛之葉雨彦役）",
+          "type": null,
+          "tax_id": null,
+          "link": null,
+          "api": null,
+          "production": null,
+          "cv": null
+        }
+      ]
+    },
+    {
+      "name": "THE IDOLM@STER CINDERELLA GIRLS 10th ANNIVERSARY M@GICAL WONDERLAND TOUR!!! Celebration Land DAY2",
+      "type": "live",
+      "tax_id": 2554,
+      "link": "https://fujiwarahaji.me/live/2021-11-28",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2554",
+      "date": "2021-11-28",
+      "place": "幕張メッセ イベントホール",
+      "unit": null,
+      "member": [
+        {
+          "name": "島村卯月",
+          "type": "idol",
+          "tax_id": 23,
+          "link": "https://fujiwarahaji.me/idol/cg/shimamura-uzuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=23",
+          "production": "cg",
+          "cv": "大橋彩香"
+        },
+        {
+          "name": "早坂美玲",
+          "type": "idol",
+          "tax_id": 499,
+          "link": "https://fujiwarahaji.me/idol/cg/hayasaka-mirei",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=499",
+          "production": "cg",
+          "cv": "朝井彩加"
+        },
+        {
+          "name": "双葉杏",
+          "type": "idol",
+          "tax_id": 15,
+          "link": "https://fujiwarahaji.me/idol/cg/futaba-anzu",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=15",
+          "production": "cg",
+          "cv": "五十嵐裕美"
+        },
+        {
+          "name": "小早川紗枝",
+          "type": "idol",
+          "tax_id": 42,
+          "link": "https://fujiwarahaji.me/idol/cg/kobayakawa-sae",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=42",
+          "production": "cg",
+          "cv": "立花理香"
+        },
+        {
+          "name": "安部菜々",
+          "type": "idol",
+          "tax_id": 31,
+          "link": "https://fujiwarahaji.me/idol/cg/abe-nana",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=31",
+          "production": "cg",
+          "cv": "三宅麻理恵"
+        },
+        {
+          "name": "多田李衣菜",
+          "type": "idol",
+          "tax_id": 25,
+          "link": "https://fujiwarahaji.me/idol/cg/tada-riina",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=25",
+          "production": "cg",
+          "cv": "青木瑠璃子"
+        },
+        {
+          "name": "脇山珠美",
+          "type": "idol",
+          "tax_id": 67,
+          "link": "https://fujiwarahaji.me/idol/cg/wakiyama-tamami",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=67",
+          "production": "cg",
+          "cv": "嘉山未紗"
+        },
+        {
+          "name": "結城晴",
+          "type": "idol",
+          "tax_id": 822,
+          "link": "https://fujiwarahaji.me/idol/cg/yuuki-haru",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=822",
+          "production": "cg",
+          "cv": "小市眞琴"
+        },
+        {
+          "name": "上条春菜",
+          "type": "idol",
+          "tax_id": 51,
+          "link": "https://fujiwarahaji.me/idol/cg/kamijo-haruna",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=51",
+          "production": "cg",
+          "cv": "長島光那"
+        },
+        {
+          "name": "神谷奈緒",
+          "type": "idol",
+          "tax_id": 40,
+          "link": "https://fujiwarahaji.me/idol/cg/kamiya-nao",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=40",
+          "production": "cg",
+          "cv": "松井恵理子"
+        },
+        {
+          "name": "鷹富士茄子",
+          "type": "idol",
+          "tax_id": 909,
+          "link": "https://fujiwarahaji.me/idol/cg/takafuji-kako",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=909",
+          "production": "cg",
+          "cv": "森下来奈"
+        },
+        {
+          "name": "南条光",
+          "type": "idol",
+          "tax_id": 910,
+          "link": "https://fujiwarahaji.me/idol/cg/nanjo-hikaru",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=910",
+          "production": "cg",
+          "cv": "神谷早矢佳"
+        },
+        {
+          "name": "村上巴",
+          "type": "idol",
+          "tax_id": 813,
+          "link": "https://fujiwarahaji.me/idol/cg/murakami-tomoe",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=813",
+          "production": "cg",
+          "cv": "花井美春"
+        },
+        {
+          "name": "諸星きらり",
+          "type": "idol",
+          "tax_id": 21,
+          "link": "https://fujiwarahaji.me/idol/cg/moroboshi-kirari",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=21",
+          "production": "cg",
+          "cv": "松嵜麗"
+        },
+        {
+          "name": "木村夏樹",
+          "type": "idol",
+          "tax_id": 63,
+          "link": "https://fujiwarahaji.me/idol/cg/kimura-natsuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=63",
+          "production": "cg",
+          "cv": "安野希世乃"
+        },
+        {
+          "name": "城ヶ崎美嘉",
+          "type": "idol",
+          "tax_id": 22,
+          "link": "https://fujiwarahaji.me/idol/cg/jougasaki-mika",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=22",
+          "production": "cg",
+          "cv": "佳村はるか"
+        },
+        {
+          "name": "片桐早苗",
+          "type": "idol",
+          "tax_id": 53,
+          "link": "https://fujiwarahaji.me/idol/cg/katagiri-sanae",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=53",
+          "production": "cg",
+          "cv": "和氣あず未"
+        },
+        {
+          "name": "西園寺琴歌",
+          "type": "idol",
+          "tax_id": 2547,
+          "link": "https://fujiwarahaji.me/idol/cg/saionji-kotoka",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2547",
+          "production": "cg",
+          "cv": "安齋由香里"
+        },
+        {
+          "name": "浅利七海",
+          "type": "idol",
+          "tax_id": 2546,
+          "link": "https://fujiwarahaji.me/idol/cg/asari-nanami",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2546",
+          "production": "cg",
+          "cv": "井上ほの花"
+        },
+        {
+          "name": "八神マキノ",
+          "type": "idol",
+          "tax_id": 2548,
+          "link": "https://fujiwarahaji.me/idol/cg/yagami-makino",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2548",
+          "production": "cg",
+          "cv": "二ノ宮ゆい"
+        }
+      ]
+    },
+    {
+      "name": "THE IDOLM@STER CINDERELLA GIRLS 10th ANNIVERSARY M@GICAL WONDERLAND!!! DAY1",
+      "type": "live",
+      "tax_id": 2796,
+      "link": "https://fujiwarahaji.me/live/2022-04-02",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2796",
+      "date": "2022-04-02",
+      "place": "ベルーナドーム",
+      "unit": null,
+      "member": [
+        {
+          "name": "中野有香",
+          "type": "idol",
+          "tax_id": 56,
+          "link": "https://fujiwarahaji.me/idol/cg/nakano-yuka",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=56",
+          "production": "cg",
+          "cv": "下地紫野"
+        },
+        {
+          "name": "難波笑美",
+          "type": "idol",
+          "tax_id": 68,
+          "link": "https://fujiwarahaji.me/idol/cg/nanba-emi",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=68",
+          "production": "cg",
+          "cv": "伊達朱里紗"
+        },
+        {
+          "name": "乙倉悠貴",
+          "type": "idol",
+          "tax_id": 165,
+          "link": "https://fujiwarahaji.me/idol/cg/otokura-yuuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=165",
+          "production": "cg",
+          "cv": "中島由貴"
+        },
+        {
+          "name": "早坂美玲",
+          "type": "idol",
+          "tax_id": 499,
+          "link": "https://fujiwarahaji.me/idol/cg/hayasaka-mirei",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=499",
+          "production": "cg",
+          "cv": "朝井彩加"
+        },
+        {
+          "name": "椎名法子",
+          "type": "idol",
+          "tax_id": 57,
+          "link": "https://fujiwarahaji.me/idol/cg/shiina-noriko",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=57",
+          "production": "cg",
+          "cv": "都丸ちよ"
+        }
+      ]
+    },
+    {
+      "name": "バンダイナムコエンターテインメントフェスティバル 2nd DAY2",
+      "type": "live",
+      "tax_id": 2827,
+      "link": "https://fujiwarahaji.me/live/2022-05-15",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=2827",
+      "date": "2022-05-15",
+      "place": "ZOZOマリンスタジアム",
+      "unit": null,
+      "member": [
+        {
+          "name": "天海春香",
+          "type": "idol",
+          "tax_id": 1107,
+          "link": "https://fujiwarahaji.me/idol/765/harukaamami",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1107",
+          "production": "765",
+          "cv": "中村繪里子"
+        },
+        {
+          "name": "菊地真",
+          "type": "idol",
+          "tax_id": 1135,
+          "link": "https://fujiwarahaji.me/idol/765/makotokikuchi",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1135",
+          "production": "765",
+          "cv": "平田宏美"
+        },
+        {
+          "name": "島村卯月",
+          "type": "idol",
+          "tax_id": 23,
+          "link": "https://fujiwarahaji.me/idol/cg/shimamura-uzuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=23",
+          "production": "cg",
+          "cv": "大橋彩香"
+        },
+        {
+          "name": "宮本フレデリカ",
+          "type": "idol",
+          "tax_id": 46,
+          "link": "https://fujiwarahaji.me/idol/cg/miyamoto-frederica",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=46",
+          "production": "cg",
+          "cv": "髙野麻美"
+        },
+        {
+          "name": "春日未来",
+          "type": "idol",
+          "tax_id": 1116,
+          "link": "https://fujiwarahaji.me/idol/765/miraikasuga",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1116",
+          "production": "765",
+          "cv": "山崎はるか"
+        },
+        {
+          "name": "白石紬",
+          "type": "idol",
+          "tax_id": 1126,
+          "link": "https://fujiwarahaji.me/idol/765/tsumugishiraishi",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1126",
+          "production": "765",
+          "cv": "南早紀"
+        },
+        {
+          "name": "櫻木真乃",
+          "type": "idol",
+          "tax_id": 1147,
+          "link": "https://fujiwarahaji.me/idol/sc/illumination-stars/sakuragi-mano",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1147",
+          "production": "sc",
+          "cv": "関根瞳"
+        },
+        {
+          "name": "桑山千雪",
+          "type": "idol",
+          "tax_id": 1165,
+          "link": "https://fujiwarahaji.me/idol/sc/alstroemeria/kuwayama-chiyuki",
+          "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1165",
+          "production": "sc",
+          "cv": "芝崎典子"
+        },
+        {
+          "name": "神原大地（伊集院北斗役）",
+          "type": null,
+          "tax_id": null,
+          "link": null,
+          "api": null,
+          "production": null,
+          "cv": null
+        },
+        {
+          "name": "深町寿成（黒野玄武役）",
+          "type": null,
+          "tax_id": null,
+          "link": null,
+          "api": null,
+          "production": null,
+          "cv": null
+        }
+      ]
+    }
+  ]
+}
