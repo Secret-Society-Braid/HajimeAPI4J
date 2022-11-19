@@ -13,15 +13,19 @@ import hajimeapi4j.api.endpoint.ListEndPoint;
 import hajimeapi4j.util.parse.ListParseUtil;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class ListEndPointParseUtilTest {
+class ListEndPointParseUtilTest {
+
+  private static final ObjectMapper mapper = new ObjectMapper();
 
   @Test
   void constructTest() {
     List<ListEndPoint> list = null;
     try {
-      JsonNode responseMock = new ObjectMapper().readTree(
+      JsonNode responseMock = mapper.readTree(
           ListEndPointParseUtilTest.class.getResourceAsStream(
               "/dataClassTemplate/listWithMusicResponse.json"));
 
@@ -40,6 +44,33 @@ public class ListEndPointParseUtilTest {
         .forEachOrdered(each -> assertFalse(
             Strings.isNullOrEmpty(each)
         ));
+
+  }
+
+  @Test
+  void withLiveResponse() {
+    List<ListEndPoint> list = null;
+    try {
+      JsonNode responseMock = mapper.readTree(ListEndPointParseUtilTest.class.getResourceAsStream(
+          "/dataClassTemplate/listWithLive.json"));
+      list = ListParseUtil.createResponse(responseMock);
+    } catch (IOException e) {
+      fail(e);
+    }
+
+    assertNotNull(list);
+
+    assertEquals(397, list.size());
+
+    list.stream()
+        .map(EndPoint::getName)
+        .map(Strings::isNullOrEmpty)
+        .forEach(Assertions::assertFalse);
+
+    list.stream()
+        .map(ListEndPoint::getDate)
+        .map(Optional::isPresent)
+        .forEach(Assertions::assertTrue);
 
   }
 
