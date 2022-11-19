@@ -1,7 +1,6 @@
 package hajimeapi4j.internal.endpoint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.api.endpoint.ListEndPoint;
 import java.util.Optional;
@@ -15,9 +14,6 @@ import lombok.ToString;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonDeserialize(as = ListEndPointImpl.class)
-@JsonSubTypes({
-    @JsonSubTypes.Type(value = String.class, name = "music")
-})
 public class ListEndPointImpl extends EndPointImpl implements ListEndPoint {
 
   protected String musicType;

@@ -1,5 +1,6 @@
 package hajimeapi4j.api.endpoint;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.utilizations.Music;
@@ -19,6 +20,7 @@ import javax.annotation.Nonnull;
  * @see TaxEndPointImpl
  * @since 5.0.0
  */
+@JsonDeserialize(as = TaxEndPointImpl.class)
 public interface TaxEndPoint extends EndPoint {
 
   /**
