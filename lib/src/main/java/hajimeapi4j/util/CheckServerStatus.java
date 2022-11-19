@@ -1,11 +1,10 @@
-package HajimeAPI4J.util;
+package HajimeAPI4J.util; // FIXME: fix package name in future
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +24,8 @@ public class CheckServerStatus {
     public static final boolean isServerAlive() {
         Map<String, String> env = null;
         try {
-            env = FileUtils.readFilesFromResourceFolder(FileUtils.ENV_FILE_NAME);
+            env = HajimeAPI4J.util.FileUtils.readFilesFromResourceFolder(
+                HajimeAPI4J.util.FileUtils.ENV_FILE_NAME);
         } catch (IOException e) {
             logger.error("Failed to read env.json file.", e);
             return false;
