@@ -5,12 +5,15 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.api.endpoint.ListEndPoint;
 import java.util.Optional;
 import javax.annotation.CheckReturnValue;
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonDeserialize(as = ListEndPointImpl.class)

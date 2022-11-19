@@ -8,13 +8,16 @@ import hajimeapi4j.internal.datatype.utilizations.Music;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nonnull;
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
 

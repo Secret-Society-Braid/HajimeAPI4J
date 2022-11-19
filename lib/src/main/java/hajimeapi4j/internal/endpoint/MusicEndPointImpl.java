@@ -10,12 +10,15 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MusicEndPointImpl extends EndPointImpl implements MusicEndPoint {
