@@ -1,6 +1,7 @@
 package hajimeapi4j.internal.datatype.utilizations;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.Unit;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
@@ -15,12 +16,13 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonDeserialize(as = Music.class)
 public class Music extends EndPointImpl {
 
   protected String musicType;
   protected String songText;
   protected List<Unit> unit;
-  protected List<? extends Member> member;
+  protected List<Member> member;
   protected String memberText;
   protected Boolean solo;
 
@@ -33,7 +35,7 @@ public class Music extends EndPointImpl {
       String api,
       String songText,
       List<Unit> unit,
-      List<? extends Member> member,
+      List<Member> member,
       String memberText,
       Boolean solo) {
     super(name, type, id, id, link, api);
@@ -58,7 +60,7 @@ public class Music extends EndPointImpl {
       String api,
       String songText,
       List<Unit> unit,
-      List<? extends Member> member,
+      List<Member> member,
       String memberText,
       Boolean solo) {
     return new Music(name, type, musicType, songId, link, api, songText, unit, member, memberText, solo);
@@ -81,7 +83,7 @@ public class Music extends EndPointImpl {
     return Optional.ofNullable(this.unit);
   }
 
-  public Optional<List<? extends Member>> getMember() {
+  public Optional<List<Member>> getMember() {
     return Optional.ofNullable(this.member);
   }
 

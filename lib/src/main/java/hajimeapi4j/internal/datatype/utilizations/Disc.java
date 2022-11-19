@@ -1,6 +1,7 @@
 package hajimeapi4j.internal.datatype.utilizations;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.Unit;
@@ -17,6 +18,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonDeserialize(as = Disc.class)
 public class Disc extends EndPointImpl implements EndPoint {
 
   protected List<Unit> unit;
