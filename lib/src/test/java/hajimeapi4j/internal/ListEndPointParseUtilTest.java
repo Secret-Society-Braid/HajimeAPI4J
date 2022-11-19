@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Strings;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.endpoint.ListEndPoint;
-import hajimeapi4j.util.parse.ListParseUtil;
+import hajimeapi4j.util.ParseUtil;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +29,7 @@ class ListEndPointParseUtilTest {
           ListEndPointParseUtilTest.class.getResourceAsStream(
               "/dataClassTemplate/listWithMusicResponse.json"));
 
-      list = ListParseUtil.createResponse(responseMock);
+      list = ParseUtil.createResponse(responseMock);
     } catch (IOException e) {
       fail(e);
     }
@@ -53,7 +53,7 @@ class ListEndPointParseUtilTest {
     try {
       JsonNode responseMock = mapper.readTree(ListEndPointParseUtilTest.class.getResourceAsStream(
           "/dataClassTemplate/listWithLive.json"));
-      list = ListParseUtil.createResponse(responseMock);
+      list = ParseUtil.createResponse(responseMock);
     } catch (IOException e) {
       fail(e);
     }

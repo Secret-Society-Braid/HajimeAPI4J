@@ -1,4 +1,4 @@
-package hajimeapi4j.util.parse;
+package hajimeapi4j.util;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -11,7 +11,7 @@ import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class ListParseUtil {
+public class ParseUtil {
 
   private static final ObjectMapper mapper;
 
@@ -21,7 +21,7 @@ public class ListParseUtil {
     mapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
   }
 
-  private ListParseUtil() { /* util class */}
+  private ParseUtil() { /* util class */}
 
   public static List<ListEndPoint> createResponse(JsonNode rawResponse) throws IOException {
     if (rawResponse == null) {
