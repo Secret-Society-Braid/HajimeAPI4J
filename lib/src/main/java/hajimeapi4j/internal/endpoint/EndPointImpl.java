@@ -1,6 +1,7 @@
 package hajimeapi4j.internal.endpoint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.request.CompiledRoute;
@@ -32,6 +33,9 @@ import org.jetbrains.annotations.NotNull;
 @ToString
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = String.class, name = "music")
+})
 public class EndPointImpl implements EndPoint {
 
   protected String name;

@@ -1,14 +1,13 @@
 package hajimeapi4j.util.parse;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import hajimeapi4j.api.endpoint.ListEndPoint;
-import hajimeapi4j.internal.endpoint.ListEndPointImpl;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,14 +31,9 @@ public class ListParseUtil {
     long start = System.currentTimeMillis();
     log.debug("attempt to parse list data");
     List<ListEndPoint> result = new ArrayList<>();
-    Iterator<JsonNode> iterator = rawResponse.elements();
     // adding elements
-    while (iterator.hasNext()) {
-      JsonNode tmpNode = iterator.next();
-      ListEndPoint instance = mapper.readValue(tmpNode.traverse(), ListEndPointImpl.class);
-      log.debug("ListEndPoint instance created: {}", instance);
-      result.add(instance);
-    }
+    result = mapper.readValue(rawResponse.traverse(), new TypeReference<>() {
+    });
     log.debug("Parsing completed. took {} ms", (System.currentTimeMillis() - start));
     return result;
   }

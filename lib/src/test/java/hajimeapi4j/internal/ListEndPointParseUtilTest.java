@@ -41,10 +41,6 @@ public class ListEndPointParseUtilTest {
             Strings.isNullOrEmpty(each)
         ));
 
-    list.stream()
-        .map(ListEndPoint::getCv)
-        .forEachOrdered(each -> assertFalse(
-            each.isPresent()));
   }
 
 }
