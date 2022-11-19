@@ -13,6 +13,8 @@ public class InternalUtils {
 
   private static final String MESSAGE_METHOD_NOT_ALLOWED = "You cannot invoke this method from Lyrics class";
   private static final String MESSAGE_NULL_RAW_RESPONSE_NOT_ALLOWED = "raw response must not be null";
+  private static final String MESSAGE_TOOK_TIME_LOGGING = "Parsing completed. took {} ms";
+  private static final String MESSAGE_GENERATED_DATA_LOGGING = "generated data: {}";
 
   private InternalUtils() { /* do nothing */}
 
@@ -22,6 +24,14 @@ public class InternalUtils {
 
   public static String getMessageNullRawResponseNotAllowedMessage() {
     return MESSAGE_NULL_RAW_RESPONSE_NOT_ALLOWED;
+  }
+
+  public static String getMessageTookTimeLogging() {
+    return MESSAGE_TOOK_TIME_LOGGING;
+  }
+
+  public static String getMessageGeneratedDataLogging() {
+    return MESSAGE_GENERATED_DATA_LOGGING;
   }
 
   public static boolean checkEmpty(EndPoint testee) {
