@@ -1,33 +1,32 @@
-package HajimeAPI4J.util; // FIXME: fix package name in future
+package hajimeapi4j.util;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class CheckServerStatus {
-    
-    // Declare logger
-    private static Logger logger = LoggerFactory.getLogger(CheckServerStatus.class);
+
+    // Declare log
 
     // This class should not have public constructors.
     private CheckServerStatus() { /* do nothing */}
 
     /**
-     * サーバーへテスト用のURIでGETリクエストを送信し、ステータスコードを取得します。
-     * APIへ過剰な負荷を掛けないようにするため、成功or失敗に関わらず1秒間のクールダウンを設けています。
+     * サーバーへテスト用のURIでGETリクエストを送信し、ステータスコードを取得します。 APIへ過剰な負荷を掛けないようにするため、成功or失敗に関わらず1秒間のクールダウンを設けています。
+     *
      * @return サーバーからのレスポンスが成功の場合は<code>TRUE</code>、失敗なら<code>FALSE</code>
      */
-    public static final boolean isServerAlive() {
-        Map<String, String> env = null;
+    public static boolean isServerAlive() {
+        Map<String, String> env;
         try {
             env = HajimeAPI4J.util.FileUtils.readFilesFromResourceFolder(
                 HajimeAPI4J.util.FileUtils.ENV_FILE_NAME);
         } catch (IOException e) {
-            logger.error("Failed to read env.json file.", e);
+            log.error("Failed to read env.json file.", e);
             return false;
         }
         String uri = "https://api.fujiwarahaji.me/v1/list?type=idol&production=765";
@@ -41,14 +40,14 @@ public class CheckServerStatus {
             conn.connect();
             statusCode = conn.getResponseCode();
         } catch (IOException e) {
-            logger.error("Exception was thrown during checking API server status.", e);
+            log.error("Exception was thrown during checking API server status.", e);
         } finally {
             if(conn != null) {
                 conn.disconnect();
                 try {
                     TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException e) {
-                    logger.warn("Thread has been interrupted while cooldown.", e);
+                    log.warn("Thread has been interrupted while cooldown.", e);
                     Thread.currentThread().interrupt();
                 }
             }
