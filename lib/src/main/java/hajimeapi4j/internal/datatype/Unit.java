@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.internal.datatype.utilizations.Disc;
 import hajimeapi4j.internal.datatype.utilizations.Live;
-import hajimeapi4j.internal.datatype.utilizations.Music;
+import hajimeapi4j.internal.datatype.utilizations.Song;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
 import java.util.List;
 import javax.annotation.Nonnull;
@@ -21,7 +21,7 @@ import lombok.ToString;
  *
  * @author Ranfa
  * @see EndPointImpl
- * @see Music
+ * @see Song
  * @see Disc
  * @see Live
  * @see <a href="https://api.fujiwarahaji.me/v2/doc/">APIv2ドキュメント</a>

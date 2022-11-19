@@ -67,7 +67,7 @@ public class ParseUtil {
           InternalUtils.getMessageNullRawResponseNotAllowedMessage());
     }
     long start = System.currentTimeMillis();
-    log.debug("attempt to parse music data");
+    log.debug("attempt to parse songs data");
     // adding elements
     MusicEndPoint result = mapper.readValue(rawResponse.traverse(), MusicEndPointImpl.class);
     log.debug(InternalUtils.getMessageTookTimeLogging(), (System.currentTimeMillis() - start));

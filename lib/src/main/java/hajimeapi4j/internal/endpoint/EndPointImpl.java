@@ -34,7 +34,7 @@ import org.jetbrains.annotations.NotNull;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonSubTypes({
-    @JsonSubTypes.Type(value = String.class, name = "music")
+    @JsonSubTypes.Type(value = String.class, name = "songs")
 })
 public class EndPointImpl implements EndPoint {
 

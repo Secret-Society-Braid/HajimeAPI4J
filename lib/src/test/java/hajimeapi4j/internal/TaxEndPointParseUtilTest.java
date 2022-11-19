@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import hajimeapi4j.api.endpoint.TaxEndPoint;
 import hajimeapi4j.internal.datatype.Member;
-import hajimeapi4j.internal.datatype.utilizations.Music;
+import hajimeapi4j.internal.datatype.utilizations.Song;
 import hajimeapi4j.util.ParseUtil;
 import hajimeapi4j.util.TestingUtil;
 import java.io.IOException;
@@ -34,9 +34,9 @@ class TaxEndPointParseUtilTest {
     assertNotNull(instance);
 
     List<Member> members = instance.getMember().orElse(Collections.emptyList());
-    List<Music> musics = instance.getMusic();
+    List<Song> songs = instance.getSong();
 
     assertFalse(members.isEmpty());
-    assertFalse(musics.isEmpty());
+    assertFalse(songs.isEmpty());
   }
 }

@@ -47,10 +47,10 @@ public class InternalUtils {
   public static RestAction<EndPoint> parseFromUriString(String uri) {
     // parse uri
     // example: https://api.fujiwarahaji.me/v2/music?id=3525
-    String shortened = uri.substring(28); // example: v2/music?id=3525
-    String[] splitWithSlash = shortened.split("/"); // example: [v2] [music?id=3525]
+    String shortened = uri.substring(28); // example: v2/songs?id=3525
+    String[] splitWithSlash = shortened.split("/"); // example: [v2] [songs?id=3525]
     log.info("used api version: {}", splitWithSlash[0]);
-    String[] splitWithQuestionMark = splitWithSlash[1].split("\\?"); // example: [music] [id=3525]
+    String[] splitWithQuestionMark = splitWithSlash[1].split("\\?"); // example: [songs] [id=3525]
     log.info("used api endpoint: {}", splitWithQuestionMark[0]);
     Map<String, String> queries = mapFromPlainText(splitWithQuestionMark[1]);
     // TODO: we will need more implementation after completing implementation for builder classes

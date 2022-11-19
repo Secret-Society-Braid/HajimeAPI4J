@@ -16,8 +16,8 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonDeserialize(as = Music.class)
-public class Music extends EndPointImpl {
+@JsonDeserialize(as = Song.class)
+public class Song extends EndPointImpl {
 
   protected String musicType;
   protected String songText;
@@ -26,7 +26,7 @@ public class Music extends EndPointImpl {
   protected String memberText;
   protected Boolean solo;
 
-  private Music(
+  private Song(
       String name,
       String type,
       String musicType,
@@ -47,11 +47,11 @@ public class Music extends EndPointImpl {
     this.solo = solo;
   }
 
-  private Music() {
+  private Song() {
     this("", "", "", -1, "", "", "", null, null, "", null);
   }
 
-  public static Music createInstance(
+  public static Song createInstance(
       String name,
       String type,
       String musicType,
@@ -63,11 +63,12 @@ public class Music extends EndPointImpl {
       List<Member> member,
       String memberText,
       Boolean solo) {
-    return new Music(name, type, musicType, songId, link, api, songText, unit, member, memberText, solo);
+    return new Song(name, type, musicType, songId, link, api, songText, unit, member, memberText,
+        solo);
   }
 
-  public static Music createEmpty() {
-    return new Music();
+  public static Song createEmpty() {
+    return new Song();
   }
 
   @Nonnull

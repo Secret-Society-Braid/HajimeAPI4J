@@ -3,7 +3,7 @@ package hajimeapi4j.api.endpoint;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.datatype.Member;
-import hajimeapi4j.internal.datatype.utilizations.Music;
+import hajimeapi4j.internal.datatype.utilizations.Song;
 import hajimeapi4j.internal.endpoint.TaxEndPointImpl;
 import java.util.List;
 import java.util.Optional;
@@ -165,6 +165,6 @@ public interface TaxEndPoint extends EndPoint {
    * @return 指定された楽曲情報
    */
   @Nonnull
-  List<Music> getMusic();
+  List<Song> getSong();
 
 }

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.endpoint.TaxEndPoint;
 import hajimeapi4j.internal.datatype.Member;
-import hajimeapi4j.internal.datatype.utilizations.Music;
+import hajimeapi4j.internal.datatype.utilizations.Song;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nonnull;
@@ -32,7 +32,7 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
   protected EndPoint lyrics;
   protected EndPoint composer;
   protected EndPoint arrange;
-  protected List<Music> music;
+  protected List<Song> song;
 
   protected TaxEndPointImpl(
       String name,
@@ -51,7 +51,7 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
       EndPoint lyrics,
       EndPoint composer,
       EndPoint arrange,
-      List<Music> music) {
+      List<Song> song) {
     super(name, type, id, id, link, api);
     this.kana = kana;
     this.cv = cv;
@@ -61,7 +61,7 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
     this.place = place;
     this.member = member;
     this.arrange = arrange;
-    this.music = music;
+    this.song = song;
     this.setlist = setlist;
     this.lyrics = lyrics;
     this.composer = composer;
@@ -84,9 +84,9 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
       EndPoint lyrics,
       EndPoint composer,
       EndPoint arrange,
-      List<Music> music) {
+      List<Song> songs) {
     return new TaxEndPointImpl(name, type, id, link, api, kana, cv, cvKana, production, date, place,
-        member, setList, lyrics, composer, arrange, music);
+        member, setList, lyrics, composer, arrange, songs);
   }
 
   @Override
@@ -144,10 +144,9 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
     return Optional.ofNullable(this.arrange);
   }
 
-  @Override
   @Nonnull
-  public List<Music> getMusic() {
-    return this.music;
+  public List<Song> getSong() {
+    return this.song;
   }
 
 
