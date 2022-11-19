@@ -1,5 +1,7 @@
 package hajimeapi4j.internal.datatype.utilizations;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.Unit;
@@ -8,11 +10,15 @@ import java.util.Collections;
 import java.util.List;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonDeserialize(as = Disc.class)
 public class Disc extends EndPointImpl implements EndPoint {
 
   protected List<Unit> unit;

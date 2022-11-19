@@ -11,7 +11,7 @@ public class Checks {
   private static final String ILLEGAL_ARGS_EXCEPTION_MESSAGE = "%s is not applicable for %s endpoint";
 
   private static final List<String> APPLICABLE_METHODS_FOR_LIST_ENDPOINT = List.of(
-      "music",
+      "song",
       "live",
       "idol",
       "lyrics",

@@ -1,5 +1,6 @@
 package hajimeapi4j.internal.endpoint;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.request.CompiledRoute;
@@ -11,6 +12,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import org.jetbrains.annotations.NotNull;
 
@@ -28,6 +30,8 @@ import org.jetbrains.annotations.NotNull;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode
 @ToString
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EndPointImpl implements EndPoint {
 
   protected String name;
@@ -94,6 +98,7 @@ public class EndPointImpl implements EndPoint {
    * @return リクエスト送信用のメソッドです。使用できません。
    */
   @Override
+  @Nonnull
   public EndPoint complete() {
     throw new UnsupportedOperationException(InternalUtils.getMethodNotAllowedMessage());
   }

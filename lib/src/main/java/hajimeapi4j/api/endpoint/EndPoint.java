@@ -1,5 +1,6 @@
 package hajimeapi4j.api.endpoint;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
 import java.util.Optional;
@@ -23,6 +24,7 @@ import javax.annotation.Nonnull;
  * @see <a href="https://api.fujiwarahaji.me/v2/doc">APIv2ドキュメント</a>
  * @since 5.0.0
  */
+@JsonDeserialize(as = EndPointImpl.class)
 public interface EndPoint extends RestAction<EndPoint> {
 
   /**

@@ -1,8 +1,9 @@
 package hajimeapi4j.api.endpoint;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.datatype.Member;
-import hajimeapi4j.internal.datatype.utilizations.Music;
+import hajimeapi4j.internal.datatype.utilizations.Song;
 import hajimeapi4j.internal.endpoint.TaxEndPointImpl;
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +20,7 @@ import javax.annotation.Nonnull;
  * @see TaxEndPointImpl
  * @since 5.0.0
  */
+@JsonDeserialize(as = TaxEndPointImpl.class)
 public interface TaxEndPoint extends EndPoint {
 
   /**
@@ -101,7 +103,7 @@ public interface TaxEndPoint extends EndPoint {
    *
    * @return 参加メンバー、ユニットメンバー情報
    */
-  Optional<List<? extends Member>> getMember();
+  Optional<List<Member>> getMember();
 
   /**
    * ライブなどで披露した際のセットリスト情報がデータベースに存在するかどうかを取得します。
@@ -113,7 +115,7 @@ public interface TaxEndPoint extends EndPoint {
    *
    * @return セットリストの有無
    */
-  Optional<Boolean> getSetListExists();
+  Optional<Boolean> getSetlist();
 
   /**
    * 同じ名義などで作業した楽曲一覧を表示するためのカテゴリ情報を出力します。
@@ -163,6 +165,6 @@ public interface TaxEndPoint extends EndPoint {
    * @return 指定された楽曲情報
    */
   @Nonnull
-  List<Music> getMusic();
+  List<Song> getSong();
 
 }

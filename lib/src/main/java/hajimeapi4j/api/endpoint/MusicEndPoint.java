@@ -1,5 +1,6 @@
 package hajimeapi4j.api.endpoint;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.utilizations.Disc;
@@ -21,6 +22,7 @@ import javax.annotation.Nonnull;
  * @see MusicEndPointImpl
  * @since 5.0.0
  */
+@JsonDeserialize(as = MusicEndPointImpl.class)
 public interface MusicEndPoint extends EndPoint {
 
   /**

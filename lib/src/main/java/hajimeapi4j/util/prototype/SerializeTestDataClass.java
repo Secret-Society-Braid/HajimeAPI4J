@@ -1,4 +1,4 @@
-package hajimeapi4j.util;
+package hajimeapi4j.util.prototype;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Optional;
@@ -12,15 +12,15 @@ import lombok.ToString;
 // FIXME: delete this temporal class when completed implementation for main libraries
 public class SerializeTestDataClass {
 
-  private String name;
-  private String type;
+  protected String name;
+  protected String type;
   @Getter
-  private int songId;
+  protected int songId;
   @Getter
-  private int taxId;
-  private String link;
-  private String api;
-  private String nullValueTest;
+  protected int taxId;
+  protected String link;
+  protected String api;
+  protected String nullValueTest;
 
   public Optional<String> getName() {
     return Optional.ofNullable(this.name);

@@ -1,5 +1,6 @@
 package hajimeapi4j.internal.endpoint;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.endpoint.MusicEndPoint;
 import hajimeapi4j.internal.datatype.Member;
@@ -9,11 +10,17 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MusicEndPointImpl extends EndPointImpl implements MusicEndPoint {
 
   private static MusicEndPoint emptyInstance;

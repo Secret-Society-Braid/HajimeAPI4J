@@ -1,17 +1,24 @@
 package hajimeapi4j.internal.endpoint;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.endpoint.TaxEndPoint;
 import hajimeapi4j.internal.datatype.Member;
-import hajimeapi4j.internal.datatype.utilizations.Music;
+import hajimeapi4j.internal.datatype.utilizations.Song;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nonnull;
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
+@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
 
   protected String kana;
@@ -21,11 +28,11 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
   protected String date;
   protected String place;
   protected List<Member> member;
-  protected Boolean setList;
+  protected Boolean setlist;
   protected EndPoint lyrics;
   protected EndPoint composer;
   protected EndPoint arrange;
-  protected List<Music> music;
+  protected List<Song> song;
 
   protected TaxEndPointImpl(
       String name,
@@ -40,11 +47,11 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
       String date,
       String place,
       List<Member> member,
-      boolean setList,
+      boolean setlist,
       EndPoint lyrics,
       EndPoint composer,
       EndPoint arrange,
-      List<Music> music) {
+      List<Song> song) {
     super(name, type, id, id, link, api);
     this.kana = kana;
     this.cv = cv;
@@ -54,8 +61,8 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
     this.place = place;
     this.member = member;
     this.arrange = arrange;
-    this.music = music;
-    this.setList = setList;
+    this.song = song;
+    this.setlist = setlist;
     this.lyrics = lyrics;
     this.composer = composer;
   }
@@ -77,9 +84,9 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
       EndPoint lyrics,
       EndPoint composer,
       EndPoint arrange,
-      List<Music> music) {
+      List<Song> songs) {
     return new TaxEndPointImpl(name, type, id, link, api, kana, cv, cvKana, production, date, place,
-        member, setList, lyrics, composer, arrange, music);
+        member, setList, lyrics, composer, arrange, songs);
   }
 
   @Override
@@ -113,13 +120,13 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
   }
 
   @Override
-  public Optional<List<? extends Member>> getMember() {
+  public Optional<List<Member>> getMember() {
     return Optional.ofNullable(this.member);
   }
 
   @Override
-  public Optional<Boolean> getSetListExists() {
-    return Optional.ofNullable(this.setList);
+  public Optional<Boolean> getSetlist() {
+    return Optional.ofNullable(this.setlist);
   }
 
   @Override
@@ -137,10 +144,9 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
     return Optional.ofNullable(this.arrange);
   }
 
-  @Override
   @Nonnull
-  public List<Music> getMusic() {
-    return this.music;
+  public List<Song> getSong() {
+    return this.song;
   }
 
 
