@@ -45,6 +45,15 @@ class ListEndPointParseUtilTest {
             Strings.isNullOrEmpty(each)
         ));
 
+    list.stream()
+        .map(ListEndPoint::getMusicType)
+        .map(Optional::isPresent)
+        .forEach(Assertions::assertTrue);
+
+    list.stream()
+        .map(ListEndPoint::getProduction)
+        .map(Optional::isPresent)
+        .forEach(Assertions::assertFalse);
   }
 
   @Test
@@ -72,6 +81,10 @@ class ListEndPointParseUtilTest {
         .map(Optional::isPresent)
         .forEach(Assertions::assertTrue);
 
+    list.stream()
+        .map(ListEndPoint::getMusicType)
+        .map(Optional::isPresent)
+        .forEach(Assertions::assertFalse);
   }
 
 }
