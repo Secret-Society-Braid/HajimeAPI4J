@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import hajimeapi4j.api.endpoint.ListEndPoint;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
@@ -30,11 +29,12 @@ public class ListParseUtil {
     }
     long start = System.currentTimeMillis();
     log.debug("attempt to parse list data");
-    List<ListEndPoint> result = new ArrayList<>();
     // adding elements
-    result = mapper.readValue(rawResponse.traverse(), new TypeReference<>() {
-    });
+    List<ListEndPoint> result = mapper.readValue(rawResponse.traverse(),
+        new TypeReference<>() {
+        });
     log.debug("Parsing completed. took {} ms", (System.currentTimeMillis() - start));
+    log.debug("generated data: {}", result);
     return result;
   }
 }
