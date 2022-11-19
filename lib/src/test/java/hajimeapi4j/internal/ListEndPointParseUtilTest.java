@@ -29,7 +29,7 @@ class ListEndPointParseUtilTest {
           ListEndPointParseUtilTest.class.getResourceAsStream(
               "/dataClassTemplate/listWithMusicResponse.json"));
 
-      list = ParseUtil.createResponse(responseMock);
+      list = ParseUtil.createListResponse(responseMock);
     } catch (IOException e) {
       fail(e);
     }
@@ -62,7 +62,7 @@ class ListEndPointParseUtilTest {
     try {
       JsonNode responseMock = mapper.readTree(ListEndPointParseUtilTest.class.getResourceAsStream(
           "/dataClassTemplate/listWithLive.json"));
-      list = ParseUtil.createResponse(responseMock);
+      list = ParseUtil.createListResponse(responseMock);
     } catch (IOException e) {
       fail(e);
     }
