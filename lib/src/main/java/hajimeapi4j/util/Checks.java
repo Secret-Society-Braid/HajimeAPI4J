@@ -30,8 +30,10 @@ public class Checks {
   }
 
   public static void validateInteger(int amount) {
-    if(amount < 0)
-      throw new IllegalArgumentException(String.format(ILLEGAL_ARGS_EXCEPTION_MESSAGE, amount, "limit amount in list"));
+    if (amount <= 0) {
+      throw new IllegalArgumentException(
+          String.format(ILLEGAL_ARGS_EXCEPTION_MESSAGE, amount, "limit amount in list"));
+    }
   }
 
   @Contract("null, _ -> fail")
