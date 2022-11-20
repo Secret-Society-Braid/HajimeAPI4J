@@ -5,9 +5,11 @@ import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.util.Checks;
 import java.util.Arrays;
 import java.util.List;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Setter
 public class ListEndPointBuilder {
 
   private String type;
@@ -27,6 +29,7 @@ public class ListEndPointBuilder {
   }
 
   public ListEndPointBuilder setLimit(int amount) {
+    Checks.validateInteger(amount);
     this.limit = amount;
     return this;
   }
@@ -36,8 +39,22 @@ public class ListEndPointBuilder {
     return this;
   }
 
+  public ListEndPointBuilder setOrder(String order) {
+    this.order = order;
+    return this;
+  }
+
+  public ListEndPointBuilder setOrderBy(String orderBy) {
+    this.orderBy = orderBy;
+    return this;
+  }
+
+  public ListEndPointBuilder setSearch(String search) {
+    this.search = search;
+    return this;
+  }
+
   public RestAction<List<ListEndPoint>> build() {
-    Checks.validateListType(type);
     return null;
   }
 
