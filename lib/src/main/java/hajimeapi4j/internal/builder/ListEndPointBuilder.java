@@ -40,11 +40,13 @@ public class ListEndPointBuilder {
   }
 
   public ListEndPointBuilder setOrder(String order) {
+    Checks.validateOrderParamString(order);
     this.order = order;
     return this;
   }
 
   public ListEndPointBuilder setOrderBy(String orderBy) {
+    Checks.validateOrderByParamStringWithListEndPoint(orderBy, this.type.equals("music"));
     this.orderBy = orderBy;
     return this;
   }
