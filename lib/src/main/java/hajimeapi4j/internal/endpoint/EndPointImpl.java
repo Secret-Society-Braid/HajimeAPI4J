@@ -91,8 +91,7 @@ public class EndPointImpl implements EndPoint {
   @Override
   @CheckReturnValue
   public RestAction<EndPoint> fromApi() {
-    // TODO: implement uri parse function
-    return this;
+    return InternalUtils.parseFromUriString(this.getApi());
   }
 
   /**

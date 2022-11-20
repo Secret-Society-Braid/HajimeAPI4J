@@ -2,6 +2,9 @@ package hajimeapi4j.util;
 
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.request.RestAction;
+import hajimeapi4j.internal.request.RestActionImpl;
+import hajimeapi4j.internal.request.Route;
+import hajimeapi4j.util.enums.Method;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -45,17 +48,19 @@ public class InternalUtils {
   }
 
   @Nonnull
-  public static RestAction<EndPoint> parseFromUriString(String uri) {
+  public static <T> RestAction<T> parseFromUriString(String uri) {
     // parse uri
     // example: https://api.fujiwarahaji.me/v2/music?id=3525
-    String shortened = uri.substring(28); // example: v2/songs?id=3525
-    String[] splitWithSlash = shortened.split("/"); // example: [v2] [songs?id=3525]
+    String shortened = uri.substring(28); // example: v2/music?id=3525
+    String[] splitWithSlash = shortened.split("/"); // example: [v2] [music?id=3525]
     log.info("used api version: {}", splitWithSlash[0]);
-    String[] splitWithQuestionMark = splitWithSlash[1].split("\\?"); // example: [songs] [id=3525]
+    String[] splitWithQuestionMark = splitWithSlash[1].split("\\?"); // example: [music] [id=3525]
     log.info("used api endpoint: {}", splitWithQuestionMark[0]);
     Map<String, String> queries = mapFromPlainText(splitWithQuestionMark[1]);
-    // TODO: we will need more implementation after completing implementation for builder classes
-    return EndPoint.createEmpty(); // FIXME: replace this temporal return to applicable one
+    Route apiRoute = Route.custom(Method.valueOf(splitWithQuestionMark[0]));
+    RestAction<T> result = new RestActionImpl<>(apiRoute, queries);
+    log.info("parsed RestAction instance: {}", result);
+    return result;
   }
 
   @Nonnull
