@@ -43,11 +43,6 @@ public class EndPointImpl implements EndPoint {
   protected String api;
   private static EndPoint emptyInstance;
 
-  @CheckReturnValue
-  public static EndPoint createInstance(String name, String type, int id, String link, String api) {
-    return new EndPointImpl(name, type, id, id, link, api);
-  }
-
   @Override
   @Nonnull
   public String getName() {
