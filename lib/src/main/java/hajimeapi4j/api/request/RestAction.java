@@ -9,6 +9,7 @@ import hajimeapi4j.internal.datatype.utilizations.Live;
 import hajimeapi4j.internal.datatype.utilizations.Song;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
 import hajimeapi4j.internal.request.CompiledRoute;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
@@ -70,6 +71,6 @@ public interface RestAction<T> {
    * @return パラメータ情報をセットしたAPIへのURI情報
    */
   @CheckReturnValue
-  CompiledRoute constructRoute(String... params);
+  CompiledRoute constructRoute(LinkedHashMap<String, String> params);
 
 }

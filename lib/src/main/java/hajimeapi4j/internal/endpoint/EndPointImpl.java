@@ -5,6 +5,7 @@ import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.request.CompiledRoute;
 import hajimeapi4j.util.InternalUtils;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
@@ -116,7 +117,7 @@ public class EndPointImpl implements EndPoint {
    * @return リクエスト送信用のメソッドです。使用できません。
    */
   @Override
-  public CompiledRoute constructRoute(String... params) {
+  public CompiledRoute constructRoute(LinkedHashMap<String, String> params) {
     throw new UnsupportedOperationException(InternalUtils.getMethodNotAllowedMessage());
   }
 
