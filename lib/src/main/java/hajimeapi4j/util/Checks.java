@@ -1,4 +1,4 @@
-package HajimeAPI4J.util;
+package hajimeapi4j.util;
 
 import com.google.common.base.Strings;
 import java.util.Arrays;
@@ -11,7 +11,7 @@ public class Checks {
   private static final String ILLEGAL_ARGS_EXCEPTION_MESSAGE = "%s is not applicable for %s endpoint";
 
   private static final List<String> APPLICABLE_METHODS_FOR_LIST_ENDPOINT = List.of(
-      "music",
+      "song",
       "live",
       "idol",
       "lyrics",

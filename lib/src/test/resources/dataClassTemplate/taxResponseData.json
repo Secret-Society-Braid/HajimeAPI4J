@@ -1,0 +1,46 @@
+{
+  "name": "山紫水明",
+  "type": "unit",
+  "tax_id": 1665,
+  "link": "https://fujiwarahaji.me/unit/%e5%b1%b1%e7%b4%ab%e6%b0%b4%e6%98%8e",
+  "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1665",
+  "kana": "さんしすいめい",
+  "member": [
+    {
+      "name": "依田芳乃",
+      "type": "idol",
+      "tax_id": 168,
+      "link": "https://fujiwarahaji.me/idol/cg/yorita-yoshino",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=168",
+      "production": "cg",
+      "cv": "高田憂希"
+    },
+    {
+      "name": "藤原肇",
+      "type": "idol",
+      "tax_id": 787,
+      "link": "https://fujiwarahaji.me/idol/cg/fujiwara-hajime",
+      "api": "https://api.fujiwarahaji.me/v2.1/tax?id=787",
+      "production": "cg",
+      "cv": "鈴木みのり"
+    }
+  ],
+  "song": [
+    {
+      "name": "風になりたい",
+      "type": "music",
+      "music_type": "cover",
+      "song_id": 3385,
+      "link": "https://fujiwarahaji.me/music/cover/kaze-ni-naritai",
+      "api": "https://api.fujiwarahaji.me/v2.1/music?id=3385"
+    },
+    {
+      "name": "Sunshine See May",
+      "type": "music",
+      "music_type": "cg",
+      "song_id": 2907,
+      "link": "https://fujiwarahaji.me/music/cg/sunshine-see-may",
+      "api": "https://api.fujiwarahaji.me/v2.1/music?id=2907"
+    }
+  ]
+}

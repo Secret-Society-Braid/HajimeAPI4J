@@ -3,6 +3,7 @@ package hajimeapi4j.internal.request;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +13,7 @@ public class Requester {
 
   private static final ObjectMapper MAPPER = new ObjectMapper();
 
-  private static final String API_BASE_URL = "https://api.fujiwarahaji.me/v2";
+  private static final String API_BASE_URL = "https://api.fujiwarahaji.me/v2.1";
   private static final String USER_AGENT = "HajimeAPI4J java wrapper developed by @hizumiaoba";
 
   private CompiledRoute route;
@@ -36,7 +37,11 @@ public class Requester {
     log.info("User Agent: {}", USER_AGENT);
     log.info("API Version: v2");
     connection.connect();
-    return MAPPER.readTree(connection.getInputStream());
+    InputStream is = connection.getInputStream();
+    log.debug("used input stream instance data: {}", is);
+    log.debug("received properties: {}", connection.getHeaderFields());
+    log.debug("latest modified at: {}", connection.getLastModified());
+    return MAPPER.readTree(is);
   }
 
 }

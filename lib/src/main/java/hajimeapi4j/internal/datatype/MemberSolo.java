@@ -1,25 +1,37 @@
-package HajimeAPI4J.internal.datatype;
+package hajimeapi4j.internal.datatype;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import java.util.Optional;
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class MemberSolo extends Member{
+@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonDeserialize(as = MemberSolo.class)
+public class MemberSolo extends Member {
 
-  private final boolean solo;
 
-  public MemberSolo() {
-    super();
-    this.solo = false;
-  }
+  protected Boolean solo;
 
-  public MemberSolo(String name, String type, int taxId, String link, String api, String production, String cv, boolean solo) {
-    super(name, type, taxId, link, api, production, cv);
+  protected MemberSolo(String name, String type, int taxId, int songId, String link, String api,
+      String production, String cv, Boolean solo) {
+    super(name, type, taxId, songId, link, api, production, cv);
     this.solo = solo;
   }
 
-  public boolean getSolo() {
-    return this.solo;
+  public static MemberSolo createInstance(String name, String type, int taxId, String link,
+      String api, String production, String cv, Boolean solo) {
+    return new MemberSolo(name, type, taxId, taxId, link, api, production, cv, solo);
+  }
+
+  public Optional<Boolean> getSolo() {
+    return Optional.ofNullable(this.solo);
   }
 }

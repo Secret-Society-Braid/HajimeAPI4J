@@ -1,12 +1,10 @@
-package HajimeAPI4J.util;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
+package hajimeapi4j.util;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
