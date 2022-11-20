@@ -1,6 +1,5 @@
 package hajimeapi4j.util;
 
-import HajimeAPI4J.util.FileUtils;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -24,7 +23,7 @@ public class CheckServerStatus {
     public static boolean isServerAlive() {
         Map<String, String> env;
         try {
-            env = HajimeAPI4J.util.FileUtils.readFilesFromResourceFolder(
+            env = FileUtils.readFilesFromResourceFolder(
                 FileUtils.ENV_FILE_NAME);
         } catch (IOException e) {
             log.error("Failed to read env.json file.", e);
