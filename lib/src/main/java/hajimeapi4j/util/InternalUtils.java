@@ -5,6 +5,7 @@ import hajimeapi4j.api.request.RestAction;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.concurrent.ThreadFactory;
 import javax.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
 
@@ -67,6 +68,11 @@ public class InternalUtils {
           result.put(splitWithEqual[0], splitWithEqual[1]);
         });
     return result;
+  }
+
+  @Nonnull
+  public static ThreadFactory createInternalThreadFactory(String identifier) {
+    return new CountingThreadFactory(identifier);
   }
 
 }
