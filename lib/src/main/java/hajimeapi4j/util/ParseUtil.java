@@ -8,11 +8,17 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import hajimeapi4j.api.endpoint.ListEndPoint;
 import hajimeapi4j.api.endpoint.MusicEndPoint;
 import hajimeapi4j.api.endpoint.TaxEndPoint;
+import hajimeapi4j.exception.NoSuchParameterException;
 import hajimeapi4j.internal.endpoint.MusicEndPointImpl;
 import hajimeapi4j.internal.endpoint.TaxEndPointImpl;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.CheckReturnValue;
+import javax.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -72,6 +78,29 @@ public class ParseUtil {
     MusicEndPoint result = mapper.readValue(rawResponse.traverse(), MusicEndPointImpl.class);
     log.debug(InternalUtils.getMessageTookTimeLogging(), (System.currentTimeMillis() - start));
     log.debug(InternalUtils.getMessageGeneratedDataLogging(), result);
+    return result;
+  }
+
+  @Nonnull
+  public static Map<String, String> createParameterMap(String... values) {
+    long start = System.currentTimeMillis();
+    if (values == null) {
+      throw new IllegalArgumentException("cannot create map instance from null!");
+    }
+    if (values.length < 2) {
+      throw new NoSuchParameterException("cannot create parameter map with less than 2 node!");
+    }
+    if (values.length % 2 != 0) {
+      throw new NoSuchParameterException("cannot create parameter map with odd length of nodes!");
+    }
+    LinkedHashMap<String, String> result = new LinkedHashMap<>();
+    Iterator<String> stringIterator = Arrays.asList(values).iterator();
+    while (stringIterator.hasNext()) {
+      result.put(stringIterator.next(), stringIterator.next());
+    }
+    log.debug("constructing map instance completed. took {} ms",
+        (System.currentTimeMillis() - start));
+    log.debug("construct map instance: {}", result);
     return result;
   }
 }
