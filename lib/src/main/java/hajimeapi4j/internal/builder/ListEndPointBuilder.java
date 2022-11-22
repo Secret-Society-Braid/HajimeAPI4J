@@ -7,6 +7,7 @@ import hajimeapi4j.exception.IllegalParameterException;
 import hajimeapi4j.util.Checks;
 import hajimeapi4j.util.InternalUtils;
 import hajimeapi4j.util.ParseUtil;
+import hajimeapi4j.util.enums.ListParameter;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -32,8 +33,11 @@ public class ListEndPointBuilder {
     return new ListEndPointBuilder(type);
   }
 
+  public static ListEndPointBuilder createFor(ListParameter.Type type) {
+    return createFor(type.toString());
+  }
+
   private ListEndPointBuilder(String type) {
-    Checks.validateListType(type);
     this.type = type;
   }
 
