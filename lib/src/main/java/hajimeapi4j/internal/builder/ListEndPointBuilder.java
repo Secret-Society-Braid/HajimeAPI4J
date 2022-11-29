@@ -1,17 +1,14 @@
 package hajimeapi4j.internal.builder;
 
-import com.google.common.base.Strings;
+import com.google.common.base.Joiner;
 import hajimeapi4j.api.endpoint.ListEndPoint;
 import hajimeapi4j.api.request.RestAction;
-import hajimeapi4j.exception.IllegalParameterException;
 import hajimeapi4j.util.Checks;
-import hajimeapi4j.util.InternalUtils;
-import hajimeapi4j.util.ParseUtil;
 import hajimeapi4j.util.enums.ListParameter;
+import hajimeapi4j.util.enums.ListParameter.Type;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import lombok.Setter;
@@ -21,13 +18,8 @@ import lombok.extern.slf4j.Slf4j;
 @Setter
 public class ListEndPointBuilder {
 
-  private String type;
-  private int limit;
-  private List<String> musicType;
-  private String orderBy;
-  private String order;
-  private String search;
-  private String production;
+  private final Map<String, String> parameters;
+  private final boolean musicTypeSelected;
 
   public static ListEndPointBuilder createFor(String type) {
     return new ListEndPointBuilder(type);
@@ -38,72 +30,50 @@ public class ListEndPointBuilder {
   }
 
   private ListEndPointBuilder(String type) {
-    this.type = type;
+    this.parameters = new HashMap<>();
+    this.musicTypeSelected = type.equals(Type.MUSIC.toString());
+    this.parameters.put("type", type);
   }
 
   public ListEndPointBuilder setLimit(int amount) {
     Checks.validateInteger(amount);
-    this.limit = amount;
+    this.parameters.put("limit", String.valueOf(amount));
     return this;
   }
 
-  public ListEndPointBuilder setMusicType(String... args) {
-    this.musicType = args == null ? Collections.emptyList() : Arrays.asList(args);
+  public ListEndPointBuilder setMusicType(ListParameter.MusicType... types) {
+    final Joiner joiner = Joiner.on("%2C").skipNulls();
+    String concatenated = joiner.join(types);
+    this.parameters.put("music_type", concatenated);
     return this;
   }
 
-  public ListEndPointBuilder setOrder(String order) {
-    Checks.validateOrderParamString(order);
-    this.order = order;
+  public ListEndPointBuilder setOrder(ListParameter.Order order) {
+    this.parameters.put("order", order.toString());
     return this;
   }
 
-  public ListEndPointBuilder setOrderBy(String orderBy) {
-    Checks.validateOrderByParamStringWithListEndPoint(orderBy, this.type.equals("music"));
-    this.orderBy = orderBy;
+  public ListEndPointBuilder setOrderBy(ListParameter.OrderBy orderBy) {
+    this.parameters.put("orderby", orderBy.toString());
     return this;
   }
 
   public ListEndPointBuilder setSearch(String search) {
-    this.search = URLEncoder.encode(search, StandardCharsets.UTF_8);
+    final String encoded = URLEncoder.encode(search, StandardCharsets.UTF_8);
+    this.parameters.put("search", encoded);
     return this;
   }
 
-  public ListEndPointBuilder setProduction(String production) {
-    this.production = production;
+  public ListEndPointBuilder setProduction(ListParameter.Production... production) {
+    final Joiner joiner = Joiner.on("%2C").skipNulls();
+    String concatenated = joiner.join(production);
+    this.parameters.put("production", concatenated);
     return this;
   }
 
   public RestAction<List<ListEndPoint>> build() {
-    log.debug("checking whether valid...");
-    if ("music".equals(this.type)) {
-      if (!Strings.isNullOrEmpty(this.production)) {
-        throw new IllegalParameterException(
-            String.format(InternalUtils.getMessageNotAllowedParameter(), "type", "list")
-        );
-      }
-    } else {
-      if (this.limit != 0 || !this.musicType.isEmpty()) {
-        throw new IllegalParameterException(
-            String.format(InternalUtils.getMessageNotAllowedParameter(), "limit or music_type",
-                "list")
-        );
-      }
-    }
-    log.info("Attempt to connect with list endpoint and folloowing parameters");
-    log.info("type parameter: {}", InternalUtils.checkEmptyForParameterLogging(this.type));
-    log.info("limit parameter: {}",
-        InternalUtils.checkEmptyForParameterLogging(String.valueOf(this.limit)));
-    log.info("orderBy parameter: {}", InternalUtils.checkEmptyForParameterLogging(this.orderBy));
-    log.info("order parameter: {}", InternalUtils.checkEmptyForParameterLogging(this.order));
-    log.info("search parameter (URL encoded): {}",
-        InternalUtils.checkEmptyForParameterLogging(this.search));
-    log.info("musicType parameter: {}", this.musicType.toString());
-    log.info("production parameter: {}",
-        InternalUtils.checkEmptyForParameterLogging(this.production));
-    Map<String, String> queryMap = ParseUtil.createParameterMap(
-        ""
-    );
+    log.debug("set parameters: {}", this.parameters);
+    Joiner.MapJoiner mapJoiner = Joiner.on("&").withKeyValueSeparator("=");
     return null;
   }
 

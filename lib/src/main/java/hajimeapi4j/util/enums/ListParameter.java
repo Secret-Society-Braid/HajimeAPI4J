@@ -95,4 +95,61 @@ public interface ListParameter {
     }
   }
 
+  enum Order {
+    /**
+     * 昇順
+     */
+    ASCENDING("asc"),
+
+    /**
+     * 降順
+     */
+    DESCENDING("desc");
+
+    final String identifier;
+
+    Order(String identifier) {
+      this.identifier = identifier;
+    }
+
+    @Override
+    public String toString() {
+      return this.identifier;
+    }
+  }
+
+  enum OrderBy {
+    TITLE,
+
+    DATE,
+
+    RAND;
+
+    @Override
+    public String toString() {
+      return super.toString().toLowerCase();
+    }
+  }
+
+  enum Production {
+    CINDERELLA_GIRLS("cg"),
+
+    NAMCO_ALL_STARS("765"),
+
+    SHINY_COLORS("sc"),
+
+    SIDEM_315_PRODUCTION("315");
+
+    final String identifier;
+
+    Production(String identifier) {
+      this.identifier = identifier;
+    }
+
+    @Override
+    public String toString() {
+      return this.identifier;
+    }
+  }
+
 }
