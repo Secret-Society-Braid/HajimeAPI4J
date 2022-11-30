@@ -10,6 +10,7 @@ package hajimeapi4j.util.enums;
  * @see hajimeapi4j.internal.endpoint.ListEndPointImpl
  * @since 5.0.0
  */
+@SuppressWarnings("unused")
 public interface ListParameter {
 
   /**
@@ -95,6 +96,9 @@ public interface ListParameter {
     }
   }
 
+  /**
+   * 昇順、降順の設定を行うクエリパラメータを指定します。
+   */
   enum Order {
     /**
      * 昇順
@@ -118,12 +122,38 @@ public interface ListParameter {
     }
   }
 
+  /**
+   * 並び変えの祭に使用する情報を指定します。
+   * <p>
+   * {@code list}エンドポイントでは、{@code music} タイプは、{@code title}, {@code date},
+   * {@code random}の3つでソートすることができます。
+   * <p>
+   * そのほかのタイプでは {@code name}, {@code count}が利用可能です。
+   */
   enum OrderBy {
     TITLE,
 
     DATE,
 
-    RAND;
+    RAND,
+
+    NAME(false),
+
+    COUNT(false);
+
+    final boolean applicableForMusic;
+
+    OrderBy(boolean applicableForMusic) {
+      this.applicableForMusic = applicableForMusic;
+    }
+
+    OrderBy() {
+      this.applicableForMusic = true;
+    }
+
+    public boolean isApplicableForMusic() {
+      return this.applicableForMusic;
+    }
 
     @Override
     public String toString() {
@@ -131,6 +161,11 @@ public interface ListParameter {
     }
   }
 
+  /**
+   * 開催されたプロダクションの情報を指定します。
+   * <p>
+   * デフォルトでは全て出力されます。
+   */
   enum Production {
     CINDERELLA_GIRLS("cg"),
 
