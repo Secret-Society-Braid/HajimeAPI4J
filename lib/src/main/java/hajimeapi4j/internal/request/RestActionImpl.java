@@ -8,7 +8,6 @@ import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.util.InternalUtils;
 import hajimeapi4j.util.ParseUtil;
 import java.io.IOException;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -24,11 +23,11 @@ public class RestActionImpl<T> implements RestAction<T> {
           "Rest action handshaking thread"
       ));
   protected Route route;
-  protected LinkedHashMap<String, String> queryMap;
+  protected Map<String, String> queryMap;
 
   public RestActionImpl(Route route, Map<String, String> queryMap) {
     this.route = route;
-    this.queryMap = (LinkedHashMap<String, String>) queryMap;
+    this.queryMap = queryMap;
   }
 
   @NonNull
@@ -65,7 +64,7 @@ public class RestActionImpl<T> implements RestAction<T> {
   }
 
   @Override
-  public CompiledRoute constructRoute(LinkedHashMap<String, String> params) {
+  public CompiledRoute constructRoute(Map<String, String> params) {
     return new CompiledRoute(this.route, this.route.toString()).withQueryParams(params);
   }
 }
