@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @SuppressWarnings("unused")
-public class ListEndPointBuilder {
+public class ListEndPointBuilder {// TODO: add document
 
   private final Map<String, String> parameters;
   private final boolean musicTypeSelected;
