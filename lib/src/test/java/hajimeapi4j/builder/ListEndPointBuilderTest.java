@@ -12,11 +12,13 @@ import hajimeapi4j.util.enums.ListParameter.Type;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class ListEndPointBuilderTest {
 
   @Test
+  @Disabled("for reducing massive access to the api")
   void musicTypeTest() {
     ListEndPointBuilder builder = ListEndPointBuilder.createFor(Type.MUSIC);
     builder
