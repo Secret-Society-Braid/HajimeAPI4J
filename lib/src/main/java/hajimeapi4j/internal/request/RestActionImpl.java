@@ -18,7 +18,7 @@ import lombok.NonNull;
 
 public class RestActionImpl<T> implements RestAction<T> {
 
-  private static final ExecutorService serv = Executors.newCachedThreadPool(
+  private static final ExecutorService serv = Executors.newSingleThreadExecutor(
       InternalUtils.createInternalThreadFactory(
           "Rest action handshaking thread"
       ));
