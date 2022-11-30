@@ -20,6 +20,7 @@ public class ListEndPointBuilder {
 
   private final Map<String, String> parameters;
   private final boolean musicTypeSelected;
+  private static final String inapplicableQueryExceptionString = "you cannot set this parameter!";
 
   public static ListEndPointBuilder createFor(String type) {
     return new ListEndPointBuilder(type);
@@ -42,6 +43,10 @@ public class ListEndPointBuilder {
   }
 
   public ListEndPointBuilder setMusicType(ListParameter.MusicType... types) {
+    if (!this.parameters.get("type").equals("music")) {
+      throw new UnsupportedOperationException(inapplicableQueryExceptionString);
+    }
+
     final Joiner joiner = Joiner.on("%2C").skipNulls();
     String concatenated = joiner.join(types);
     this.parameters.put("music_type", concatenated);
