@@ -21,7 +21,7 @@ public class ListEndPointBuilder {
 
   private final Map<String, String> parameters;
   private final boolean musicTypeSelected;
-  private static final String inapplicableQueryExceptionString = "you cannot set this parameter!";
+  private static final String INAPPLICABLE_QUERY_EXCEPTION_STRING = "you cannot set this parameter!";
 
   public static ListEndPointBuilder createFor(String type) {
     return new ListEndPointBuilder(type);
@@ -39,7 +39,7 @@ public class ListEndPointBuilder {
 
   public ListEndPointBuilder setLimit(int amount) {
     if (!this.musicTypeSelected) {
-      throw new UnsupportedOperationException(inapplicableQueryExceptionString);
+      throw new UnsupportedOperationException(INAPPLICABLE_QUERY_EXCEPTION_STRING);
     }
 
     Checks.validateInteger(amount);
@@ -49,7 +49,7 @@ public class ListEndPointBuilder {
 
   public ListEndPointBuilder setMusicType(ListParameter.MusicType... types) {
     if (!this.musicTypeSelected) {
-      throw new UnsupportedOperationException(inapplicableQueryExceptionString);
+      throw new UnsupportedOperationException(INAPPLICABLE_QUERY_EXCEPTION_STRING);
     }
 
     final Joiner joiner = Joiner.on("%2C").skipNulls();
@@ -66,7 +66,7 @@ public class ListEndPointBuilder {
   public ListEndPointBuilder setOrderBy(ListParameter.OrderBy orderBy) {
     if (((this.musicTypeSelected) && (!orderBy.isApplicableForMusic())) || (
         (!this.musicTypeSelected) && (orderBy.isApplicableForMusic()))) {
-      throw new UnsupportedOperationException(inapplicableQueryExceptionString);
+      throw new UnsupportedOperationException(INAPPLICABLE_QUERY_EXCEPTION_STRING);
     }
     this.parameters.put("orderby", orderBy.toString());
     return this;
@@ -80,7 +80,7 @@ public class ListEndPointBuilder {
 
   public ListEndPointBuilder setProduction(ListParameter.Production... production) {
     if (this.musicTypeSelected) {
-      throw new UnsupportedOperationException(inapplicableQueryExceptionString);
+      throw new UnsupportedOperationException(INAPPLICABLE_QUERY_EXCEPTION_STRING);
     }
     final Joiner joiner = Joiner.on("%2C").skipNulls();
     String concatenated = joiner.join(production);
