@@ -1,10 +1,19 @@
 package hajimeapi4j.internal.builder;
 
+import hajimeapi4j.api.endpoint.TaxEndPoint;
+import hajimeapi4j.api.request.RestAction;
+import hajimeapi4j.internal.request.RestActionImpl;
+import hajimeapi4j.internal.request.Route;
+import hajimeapi4j.util.Checks;
+import hajimeapi4j.util.InternalUtils;
+import hajimeapi4j.util.enums.TaxParameter;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -15,6 +24,7 @@ import lombok.extern.slf4j.Slf4j;
  * @see hajimeapi4j.util.enums.TaxParameter
  */
 @Slf4j
+@SuppressWarnings("unused")
 public class TaxEndPointBuilder {
 
   private final Map<String, String> parameters;
@@ -56,9 +66,8 @@ public class TaxEndPointBuilder {
    *
    * @param name ユニット名（完全一致）
    * @return ユニット名を指定した新しい {@code TaxEndPointBuilder}
-   * @deprecated ユニット名は表記ゆれが激しいため、完全一致では目的のデータを取得できない可能性があります。部分一致検索は [@code list} エンドポイントを利用してください。
+   * @apiNote ユニット名は表記ゆれが激しいため、完全一致では目的のデータを取得できない可能性があります。部分一致検索は [@code list} エンドポイントを利用してください。
    */
-  @Deprecated(since = "1.0.0")
   public static TaxEndPointBuilder createWithUnitName(String name) {
     final String urlEncoded = URLEncoder.encode(name, StandardCharsets.UTF_8);
     return create(PickUpParameterType.UNIT_NAME, urlEncoded);
@@ -78,6 +87,75 @@ public class TaxEndPointBuilder {
       throw new IllegalArgumentException("this can only be set yyyy-mm-dd");
     }
     return create(PickUpParameterType.LIVE_DATE, liveDate);
+  }
+
+  /**
+   * 出力するデータの上限数を設定します。
+   *
+   * @param limit 出力するデータの上限（自然数）
+   * @return チェーンを組むためのこのインスタンス
+   */
+  public TaxEndPointBuilder setLimit(int limit) {
+    Checks.validateInteger(limit);
+    this.parameters.put("limit", String.valueOf(limit));
+    return this;
+  }
+
+  /**
+   * 楽曲の種類を指定します。
+   * <p>
+   * この情報は複数指定可能です。
+   *
+   * @param type 指定する楽曲の種類
+   * @return チェーンを組むためのこのインスタンス
+   * @see TaxParameter.MusicType
+   */
+  public TaxEndPointBuilder setMusicType(TaxParameter.MusicType... type) {
+    final String parameterValue =
+        InternalUtils.concatWithSeparators(
+            Arrays.stream(type)
+                .map(TaxParameter.MusicType::toString)
+                .collect(Collectors.toList()),
+            "%2C");
+    this.parameters.put("music_type", parameterValue);
+    return this;
+  }
+
+  /**
+   * データの出力の際、ソート基準となるアイテムを指定します
+   *
+   * @param orderBy 基準とするアイテム
+   * @return チェーンのためのこのインスタンス
+   */
+  public TaxEndPointBuilder setOrderBy(TaxParameter.OrderBy orderBy) {
+    this.parameters.put("orderby", orderBy.toString());
+    return this;
+  }
+
+  /**
+   * 出力データを昇順でソートするか、降順でソートするかを指定します。
+   *
+   * @param order 昇順降順の指定
+   * @return チェーンのためのこのインスタンス
+   */
+  public TaxEndPointBuilder setOrder(TaxParameter.Order order) {
+    this.parameters.put("order", order.toString());
+    return this;
+  }
+
+  /**
+   * 各種パラメータで指定された情報を使用して、リクエストを送信するためのインスタンスを作成して返します。
+   * <p>
+   * この時点ではまだリクエストは送信されていないことに注意してください。
+   *
+   * @return {@code tax} エンドポイントへリクエストを送信するためのインスタンス
+   */
+  public RestAction<TaxEndPoint> build() {
+    log.debug("set parameters: {}", this.parameters);
+    log.info("constructing action instance...");
+    RestAction<TaxEndPoint> result = new RestActionImpl<>(Route.taxRoute(), this.parameters);
+    log.debug("complete. hash information: {}", result);
+    return result;
   }
 
   private static TaxEndPointBuilder create(PickUpParameterType type, String value) {
