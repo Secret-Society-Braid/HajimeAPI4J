@@ -63,10 +63,13 @@ public class TaxEndPointBuilder {
 
   /**
    * {@code tax} エンドポイントのリクエストをユニット名完全一致で指定して作成します。
+   * <p>
+   * **注意**
+   * <p>
+   * ユニット名は表記ゆれが激しいため、完全一致では目的のデータを取得できない可能性があります。部分一致検索は [@code list} エンドポイントを利用してください。
    *
    * @param name ユニット名（完全一致）
    * @return ユニット名を指定した新しい {@code TaxEndPointBuilder}
-   * @apiNote ユニット名は表記ゆれが激しいため、完全一致では目的のデータを取得できない可能性があります。部分一致検索は [@code list} エンドポイントを利用してください。
    */
   public static TaxEndPointBuilder createWithUnitName(String name) {
     final String urlEncoded = URLEncoder.encode(name, StandardCharsets.UTF_8);
@@ -80,7 +83,6 @@ public class TaxEndPointBuilder {
    *
    * @param liveDate 指定するライブの日付 yyyy-mm-dd
    * @return ライブの日付を指定した新しい {@code TaxEndPointBuilder}
-   * @apiNote APIの内部処理的にはURIのスラッグを使用して検束
    */
   public static TaxEndPointBuilder createWithLiveDate(String liveDate) {
     if (!PATTERN_FOR_DATE_FORMAT.matcher(liveDate).matches()) {
