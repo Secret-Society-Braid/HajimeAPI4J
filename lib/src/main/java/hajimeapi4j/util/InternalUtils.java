@@ -1,5 +1,6 @@
 package hajimeapi4j.util;
 
+import com.google.common.base.Joiner;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.request.RestActionImpl;
@@ -7,6 +8,7 @@ import hajimeapi4j.internal.request.Route;
 import hajimeapi4j.util.enums.Method;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadFactory;
 import javax.annotation.Nonnull;
@@ -90,4 +92,12 @@ public class InternalUtils {
     return attempt == null ? "not set" : attempt;
   }
 
+  @Nonnull
+  public static String concatWithSeparators(List<String> list, final String separator) {
+    if (list.size() == 1) {
+      return list.get(0);
+    }
+    final Joiner joiner = Joiner.on(separator).skipNulls();
+    return joiner.join(list);
+  }
 }
