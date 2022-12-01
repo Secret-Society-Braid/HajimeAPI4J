@@ -1,20 +1,22 @@
 package hajimeapi4j.internal.builder;
 
-import com.google.common.base.Joiner;
 import hajimeapi4j.api.endpoint.ListEndPoint;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.endpoint.ListEndPointImpl;
 import hajimeapi4j.internal.request.RestActionImpl;
 import hajimeapi4j.internal.request.Route;
 import hajimeapi4j.util.Checks;
+import hajimeapi4j.util.InternalUtils;
 import hajimeapi4j.util.enums.ListParameter;
 import hajimeapi4j.util.enums.ListParameter.OrderBy;
 import hajimeapi4j.util.enums.ListParameter.Type;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -100,8 +102,11 @@ public class ListEndPointBuilder {
       throw new UnsupportedOperationException(INAPPLICABLE_QUERY_EXCEPTION_STRING);
     }
 
-    final Joiner joiner = Joiner.on("%2C").skipNulls();
-    String concatenated = joiner.join(types);
+    String concatenated = InternalUtils.concatWithSeparators(
+        Arrays.stream(types)
+            .map(ListParameter.MusicType::toString)
+            .collect(Collectors.toList()),
+        "%2C");
     this.parameters.put("music_type", concatenated);
     return this;
   }
@@ -167,8 +172,11 @@ public class ListEndPointBuilder {
     if (this.musicTypeSelected) {
       throw new UnsupportedOperationException(INAPPLICABLE_QUERY_EXCEPTION_STRING);
     }
-    final Joiner joiner = Joiner.on("%2C").skipNulls();
-    String concatenated = joiner.join(production);
+    String concatenated = InternalUtils.concatWithSeparators(
+        Arrays.stream(production)
+            .map(ListParameter.Production::toString)
+            .collect(Collectors.toList()),
+        "%2C");
     this.parameters.put("production", concatenated);
     return this;
   }
