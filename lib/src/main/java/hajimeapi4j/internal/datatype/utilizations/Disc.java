@@ -13,6 +13,15 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * 楽曲の円盤情報を格納、表示します。
+ * <p>
+ * 格納されている {@link Member}, {@link Unit} のデータについては、それぞれのクラスのドキュメントを参照してください。
+ *
+ * @see Member
+ * @see Unit
+ * @since 5.0.0.0-Alpha.1
+ */
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @Getter
