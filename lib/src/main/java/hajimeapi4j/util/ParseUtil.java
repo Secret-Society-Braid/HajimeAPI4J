@@ -13,8 +13,8 @@ import hajimeapi4j.internal.endpoint.MusicEndPointImpl;
 import hajimeapi4j.internal.endpoint.TaxEndPointImpl;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.CheckReturnValue;
@@ -93,7 +93,7 @@ public class ParseUtil {
     if (values.length % 2 != 0) {
       throw new NoSuchParameterException("cannot create parameter map with odd length of nodes!");
     }
-    LinkedHashMap<String, String> result = new LinkedHashMap<>();
+    Map<String, String> result = new HashMap<>();
     Iterator<String> stringIterator = Arrays.asList(values).iterator();
     while (stringIterator.hasNext()) {
       result.put(stringIterator.next(), stringIterator.next());

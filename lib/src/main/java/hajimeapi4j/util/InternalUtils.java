@@ -7,7 +7,7 @@ import hajimeapi4j.internal.request.RestActionImpl;
 import hajimeapi4j.internal.request.Route;
 import hajimeapi4j.util.enums.Method;
 import java.util.Arrays;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadFactory;
@@ -72,7 +72,7 @@ public class InternalUtils {
 
   @Nonnull
   static Map<String, String> mapFromPlainText(String plain) {
-    Map<String, String> result = new LinkedHashMap<>();
+    Map<String, String> result = new HashMap<>();
     String[] splitWithAmpersand = plain.split("&");
     Arrays.stream(splitWithAmpersand)
         .forEachOrdered(str -> {
