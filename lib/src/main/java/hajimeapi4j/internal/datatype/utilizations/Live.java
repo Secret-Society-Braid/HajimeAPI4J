@@ -15,6 +15,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * ライブ時での披露情報を格納、表示します。
+ * <p>
+ * 格納されている {@link Member}, {@link Unit} のデータについては、それぞれのクラスのドキュメントを参照してください。
+ *
+ * @see Member
+ * @see Unit
+ * @since 5.0.0.0-Alpha.1
+ */
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

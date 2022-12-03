@@ -25,7 +25,7 @@ import lombok.ToString;
  * @see Disc
  * @see Live
  * @see <a href="https://api.fujiwarahaji.me/v2/doc/">APIv2ドキュメント</a>
- * @since 5.0.0
+ * @since 5.0.0.0-Alpha.1
  */
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)

@@ -12,6 +12,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * ゲーム内メンバー、LIVE披露時のメンバー、円盤収録時などのメンバー情報を保持するクラスです。
+ *
+ * @since 5.0.0.0-Alpha.1
+ */
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @Setter
@@ -36,11 +41,21 @@ public class Member extends EndPointImpl {
     return new Member(name, type, taxId, taxId, link, api, production, cv);
   }
 
+  /**
+   * このアイドルの所属プロダクションを返します。
+   *
+   * @return このアイドルの所属プロダクション
+   */
   @CheckReturnValue
   public Optional<String> getProduction() {
     return Optional.ofNullable(this.production);
   }
 
+  /**
+   * このメンバーの声優を返します。
+   *
+   * @return 声優
+   */
   @Nonnull
   public String getCv() {
     return this.cv;

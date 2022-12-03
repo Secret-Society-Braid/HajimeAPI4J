@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * {@inheritDoc}
+ */
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @Setter
@@ -31,6 +34,11 @@ public class MemberSolo extends Member {
     return new MemberSolo(name, type, taxId, taxId, link, api, production, cv, solo);
   }
 
+  /**
+   * ソロ情報があるかどうかを返します。
+   *
+   * @return ソロ情報があれば {@code true}、そうでなければ {@code false}
+   */
   public Optional<Boolean> getSolo() {
     return Optional.ofNullable(this.solo);
   }

@@ -22,7 +22,7 @@ import javax.annotation.Nonnull;
  * @author Ranfa
  * @see RestAction
  * @see <a href="https://api.fujiwarahaji.me/v2/doc">APIv2ドキュメント</a>
- * @since 5.0.0
+ * @since 5.0.0.0-Alpha.1
  */
 @JsonDeserialize(as = EndPointImpl.class)
 public interface EndPoint extends RestAction<EndPoint> {

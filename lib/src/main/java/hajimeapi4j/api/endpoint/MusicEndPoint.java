@@ -20,7 +20,7 @@ import javax.annotation.Nonnull;
  * @see RestAction
  * @see EndPoint
  * @see MusicEndPointImpl
- * @since 5.0.0
+ * @since 5.0.0.0-Alpha.1
  */
 @JsonDeserialize(as = MusicEndPointImpl.class)
 public interface MusicEndPoint extends EndPoint {

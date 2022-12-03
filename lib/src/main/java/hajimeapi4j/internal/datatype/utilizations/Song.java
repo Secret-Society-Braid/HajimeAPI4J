@@ -12,6 +12,15 @@ import lombok.EqualsAndHashCode;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * 楽曲の情報を格納、表示します。
+ * <p>
+ * 格納されている {@link Member}, {@link Unit} のデータについては、それぞれのクラスのドキュメントを参照してください。
+ *
+ * @see Member
+ * @see Unit
+ * @since 5.0.0.0-Alpha.1
+ */
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Setter
@@ -71,27 +80,58 @@ public class Song extends EndPointImpl {
     return new Song();
   }
 
+  /**
+   * 楽曲の種類を取得します。
+   *
+   * @return 楽曲の種類
+   */
   @Nonnull
   public String getMusicType() {
     return this.musicType;
   }
 
+  /**
+   * 楽曲の追加情報を取得します。
+   *
+   * @return 楽曲の追加情報
+   */
   public Optional<String> getSongText() {
     return Optional.ofNullable(this.songText);
   }
 
+  /**
+   * 楽曲に関連するユニットのリストを取得します。
+   *
+   * @return 楽曲に関連するユニットのリスト
+   */
   public Optional<List<Unit>> getUnit() {
     return Optional.ofNullable(this.unit);
   }
 
+  /**
+   * 楽曲に関連するメンバーのリストを取得します。
+   *
+   * @return 楽曲に関連するメンバーのリスト
+   */
   public Optional<List<Member>> getMember() {
     return Optional.ofNullable(this.member);
   }
 
+  /**
+   * 楽曲に関連するメンバーの追加情報を取得します。
+   *
+   * @return 楽曲に関連するメンバーの追加情報
+   */
   public Optional<String> getMemberText() {
     return Optional.ofNullable(memberText);
   }
 
+  /**
+   * 楽曲がソロ曲かどうかを取得します。
+   *
+   * @return 楽曲がソロ曲であれば {@code true}、そうでなければ {@code false}、ソロ曲が存在し得ないユニット楽曲などの場合は
+   * {@link Optional#empty()}
+   */
   public Optional<Boolean> getSolo() {
     return Optional.ofNullable(this.solo);
   }

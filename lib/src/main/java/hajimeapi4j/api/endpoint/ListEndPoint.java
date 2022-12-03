@@ -17,7 +17,7 @@ import javax.annotation.CheckReturnValue;
  * @see RestAction
  * @see EndPoint
  * @see ListEndPointImpl
- * @since 5.0.0
+ * @since 5.0.0.0-Alpha.1
  */
 @JsonDeserialize(as = ListEndPointImpl.class)
 public interface ListEndPoint extends EndPoint {
