@@ -21,7 +21,6 @@ public class InternalUtils {
   private static final String MESSAGE_NULL_RAW_RESPONSE_NOT_ALLOWED = "raw response must not be null";
   private static final String MESSAGE_TOOK_TIME_LOGGING = "Parsing completed. took {} ms";
   private static final String MESSAGE_GENERATED_DATA_LOGGING = "generated data: {}";
-  private static final String MESSAGE_NOT_ALLOWED_PARAMETER = "you cannot set %s parameter with %s endpoint";
 
   private InternalUtils() { /* do nothing */}
 
@@ -39,10 +38,6 @@ public class InternalUtils {
 
   public static String getMessageGeneratedDataLogging() {
     return MESSAGE_GENERATED_DATA_LOGGING;
-  }
-
-  public static String getMessageNotAllowedParameter() {
-    return MESSAGE_NOT_ALLOWED_PARAMETER;
   }
 
   public static boolean checkEmpty(EndPoint testee) {
@@ -85,11 +80,6 @@ public class InternalUtils {
   @Nonnull
   public static ThreadFactory createInternalThreadFactory(String identifier) {
     return new CountingThreadFactory(identifier);
-  }
-
-  @Nonnull
-  public static String checkEmptyForParameterLogging(String attempt) {
-    return attempt == null ? "not set" : attempt;
   }
 
   @Nonnull
