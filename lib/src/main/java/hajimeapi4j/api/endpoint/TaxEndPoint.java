@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
  * @see RestAction
  * @see EndPoint
  * @see TaxEndPointImpl
- * @since 5.0.0
+ * @since 5.0.0.0-Alpha.1
  */
 @JsonDeserialize(as = TaxEndPointImpl.class)
 public interface TaxEndPoint extends EndPoint {

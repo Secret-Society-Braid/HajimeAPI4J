@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
  * @see hajimeapi4j.api.endpoint.MusicEndPoint
  * @see hajimeapi4j.internal.endpoint.MusicEndPointImpl
  * @see hajimeapi4j.util.enums.MusicParameter
- * @since 5.0.0
+ * @since 5.0.0.0-Alpha.1
  */
 @Slf4j
 @SuppressWarnings("unused")

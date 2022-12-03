@@ -25,7 +25,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Ranfa
  * @see EndPoint
- * @since 5.0.0
+ * @since 5.0.0.0-Alpha.1
  */
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

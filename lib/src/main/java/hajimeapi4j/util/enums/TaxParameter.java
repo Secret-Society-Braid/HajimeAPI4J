@@ -8,7 +8,7 @@ package hajimeapi4j.util.enums;
  * @see hajimeapi4j.api.endpoint.TaxEndPoint
  * @see hajimeapi4j.internal.endpoint.TaxEndPointImpl
  * @see hajimeapi4j.internal.builder.TaxEndPointBuilder
- * @since 5.0.0
+ * @since 5.0.0.0-Alpha.1
  */
 @SuppressWarnings("unused")
 public interface TaxParameter {
