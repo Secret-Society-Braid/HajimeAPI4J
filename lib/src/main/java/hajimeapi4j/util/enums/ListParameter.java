@@ -169,7 +169,7 @@ public interface ListParameter {
   enum Production {
     CINDERELLA_GIRLS("cg"),
 
-    NAMCO_ALL_STARS("765"),
+    NAMCO_PRODUCTION("765"),
 
     SHINY_COLORS("sc"),
 
