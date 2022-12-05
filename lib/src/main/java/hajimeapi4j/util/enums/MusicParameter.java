@@ -15,7 +15,7 @@ public interface MusicParameter {
 
     @Override
     public String toString() {
-      return super.toString().toLowerCase();
+      return super.toString().toLowerCase().replace("_", "-");
     }
   }
 
