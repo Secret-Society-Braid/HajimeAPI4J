@@ -25,7 +25,7 @@ repositories {
 
 dependencies {
     // Use JUnit Jupiter for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
 
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api 'org.apache.commons:commons-math3:3.6.1'
@@ -33,16 +33,22 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:31.1-jre'
 
-    implementation("ch.qos.logback:logback-classic:1.2.11")
+    implementation("ch.qos.logback:logback-classic:1.4.5")
 
-    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "2.13.3"
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "2.14.1"
 
-    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "2.13.3"
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "2.14.1"
 
-    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "2.13.3"
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "2.14.1"
+
+    implementation group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
 
     // lombok
     implementation group: 'org.projectlombok', name: 'lombok', version: "1.18.24"
+
+    // annotations
+    annotationProcessor( group: 'org.projectlombok', name: 'lombok', version: '1.18.24')
+    annotationProcessor group: 'org.jetbrains', name: 'annotations', version: '13.0'
 }
 
 tasks.named('test') {

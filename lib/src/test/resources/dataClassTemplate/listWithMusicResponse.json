@@ -1,0 +1,82 @@
+[
+  {
+    "name": "あらかねの器",
+    "type": "music",
+    "music_type": "cg",
+    "song_id": 3474,
+    "link": "https://fujiwarahaji.me/music/cg/arakane-no-utsuwa",
+    "api": "https://api.fujiwarahaji.me/v2.1/music?id=3474"
+  },
+  {
+    "name": "シャイニーエクササイズ",
+    "type": "music",
+    "music_type": "sc",
+    "song_id": 5076,
+    "link": "https://fujiwarahaji.me/music/sc/shiny-exercise",
+    "api": "https://api.fujiwarahaji.me/v2.1/music?id=5076"
+  },
+  {
+    "name": "283体操",
+    "type": "music",
+    "music_type": "sc",
+    "song_id": 5075,
+    "link": "https://fujiwarahaji.me/music/sc/283-taisou",
+    "api": "https://api.fujiwarahaji.me/v2.1/music?id=5075"
+  },
+  {
+    "name": "Give me some more...",
+    "type": "music",
+    "music_type": "sc",
+    "song_id": 5070,
+    "link": "https://fujiwarahaji.me/music/sc/give-me-some-more",
+    "api": "https://api.fujiwarahaji.me/v2.1/music?id=5070"
+  },
+  {
+    "name": "VERY BERRY LOVE",
+    "type": "music",
+    "music_type": "sc",
+    "song_id": 5069,
+    "link": "https://fujiwarahaji.me/music/sc/very-berry-love",
+    "api": "https://api.fujiwarahaji.me/v2.1/music?id=5069"
+  },
+  {
+    "name": "Daybreak Age",
+    "type": "music",
+    "music_type": "sc",
+    "song_id": 4886,
+    "link": "https://fujiwarahaji.me/music/sc/daybreak-age",
+    "api": "https://api.fujiwarahaji.me/v2.1/music?id=4886"
+  },
+  {
+    "name": "虹の行方",
+    "type": "music",
+    "music_type": "sc",
+    "song_id": 4885,
+    "link": "https://fujiwarahaji.me/music/sc/niji-no-yukue",
+    "api": "https://api.fujiwarahaji.me/v2.1/music?id=4885"
+  },
+  {
+    "name": "Secret utopIA",
+    "type": "music",
+    "music_type": "sc",
+    "song_id": 4821,
+    "link": "https://fujiwarahaji.me/music/sc/secret-utopia",
+    "api": "https://api.fujiwarahaji.me/v2.1/music?id=4821"
+  },
+  {
+    "name": "ラブ・ボナペティート",
+    "type": "music",
+    "music_type": "sc",
+    "song_id": 4407,
+    "link": "https://fujiwarahaji.me/music/sc/love-bonapettito",
+    "api": "https://api.fujiwarahaji.me/v2.1/music?id=4407"
+  },
+  {
+    "name": "パステルカラー パスカラカラー",
+    "type": "music",
+    "music_type": "sc",
+    "song_id": 4404,
+    "link": "https://fujiwarahaji.me/music/sc/pastel-color-pascala-color",
+    "api": "https://api.fujiwarahaji.me/v2.1/music?id=4404"
+  }
+]
