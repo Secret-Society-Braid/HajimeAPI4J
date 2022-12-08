@@ -67,7 +67,7 @@ tasks.named('javadoc') {
 sourceCompatibility = '11'
 targetCompatibility = '11'
 
-version = 'v4.0.0'
+version = 'v5.0.0.0-Alpha.1'
 jar.archiveBaseName = 'hajimeapi4j'
 
 test {
