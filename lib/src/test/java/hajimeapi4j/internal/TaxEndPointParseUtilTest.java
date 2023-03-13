@@ -1,7 +1,10 @@
 package hajimeapi4j.internal;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -15,8 +18,12 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class TaxEndPointParseUtilTest {
+
+  private static final Logger log = LoggerFactory.getLogger(TaxEndPointParseUtilTest.class);
 
   @Test
   void constructTest() {
@@ -38,5 +45,34 @@ class TaxEndPointParseUtilTest {
 
     assertFalse(members.isEmpty());
     assertFalse(songs.isEmpty());
+  }
+
+  @Test
+  void singleIdolParseTest() {
+    ObjectMapper mapper = TestingUtil.getMapperInstance();
+    TaxEndPoint instance = null;
+    try {
+      JsonNode responseMock = mapper.readTree(TaxEndPointParseUtilTest.class.getResourceAsStream(
+          "/dataClassTemplate/tax/taxSingleIdolResponse.json"));
+      instance = ParseUtil.createTaxResponse(responseMock);
+    } catch (IOException e) {
+      fail(e);
+    }
+
+    // assertions
+    assertNotNull(instance);
+    log.debug(instance.toString());
+
+    assertNotNull(instance.getName());
+    assertNotNull(instance.getType());
+    assertNotEquals(0, instance.getTaxId());
+    assertNotNull(instance.getLink());
+    assertNotNull(instance.getApi());
+    assertTrue(instance.getKana().isPresent());
+    assertTrue(instance.getCv().isPresent());
+    assertTrue(instance.getCvKana().isPresent());
+    assertTrue(instance.getProduction().isPresent());
+
+    assertEquals(8, instance.getSong().size());
   }
 }

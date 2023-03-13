@@ -1,0 +1,85 @@
+{
+  "name": "春日未来",
+  "type": "idol",
+  "tax_id": 1116,
+  "link": "https://fujiwarahaji.me/idol/765/miraikasuga",
+  "api": "https://api.fujiwarahaji.me/v2.1/tax?id=1116",
+  "kana": "かすがみらい",
+  "cv": "山崎はるか",
+  "cvkana": "やまざきはるか",
+  "production": "765",
+  "song": [
+    {
+      "name": "KAWAIIウォーズ",
+      "type": "music",
+      "music_type": "joint",
+      "song_id": 4775,
+      "link": "https://fujiwarahaji.me/music/joint/kawaii-wars",
+      "api": "https://api.fujiwarahaji.me/v2.1/music?id=4775",
+      "solo": false
+    },
+    {
+      "name": "GR@TITUDE",
+      "type": "music",
+      "music_type": "joint",
+      "song_id": 4422,
+      "link": "https://fujiwarahaji.me/music/joint/gratitude",
+      "api": "https://api.fujiwarahaji.me/v2.1/music?id=4422",
+      "solo": false
+    },
+    {
+      "name": "SESSION!",
+      "type": "music",
+      "music_type": "joint",
+      "song_id": 4072,
+      "link": "https://fujiwarahaji.me/music/joint/session",
+      "api": "https://api.fujiwarahaji.me/v2.1/music?id=4072",
+      "solo": false
+    },
+    {
+      "name": "POPLINKS TUNE!!!!!",
+      "type": "music",
+      "music_type": "joint",
+      "song_id": 3982,
+      "link": "https://fujiwarahaji.me/music/joint/poplinks-tune",
+      "api": "https://api.fujiwarahaji.me/v2.1/music?id=3982",
+      "solo": true
+    },
+    {
+      "name": "なんどでも笑おう",
+      "type": "music",
+      "music_type": "joint",
+      "song_id": 3525,
+      "link": "https://fujiwarahaji.me/music/joint/nando-demo-waraou",
+      "api": "https://api.fujiwarahaji.me/v2.1/music?id=3525",
+      "solo": true
+    },
+    {
+      "name": "アイ MUST GO!",
+      "type": "music",
+      "music_type": "joint",
+      "song_id": 2691,
+      "link": "https://fujiwarahaji.me/music/joint/i-must-go",
+      "api": "https://api.fujiwarahaji.me/v2.1/music?id=2691",
+      "solo": false
+    },
+    {
+      "name": "IDOL POWER RAINBOW",
+      "type": "music",
+      "music_type": "joint",
+      "song_id": 2611,
+      "link": "https://fujiwarahaji.me/music/joint/idol-power-rainbow",
+      "api": "https://api.fujiwarahaji.me/v2.1/music?id=2611",
+      "solo": false
+    },
+    {
+      "name": "お願い！シンデレラ",
+      "type": "music",
+      "music_type": "cg",
+      "song_id": 26,
+      "link": "https://fujiwarahaji.me/music/cg/onegai-cinderella",
+      "api": "https://api.fujiwarahaji.me/v2.1/music?id=26",
+      "solo": false
+    }
+  ]
+}
