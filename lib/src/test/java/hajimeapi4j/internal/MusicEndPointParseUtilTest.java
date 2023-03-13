@@ -26,7 +26,7 @@ class MusicEndPointParseUtilTest {
     MusicEndPoint instance = null;
     try {
       JsonNode responseMock = mapper.readTree(MusicEndPointParseUtilTest.class.getResourceAsStream(
-          "/dataClassTemplate/musicResponseData.json"));
+          "/dataClassTemplate/music/musicResponseData.json"));
       instance = ParseUtil.createMusicResponse(responseMock);
     } catch (IOException e) {
       fail(e);

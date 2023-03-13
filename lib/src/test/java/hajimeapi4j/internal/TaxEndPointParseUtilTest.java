@@ -24,7 +24,7 @@ class TaxEndPointParseUtilTest {
     TaxEndPoint instance = null;
     try {
       JsonNode responseMock = mapper.readTree(TaxEndPointParseUtilTest.class.getResourceAsStream(
-          "/dataClassTemplate/taxResponseData.json"));
+          "/dataClassTemplate/tax/taxResponseData.json"));
       instance = ParseUtil.createTaxResponse(responseMock);
     } catch (IOException e) {
       fail(e);
