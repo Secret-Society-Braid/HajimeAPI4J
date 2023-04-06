@@ -1,6 +1,7 @@
 package hajimeapi4j.internal.endpoint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.endpoint.TaxEndPoint;
 import hajimeapi4j.internal.datatype.Member;
@@ -23,6 +24,7 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
 
   protected String kana;
   protected String cv;
+  @JsonProperty("cvkana")
   protected String cvKana;
   protected String production;
   protected String date;
