@@ -25,13 +25,13 @@ import javax.annotation.Nonnull;
  * @since 5.0.0.0-Alpha.1
  */
 @JsonDeserialize(as = EndPointImpl.class)
-public interface EndPoint extends RestAction<EndPoint> {
+public interface EndPoint {
 
   /**
    * ふじわらはじめAPIで規定されている、主に「名称」「曲名」などに割り当てられているJSONキー「name」の情報を取得します。
+   *
    * @return JSONキー「name」に指定されている情報
    */
-  @Nonnull
   String getName();
 
   /**
@@ -39,7 +39,6 @@ public interface EndPoint extends RestAction<EndPoint> {
    *
    * @return JSONキー「type」に指定されている情報
    */
-  @Nonnull
   String getType();
 
   /**
@@ -75,7 +74,6 @@ public interface EndPoint extends RestAction<EndPoint> {
    *
    * @return JSONキー「link」に規定されている情報
    */
-  @Nonnull
   String getLink();
 
   /**
@@ -92,7 +90,6 @@ public interface EndPoint extends RestAction<EndPoint> {
    *
    * @return JSONキー「api」に規定されている情報
    */
-  @Nonnull
   String getApi();
 
   /**
