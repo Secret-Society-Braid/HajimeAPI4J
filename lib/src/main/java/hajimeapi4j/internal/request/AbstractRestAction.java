@@ -48,13 +48,13 @@ public abstract class AbstractRestAction<T> implements RestAction<T> {
   public abstract Request createRequest(@Nonnull String url);
 
   @Nonnull
-  public abstract Response queueRequest() throws IOException, InterruptedException;
+  protected abstract Response queueRequest() throws IOException, InterruptedException;
 
   @Nullable
-  public abstract T handleResponse(@Nonnull Response r);
+  protected abstract T handleResponse(@Nonnull Response r);
 
   @Nonnull
-  public String constructUrl() {
+  protected String constructUrl() {
     throw new UnsupportedOperationException("This method cannot be used in your use-case.");
   }
 }
