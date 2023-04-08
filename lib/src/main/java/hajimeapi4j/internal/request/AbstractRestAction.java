@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import hajimeapi4j.api.request.RestAction;
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -51,13 +52,36 @@ public abstract class AbstractRestAction<T> implements RestAction<T> {
   }
 
   @Nonnull
-  public abstract Request createRequest(@Nonnull String url);
+  protected Request createRequest(@Nonnull String url) {
+    return new Request.Builder()
+        .url(url)
+        .get()
+        .addHeader("Accept", "application/json")
+        .addHeader("User-Agent", "HajimeAPI4J java wrapper developed by @hizumiaoba")
+        .build();
+  }
 
   @Nonnull
-  protected abstract Response queueRequest() throws IOException, InterruptedException;
+  protected Response queueRequest() throws IOException, InterruptedException {
+    // forcibly wait for 1 second to avoid massive requests
+    TimeUnit.SECONDS.sleep(1);
+    final String url = constructUrl();
+    log.debug("Requesting to {}", url);
+    return CLIENT.newCall(createRequest(url)).execute();
+  }
 
   @Nullable
-  protected abstract T handleResponse(@Nonnull Response r);
+  protected T handleResponse(@Nonnull Response r) {
+    if (r.body() == null) {
+      throw new NullPointerException("The response body is null.");
+    }
+    try {
+      return MAPPER.readValue(r.body().string(), clazz);
+    } catch (IOException e) {
+      log.error("An error occurred while handling the response.", e);
+    }
+    return null;
+  }
 
   @Nonnull
   protected String constructUrl() {
