@@ -1,6 +1,5 @@
 package hajimeapi4j.internal.request;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Joiner;
 import com.google.common.base.Joiner.MapJoiner;
 import hajimeapi4j.util.InternalUtils;
@@ -12,7 +11,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
-import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.jetbrains.annotations.NotNull;
@@ -25,9 +23,7 @@ public class RestActionImpl<T> extends AbstractRestAction<T> {
       InternalUtils.createInternalThreadFactory(
           "Rest action handshaking thread"
       ));
-  private static final OkHttpClient CLIENT = new OkHttpClient();
-  private static final ObjectMapper MAPPER = new ObjectMapper();
-  private static final String BASE_URL = "https://api.fujiwarahaji.me/v2.1";
+
 
   protected final String pathParam;
   protected final Map<String, String> queryParam;

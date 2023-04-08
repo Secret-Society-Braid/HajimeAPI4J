@@ -1,5 +1,6 @@
 package hajimeapi4j.internal.request;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import hajimeapi4j.api.request.RestAction;
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
@@ -10,6 +11,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
@@ -17,6 +19,10 @@ import okhttp3.Response;
 @RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 public abstract class AbstractRestAction<T> implements RestAction<T> {
+
+  protected static final OkHttpClient CLIENT = new OkHttpClient();
+  protected static final ObjectMapper MAPPER = new ObjectMapper();
+  protected static final String BASE_URL = "https://api.fujiwarahaji.me/v2.1";
 
   protected final Class<T> clazz;
 
