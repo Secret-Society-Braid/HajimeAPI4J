@@ -2,7 +2,6 @@ package hajimeapi4j.internal.endpoint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import hajimeapi4j.api.endpoint.EndPoint;
-import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.util.InternalUtils;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
@@ -25,11 +24,11 @@ import lombok.ToString;
  */
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@EqualsAndHashCode
-@ToString
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class EndPointImpl implements EndPoint {
+public class EndPointImpl extends AbstructEndPoint {
 
   protected String name;
   protected String type;
@@ -51,16 +50,6 @@ public class EndPointImpl implements EndPoint {
     return this.type;
   }
 
-  @Override
-  public int getTaxId() {
-    return this.taxId;
-  }
-
-  @Override
-  public int getSongId() {
-    return this.songId;
-  }
-
   @Nonnull
   @Override
   public String getLink() {
@@ -76,12 +65,6 @@ public class EndPointImpl implements EndPoint {
   @Override
   public boolean checkEmpty() {
     return InternalUtils.checkEmpty(this);
-  }
-
-  @Override
-  @Nonnull
-  public RestAction<EndPoint> fromApi() {
-    return null;
   }
 
   /**
