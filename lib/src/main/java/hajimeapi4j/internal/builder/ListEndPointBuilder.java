@@ -4,7 +4,6 @@ import hajimeapi4j.api.endpoint.ListEndPoint;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.endpoint.ListEndPointImpl;
 import hajimeapi4j.internal.request.RestActionImpl;
-import hajimeapi4j.internal.request.Route;
 import hajimeapi4j.util.Checks;
 import hajimeapi4j.util.InternalUtils;
 import hajimeapi4j.util.enums.ListParameter;
@@ -191,8 +190,8 @@ public class ListEndPointBuilder {
   public RestAction<List<ListEndPoint>> build() {
     log.debug("set parameters: {}", this.parameters);
     log.info("constructing action instance...");
-    RestAction<List<ListEndPoint>> result = new RestActionImpl<>(Route.listRoute(),
-        this.parameters);
+    RestAction<List<ListEndPoint>> result = new RestActionImpl<>("list", this.parameters,
+        List.class);
     log.debug("complete. information: {}", result);
     return result;
   }
