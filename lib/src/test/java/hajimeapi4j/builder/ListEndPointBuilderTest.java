@@ -28,7 +28,7 @@ class ListEndPointBuilderTest {
         .setMusicType(MusicType.CINDERELLA_GIRLS)
         .setOrder(Order.DESCENDING);
 
-    List<ListEndPoint> musicList = musicBuilder.build().complete();
+    List<ListEndPoint> musicList = musicBuilder.build().handleSync();
 
     assertNotNull(musicList);
     assertEquals(5, musicList.size());
