@@ -36,6 +36,12 @@ public class RestActionImpl<T> extends AbstractRestAction<T> {
     this.queryParam = Collections.emptyMap();
   }
 
+  public RestActionImpl(@Nonnull String pathParam, @Nonnull Map<String, String> queryParam) {
+    super(null);
+    this.pathParam = pathParam;
+    this.queryParam = queryParam;
+  }
+
   @Nonnull
   @Override
   protected String constructUrl() {
