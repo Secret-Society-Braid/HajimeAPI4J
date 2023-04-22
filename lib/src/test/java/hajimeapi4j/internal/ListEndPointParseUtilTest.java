@@ -2,6 +2,7 @@ package hajimeapi4j.internal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -26,11 +27,9 @@ class ListEndPointParseUtilTest {
   void constructTest() {
     List<ListEndPoint> list = null;
     try {
-      list = mapper.readValue(
-          ListEndPointParseUtilTest.class.getResourceAsStream(
-              "/dataClassTemplate/list/listWithMusicResponse.json"
-          ), new TypeReference<>() {
-          });
+      list = mapper.readValue(ListEndPointParseUtilTest.class.getResourceAsStream(
+          "/dataClassTemplate/list/listWithMusicResponse.json"), new TypeReference<>() {
+      });
     } catch (IOException e) {
       fail(e);
     }
@@ -40,20 +39,15 @@ class ListEndPointParseUtilTest {
 
     assertEquals(10, list.size());
 
-    list.stream()
-        .map(EndPoint::getName)
-        .forEachOrdered(each -> assertFalse(
-            Strings.isNullOrEmpty(each)
-        ));
+    list.stream().map(EndPoint::getSongId).forEach(id -> assertNotEquals(0, id));
 
-    list.stream()
-        .map(ListEndPoint::getMusicType)
-        .map(Optional::isPresent)
+    list.stream().map(EndPoint::getName)
+        .forEachOrdered(each -> assertFalse(Strings.isNullOrEmpty(each)));
+
+    list.stream().map(ListEndPoint::getMusicType).map(Optional::isPresent)
         .forEach(Assertions::assertTrue);
 
-    list.stream()
-        .map(ListEndPoint::getProduction)
-        .map(Optional::isPresent)
+    list.stream().map(ListEndPoint::getProduction).map(Optional::isPresent)
         .forEach(Assertions::assertFalse);
   }
 
@@ -72,19 +66,13 @@ class ListEndPointParseUtilTest {
 
     assertEquals(397, list.size());
 
-    list.stream()
-        .map(EndPoint::getName)
-        .map(Strings::isNullOrEmpty)
+    list.stream().map(EndPoint::getName).map(Strings::isNullOrEmpty)
         .forEach(Assertions::assertFalse);
 
-    list.stream()
-        .map(ListEndPoint::getDate)
-        .map(Optional::isPresent)
+    list.stream().map(ListEndPoint::getDate).map(Optional::isPresent)
         .forEach(Assertions::assertTrue);
 
-    list.stream()
-        .map(ListEndPoint::getMusicType)
-        .map(Optional::isPresent)
+    list.stream().map(ListEndPoint::getMusicType).map(Optional::isPresent)
         .forEach(Assertions::assertFalse);
   }
 

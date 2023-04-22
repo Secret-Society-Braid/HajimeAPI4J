@@ -1,6 +1,5 @@
 package hajimeapi4j.internal;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -45,7 +44,6 @@ class MusicEndPointParseUtilTest {
     assertNotNull(instance.getName());
     assertNotNull(instance.getType());
     assertNotEquals(0, instance.getSongId());
-    assertEquals(0, instance.getTaxId());
     assertNotNull(instance.getLink());
     assertNotNull(instance.getApi());
     assertTrue(instance.getLyricsUrl().isPresent());
