@@ -1,6 +1,7 @@
 package hajimeapi4j.internal.endpoint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.util.InternalUtils;
 import javax.annotation.CheckReturnValue;
@@ -32,7 +33,9 @@ public class EndPointImpl extends AbstructEndPoint {
 
   protected String name;
   protected String type;
+  @JsonProperty("tax_id")
   protected int taxId;
+  @JsonProperty("song_id")
   protected int songId;
   protected String link;
   protected String api;

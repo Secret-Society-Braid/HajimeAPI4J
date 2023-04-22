@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Strings;
@@ -25,11 +26,11 @@ class ListEndPointParseUtilTest {
   void constructTest() {
     List<ListEndPoint> list = null;
     try {
-      JsonNode responseMock = mapper.readTree(
+      list = mapper.readValue(
           ListEndPointParseUtilTest.class.getResourceAsStream(
-              "/dataClassTemplate/list/listWithMusicResponse.json"));
-
-      list = ParseUtil.createListResponse(responseMock);
+              "/dataClassTemplate/list/listWithMusicResponse.json"
+          ), new TypeReference<>() {
+          });
     } catch (IOException e) {
       fail(e);
     }

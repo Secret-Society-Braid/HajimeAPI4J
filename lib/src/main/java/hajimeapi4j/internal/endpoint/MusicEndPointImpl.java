@@ -1,6 +1,7 @@
 package hajimeapi4j.internal.endpoint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.endpoint.MusicEndPoint;
 import hajimeapi4j.internal.datatype.Member;
@@ -28,6 +29,7 @@ public class MusicEndPointImpl extends EndPointImpl implements MusicEndPoint {
   protected List<EndPoint> lyrics;
   protected List<EndPoint> composer;
   protected List<EndPoint> arrange;
+  @JsonProperty("lyrics_url")
   protected String lyricsUrl;
   protected List<Member> member;
   protected boolean digital;
