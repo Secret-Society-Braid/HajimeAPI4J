@@ -21,7 +21,7 @@ class MusicEndPointBuilderTest {
         Hide.CD_MEMBER,
         Hide.LIVE_MEMBER
     );
-    MusicEndPoint endPoint = builder.build().complete();
+    MusicEndPoint endPoint = builder.build().handleSync();
 
     assertNotNull(endPoint);
 
