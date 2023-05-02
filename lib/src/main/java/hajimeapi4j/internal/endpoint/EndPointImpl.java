@@ -50,7 +50,7 @@ public class EndPointImpl extends AbstructEndPoint {
    */
   @Override
   public int getTaxId() {
-    if (this.taxId == 0 && this.songId != 0) {
+    if (this.taxId == 0 && this.songId == 0) {
       return 0;
     }
     return this.taxId != 0 ? this.taxId : super.getTaxId();
@@ -65,7 +65,7 @@ public class EndPointImpl extends AbstructEndPoint {
    */
   @Override
   public int getSongId() {
-    if (this.songId == 0 && this.taxId != 0) {
+    if (this.songId == 0 && this.taxId == 0) {
       return 0;
     }
     return this.songId != 0 ? this.songId : super.getSongId();
