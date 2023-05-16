@@ -28,7 +28,8 @@ public class ArrayResponseRestActionImpl<T> extends RestActionImpl<List<T>> {
       throw new NullPointerException("The response body is null.");
     }
     try {
-      return MAPPER.readValue(r.body().string(), this.typeRef);
+      return MAPPER.readValue(r.body().string(),
+          MAPPER.getTypeFactory().constructCollectionLikeType(List.class, clazz));
     } catch (IOException e) {
       log.error("An error occurred while handling the response.", e);
     }
