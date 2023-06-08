@@ -1,1 +1,13 @@
-GET https://api.fujiwarahaji.me/v1/list?type=idol&production=346
+#GET https://api.fujiwarahaji.me/v1/list?type=idol&production=346
+
+###
+
+GET https://jsonplaceholder.typicode.com/users
+Accept: application/json
+
+###
+
+GET https://jsonplaceholder.typicode.com/users/1
+Accept: application/json
+
+###
