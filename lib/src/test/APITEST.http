@@ -11,3 +11,8 @@ GET https://jsonplaceholder.typicode.com/users/1
 Accept: application/json
 
 ###
+
+GET https://api.fujiwarahaji.me/v2.1/tax?idol_name=天海春香
+User-Agent: HajimeAPI4J java wrapper developed by @hizumiaoba
+
+###

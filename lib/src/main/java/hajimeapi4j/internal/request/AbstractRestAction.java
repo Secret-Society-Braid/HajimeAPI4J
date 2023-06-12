@@ -25,7 +25,7 @@ public abstract class AbstractRestAction<T> implements RestAction<T> {
 
   protected static final OkHttpClient CLIENT = new OkHttpClient();
   protected static final ObjectMapper MAPPER = new ObjectMapper();
-  protected static final String BASE_URL = "https://api.fujiwarahaji.me/v2.1";
+  protected static final String BASE_URL = "https://api.fujiwarahaji.me/v2.1/";
 
   protected final Class<T> clazz;
 
@@ -64,7 +64,6 @@ public abstract class AbstractRestAction<T> implements RestAction<T> {
     return new Request.Builder()
       .url(url)
       .get()
-      .addHeader("Accept", "application/json")
       .addHeader("User-Agent", "HajimeAPI4J java wrapper developed by @hizumiaoba")
       .build();
   }
