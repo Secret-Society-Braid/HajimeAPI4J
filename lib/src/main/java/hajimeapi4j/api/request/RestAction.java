@@ -8,10 +8,12 @@ import hajimeapi4j.internal.datatype.utilizations.Disc;
 import hajimeapi4j.internal.datatype.utilizations.Live;
 import hajimeapi4j.internal.datatype.utilizations.Song;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Consumer;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * REST APIとの相互作用全般を引き受けるクラスです。
@@ -40,6 +42,18 @@ public interface RestAction<T> {
    */
   @Nonnull
   CompletableFuture<T> handleAsync();
+
+  /**
+   * ふじわらはじめAPIに対してリクエストを非同期的に送信します。
+   * <p>
+   * この操作では、リクエストを送信し、そのまま同じスレッド内でデータを加工します。データの加工を別スレッドで行いたい場合は {@link RestAction#handleSync()} の利用、加工をせずにそのままデータを適用する場合は {@link RestAction#handleAsync(Consumer)} の利用が便利です。。
+   *
+   * @param handler データの加工処理。{@link EndPoint#getName()} など。
+   * @param <U>     データの加工後の型情報
+   * @return リクエスト受信後に相互作用を合成した後の{@link {@link CompletableFuture}
+   */
+  @Nonnull
+  <U> CompletableFuture<U> handleAsync(Function<T, U> handler);
 
   /**
    * ふじわらはじめAPIに対してリクエストを非同期的に送信します。
