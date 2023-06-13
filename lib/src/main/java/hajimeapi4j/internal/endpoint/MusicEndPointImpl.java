@@ -1,6 +1,7 @@
 package hajimeapi4j.internal.endpoint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.endpoint.MusicEndPoint;
 import hajimeapi4j.internal.datatype.Member;
@@ -23,13 +24,12 @@ import lombok.ToString;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MusicEndPointImpl extends EndPointImpl implements MusicEndPoint {
 
-  private static MusicEndPoint emptyInstance;
-
   protected List<EndPoint> remix;
   protected List<EndPoint> original;
   protected List<EndPoint> lyrics;
   protected List<EndPoint> composer;
   protected List<EndPoint> arrange;
+  @JsonProperty("lyrics_url")
   protected String lyricsUrl;
   protected List<Member> member;
   protected boolean digital;
@@ -64,27 +64,6 @@ public class MusicEndPointImpl extends EndPointImpl implements MusicEndPoint {
     this.digital = digital;
     this.disc = disc;
     this.live = live;
-  }
-
-  public static MusicEndPoint createInstance(
-      String name,
-      String type,
-      int songId,
-      String link,
-      String api,
-      List<EndPoint> remix,
-      List<EndPoint> original,
-      List<EndPoint> lyrics,
-      List<EndPoint> composer,
-      List<EndPoint> arrange,
-      String lyricsUrl,
-      List<Member> member,
-      boolean digital,
-      List<Disc> disc,
-      List<Live> live
-  ) {
-    return new MusicEndPointImpl(name, type, songId, songId, link, api, remix, original, lyrics,
-        composer, arrange, lyricsUrl, member, digital, disc, live);
   }
 
   @Override

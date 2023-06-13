@@ -8,18 +8,17 @@ import hajimeapi4j.internal.datatype.utilizations.Disc;
 import hajimeapi4j.internal.datatype.utilizations.Live;
 import hajimeapi4j.internal.datatype.utilizations.Song;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
-import hajimeapi4j.internal.request.CompiledRoute;
-import java.util.Map;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
-import javax.annotation.CheckReturnValue;
+
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * REST APIとの相互作用全般を引き受けるクラスです。
  * <p>
- * このクラスではリクエストの送信のみに特化しており、あとから情報を付け足したり省略したりといったことはできません。
+ * このインターフェースではリクエスト送信に深く関係するメソッドのみを定義し、ユーザー側で不必要なメソッドが実行されることを防ぐ目的があります。
  *
  * @param <T> リクエスト受信後に受け取るデータに対応したラッパークラス
  * @author Ranfa
@@ -35,42 +34,45 @@ import javax.annotation.Nonnull;
 public interface RestAction<T> {
 
   /**
-   * REST APIへのリクエストを実行されたスレッドをロックして実行します。
+   * ふじわらはじめAPIに対してリクエストを非同期的に送信します。
    * <p>
-   * これはつまり、APIへのリクエストから情報パースまでを、呼び出されたスレッド内で完結させます。
-   * <p>
-   * 取得した情報をすぐに使用する場合、リクエストの並列性を考慮しない場合はこのメソッドをご使用ください。
-   * <p>
-   * 非同期的に情報を処理する場合は {@link #submit() submit} メソッドをご使用ください。
+   * 相互作用を行う際は {@link RestAction#handleAsync(Consumer)} を使用する方が推奨されます。
    *
-   * @return APIから取得した情報をラップしたデータ
+   * @return 受け取るデータに対応したラッパークラスインスタンスを内包する{@link CompletableFuture}
    */
   @Nonnull
-  T complete();
+  CompletableFuture<T> handleAsync();
 
   /**
-   * REST APIへのリクエストを、ライブラリ内で独自に作成したリクエストスレッドにて行います。
+   * ふじわらはじめAPIに対してリクエストを非同期的に送信します。
    * <p>
-   * 作成されるスレッドは {@link Executors#newCachedThreadPool(ThreadFactory)} にて、独自の {@link ThreadFactory}
-   * 実装を用いたスレッドプールにより生成されます。
-   * <p>
-   * 情報を非同期的に取得し、その後のコールバックを遅延して処理させる場合はこのメソッドをご使用ください。
-   * <p>
-   * 同期的にデータを取得する場合は {@link #complete() complete} メソッドをご使用ください。
+   * この操作では、リクエストを送信し、そのまま同じスレッド内でデータを加工します。データの加工を別スレッドで行いたい場合は {@link RestAction#handleSync()} の利用、加工をせずにそのままデータを適用する場合は {@link RestAction#handleAsync(Consumer)} の利用が便利です。。
    *
-   * @return APIから取得した情報をラップしたデータを内包する {@link CompletableFuture}
+   * @param handler データの加工処理。{@link EndPoint#getName()} など。
+   * @param <U>     データの加工後の型情報
+   * @return リクエスト受信後に相互作用を合成した後の{@link {@link CompletableFuture}
    */
-  CompletableFuture<T> submit();
+  @Nonnull
+  <U> CompletableFuture<U> handleAsync(Function<T, U> handler);
 
   /**
-   * リクエストに必要なパラメータ情報をセットするメソッドです。
+   * ふじわらはじめAPIに対してリクエストを非同期的に送信します。
    * <p>
-   * 通常は内部で自動的にパラメータ情報をセットするため、使用する必要はありません。
+   * 相互作用を行わず、単にデータのみを取得する場合は {@link RestAction#handleAsync()} を使用する方が推奨されます。
    *
-   * @param params 現在のActionにセットするパラメータ情報
-   * @return パラメータ情報をセットしたAPIへのURI情報
+   * @param consumer リクエスト受信後に実行する処理
+   * @return リクエスト受信後に相互作用を合成した後の{@link {@link CompletableFuture}
    */
-  @CheckReturnValue
-  CompiledRoute constructRoute(Map<String, String> params);
+  @Nonnull
+  CompletableFuture<Void> handleAsync(Consumer<T> consumer);
 
+  /**
+   * ふじわらはじめAPIに対してリクエストを同期的に送信します。
+   *
+   * @return 受け取るデータに対応したラッパークラスインスタンス
+   */
+  @Nullable
+  default T handleSync() {
+    return handleAsync().join();
+  }
 }

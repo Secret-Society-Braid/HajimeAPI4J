@@ -1,70 +1,55 @@
 package hajimeapi4j.internal.request;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import hajimeapi4j.api.endpoint.ListEndPoint;
-import hajimeapi4j.api.endpoint.MusicEndPoint;
-import hajimeapi4j.api.endpoint.TaxEndPoint;
-import hajimeapi4j.api.request.RestAction;
+import com.google.common.base.Joiner;
+import com.google.common.base.Joiner.MapJoiner;
 import hajimeapi4j.util.InternalUtils;
-import hajimeapi4j.util.ParseUtil;
-import java.io.IOException;
-import java.util.List;
+import java.util.Collections;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.CompletionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import lombok.NonNull;
+import javax.annotation.Nonnull;
+import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 
-public class RestActionImpl<T> implements RestAction<T> {
+@Slf4j
+public class RestActionImpl<T> extends AbstractRestAction<T> {
 
   private static final ExecutorService serv = Executors.newSingleThreadExecutor(
       InternalUtils.createInternalThreadFactory(
           "Rest action handshaking thread"
       ));
-  protected Route route;
-  protected Map<String, String> queryMap;
 
-  public RestActionImpl(Route route, Map<String, String> queryMap) {
-    this.route = route;
-    this.queryMap = queryMap;
+
+  protected final String pathParam;
+  protected final Map<String, String> queryParam;
+
+  public RestActionImpl(@NotNull String pathParam, @NotNull Map<String, String> queryParam,
+      @NotNull Class<T> clazz) {
+    super(clazz);
+    this.pathParam = pathParam;
+    this.queryParam = queryParam;
   }
 
-  @NonNull
-  @Override
-  public T complete() {
-    return submit().join();
+  public RestActionImpl(@Nonnull String pathParam, @NotNull Class<T> clazz) {
+    super(clazz);
+    this.pathParam = pathParam;
+    this.queryParam = Collections.emptyMap();
   }
 
-  @Override
-  @SuppressWarnings("unchecked")
-  public CompletableFuture<T> submit() {
-    return CompletableFuture.supplyAsync(() -> {
-      CompiledRoute cRoute = this.constructRoute(this.queryMap);
-      Requester requester = new Requester();
-      requester.setRoute(cRoute);
-      try {
-        JsonNode rawResponse = requester.sendRequest();
-        switch (this.route.getMethod()) {
-          case LIST:
-            List<ListEndPoint> parsedListResponse = ParseUtil.createListResponse(rawResponse);
-            return (T) parsedListResponse;
-          case TAX:
-            TaxEndPoint parsedTaxResponse = ParseUtil.createTaxResponse(rawResponse);
-            return (T) parsedTaxResponse;
-          case MUSIC:
-            MusicEndPoint parsedMusicResponse = ParseUtil.createMusicResponse(rawResponse);
-            return (T) parsedMusicResponse;
-        }
-      } catch (IOException e) {
-        throw new CompletionException(e);
-      }
-      throw new IllegalStateException("Cannot handle api invoking");
-    }, serv);
+  public RestActionImpl(@Nonnull String pathParam, @Nonnull Map<String, String> queryParam) {
+    super(null);
+    this.pathParam = pathParam;
+    this.queryParam = queryParam;
   }
 
+  @Nonnull
   @Override
-  public CompiledRoute constructRoute(Map<String, String> params) {
-    return new CompiledRoute(this.route, this.route.toString()).withQueryParams(params);
+  protected String constructUrl() {
+    String url = BASE_URL + this.pathParam;
+    if (!this.queryParam.isEmpty()) {
+      final MapJoiner mapJoiner = Joiner.on("&").withKeyValueSeparator("=");
+      url = Joiner.on("").join(url, "?", mapJoiner.join(this.queryParam));
+    }
+    return url;
   }
 }

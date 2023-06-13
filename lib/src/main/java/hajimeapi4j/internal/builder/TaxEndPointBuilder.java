@@ -3,7 +3,6 @@ package hajimeapi4j.internal.builder;
 import hajimeapi4j.api.endpoint.TaxEndPoint;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.request.RestActionImpl;
-import hajimeapi4j.internal.request.Route;
 import hajimeapi4j.util.Checks;
 import hajimeapi4j.util.InternalUtils;
 import hajimeapi4j.util.enums.TaxParameter;
@@ -155,7 +154,8 @@ public class TaxEndPointBuilder {
   public RestAction<TaxEndPoint> build() {
     log.debug("set parameters: {}", this.parameters);
     log.info("constructing action instance...");
-    RestAction<TaxEndPoint> result = new RestActionImpl<>(Route.taxRoute(), this.parameters);
+    RestAction<TaxEndPoint> result = new RestActionImpl<>("tax", this.parameters,
+        TaxEndPoint.class);
     log.debug("complete. hash information: {}", result);
     return result;
   }

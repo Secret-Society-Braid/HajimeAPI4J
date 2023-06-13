@@ -1,12 +1,9 @@
 package hajimeapi4j.internal.endpoint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import hajimeapi4j.api.endpoint.EndPoint;
-import hajimeapi4j.api.request.RestAction;
-import hajimeapi4j.internal.request.CompiledRoute;
 import hajimeapi4j.util.InternalUtils;
-import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 import lombok.AccessLevel;
@@ -15,7 +12,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * APIにおける、全てに共通しているパラメータ情報やリクエスト情報を定義します。
@@ -29,19 +25,51 @@ import org.jetbrains.annotations.NotNull;
  */
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@EqualsAndHashCode
-@ToString
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class EndPointImpl implements EndPoint {
+public class EndPointImpl extends AbstructEndPoint {
 
   protected String name;
   protected String type;
+  @JsonProperty("tax_id")
   protected int taxId;
+  @JsonProperty("song_id")
   protected int songId;
   protected String link;
   protected String api;
   private static EndPoint emptyInstance;
+
+  /**
+   * ふじわらはじめAPIで規定されている、主にカテゴリID（ふじわらはじめAPI内部管理ID）に割り当てられているJSONキー「tax_id」の情報を取得します。
+   * <p>
+   * この情報は {@link #getSongId()}と排他的になっており、どちらか一方が必ず参照可能です。
+   *
+   * @return JSONキー「tax_id」に指定されている情報
+   */
+  @Override
+  public int getTaxId() {
+    if (this.taxId == 0 && this.songId == 0) {
+      return 0;
+    }
+    return this.taxId != 0 ? this.taxId : super.getTaxId();
+  }
+
+  /**
+   * ふじわらはじめAPIで規定されている、主に楽曲ID（ふじわらはじめAPI内部管理ID）に割り当てられているJSONキー「song_id」の情報を取得します。
+   * <p>
+   * この情報は {@link #getTaxId()} と排他的になっており、どちらか一方が必ず参照可能です。
+   *
+   * @return JSONキー「song_id」に規定されている情報
+   */
+  @Override
+  public int getSongId() {
+    if (this.songId == 0 && this.taxId == 0) {
+      return 0;
+    }
+    return this.songId != 0 ? this.songId : super.getSongId();
+  }
 
   @Override
   @Nonnull
@@ -55,16 +83,6 @@ public class EndPointImpl implements EndPoint {
     return this.type;
   }
 
-  @Override
-  public int getTaxId() {
-    return this.taxId;
-  }
-
-  @Override
-  public int getSongId() {
-    return this.songId;
-  }
-
   @Nonnull
   @Override
   public String getLink() {
@@ -75,44 +93,6 @@ public class EndPointImpl implements EndPoint {
   @Override
   public String getApi() {
     return this.api;
-  }
-
-  /**
-   * 取得したURI情報を基に、新しいリクエストを送信するためのインスタンスを作成します。
-   *
-   * @return URI情報による新しいインスタンス
-   */
-  @NotNull
-  @Override
-  @CheckReturnValue
-  public RestAction<EndPoint> fromApi() {
-    return InternalUtils.parseFromUriString(this.getApi());
-  }
-
-  /**
-   * @return リクエスト送信用のメソッドです。使用できません。
-   */
-  @Override
-  @Nonnull
-  public EndPoint complete() {
-    throw new UnsupportedOperationException(InternalUtils.getMethodNotAllowedMessage());
-  }
-
-  /**
-   * @return リクエスト送信用のメソッドです。使用できません。
-   */
-  @Override
-  public CompletableFuture<EndPoint> submit() {
-    throw new UnsupportedOperationException(InternalUtils.getMethodNotAllowedMessage());
-  }
-
-  /**
-   * @param params パラメータ情報
-   * @return リクエスト送信用のメソッドです。使用できません。
-   */
-  @Override
-  public CompiledRoute constructRoute(Map<String, String> params) {
-    throw new UnsupportedOperationException(InternalUtils.getMethodNotAllowedMessage());
   }
 
   @Override

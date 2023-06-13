@@ -147,6 +147,7 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
   }
 
   @Nonnull
+  @Override
   public List<Song> getSong() {
     return this.song;
   }

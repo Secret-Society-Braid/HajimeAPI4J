@@ -1,6 +1,7 @@
 package hajimeapi4j.internal.datatype.utilizations;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.Unit;
@@ -28,10 +29,13 @@ import lombok.ToString;
 @JsonDeserialize(as = Song.class)
 public class Song extends EndPointImpl {
 
+  @JsonProperty("music_type")
   protected String musicType;
+  @JsonProperty("song_text")
   protected String songText;
   protected List<Unit> unit;
   protected List<Member> member;
+  @JsonProperty("member_text")
   protected String memberText;
   protected Boolean solo;
 
