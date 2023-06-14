@@ -37,18 +37,11 @@ body:
       label: Wrapperバージョン
       description: 実行していたソフトウェアのバージョンは? (v1.*系は報告対象外です)
       options:
-        - v2.0.0-Experimental
-        - v2.0.1-Experimental
-        - v2.0.2-Experimental
-        - v2.0.3-Experimental
-        - v2.0.4-Experimental
-        - v2.0.5-Experimental
-        - v2.0.6-Experimental
-        - v2.0.7-Experimental
-        - v2.0.8-Experimental
         - v3.0.0
         - v3.1.0
         - v4.0.0
+        - v5.0.0.0
+        - v6.0.0.0-Alpha.1
     validations:
       required: true
   - type: textarea
