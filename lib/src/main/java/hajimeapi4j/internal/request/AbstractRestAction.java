@@ -25,7 +25,7 @@ public abstract class AbstractRestAction<T> implements RestAction<T> {
 
   protected static final OkHttpClient CLIENT = new OkHttpClient();
   protected static final ObjectMapper MAPPER = new ObjectMapper();
-  protected static final String BASE_URL = "https://api.fujiwarahaji.me/v2.1/";
+  protected static final String BASE_URL = "https://api.fujiwarahaji.me/v3/";
 
   protected final Class<T> clazz;
 
