@@ -2,17 +2,13 @@ package hajimeapi4j.internal.datatype;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import hajimeapi4j.internal.datatype.utilizations.Disc;
 import hajimeapi4j.internal.datatype.utilizations.Live;
 import hajimeapi4j.internal.datatype.utilizations.Song;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
-import java.util.List;
+import lombok.*;
+
 import javax.annotation.Nonnull;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import java.util.List;
 
 /**
  * ふじわらはじめAPIにて良く使用される、Unit型の情報をJavaで扱えるよう調整したデータクラスです。
@@ -22,7 +18,6 @@ import lombok.ToString;
  * @author Ranfa
  * @see EndPointImpl
  * @see Song
- * @see Disc
  * @see Live
  * @see <a href="https://api.fujiwarahaji.me/v2/doc/">APIv2ドキュメント</a>
  * @since 5.0.0.0-Alpha.1

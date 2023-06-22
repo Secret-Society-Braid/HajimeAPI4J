@@ -1,0 +1,381 @@
+{
+  "name": "なんどでも笑おう",
+  "type": "music",
+  "song_id": 3525,
+  "link": "https:\/\/fujiwarahaji.me\/music\/joint\/nando-demo-waraou",
+  "api": "https:\/\/api.fujiwarahaji.me\/v3\/music?id=3525",
+  "kana": "なんどでもわらおう",
+  "music_type": "joint",
+  "lyrics": [
+    {
+      "name": "モモキエイジ",
+      "type": "lyrics",
+      "tax_id": 652,
+      "link": "https:\/\/fujiwarahaji.me\/lyrics\/%e3%83%a2%e3%83%a2%e3%82%ad%e3%82%a8%e3%82%a4%e3%82%b8",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=652"
+    }
+  ],
+  "composer": [
+    {
+      "name": "佐藤貴文",
+      "type": "composer",
+      "tax_id": 79,
+      "link": "https:\/\/fujiwarahaji.me\/composer\/%e4%bd%90%e8%97%a4%e8%b2%b4%e6%96%87",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=79"
+    }
+  ],
+  "arrange": [
+    {
+      "name": "トリ音",
+      "type": "arrange",
+      "tax_id": 94,
+      "link": "https:\/\/fujiwarahaji.me\/arrange\/%e3%83%88%e3%83%aa%e9%9f%b3",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=94"
+    }
+  ],
+  "lyrics_url": "https:\/\/www.uta-net.com\/song\/291549\/",
+  "member": [
+    {
+      "name": "三浦あずさ",
+      "type": "idol",
+      "tax_id": 1095,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/azusamiura",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1095",
+      "production": "765",
+      "cv": "たかはし智秋"
+    },
+    {
+      "name": "亜夜",
+      "type": "idol",
+      "tax_id": 2620,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/aya",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2620",
+      "production": "765",
+      "cv": "日高里菜"
+    },
+    {
+      "name": "伊吹翼",
+      "type": "idol",
+      "tax_id": 1098,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/tsubasaibuki",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1098",
+      "production": "765",
+      "cv": "Machico"
+    },
+    {
+      "name": "八宮めぐる",
+      "type": "idol",
+      "tax_id": 1149,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/sc\/illumination-stars\/hachimiya-meguru",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1149",
+      "production": "sc",
+      "cv": "峯田茉優"
+    },
+    {
+      "name": "双海亜美",
+      "type": "idol",
+      "tax_id": 1102,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/amifutami",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1102",
+      "production": "765",
+      "cv": "下田麻美"
+    },
+    {
+      "name": "双海真美",
+      "type": "idol",
+      "tax_id": 1103,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/mamifutami",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1103",
+      "production": "765",
+      "cv": "下田麻美"
+    },
+    {
+      "name": "四条貴音",
+      "type": "idol",
+      "tax_id": 1105,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/takaneshijou",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1105",
+      "production": "765",
+      "cv": "原由実"
+    },
+    {
+      "name": "天海春香",
+      "type": "idol",
+      "tax_id": 1107,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/harukaamami",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1107",
+      "production": "765",
+      "cv": "中村繪里子"
+    },
+    {
+      "name": "奥空心白",
+      "type": "idol",
+      "tax_id": 2674,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/kohakuokuzora",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2674",
+      "production": "765",
+      "cv": "田中あいみ"
+    },
+    {
+      "name": "如月千早",
+      "type": "idol",
+      "tax_id": 1109,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/chihayakisaragi",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1109",
+      "production": "765",
+      "cv": "今井麻美"
+    },
+    {
+      "name": "島村卯月",
+      "type": "idol",
+      "tax_id": 23,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/cg\/shimamura-uzuki",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=23",
+      "production": "cg",
+      "cv": "大橋彩香"
+    },
+    {
+      "name": "我那覇響",
+      "type": "idol",
+      "tax_id": 1113,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/hibikiganaha",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1113",
+      "production": "765",
+      "cv": "沼倉愛美"
+    },
+    {
+      "name": "星井美希",
+      "type": "idol",
+      "tax_id": 1115,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/mikihoshii",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1115",
+      "production": "765",
+      "cv": "長谷川明子"
+    },
+    {
+      "name": "春日未来",
+      "type": "idol",
+      "tax_id": 1116,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/miraikasuga",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1116",
+      "production": "765",
+      "cv": "山崎はるか"
+    },
+    {
+      "name": "最上静香",
+      "type": "idol",
+      "tax_id": 1117,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/shizukamogami",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1117",
+      "production": "765",
+      "cv": "田所あずさ"
+    },
+    {
+      "name": "本田未央",
+      "type": "idol",
+      "tax_id": 28,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/cg\/honda-mio",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=28",
+      "production": "cg",
+      "cv": "原紗友里"
+    },
+    {
+      "name": "櫻木真乃",
+      "type": "idol",
+      "tax_id": 1147,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/sc\/illumination-stars\/sakuragi-mano",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1147",
+      "production": "sc",
+      "cv": "関根瞳"
+    },
+    {
+      "name": "水瀬伊織",
+      "type": "idol",
+      "tax_id": 1123,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/ioriminase",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1123",
+      "production": "765",
+      "cv": "釘宮理恵"
+    },
+    {
+      "name": "渋谷凛",
+      "type": "idol",
+      "tax_id": 14,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/cg\/shibuya-rin",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=14",
+      "production": "cg",
+      "cv": "福原綾香"
+    },
+    {
+      "name": "秋月律子",
+      "type": "idol",
+      "tax_id": 1131,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/ritsukoakizuki",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1131",
+      "production": "765",
+      "cv": "若林直美"
+    },
+    {
+      "name": "菊地真",
+      "type": "idol",
+      "tax_id": 1135,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/makotokikuchi",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1135",
+      "production": "765",
+      "cv": "平田宏美"
+    },
+    {
+      "name": "萩原雪歩",
+      "type": "idol",
+      "tax_id": 1136,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/yukihohagiwara",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1136",
+      "production": "765",
+      "cv": "浅倉杏美"
+    },
+    {
+      "name": "風野灯織",
+      "type": "idol",
+      "tax_id": 1148,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/sc\/illumination-stars\/kazano-hiori",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1148",
+      "production": "sc",
+      "cv": "近藤玲奈"
+    },
+    {
+      "name": "高槻やよい",
+      "type": "idol",
+      "tax_id": 1143,
+      "link": "https:\/\/fujiwarahaji.me\/idol\/765\/yayoitakatsuki",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1143",
+      "production": "765",
+      "cv": "仁後真耶子"
+    }
+  ],
+  "digital": true,
+  "disc": [
+    {
+      "name": "THE IDOLM@STER M@STERS OF IDOL WORLD!!!!! 2023　なんどでも\u7b11おう",
+      "type": "disc",
+      "tax_id": 3156,
+      "link": "https:\/\/fujiwarahaji.me\/disc\/the-idolmster-msters-of-idol-world-2023%e3%80%80%e3%81%aa%e3%82%93%e3%81%a9%e3%81%a7%e3%82%82%e7%ac%91%e3%81%8a%e3%81%86",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=3156"
+    },
+    {
+      "name": "THE IDOLM@STER STARLIT SEASON 04",
+      "type": "disc",
+      "tax_id": 2845,
+      "link": "https:\/\/fujiwarahaji.me\/disc\/the-idolmster-starlit-season-04",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2845"
+    },
+    {
+      "name": "なんどでも笑おう 765PRO ALLSTARS盤",
+      "type": "disc",
+      "tax_id": 2222,
+      "link": "https:\/\/fujiwarahaji.me\/disc\/%e3%81%aa%e3%82%93%e3%81%a9%e3%81%a7%e3%82%82%e7%ac%91%e3%81%8a%e3%81%86-765pro-allstars%e7%9b%a4",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2222"
+    },
+    {
+      "name": "なんどでも笑おう sideM盤",
+      "type": "disc",
+      "tax_id": 2226,
+      "link": "https:\/\/fujiwarahaji.me\/disc\/%e3%81%aa%e3%82%93%e3%81%a9%e3%81%a7%e3%82%82%e7%ac%91%e3%81%8a%e3%81%86-sidem%e7%9b%a4",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2226"
+    },
+    {
+      "name": "なんどでも笑おう シャイニーカラーズ盤",
+      "type": "disc",
+      "tax_id": 2225,
+      "link": "https:\/\/fujiwarahaji.me\/disc\/%e3%81%aa%e3%82%93%e3%81%a9%e3%81%a7%e3%82%82%e7%ac%91%e3%81%8a%e3%81%86-%e3%82%b7%e3%83%a3%e3%82%a4%e3%83%8b%e3%83%bc%e3%82%ab%e3%83%a9%e3%83%bc%e3%82%ba%e7%9b%a4",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2225"
+    },
+    {
+      "name": "なんどでも笑おう シンデレラガールズ盤",
+      "type": "disc",
+      "tax_id": 2223,
+      "link": "https:\/\/fujiwarahaji.me\/disc\/%e3%81%aa%e3%82%93%e3%81%a9%e3%81%a7%e3%82%82%e7%ac%91%e3%81%8a%e3%81%86-%e3%82%b7%e3%83%b3%e3%83%87%e3%83%ac%e3%83%a9%e3%82%ac%e3%83%bc%e3%83%ab%e3%82%ba%e7%9b%a4",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2223"
+    },
+    {
+      "name": "なんどでも笑おう ミリオンライブ！盤",
+      "type": "disc",
+      "tax_id": 2224,
+      "link": "https:\/\/fujiwarahaji.me\/disc\/%e3%81%aa%e3%82%93%e3%81%a9%e3%81%a7%e3%82%82%e7%ac%91%e3%81%8a%e3%81%86-%e3%83%9f%e3%83%aa%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%96%ef%bc%81%e7%9b%a4",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2224"
+    }
+  ],
+  "live": [
+    {
+      "name": "NHK WORLD-JAPAN presents SONGS OF TOKYO Festival 2020",
+      "type": "live",
+      "tax_id": 2280,
+      "link": "https:\/\/fujiwarahaji.me\/live\/2020-10-25",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2280",
+      "date": "2020-10-25",
+      "place": "NHKホール"
+    },
+    {
+      "name": "THE IDOLM@STER MILLION LIVE! 7thLIVE Q@MP FLYER!!! Reburn DAY1",
+      "type": "live",
+      "tax_id": 2386,
+      "link": "https:\/\/fujiwarahaji.me\/live\/2021-05-22",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2386",
+      "date": "2021-05-22",
+      "place": "富士急コニファーフォレスト"
+    },
+    {
+      "name": "THE IDOLM@STER MILLION LIVE! 7thLIVE Q@MP FLYER!!! Reburn DAY2",
+      "type": "live",
+      "tax_id": 2387,
+      "link": "https:\/\/fujiwarahaji.me\/live\/2021-05-23",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2387",
+      "date": "2021-05-23",
+      "place": "富士急コニファーフォレスト"
+    },
+    {
+      "name": "THE IDOLM@STER SHINY COLORS 3rdLIVE TOUR PIECE ON PLANET 福岡公演 DAY2",
+      "type": "live",
+      "tax_id": 2350,
+      "link": "https:\/\/fujiwarahaji.me\/live\/2021-05-30",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2350",
+      "date": "2021-05-30",
+      "place": "西日本総合展示場新館"
+    },
+    {
+      "name": "Bilibili World2021 上海×日本特設会場",
+      "type": "live",
+      "tax_id": 2567,
+      "link": "https:\/\/fujiwarahaji.me\/live\/2021-07-11",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2567",
+      "date": "2021-07-11",
+      "place": "オンライン生配信"
+    },
+    {
+      "name": "THE IDOLM@STER CINDERELLA GIRLS 10th ANNIVERSARY M@GICAL WONDERLAND TOUR!!! Celebration Land DAY2",
+      "type": "live",
+      "tax_id": 2554,
+      "link": "https:\/\/fujiwarahaji.me\/live\/2021-11-28",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2554",
+      "date": "2021-11-28",
+      "place": "幕張メッ\u30bb イベントホール"
+    },
+    {
+      "name": "THE IDOLM@STER CINDERELLA GIRLS 10th ANNIVERSARY M@GICAL WONDERLAND!!! DAY1",
+      "type": "live",
+      "tax_id": 2796,
+      "link": "https:\/\/fujiwarahaji.me\/live\/2022-04-02",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2796",
+      "date": "2022-04-02",
+      "place": "ベルーナドーム"
+    },
+    {
+      "name": "バンダイナムコエンターテインメントフェスティバル 2nd DAY2",
+      "type": "live",
+      "tax_id": 2827,
+      "link": "https:\/\/fujiwarahaji.me\/live\/2022-05-15",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2827",
+      "date": "2022-05-15",
+      "place": "ZOZOマリンスタジアム"
+    }
+  ]
+}
