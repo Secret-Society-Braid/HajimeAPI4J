@@ -4,7 +4,6 @@ import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.MemberSolo;
 import hajimeapi4j.internal.datatype.Unit;
-import hajimeapi4j.internal.datatype.utilizations.Disc;
 import hajimeapi4j.internal.datatype.utilizations.Live;
 import hajimeapi4j.internal.datatype.utilizations.Song;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
@@ -24,7 +23,6 @@ import java.util.function.Function;
  * @author Ranfa
  * @see EndPoint
  * @see EndPointImpl
- * @see Disc
  * @see Live
  * @see Song
  * @see Member
