@@ -1,0 +1,140 @@
+{
+  "name": "THE IDOLM@STER MILLION LIVE! M@STER SPARKLE2 09",
+  "type": "disc",
+  "tax_id": 2985,
+  "link": "https:\/\/fujiwarahaji.me\/disc\/the-idolmster-million-live-mster-sparkle2-09",
+  "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2985",
+  "setlist": true,
+  "song": [
+    {
+      "name": "\u7a32\u59bb\u30b9\u30d4\u30ea\u30c3\u30c8",
+      "type": "music",
+      "music_type": "ml",
+      "song_id": 5092,
+      "link": "https:\/\/fujiwarahaji.me\/music\/ml\/inaduma-spirit",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/music?id=5092",
+      "song_text": "",
+      "unit": null,
+      "member": [
+        {
+          "name": "\u6a2a\u5c71\u5948\u7dd2",
+          "type": "idol",
+          "tax_id": 1122,
+          "link": "https:\/\/fujiwarahaji.me\/idol\/765\/naoyokoyama",
+          "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1122",
+          "production": "765",
+          "cv": "\u6e21\u90e8\u512a\u8863"
+        }
+      ],
+      "member_text": "",
+      "flag": [
+        "orig"
+      ],
+      "youtube": "WxS-aJhDTS8"
+    },
+    {
+      "name": "Walking on the Square",
+      "type": "music",
+      "music_type": "ml",
+      "song_id": 5091,
+      "link": "https:\/\/fujiwarahaji.me\/music\/ml\/walking-on-the-square",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/music?id=5091",
+      "song_text": "",
+      "unit": null,
+      "member": [
+        {
+          "name": "\u5bae\u5c3e\u7f8e\u4e5f",
+          "type": "idol",
+          "tax_id": 1110,
+          "link": "https:\/\/fujiwarahaji.me\/idol\/765\/miyamiyao",
+          "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1110",
+          "production": "765",
+          "cv": "\u6850\u8c37\u8776\u3005"
+        }
+      ],
+      "member_text": "",
+      "flag": [
+        "orig"
+      ],
+      "youtube": "GtuRFVEY94M"
+    },
+    {
+      "name": "\u304d\u307e\u3050\u308c\u30e6\u30e2\u30ec\u30b9\u30af",
+      "type": "music",
+      "music_type": "ml",
+      "song_id": 5090,
+      "link": "https:\/\/fujiwarahaji.me\/music\/ml\/kimagure-humoresque",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/music?id=5090",
+      "song_text": "",
+      "unit": null,
+      "member": [
+        {
+          "name": "\u7bb1\u5d0e\u661f\u68a8\u82b1",
+          "type": "idol",
+          "tax_id": 1132,
+          "link": "https:\/\/fujiwarahaji.me\/idol\/765\/serikahakozaki",
+          "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1132",
+          "production": "765",
+          "cv": "\u9ebb\u5009\u3082\u3082"
+        }
+      ],
+      "member_text": "",
+      "flag": [
+        "orig"
+      ],
+      "youtube": "RZW9l9O7Xgo"
+    },
+    {
+      "name": "I DO",
+      "type": "music",
+      "music_type": "ml",
+      "song_id": 5086,
+      "link": "https:\/\/fujiwarahaji.me\/music\/ml\/i-do",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/music?id=5086",
+      "song_text": "",
+      "unit": null,
+      "member": [
+        {
+          "name": "\u4e09\u6d66\u3042\u305a\u3055",
+          "type": "idol",
+          "tax_id": 1095,
+          "link": "https:\/\/fujiwarahaji.me\/idol\/765\/azusamiura",
+          "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1095",
+          "production": "765",
+          "cv": "\u305f\u304b\u306f\u3057\u667a\u79cb"
+        }
+      ],
+      "member_text": "",
+      "flag": [
+        "orig"
+      ],
+      "youtube": "SX3mQLA0Hhw"
+    },
+    {
+      "name": "\u3075\u305f\u308a\u7e4b\u3050\u661f\u5ea7",
+      "type": "music",
+      "music_type": "ml",
+      "song_id": 5088,
+      "link": "https:\/\/fujiwarahaji.me\/music\/ml\/futari-tsunagu-seiza",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/music?id=5088",
+      "song_text": "",
+      "unit": null,
+      "member": [
+        {
+          "name": "\u5317\u4e0a\u9e97\u82b1",
+          "type": "idol",
+          "tax_id": 1100,
+          "link": "https:\/\/fujiwarahaji.me\/idol\/765\/reikakitakami",
+          "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=1100",
+          "production": "765",
+          "cv": "\u5e73\u5c71\u7b11\u7f8e"
+        }
+      ],
+      "member_text": "",
+      "flag": [
+        "orig"
+      ],
+      "youtube": "yJ1NarPgMaU"
+    }
+  ]
+}
