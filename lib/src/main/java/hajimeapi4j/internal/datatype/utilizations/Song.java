@@ -6,12 +6,13 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.Unit;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
-import java.util.List;
-import java.util.Optional;
-import javax.annotation.Nonnull;
 import lombok.EqualsAndHashCode;
 import lombok.Setter;
 import lombok.ToString;
+
+import javax.annotation.Nonnull;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * 楽曲の情報を格納、表示します。
@@ -38,19 +39,21 @@ public class Song extends EndPointImpl {
   @JsonProperty("member_text")
   protected String memberText;
   protected Boolean solo;
+  protected String youtube;
 
   private Song(
-      String name,
-      String type,
-      String musicType,
-      int id,
-      String link,
-      String api,
-      String songText,
-      List<Unit> unit,
-      List<Member> member,
-      String memberText,
-      Boolean solo) {
+    String name,
+    String type,
+    String musicType,
+    int id,
+    String link,
+    String api,
+    String songText,
+    List<Unit> unit,
+    List<Member> member,
+    String memberText,
+    Boolean solo,
+    String youtube) {
     super(name, type, id, id, link, api);
     this.musicType = musicType;
     this.songText = songText;
@@ -58,26 +61,28 @@ public class Song extends EndPointImpl {
     this.member = member;
     this.memberText = memberText;
     this.solo = solo;
+    this.youtube = youtube;
   }
 
   private Song() {
-    this("", "", "", -1, "", "", "", null, null, "", null);
+    this("", "", "", -1, "", "", "", null, null, "", null, "");
   }
 
   public static Song createInstance(
-      String name,
-      String type,
-      String musicType,
-      int songId,
-      String link,
-      String api,
-      String songText,
-      List<Unit> unit,
-      List<Member> member,
-      String memberText,
-      Boolean solo) {
+    String name,
+    String type,
+    String musicType,
+    int songId,
+    String link,
+    String api,
+    String songText,
+    List<Unit> unit,
+    List<Member> member,
+    String memberText,
+    Boolean solo,
+    String youtube) {
     return new Song(name, type, musicType, songId, link, api, songText, unit, member, memberText,
-        solo);
+      solo, youtube);
   }
 
   public static Song createEmpty() {
@@ -138,6 +143,16 @@ public class Song extends EndPointImpl {
    */
   public Optional<Boolean> getSolo() {
     return Optional.ofNullable(this.solo);
+  }
+
+  /**
+   * 楽曲に紐付けられている Youtube Music サブスクリプションサービスIDを取得します。
+   *
+   * @return 楽曲に紐付けられている Youtube Music サブスクリプションサービスID。存在しない場合は {@link Optional#empty()}
+   * @since v6.0.0.0-Alpha.1
+   */
+  public Optional<String> getYoutube() {
+    return Optional.ofNullable(this.youtube);
   }
 
 }
