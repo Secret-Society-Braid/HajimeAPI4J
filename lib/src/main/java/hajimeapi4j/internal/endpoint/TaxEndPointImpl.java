@@ -2,10 +2,12 @@ package hajimeapi4j.internal.endpoint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.endpoint.TaxEndPoint;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.utilizations.Song;
+import hajimeapi4j.util.TaxEndPointDeserializer;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nonnull;
@@ -20,6 +22,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonDeserialize(using = TaxEndPointDeserializer.class)
 public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
 
   protected String kana;
