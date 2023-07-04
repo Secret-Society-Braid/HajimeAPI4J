@@ -28,7 +28,6 @@ public class TaxEndPointBuilder {
 
   private final Map<String, String> parameters;
   private static final Pattern PATTERN_FOR_DATE_FORMAT = Pattern.compile("\\d{4}-\\d{2}-\\d{2}");
-  private boolean doesMemberPlainSet;
 
   private TaxEndPointBuilder(PickUpParameterType type, String value) {
     this.parameters = new HashMap<>();
@@ -147,7 +146,6 @@ public class TaxEndPointBuilder {
 
   public TaxEndPointBuilder setMemberPlain(boolean memberPlain) {
     this.parameters.put("member_plain", String.valueOf(memberPlain));
-    this.doesMemberPlainSet = memberPlain;
     return this;
   }
 
