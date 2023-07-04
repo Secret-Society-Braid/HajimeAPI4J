@@ -41,6 +41,10 @@ public class Member extends EndPointImpl {
     return new Member(name, type, taxId, taxId, link, api, production, cv);
   }
 
+  public static Member createInstance(String name) {
+    return createInstance(name, null, -1, null, null, null, null);
+  }
+
   /**
    * このアイドルの所属プロダクションを返します。
    *

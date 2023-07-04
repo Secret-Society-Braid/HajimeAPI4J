@@ -144,6 +144,11 @@ public class TaxEndPointBuilder {
     return this;
   }
 
+  public TaxEndPointBuilder setMemberPlain(boolean memberPlain) {
+    this.parameters.put("member_plain", String.valueOf(memberPlain));
+    return this;
+  }
+
   /**
    * 各種パラメータで指定された情報を使用して、リクエストを送信するためのインスタンスを作成して返します。
    * <p>

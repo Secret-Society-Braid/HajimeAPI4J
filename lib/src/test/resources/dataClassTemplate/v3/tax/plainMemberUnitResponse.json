@@ -1,0 +1,51 @@
+{
+  "name": "BRIGHT DIAMOND",
+  "type": "unit",
+  "tax_id": 2573,
+  "link": "https:\/\/fujiwarahaji.me\/unit\/bright-diamond",
+  "api": "https:\/\/api.fujiwarahaji.me\/v3\/tax?id=2573",
+  "kana": "ブライト ダイアモンド",
+  "member": "伊吹翼,宮尾美也,萩原雪歩,所恵美,桜守歌織,四条貴音,田中琴葉,春日未来,水瀬伊織,百瀬莉緒,徳川まつり,双海真美,周防桃子",
+  "song": [
+    {
+      "name": "ダイヤモンド・クラリティ",
+      "type": "music",
+      "music_type": "ml",
+      "song_id": 4482,
+      "link": "https:\/\/fujiwarahaji.me\/music\/ml\/diamond-clarity",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/music?id=4482"
+    },
+    {
+      "name": "シークレットジュエル 〜魅惑の金剛石〜",
+      "type": "music",
+      "music_type": "ml",
+      "song_id": 4465,
+      "link": "https:\/\/fujiwarahaji.me\/music\/ml\/secret-jewel",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/music?id=4465"
+    },
+    {
+      "name": "真夏のダイヤ☆",
+      "type": "music",
+      "music_type": "ml",
+      "song_id": 4437,
+      "link": "https:\/\/fujiwarahaji.me\/music\/ml\/manatsu-no-dia",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/music?id=4437"
+    },
+    {
+      "name": "DIAMOND JOKER",
+      "type": "music",
+      "music_type": "ml",
+      "song_id": 4383,
+      "link": "https:\/\/fujiwarahaji.me\/music\/ml\/diamond-joker",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/music?id=4383"
+    },
+    {
+      "name": "Harmony 4 You",
+      "type": "music",
+      "music_type": "ml",
+      "song_id": 4362,
+      "link": "https:\/\/fujiwarahaji.me\/music\/ml\/harmony-4-you",
+      "api": "https:\/\/api.fujiwarahaji.me\/v3\/music?id=4362"
+    }
+  ]
+}
