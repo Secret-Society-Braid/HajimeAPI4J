@@ -7,7 +7,7 @@ import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.endpoint.TaxEndPoint;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.utilizations.Song;
-import hajimeapi4j.util.TaxEndPointDeserializer;
+import hajimeapi4j.util.MemberDeserializer;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nonnull;
@@ -20,9 +20,8 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonDeserialize(using = TaxEndPointDeserializer.class)
 public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
 
   protected String kana;
@@ -32,6 +31,7 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
   protected String production;
   protected String date;
   protected String place;
+  @JsonDeserialize(using = MemberDeserializer.class)
   protected List<Member> member;
   protected Boolean setlist;
   protected EndPoint lyrics;

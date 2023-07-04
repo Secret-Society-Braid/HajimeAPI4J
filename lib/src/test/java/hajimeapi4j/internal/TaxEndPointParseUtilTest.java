@@ -75,4 +75,10 @@ class TaxEndPointParseUtilTest {
 
     assertEquals(8, instance.getSong().size());
   }
+
+  @Test
+  void plainMemberResponseTest() {
+    ObjectMapper mapper = TestingUtil.getMapperInstance();
+    TaxEndPoint instance = null;
+  }
 }
