@@ -3,7 +3,6 @@ package hajimeapi4j.internal.builder;
 import hajimeapi4j.api.endpoint.MusicEndPoint;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.request.RestActionImpl;
-import hajimeapi4j.internal.request.Route;
 import hajimeapi4j.util.Checks;
 import hajimeapi4j.util.InternalUtils;
 import hajimeapi4j.util.enums.MusicParameter;
@@ -71,8 +70,8 @@ public class MusicEndPointBuilder {
   public RestAction<MusicEndPoint> build() {
     log.debug("set parameters: {}", this.parameters);
     log.info("constructing action instance...");
-    RestAction<MusicEndPoint> result = new RestActionImpl<>(Route.musicRoute(),
-        this.parameters);
+    RestAction<MusicEndPoint> result = new RestActionImpl<>("music",
+        this.parameters, MusicEndPoint.class);
     log.debug("complete. information: {}", result);
     return result;
   }

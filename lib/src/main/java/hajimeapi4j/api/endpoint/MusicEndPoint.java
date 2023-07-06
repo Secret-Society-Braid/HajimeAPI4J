@@ -3,13 +3,13 @@ package hajimeapi4j.api.endpoint;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.datatype.Member;
-import hajimeapi4j.internal.datatype.utilizations.Disc;
 import hajimeapi4j.internal.datatype.utilizations.Live;
 import hajimeapi4j.internal.endpoint.MusicEndPointImpl;
-import java.util.List;
-import java.util.Optional;
+
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * エンドポイント「/music」にて取得できる情報を定義したインターフェースです
@@ -108,7 +108,7 @@ public interface MusicEndPoint extends EndPoint {
    * @return {@link List}に詰められたCD収録情報
    */
   @CheckReturnValue
-  Optional<List<Disc>> getDisc();
+  Optional<List<EndPoint>> getDisc();
 
   /**
    * 指定された楽曲が披露されたライブの情報を出力します。

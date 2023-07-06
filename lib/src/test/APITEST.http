@@ -1,1 +1,38 @@
-GET https://api.fujiwarahaji.me/v1/list?type=idol&production=346
+#GET https://api.fujiwarahaji.me/v1/list?type=idol&production=346
+
+###
+
+GET https://jsonplaceholder.typicode.com/users
+Accept: application/json
+
+###
+
+GET https://jsonplaceholder.typicode.com/users/1
+Accept: application/json
+
+###
+
+GET https://api.fujiwarahaji.me/v2.1/tax?idol_name=天海春香
+User-Agent: HajimeAPI4J java wrapper developed by @hizumiaoba
+
+###
+
+GET https://api.fujiwarahaji.me/v3/music?id=3525
+User-Agent: HajimeAPI4J java wrapper developed by @hizumiaoba
+
+###
+
+GET https://api.fujiwarahaji.me/v3/tax?unit_name=BRIGHT+DIAMOND&member_plain=1
+User-Agent: HajimeAPI4J java wrapper developed by @hizumiaoba
+
+###
+
+GET https://api.fujiwarahaji.me/v3/tax?id=1665&member_plain=1
+User-Agent: HajimeAPI4J java wrapper developed by @hizumiaoba
+
+###
+
+GET https://api.fujiwarahaji.me/v3/tax?id=3066
+User-Agent: HajimeAPI4J java wrapper developed by @hizumiaoba
+
+###

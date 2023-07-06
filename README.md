@@ -16,10 +16,15 @@ APIの開発者様へ連絡を取り、使用するユーザーエージェン�
 
 ## 対応バージョン
 
-| APIバージョン | 対応する最新バージョン | バグや不具合対応の可否 |
-| :--: | :--: | :--: |
-| v1 | <= v2.0.7-Experimental | ❎ |
-| v2.x | >= v3.0.0 | ✅ |
+| APIバージョン |      対応する最新バージョン      | バグや不具合対応の可否 |
+|:--------:|:---------------------:|:-----------:|
+|    v1    | (v2.0.7-Experimental] |      ❎      |
+|   v2.x   |  [v3.0.0, v5.0.x.x]   |      ✅      |
+|    v3    | [v6.0.0.0-Alpha.1, )  |      ✅      |
+
+__`v2.x` 系統を参照しているライブラリでは `v3` 系統を参照しているライブラリで行われたバグ修正、不具合修正のバックポートも行います。__
+
+__また、`v1`系統を参照しているライブラリでは今後更新は行わない予定です。特別な事情等がない場合は `v2.x`系統のライブラリをご利用ください。__
 
 ## ライセンス
 
@@ -43,6 +48,7 @@ APIの開発者様へ連絡を取り、使用するユーザーエージェン�
 - [Jackson-Databind](https://github.com/FasterXML/jackson-databind)
 - [Jackson-annotation](https://github.com/FasterXML/jackson-annotations)
 - [Guava](https://github.com/google/guava)
+- [OkHttp](https://square.github.io/okhttp/)
 - [SLF4J](https://www.slf4j.org/)
 - [Logback](https://logback.qos.ch/)
 - [JUnit jupiter(テストライブラリ)](https://junit.org/junit5/)

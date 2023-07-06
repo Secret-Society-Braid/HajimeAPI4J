@@ -6,14 +6,9 @@ import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.Unit;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
-import java.util.List;
+import lombok.*;
+
 import javax.annotation.Nonnull;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 /**
  * ライブ時での披露情報を格納、表示します。
@@ -35,39 +30,31 @@ public class Live extends EndPointImpl implements EndPoint {
 
   protected String date;
   protected String place;
-  protected List<Unit> unit;
-  protected List<Member> member;
 
   private Live(
-      String name,
-      String type,
-      int taxId,
-      int songId,
-      String link,
-      String api,
-      String date,
-      String place,
-      List<Unit> unit,
-      List<Member> member) {
+    String name,
+    String type,
+    int taxId,
+    int songId,
+    String link,
+    String api,
+    String date,
+    String place) {
     super(name, type, taxId, songId, link, api);
     this.date = date;
     this.place = place;
-    this.unit = unit;
-    this.member = member;
   }
 
   @Nonnull
   public static Live createInstance(
-      String name,
-      String type,
-      int taxId,
-      String link,
-      String api,
-      String date,
-      String place,
-      List<Unit> unit,
-      List<Member> member) {
-    return new Live(name, type, taxId, taxId, link, api, date, place, unit, member);
+    String name,
+    String type,
+    int taxId,
+    String link,
+    String api,
+    String date,
+    String place) {
+    return new Live(name, type, taxId, taxId, link, api, date, place);
   }
 
 }

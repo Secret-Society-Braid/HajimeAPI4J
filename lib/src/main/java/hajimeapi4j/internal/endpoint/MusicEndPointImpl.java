@@ -1,20 +1,17 @@
 package hajimeapi4j.internal.endpoint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.endpoint.MusicEndPoint;
 import hajimeapi4j.internal.datatype.Member;
-import hajimeapi4j.internal.datatype.utilizations.Disc;
 import hajimeapi4j.internal.datatype.utilizations.Live;
-import java.util.List;
-import java.util.Optional;
+import lombok.*;
+
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import java.util.List;
+import java.util.Optional;
 
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
@@ -23,36 +20,35 @@ import lombok.ToString;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MusicEndPointImpl extends EndPointImpl implements MusicEndPoint {
 
-  private static MusicEndPoint emptyInstance;
-
   protected List<EndPoint> remix;
   protected List<EndPoint> original;
   protected List<EndPoint> lyrics;
   protected List<EndPoint> composer;
   protected List<EndPoint> arrange;
+  @JsonProperty("lyrics_url")
   protected String lyricsUrl;
   protected List<Member> member;
   protected boolean digital;
-  protected List<Disc> disc;
+  protected List<EndPoint> disc;
   protected List<Live> live;
 
   protected MusicEndPointImpl(
-      String name,
-      String type,
-      int taxId,
-      int songId,
-      String link,
-      String api,
-      List<EndPoint> remix,
-      List<EndPoint> original,
-      List<EndPoint> lyrics,
-      List<EndPoint> composer,
-      List<EndPoint> arrange,
-      String lyricsUrl,
-      List<Member> member,
-      boolean digital,
-      List<Disc> disc,
-      List<Live> live) {
+    String name,
+    String type,
+    int taxId,
+    int songId,
+    String link,
+    String api,
+    List<EndPoint> remix,
+    List<EndPoint> original,
+    List<EndPoint> lyrics,
+    List<EndPoint> composer,
+    List<EndPoint> arrange,
+    String lyricsUrl,
+    List<Member> member,
+    boolean digital,
+    List<EndPoint> disc,
+    List<Live> live) {
     super(name, type, taxId, songId, link, api);
     this.remix = remix;
     this.original = original;
@@ -64,27 +60,6 @@ public class MusicEndPointImpl extends EndPointImpl implements MusicEndPoint {
     this.digital = digital;
     this.disc = disc;
     this.live = live;
-  }
-
-  public static MusicEndPoint createInstance(
-      String name,
-      String type,
-      int songId,
-      String link,
-      String api,
-      List<EndPoint> remix,
-      List<EndPoint> original,
-      List<EndPoint> lyrics,
-      List<EndPoint> composer,
-      List<EndPoint> arrange,
-      String lyricsUrl,
-      List<Member> member,
-      boolean digital,
-      List<Disc> disc,
-      List<Live> live
-  ) {
-    return new MusicEndPointImpl(name, type, songId, songId, link, api, remix, original, lyrics,
-        composer, arrange, lyricsUrl, member, digital, disc, live);
   }
 
   @Override
@@ -136,7 +111,7 @@ public class MusicEndPointImpl extends EndPointImpl implements MusicEndPoint {
 
   @Override
   @CheckReturnValue
-  public Optional<List<Disc>> getDisc() {
+  public Optional<List<EndPoint>> getDisc() {
     return Optional.ofNullable(this.disc);
   }
 

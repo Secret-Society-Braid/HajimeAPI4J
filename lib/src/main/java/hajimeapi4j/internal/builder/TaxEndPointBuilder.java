@@ -3,7 +3,6 @@ package hajimeapi4j.internal.builder;
 import hajimeapi4j.api.endpoint.TaxEndPoint;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.request.RestActionImpl;
-import hajimeapi4j.internal.request.Route;
 import hajimeapi4j.util.Checks;
 import hajimeapi4j.util.InternalUtils;
 import hajimeapi4j.util.enums.TaxParameter;
@@ -145,6 +144,11 @@ public class TaxEndPointBuilder {
     return this;
   }
 
+  public TaxEndPointBuilder setMemberPlain(boolean memberPlain) {
+    this.parameters.put("member_plain", String.valueOf(memberPlain));
+    return this;
+  }
+
   /**
    * 各種パラメータで指定された情報を使用して、リクエストを送信するためのインスタンスを作成して返します。
    * <p>
@@ -155,7 +159,8 @@ public class TaxEndPointBuilder {
   public RestAction<TaxEndPoint> build() {
     log.debug("set parameters: {}", this.parameters);
     log.info("constructing action instance...");
-    RestAction<TaxEndPoint> result = new RestActionImpl<>(Route.taxRoute(), this.parameters);
+    RestAction<TaxEndPoint> result = new RestActionImpl<>("tax", this.parameters,
+        TaxEndPoint.class);
     log.debug("complete. hash information: {}", result);
     return result;
   }

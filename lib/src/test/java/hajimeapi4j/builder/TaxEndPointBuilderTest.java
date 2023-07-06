@@ -19,7 +19,7 @@ class TaxEndPointBuilderTest {
     builder.setLimit(5)
         .setOrder(Order.ASCENDING)
         .setOrderBy(OrderBy.NAME);
-    TaxEndPoint endPoint = builder.build().complete();
+    TaxEndPoint endPoint = builder.build().handleSync();
 
     assertNotNull(endPoint);
 

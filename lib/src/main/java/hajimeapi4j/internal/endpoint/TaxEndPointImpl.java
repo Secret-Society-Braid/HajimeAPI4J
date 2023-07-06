@@ -2,10 +2,12 @@ package hajimeapi4j.internal.endpoint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.endpoint.TaxEndPoint;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.utilizations.Song;
+import hajimeapi4j.util.MemberDeserializer;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nonnull;
@@ -29,6 +31,7 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
   protected String production;
   protected String date;
   protected String place;
+  @JsonDeserialize(using = MemberDeserializer.class)
   protected List<Member> member;
   protected Boolean setlist;
   protected EndPoint lyrics;
@@ -147,6 +150,7 @@ public class TaxEndPointImpl extends EndPointImpl implements TaxEndPoint {
   }
 
   @Nonnull
+  @Override
   public List<Song> getSong() {
     return this.song;
   }
