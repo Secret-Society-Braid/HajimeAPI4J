@@ -1,9 +1,10 @@
 package hajimeapi4j.internal.endpoint;
 
 import hajimeapi4j.api.endpoint.MovieEndPoint;
-import java.util.Optional;
-import javax.annotation.Nonnull;
 import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nonnull;
+import java.util.Optional;
 
 public class MovieEndPointImpl extends EndPointImpl implements MovieEndPoint {
 
@@ -34,6 +35,7 @@ public class MovieEndPointImpl extends EndPointImpl implements MovieEndPoint {
    *   <li>200 - ID正常、動画情報あり</li>
    *   <li>204 - ID正常、動画情報なし</li>
    *   <li>400 - パラメータ（ID）不正</li>
+   * </ul>
    *
    * @return APIより返却されたステータスコード
    */
