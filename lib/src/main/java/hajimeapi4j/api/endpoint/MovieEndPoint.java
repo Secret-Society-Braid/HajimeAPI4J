@@ -1,7 +1,7 @@
 package hajimeapi4j.api.endpoint;
 
-import java.util.Optional;
 import javax.annotation.Nonnull;
+import java.util.Optional;
 
 /**
  * エンドポイント「/movie」にて取得できる情報を定義したインターフェースです
@@ -34,6 +34,7 @@ public interface MovieEndPoint extends EndPoint {
    *   <li>200 - ID正常、動画情報あり</li>
    *   <li>204 - ID正常、動画情報なし</li>
    *   <li>400 - パラメータ（ID）不正</li>
+   * </ul>
    *
    * @return APIより返却されたステータスコード
    */
