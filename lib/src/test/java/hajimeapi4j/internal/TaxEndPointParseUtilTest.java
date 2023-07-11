@@ -1,5 +1,13 @@
 package hajimeapi4j.internal;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import hajimeapi4j.api.endpoint.TaxEndPoint;
@@ -7,15 +15,12 @@ import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.utilizations.Song;
 import hajimeapi4j.util.ParseUtil;
 import hajimeapi4j.util.TestingUtil;
-import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class TaxEndPointParseUtilTest {
 
@@ -85,7 +90,6 @@ class TaxEndPointParseUtilTest {
 
     // assertions
     assertNotNull(instance);
-    log.debug(instance.toString());
 
     assertNotNull(instance.getName());
     assertNotNull(instance.getType());
@@ -96,7 +100,7 @@ class TaxEndPointParseUtilTest {
     assertEquals(5, instance.getSong().size());
     instance.getMember().orElse(Collections.emptyList()).forEach(member -> {
       assertNotNull(member.getName());
-      assertEquals(-1, member.getTaxId());
+      assertThrows(UnsupportedOperationException.class, member::getType);
     });
   }
 }
