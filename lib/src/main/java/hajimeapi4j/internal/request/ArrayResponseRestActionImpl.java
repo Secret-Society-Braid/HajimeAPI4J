@@ -1,6 +1,6 @@
 package hajimeapi4j.internal.request;
 
-import com.fasterxml.jackson.core.type.TypeReference;
+import hajimeapi4j.api.endpoint.ListEndPoint;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -13,12 +13,8 @@ import org.jetbrains.annotations.Nullable;
 @Slf4j
 public class ArrayResponseRestActionImpl<T> extends RestActionImpl<List<T>> {
 
-  protected final TypeReference<List<T>> typeRef;
-
   public ArrayResponseRestActionImpl(@Nonnull String pathParam, Map<String, String> queryParam) {
     super(pathParam, queryParam);
-    this.typeRef = new TypeReference<>() {
-    };
   }
 
   @Nullable
@@ -29,7 +25,7 @@ public class ArrayResponseRestActionImpl<T> extends RestActionImpl<List<T>> {
     }
     try {
       return MAPPER.readValue(r.body().string(),
-          MAPPER.getTypeFactory().constructCollectionLikeType(List.class, clazz));
+        MAPPER.getTypeFactory().constructCollectionLikeType(List.class, ListEndPoint.class));
     } catch (IOException e) {
       log.error("An error occurred while handling the response.", e);
     }
