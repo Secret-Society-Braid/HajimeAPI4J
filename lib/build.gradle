@@ -81,3 +81,7 @@ test {
 jacocoTestReport {
     dependsOn test // tests are required to run before generating the report
 }
+
+shadowJar {
+    archiveFileName.set("hajimeapi4j-${version}-all.jar")
+}
