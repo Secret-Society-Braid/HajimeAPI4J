@@ -2,6 +2,13 @@ package hajimeapi4j.internal.request;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import hajimeapi4j.api.request.RestAction;
+import hajimeapi4j.experimental.RateLimit;
+import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -9,14 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.io.IOException;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Consumer;
-import java.util.function.Function;
 
 @Slf4j
 @RequiredArgsConstructor(access = AccessLevel.PROTECTED)
@@ -26,6 +25,7 @@ public abstract class AbstractRestAction<T> implements RestAction<T> {
   protected static final OkHttpClient CLIENT = new OkHttpClient();
   protected static final ObjectMapper MAPPER = new ObjectMapper();
   protected static final String BASE_URL = "https://api.fujiwarahaji.me/v3/";
+  final static RateLimit rateLimit = new RateLimit(1, 1000L);
 
   protected final Class<T> clazz;
 
@@ -70,11 +70,14 @@ public abstract class AbstractRestAction<T> implements RestAction<T> {
 
   @Nonnull
   protected Response queueRequest() throws IOException, InterruptedException {
-    // forcibly wait for 1 second to avoid massive requests
-    TimeUnit.SECONDS.sleep(1);
+    rateLimit.acquire();
     final String url = constructUrl();
     log.debug("Requesting to {}", url);
-    return CLIENT.newCall(createRequest(url)).execute();
+    try (Response response = CLIENT.newCall(createRequest(url)).execute()) {
+      return response;
+    } finally {
+      rateLimit.release();
+    }
   }
 
   @Nullable
