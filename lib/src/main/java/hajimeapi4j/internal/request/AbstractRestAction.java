@@ -25,7 +25,7 @@ public abstract class AbstractRestAction<T> implements RestAction<T> {
   protected static final OkHttpClient CLIENT = new OkHttpClient();
   protected static final ObjectMapper MAPPER = new ObjectMapper();
   protected static final String BASE_URL = "https://api.fujiwarahaji.me/v3/";
-  final static RateLimit rateLimit = new RateLimit(1, 1000L);
+  final static RateLimit rateLimit = new RateLimit(1, 10, 1000);
 
   protected final Class<T> clazz;
 
@@ -70,14 +70,9 @@ public abstract class AbstractRestAction<T> implements RestAction<T> {
 
   @Nonnull
   protected Response queueRequest() throws IOException, InterruptedException {
-    rateLimit.acquire();
     final String url = constructUrl();
     log.debug("Requesting to {}", url);
-    try (Response response = CLIENT.newCall(createRequest(url)).execute()) {
-      return response;
-    } finally {
-      rateLimit.release();
-    }
+    return CLIENT.newCall(createRequest(url)).execute();
   }
 
   @Nullable
