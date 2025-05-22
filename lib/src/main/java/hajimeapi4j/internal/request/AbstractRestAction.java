@@ -25,7 +25,7 @@ public abstract class AbstractRestAction<T> implements RestAction<T> {
   protected static final OkHttpClient CLIENT = new OkHttpClient();
   protected static final ObjectMapper MAPPER = new ObjectMapper();
   protected static final String BASE_URL = "https://api.fujiwarahaji.me/v3/";
-  final static RateLimit rateLimit = new RateLimit(1, 10, 1000);
+  final static RateLimit rateLimit = new RateLimit(10, 5, 1000, 100, 3);
 
   protected final Class<T> clazz;
 
