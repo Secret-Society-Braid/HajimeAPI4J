@@ -6,13 +6,12 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.Unit;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
+import jakarta.annotation.Nonnull;
+import java.util.List;
+import java.util.Optional;
 import lombok.EqualsAndHashCode;
 import lombok.Setter;
 import lombok.ToString;
-
-import javax.annotation.Nonnull;
-import java.util.List;
-import java.util.Optional;
 
 /**
  * 楽曲の情報を格納、表示します。

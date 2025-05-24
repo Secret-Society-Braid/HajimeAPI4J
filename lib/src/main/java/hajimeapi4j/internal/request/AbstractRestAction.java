@@ -2,6 +2,13 @@ package hajimeapi4j.internal.request;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import hajimeapi4j.api.request.RestAction;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
+import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -9,14 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.io.IOException;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Consumer;
-import java.util.function.Function;
 
 @Slf4j
 @RequiredArgsConstructor(access = AccessLevel.PROTECTED)

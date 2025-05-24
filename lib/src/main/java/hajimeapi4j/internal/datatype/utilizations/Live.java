@@ -6,9 +6,13 @@ import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.Unit;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
-import lombok.*;
-
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * ライブ時での披露情報を格納、表示します。

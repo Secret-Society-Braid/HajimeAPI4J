@@ -2,9 +2,9 @@ package hajimeapi4j.util;
 
 import com.google.common.base.Joiner;
 import hajimeapi4j.api.endpoint.EndPoint;
+import jakarta.annotation.Nonnull;
 import java.util.List;
 import java.util.concurrent.ThreadFactory;
-import javax.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

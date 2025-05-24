@@ -38,6 +38,7 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:33.4.8-jre'
+    implementation("jakarta.annotation:jakarta.annotation-api:3.0.0")
 
     implementation("ch.qos.logback:logback-classic:1.5.18")
 

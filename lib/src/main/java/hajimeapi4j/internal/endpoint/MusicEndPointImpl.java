@@ -2,16 +2,19 @@ package hajimeapi4j.internal.endpoint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.errorprone.annotations.CheckReturnValue;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.api.endpoint.MusicEndPoint;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.utilizations.Live;
-import lombok.*;
-
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.List;
 import java.util.Optional;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

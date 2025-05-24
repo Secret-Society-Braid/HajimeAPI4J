@@ -2,10 +2,10 @@ package hajimeapi4j.internal.endpoint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.errorprone.annotations.CheckReturnValue;
 import hajimeapi4j.api.endpoint.EndPoint;
 import hajimeapi4j.util.InternalUtils;
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

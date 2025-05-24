@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.google.errorprone.annotations.CheckReturnValue;
 import hajimeapi4j.api.endpoint.ListEndPoint;
 import hajimeapi4j.api.endpoint.MusicEndPoint;
 import hajimeapi4j.api.endpoint.TaxEndPoint;
@@ -12,7 +13,6 @@ import hajimeapi4j.internal.endpoint.MusicEndPointImpl;
 import hajimeapi4j.internal.endpoint.TaxEndPointImpl;
 import java.io.IOException;
 import java.util.List;
-import javax.annotation.CheckReturnValue;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

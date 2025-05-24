@@ -5,9 +5,9 @@ import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.utilizations.Song;
 import hajimeapi4j.internal.endpoint.TaxEndPointImpl;
+import jakarta.annotation.Nonnull;
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nonnull;
 
 /**
  * エンドポイント「/tax」にて取得できる情報を定義したインターフェースです

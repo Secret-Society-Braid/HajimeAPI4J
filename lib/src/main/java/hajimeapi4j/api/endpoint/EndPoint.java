@@ -1,11 +1,11 @@
 package hajimeapi4j.api.endpoint;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.google.errorprone.annotations.CheckReturnValue;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
+import jakarta.annotation.Nonnull;
 import java.util.Optional;
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nonnull;
 
 /**
  * ふじわらはじめAPIにて提供されるエンドポイントの共通仕様を定義します。
