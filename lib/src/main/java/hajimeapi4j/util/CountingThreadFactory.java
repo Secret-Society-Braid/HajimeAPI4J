@@ -1,9 +1,9 @@
 package hajimeapi4j.util;
 
 import com.google.common.base.Strings;
+import jakarta.annotation.Nonnull;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-import javax.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

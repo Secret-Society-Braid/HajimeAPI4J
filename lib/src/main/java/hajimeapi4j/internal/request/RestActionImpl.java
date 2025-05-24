@@ -3,11 +3,11 @@ package hajimeapi4j.internal.request;
 import com.google.common.base.Joiner;
 import com.google.common.base.Joiner.MapJoiner;
 import hajimeapi4j.util.InternalUtils;
+import jakarta.annotation.Nonnull;
 import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import javax.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 

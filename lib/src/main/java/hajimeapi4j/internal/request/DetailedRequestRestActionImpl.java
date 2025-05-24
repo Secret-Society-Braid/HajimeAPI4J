@@ -1,6 +1,6 @@
 package hajimeapi4j.internal.request;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

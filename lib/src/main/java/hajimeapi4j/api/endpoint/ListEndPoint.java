@@ -1,10 +1,10 @@
 package hajimeapi4j.api.endpoint;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.google.errorprone.annotations.CheckReturnValue;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.endpoint.ListEndPointImpl;
 import java.util.Optional;
-import javax.annotation.CheckReturnValue;
 
 /**
  * エンドポイント「/list」にて取得できる情報を定義したインターフェースです

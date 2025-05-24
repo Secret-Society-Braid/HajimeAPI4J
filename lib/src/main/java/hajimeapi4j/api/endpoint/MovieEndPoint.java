@@ -1,6 +1,6 @@
 package hajimeapi4j.api.endpoint;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.Optional;
 
 /**

@@ -1,10 +1,10 @@
 package hajimeapi4j.internal.request;
 
 import hajimeapi4j.api.endpoint.ListEndPoint;
+import jakarta.annotation.Nonnull;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.Response;
 import org.jetbrains.annotations.NotNull;
