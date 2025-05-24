@@ -7,9 +7,8 @@ import hajimeapi4j.internal.datatype.Unit;
 import hajimeapi4j.internal.datatype.utilizations.Live;
 import hajimeapi4j.internal.datatype.utilizations.Song;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.Function;

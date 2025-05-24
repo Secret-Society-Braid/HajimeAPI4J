@@ -3,9 +3,9 @@ package hajimeapi4j.internal.request;
 import com.google.common.base.Strings;
 import hajimeapi4j.api.endpoint.MovieEndPoint;
 import hajimeapi4j.internal.endpoint.MovieEndPointImpl;
+import jakarta.annotation.Nonnull;
 import java.io.IOException;
 import java.util.Map;
-import javax.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.Response;
 

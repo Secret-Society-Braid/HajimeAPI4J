@@ -1,13 +1,12 @@
 package hajimeapi4j.api.endpoint;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.google.errorprone.annotations.CheckReturnValue;
 import hajimeapi4j.api.request.RestAction;
 import hajimeapi4j.internal.datatype.Member;
 import hajimeapi4j.internal.datatype.utilizations.Live;
 import hajimeapi4j.internal.endpoint.MusicEndPointImpl;
-
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.List;
 import java.util.Optional;
 

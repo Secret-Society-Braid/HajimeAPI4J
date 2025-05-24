@@ -5,10 +5,13 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hajimeapi4j.internal.datatype.utilizations.Live;
 import hajimeapi4j.internal.datatype.utilizations.Song;
 import hajimeapi4j.internal.endpoint.EndPointImpl;
-import lombok.*;
-
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * ふじわらはじめAPIにて良く使用される、Unit型の情報をJavaで扱えるよう調整したデータクラスです。

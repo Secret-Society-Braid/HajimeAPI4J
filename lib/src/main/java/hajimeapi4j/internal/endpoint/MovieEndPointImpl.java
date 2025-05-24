@@ -1,10 +1,9 @@
 package hajimeapi4j.internal.endpoint;
 
 import hajimeapi4j.api.endpoint.MovieEndPoint;
-import org.jetbrains.annotations.Nullable;
-
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.Optional;
+import org.jetbrains.annotations.Nullable;
 
 public class MovieEndPointImpl extends EndPointImpl implements MovieEndPoint {
 
