@@ -19,7 +19,7 @@ public class HourlyRequestCounter {
     this.timestamps = new LinkedList<>();
   }
 
-  public synchronized boolean checkAndIncrement() {
+  synchronized boolean checkAndIncrement() {
     Instant now = Instant.now();
     pollingQueue(now);
     if (timestamps.size() < maxRequestsPerHour) {
@@ -30,7 +30,7 @@ public class HourlyRequestCounter {
     }
   }
 
-  public synchronized long getCurrentCount() {
+  synchronized long getCurrentCount() {
     Instant now = Instant.now();
     pollingQueue(now);
     return timestamps.size();

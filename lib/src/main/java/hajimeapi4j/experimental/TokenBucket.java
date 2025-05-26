@@ -2,13 +2,14 @@ package hajimeapi4j.experimental;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
+import lombok.AccessLevel;
 import lombok.Getter;
 
 public class TokenBucket {
 
   private final long capacity;
   private final long refillRate;
-  @Getter
+  @Getter(AccessLevel.PACKAGE)
   private final long refillPeriodMillis;
 
   private final AtomicLong tokens;
@@ -31,7 +32,7 @@ public class TokenBucket {
     this(capacity, refillRate, refillPeriodUnit.toMillis(refillPeriod));
   }
 
-  public boolean tryConsume(long tokensToConsume) {
+  boolean tryConsume(long tokensToConsume) {
     // extract this condition check to another utility method
     if (tokensToConsume <= 0) {
       throw new IllegalArgumentException("Tokens to consume must be positive");
@@ -67,7 +68,7 @@ public class TokenBucket {
     }
   }
 
-  public long getTokens() {
+  long getTokens() {
     refillTokens();
     return tokens.get();
   }
