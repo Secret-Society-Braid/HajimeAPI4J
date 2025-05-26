@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @SuppressWarnings("unused")
-public class ListEndPointBuilder {
+public class ListEndPointBuilder extends CommonBuilder {
 
   private final Map<String, String> parameters;
   private final boolean musicTypeSelected;
@@ -191,7 +191,7 @@ public class ListEndPointBuilder {
     log.debug("set parameters: {}", this.parameters);
     log.info("constructing action instance...");
     RestAction<List<ListEndPoint>> result = new ArrayResponseRestActionImpl<>("list",
-        this.parameters);
+      this.parameters, this.rateLimit);
     log.debug("complete. information: {}", result);
     return result;
   }
