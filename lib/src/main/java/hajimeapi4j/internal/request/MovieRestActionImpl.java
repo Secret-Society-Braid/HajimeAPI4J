@@ -2,6 +2,7 @@ package hajimeapi4j.internal.request;
 
 import com.google.common.base.Strings;
 import hajimeapi4j.api.endpoint.MovieEndPoint;
+import hajimeapi4j.experimental.RateLimit;
 import hajimeapi4j.internal.endpoint.MovieEndPointImpl;
 import jakarta.annotation.Nonnull;
 import java.io.IOException;
@@ -12,8 +13,9 @@ import okhttp3.Response;
 @Slf4j
 public class MovieRestActionImpl extends RestActionImpl<MovieEndPoint> {
 
-  public MovieRestActionImpl(@Nonnull Map<String, String> queryParam) {
-    super("movie", queryParam);
+  public MovieRestActionImpl(@Nonnull Map<String, String> queryParam,
+    @Nonnull RateLimit rateLimit) {
+    super("movie", queryParam, rateLimit);
   }
 
   @Override

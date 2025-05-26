@@ -9,7 +9,7 @@ public class DetailedRequestRestActionImpl<T> extends AbstractRestAction<T> {
   private final String url;
 
   public DetailedRequestRestActionImpl(@Nonnull String url, Class<T> clazz) {
-    super(clazz);
+    super(clazz, CommonPayload.create().getRateLimit());
     this.url = url;
   }
 

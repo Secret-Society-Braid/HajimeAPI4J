@@ -2,6 +2,7 @@ package hajimeapi4j.internal.request;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Joiner.MapJoiner;
+import hajimeapi4j.experimental.RateLimit;
 import hajimeapi4j.util.InternalUtils;
 import jakarta.annotation.Nonnull;
 import java.util.Collections;
@@ -24,20 +25,22 @@ public class RestActionImpl<T> extends AbstractRestAction<T> {
   protected final Map<String, String> queryParam;
 
   public RestActionImpl(@NotNull String pathParam, @NotNull Map<String, String> queryParam,
-      @NotNull Class<T> clazz) {
-    super(clazz);
+    @NotNull Class<T> clazz, @Nonnull RateLimit rateLimit) {
+    super(clazz, rateLimit);
     this.pathParam = pathParam;
     this.queryParam = queryParam;
   }
 
-  public RestActionImpl(@Nonnull String pathParam, @NotNull Class<T> clazz) {
-    super(clazz);
+  public RestActionImpl(@Nonnull String pathParam, @NotNull Class<T> clazz,
+    @Nonnull RateLimit rateLimit) {
+    super(clazz, rateLimit);
     this.pathParam = pathParam;
     this.queryParam = Collections.emptyMap();
   }
 
-  public RestActionImpl(@Nonnull String pathParam, @Nonnull Map<String, String> queryParam) {
-    super(null);
+  public RestActionImpl(@Nonnull String pathParam, @Nonnull Map<String, String> queryParam,
+    @Nonnull RateLimit rateLimit) {
+    super(null, rateLimit);
     this.pathParam = pathParam;
     this.queryParam = queryParam;
   }
