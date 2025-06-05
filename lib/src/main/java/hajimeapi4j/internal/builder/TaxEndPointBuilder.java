@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @SuppressWarnings("unused")
-public class TaxEndPointBuilder {
+public class TaxEndPointBuilder extends CommonBuilder {
 
   private final Map<String, String> parameters;
   private static final Pattern PATTERN_FOR_DATE_FORMAT = Pattern.compile("\\d{4}-\\d{2}-\\d{2}");
@@ -160,7 +160,7 @@ public class TaxEndPointBuilder {
     log.debug("set parameters: {}", this.parameters);
     log.info("constructing action instance...");
     RestAction<TaxEndPoint> result = new RestActionImpl<>("tax", this.parameters,
-        TaxEndPoint.class);
+      TaxEndPoint.class, this.rateLimit);
     log.debug("complete. hash information: {}", result);
     return result;
   }

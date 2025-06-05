@@ -1,6 +1,7 @@
 package hajimeapi4j.internal.request;
 
 import hajimeapi4j.api.endpoint.ListEndPoint;
+import hajimeapi4j.experimental.RateLimit;
 import jakarta.annotation.Nonnull;
 import java.io.IOException;
 import java.util.List;
@@ -13,8 +14,10 @@ import org.jetbrains.annotations.Nullable;
 @Slf4j
 public class ArrayResponseRestActionImpl<T> extends RestActionImpl<List<T>> {
 
-  public ArrayResponseRestActionImpl(@Nonnull String pathParam, Map<String, String> queryParam) {
-    super(pathParam, queryParam);
+  public ArrayResponseRestActionImpl(@Nonnull String pathParam, Map<String, String> queryParam,
+    @Nonnull
+    RateLimit rateLimit) {
+    super(pathParam, queryParam, rateLimit);
   }
 
   @Nullable
