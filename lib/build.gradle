@@ -57,7 +57,7 @@ dependencies {
     implementation group: 'org.projectlombok', name: 'lombok', version: "1.18.38"
 
     // OkHttp
-    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: "4.12.0"
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: "5.0.0"
 
     // annotations
     annotationProcessor(group: 'org.projectlombok', name: 'lombok', version: '1.18.38')
