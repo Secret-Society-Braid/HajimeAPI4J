@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @SuppressWarnings("unused")
-public class MusicEndPointBuilder {
+public class MusicEndPointBuilder extends CommonBuilder {
 
   private final Map<String, String> parameters;
 
@@ -71,7 +71,7 @@ public class MusicEndPointBuilder {
     log.debug("set parameters: {}", this.parameters);
     log.info("constructing action instance...");
     RestAction<MusicEndPoint> result = new RestActionImpl<>("music",
-        this.parameters, MusicEndPoint.class);
+      this.parameters, MusicEndPoint.class, this.rateLimit);
     log.debug("complete. information: {}", result);
     return result;
   }

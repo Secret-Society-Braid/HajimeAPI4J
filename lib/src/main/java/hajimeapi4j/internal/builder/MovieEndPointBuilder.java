@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
  * @since v6.0.0.0-Alpha.1
  */
 @Slf4j
-public class MovieEndPointBuilder {
+public class MovieEndPointBuilder extends CommonBuilder {
 
   private final Map<String, String> parameters;
 
@@ -59,7 +59,7 @@ public class MovieEndPointBuilder {
   public RestAction<MovieEndPoint> build() {
     log.debug("Set parameters: {}", this.parameters);
     log.info("constructing action instance...");
-    RestAction<MovieEndPoint> action = new MovieRestActionImpl(this.parameters);
+    RestAction<MovieEndPoint> action = new MovieRestActionImpl(this.parameters, this.rateLimit);
     log.info("constructed action instance.");
     return action;
   }
