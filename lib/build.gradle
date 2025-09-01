@@ -51,7 +51,7 @@ dependencies {
 
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: jacksonVersion
 
-    implementation group: 'org.jetbrains', name: 'annotations', version: '26.0.2'
+    implementation group: 'org.jetbrains', name: 'annotations', version: '26.0.2-1'
 
     // lombok
     implementation group: 'org.projectlombok', name: 'lombok', version: "1.18.38"
@@ -61,7 +61,7 @@ dependencies {
 
     // annotations
     annotationProcessor(group: 'org.projectlombok', name: 'lombok', version: '1.18.38')
-    annotationProcessor group: 'org.jetbrains', name: 'annotations', version: '26.0.2'
+    annotationProcessor group: 'org.jetbrains', name: 'annotations', version: '26.0.2-1'
 }
 
 tasks.named('test') {
