@@ -20,7 +20,7 @@ plugins {
 
 ext {
   jacksonVersion = "2.17.2"
-  junitVersion = "5.13.4"
+  junitVersion = "6.0.2"
 }
 
 repositories {
